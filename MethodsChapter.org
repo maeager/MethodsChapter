@@ -1,0 +1,222 @@
+#+TITLE: Methods in constructing the CN Stellate Microcircuit
+#+AUTHOR: Michael A Eager
+#+DATE:
+#+OPTIONS: toc:nil H:5 author:nil <:t >:t 
+#+STARTUP: oddeven hideblocks fold align hidestars
+#+TODO: REFTEX
+
+#+LANGUAGE: en_GB
+#+LATEX_HEADER:\graphicspath{{./}{./gfx/}{../SimpleResponsesChapter/gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}}
+#+LATEX_HEADER:\setcounter{secnumdepth}{5}
+#+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
+#+LATEX_HEADER:\usepackage{transparent}
+
+#+BIBLIOGRAPHY: MyBib alphanat
+#+LaTeX_CLASS: UoM-draft-org-article
+
+## Write text after begin { document } 
+#+TEXT: \singlespacing{\tableofcontents\printglossaries}
+#+TEXT:\setcounter{chapter}{2}
+#+TEXT:\chapter{General Methods}
+
+## set global variables for in-code blocks 
+
+* Prelude 							   :noexport:
+
+#+begin_src emacs-lisp results: silent
+  (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" "makeglossaries %b" "bibtex %b"  "pdflatex -interaction nonstopmode %f"  "pdflatex -interaction nonstopmode %f" ))
+  ;; (setq org-latex-to-pdf-process '("make BUILD_STRATEGY=xelatex LitReview2.pdf"))
+  ;; (setq org-latex-to-pdf-process '("make BUILD_STRATEGY=pdflatex LitReview2.pdf"))
+  ;; (setq org-latex-to-pdf-process '("xelatex -interaction nonstopmode %f" "makeglossaries %b" "bibtex %b"  "xelatex -interaction nonstopmode %f"  "xelatex -interaction nonstopmode %f" ))
+  (setq org-export-latex-title-command "")
+  
+  (add-to-list 'org-export-latex-classes
+               '("UoM-draft-org-article"
+                 "\\documentclass[10pt,a4paper,twoside,openright]{book}
+  \\usepackage{../hg/manuscript/style/uomthesis}
+  \\input{../hg/manuscript/user-defined}
+  \\usepackage[acronym]{glossaries}
+  \\input{../hg/manuscript/misc/glossary}
+  \\makeglossaries
+  \\graphicspath{{./gfx/}}
+  \\pretolerance=150
+  \\tolerance=100
+  \\setlength{\\emergencystretch}{3em}
+  \\overfullrule=1mm
+  % \\usepackage[notcite]{showkeys}
+  \\lfoot{\\footnotesize\\today\\ at \\thistime}
+  \\usepackage{rotating,calc}
+  \\usepackage{booktabs,ltxtable,lscape}
+        [NO-DEFAULT-PACKAGES]
+        [NO-PACKAGES]"
+                 ("\\clearpage\\section{%s}" . "\n\\clearpage\\section{%s}")
+                 ("\\subsection{%s}" . "\n\\clearpage\\subsection{%s}")
+                 ("\\subsubsection{%s}" . "\n\\subsubsection{%s}")
+                 ("\\paragraph{%s}" . "\n\\paragraph{%s}")
+                 ("\\subparagraph{%s}" . "\n\\subparagraph{%s}")))
+#+end_src
+
+
+* General Methods
+
+#+LABEL: fig:microcircuit
+#+CAPTION [Cochlear nucleus stellate microcircuit]{Cochlear nucleus stellate microcircuit. Each cell type is shown with its response area (frequency (F) vs sound level (L)) and peri-stimulus time histogram (PSTH).  Synapse types:    Excitatory (open triangle), glycinergic (closed circle), and    GABAergic (closed rectangle). } 
+[[file:./gfx/CNcircuit.pdf]]
+
+** Cochlear Nucleus Stellate Microcircuit
+
+The tonotopic organisation of the auditory pathway (i.e.\space the continuous
+mapping of sound frequency to place of resonance in the cochlea) is transferred
+to the \CN through the population of \ANFs \citep{Lorente:1981}.  The \CN
+stellate network model drawn in Figure \ref{fig:microcircuit} describes the
+following cells and models:
+1.  Auditory nerve fibres :: The base line in Figure \ref{fig:microcircuit} is a
+     simplification of \ANFs from low \CF to high \CF (left to right).  The
+     model reproduces responses for high and low \SR \ANFs at 100 channels
+     across the frequency range 200 Hz to 48 kHz.
+2. The Golgi cell :: A GABAergic \VCN marginal shell unit is assumed to regulate
+     excitability in the \GCD and core \VCN
+     units \citep{FerragamoGoldingEtAl:1998}.  Only one /in vivo/ study has
+     recorded extracellular data in the marginal shell area of the \CN
+     \citep{GhoshalKim:1997}.  The presumed characteristics of Golgi cells are
+     taken from that study and are defined by a monotonic response to tones and
+     noise, and an unusual or chopper \PSTH.
+3. The D stellate cell :: A glycinergic, large multipolar cell with \OnC \PSTH
+     response that acts as a coincidence detector.  Its large dendritic area
+     increases its response to noise allowing it to behave as a wide-band
+     inhibitor in the \VCN, \DCN, and contralateral \CN
+     \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
+4. The Tuberculoventral cell :: A glycinergic, type II \EIRA unit in the deep
+     layer of the \DCN \citep{SpirouDavisEtAl:1999}.  This cell acts as a
+     delayed echo-suppressor and narrow-band inhibitor, with recurrent
+     connections between D and T stellate cells in the \VCN
+     \citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
+5. The T stellate cell :: One of the major output projection cells of the \CN to
+     the inferior colliculus.  This multipolar neuron has been shown to have
+     robust spectral representation and enhanced synchronisation to modulation
+     in speech sounds \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
+
+To develop and simulate detailed neural models and neural network models,
+reproducible research methods are required. The Nordlie approach to reproducible
+neural network simulations \citep{NordlieGewaltigEtAl:2009} is followed in Table
+\ref{tab:TSModelSummary}.  Tables \ref{tab:TSModelSummary}i through
+\ref{tab:TSModelSummary}v show the detailed summary of the \CN stellate
+microcircuit used in the \AM simulations.  The Nordlie table format splits the
+tables into Model Summary, Populations, Connectivity, Neuron Model, and
+Input\slash Output \citep{NordlieGewaltigEtAl:2009}.
+
+
+\input{NordlieTemplate}
+
+** Auditory Model
+
+The input auditory model used in this paper provides the major phenomenological
+qualities of experimentally recorded \ANFs. The Zilany model
+\citep{ZilanyBruceEtAl:2009} is based on many auditory models from the Carney
+Lab \citep{HeinzColburnEtAl:2001,ZhangCarney:2001,Carney:1993}. The centre
+frequencies for 100 channels is determined by the logarithmic Greenwood function
+\citep{Greenwood:1990} of the basilar membrane in cats. The model reproduces
+responses for 50 high and 30 low \SR \ANFs in each frequency channel, across the
+frequency range 200 Hz to 64 kHz.
+
+** Golgi Cell Model
+
+Inputs to Golgi cells are more complicated than the inputs to core \VCN neurons.
+Golgi cells are sparse in the region surrounding the \VCN called the granule
+cell domain.  Extracellular recordings from labelled Golgi cells are not
+available in the literature; however, the \GCD (or marginal shell of the \VCN in
+cats) has been studied by one group \citep{GhoshalKim:1997} without direct
+labelling of recorded units.  Any extracellular spikes recorded in the \GCD are
+most likely from Golgi cells since granule cell somata are less than 10 \um
+and their narrow axons are unlikely to elicit electrical activity in the
+electrodes.  The majority of recorded units showed a monotonic increase in
+firing rate with increasing sound intensity \citep{GhoshalKim:1997}.
+
+The Golgi cell model is implemented as an instantaneous-rate Poisson rate model.
+The primary inputs are from the auditory model's instantaneous rate outputs with
+connections across frequency channels.  \HSR and \LSR \ANF inputs to Golgi cells
+were specified by a Gaussian distribution in fibres across the network.  The
+weighted sum of \HSR and \LSR instantaneous-rate vectors were smoothed out by an
+alpha function mimicking a synaptic and dendritic smoothing filter.
+
+** Neural Models
+
+The spiking neural models used in the auditory nerve fibres and Golgi cell model
+are inhomogeneous Poisson processes.  The instantaneous rate is passed through
+the Jackson spiking model, which includes refractory effects typical of the
+auditory nerve fibres \citep{Jackson:2003,JacksonCarney:2005}.  Spike trains for
+each neuron in the model are created at the start of each repetition of the
+stimulus, but can be saved and loaded from a file.
+
+
+Membrane current models (Table \ref{tab:TSModelSummary}iv) used in \DS, \TV and
+\TS cell models were developed from kinectic analysis of \VCN neurons in mice
+\citep{RothmanManis:2003b}. Their activation and deactivation functions (/a, b,
+c, h, m, n, p, r, w/ and /z/) are described in detail by Rothman and Manis
+\citep{RothmanManis:2003} and the [[latex:progname][NEURON]] source code is freely available online
+at ModelDB \citep{HinesMorseEtAl:2004}.  Table \ref{tab:Celltypes2} shows the
+membrane conductance parameters of the cell types.  Conductance parameters were
+adjusted from \citep{RothmanManis:2003b} due to temperature and soma diameter
+changes.
+#  Rothman and Manis used 22$^\circ$C slice preparation.
+#  Temperature effects the activation and deactivation functions'
+#  time constants of the current models that used 37$^\circ$C. The
+#  temperature quotient, Q=Q$_{10}^{((37^\circ -22^\circ )/10)}$,
+#  was used to adjust the current models where Q$_{10}=3.0$
+#  
+The reversal potential for potassium, sodium, leak, and Ih currents were -72,
+0, -65, and -43 mV, respectively.
+
+
+
+#+LABEL: tab:Celltypes2
+#+ATTR_LaTeX :align=l|ccc placement=[t!]\footnotesize
+#+CAPTION: Cell-type Membrane Current Parameters
+| Cells                           |    \TS |    \DS |     \TV |
+| Current Clamp Model             |    I-t |   I-II |     I-c |
+|---------------------------------+--------+--------+---------|
+| \gNa ,\hfill S/cm^{2}              |  0.235 |  0.235 |   0.235 |
+| \gKHT,\hfill S/cm^{2}              |  0.018 |   0.02 |   0.019 |
+| \gKLT,\hfill S/cm^{2}              |      0 | 0.0047 |       0 |
+| \gKA,\hfill S/cm^{2}               | 0.0153 |      0 |       0 |
+| \gh,\hfill  mS/cm^{2}              | 0.0618 |  0.247 | 0.06178 |
+| \gleak,\hfill mS/cm^{2}            |  0.471 |  0.471 |   0.471 |
+| Soma Diameter,\hfill \um        |     21 |     25 |    19.5 |
+| Input Resistance,\hfill M\Omega |    163 |     73 |     170 |
+
+** Synapse Parameters
+
+[[latex:progname][NEURON]]'s conductance synapse models, /ExpSyn/ and /Exp2Syn/, were used in the \CN
+stellate microcircuit.  Single exponential excitatory synapses (\tAMPA = 0.36
+ms) model the experimental recordings in \VCN neurons
+\citep{GardnerTrussellEtAl:1999}.  Double exponential inhibitory synapses are
+used in the network from glycinergic and GABAergic neurons. Glycinergic
+synapses \citep{LeaoOleskevichEtAl:2004} (\tGlyone=0.4 ms and \tGlytwo=2.5 ms)
+and \GABAa synapses \citep{AwatramaniTurecekEtAl:2005} (\tGABAone=0.7 ms and
+\tGABAtwo=9.0 ms) were modeled from \MNTB neurons in mature guinea pigs.
+Chlorine reversal potential in Glycine and \GABAa receptors was set to -75 mV
+and excitatory reversal potential was set to 0 mV.
+
+** Connectivity
+
+The connectivity of the cell types involved in the stellate microcircuit is
+shown in Figure \ref{fig:microcircuit} and in Table
+\ref{tab:TSModelSummary}iii. Fast, glycinergic inhibition from \TV cells and \DS
+cells (Figure \ref{fig:microcircuit}) is involved in modulating the firing rate
+and spike interval variability in \TS cells
+\citep{FerragamoGoldingEtAl:1998,WickesbergOertel:1993}. \TV cells in the deep
+layer of the dorsal \CN, provide a delayed narrowband inhibition to \TS and \DS
+cells in the ventral \CN.  The dendrites of \DS cells cover 1/3 of the
+cross-frequency axis in the \CN, contributing to this cell's wide frequency
+response. In turn this cell is responsible for altering the frequency responses
+in \TS and \TV cells \citep{SpirouDavisEtAl:1999}.  \DS cells are coincidence
+detectors and have a precisely timed onset response that affects the temporal
+properties of \TS cells \citep{PaoliniClareyEtAl:2005,RhodeGreenberg:1994a} and
+completely inhibit \TV cell responses to loud clicks
+\citep{SpirouDavisEtAl:1999}. GABAergic inhibition from Golgi cells modulates
+the level of excitation necessary to reach threshold for all \CN cells
+\citep{CasparyBackoffEtAl:1994,FerragamoGoldingEtAl:1998}.  Feedback circuits
+from the olivary complex to the ventral \CN are also known to use \GABA as a
+neurotransmitter \citep{SaintMorestEtAl:1989}, however this is not included in
+this model.
+
