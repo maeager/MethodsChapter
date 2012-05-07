@@ -16,8 +16,8 @@
 
 ## Write text after begin { document } 
 #+TEXT: \singlespacing{\tableofcontents\printglossaries}
-#+TEXT:\setcounter{chapter}{2}
-#+TEXT:\chapter{General Methods}
+\setcounter{chapter}{2}
+\chapter{Methods}
 
 ## set global variables for in-code blocks 
 
@@ -25,14 +25,11 @@
 
 #+begin_src emacs-lisp results: silent
   (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" "makeglossaries %b" "bibtex %b"  "pdflatex -interaction nonstopmode %f"  "pdflatex -interaction nonstopmode %f" ))
-  ;; (setq org-latex-to-pdf-process '("make BUILD_STRATEGY=xelatex LitReview2.pdf"))
-  ;; (setq org-latex-to-pdf-process '("make BUILD_STRATEGY=pdflatex LitReview2.pdf"))
-  ;; (setq org-latex-to-pdf-process '("xelatex -interaction nonstopmode %f" "makeglossaries %b" "bibtex %b"  "xelatex -interaction nonstopmode %f"  "xelatex -interaction nonstopmode %f" ))
-  (setq org-export-latex-title-command "")
+  (setq org-export-latex-title-command "\singlespacing{\tableofcontents\printglossaries}")
   
   (add-to-list 'org-export-latex-classes
                '("UoM-draft-org-article"
-                 "\\documentclass[10pt,a4paper,twoside,openright]{book}
+ "\\documentclass[10pt,a4paper,twoside,openright]{book}
   \\usepackage{../hg/manuscript/style/uomthesis}
   \\input{../hg/manuscript/user-defined}
   \\usepackage[acronym]{glossaries}
