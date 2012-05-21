@@ -15,15 +15,20 @@
 #+LaTeX_CLASS: UoM-draft-org-article
 
 ## Write text after begin { document } 
-#+TEXT: \singlespacing{\tableofcontents\printglossaries}
+
 \setcounter{chapter}{2}
-\chapter{Methods}\label{chp:Methods}
+\chapter{Methods}\label{sec:Ch2:Methods}
+
+This chapter aims to introduce methods used throughout this thesis which
+were not the product of the author.  Any methods or procedures that are
+performed within one chapter are described in that particular chapter.
+
 
 ## set global variables for in-code blocks 
 
-* Prelude 							   :noexport:
+#  * Prelude 							   :noexport:
 
-#+begin_src emacs-lisp export: noneresults: silent
+#+begin_src emacs-lisp export: none results: silent
   
   (add-to-list 'org-export-latex-classes
                '("UoM-draft-org-article"
@@ -50,113 +55,476 @@
                  ("\\paragraph{%s}" . "\n\\paragraph{%s}")
                  ("\\subparagraph{%s}" . "\n\\subparagraph{%s}")))
   (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" "makeglossaries %b" "bibtex %b"  "pdflatex -interaction nonstopmode %f"  "pdflatex -interaction nonstopmode %f" ))
-  (setq org-export-latex-title-command "\singlespacing{\tableofcontents\printglossaries}")
-
+  (setq org-export-latex-title-command "\\singlespacing{\\tableofcontents\\printglossaries}")
 #+end_src
 
 
 
-* Modeling the Cochlear Nucleus Stellate Microcircuit
+* Auditory Modelling
+  :PROPERTIES:
+  :LABEL: sec:Ch2:Modelling
+  :END:
 
-#+LABEL: fig:microcircuit
-#+CAPTION [Cochlear nucleus stellate microcircuit]{Cochlear nucleus stellate microcircuit. Each cell type is shown with its response area (frequency (F) vs sound level (L)) and peri-stimulus time histogram (PSTH).  Synapse types:    Excitatory (open triangle), glycinergic (closed circle), and    GABAergic (closed rectangle). } 
-[[file:./gfx/CNcircuit.pdf]]
+To understand the auditory system, one must first understand the processes in
+which sound enters the ear and is then transformed to neural signals in the
+auditory nerve. Mechanical vibrations at the eardrum (tympanic membrane) are
+conducted by the middle ear bones to vibrations of fluid in the inner ear
+(cochlea). They are then transformed to chemical signals in the inner hair cells
+and then to electrical potentials of the auditory nerve fibres. This processing
+enters a bottle-neck at the auditory nerve, where a group of highly specialised
+heterogeneous neurons in the cochlear nucleus process the incoming information
+in several pathways including temporal, spectral, onset and other feature-based
+information pathways.
+
+
+\yellownote{needs references and further expansion.
+  Introduce new acronyms and keywords here eg. tonotopic.  Be careful not to
+  reproduce stuff done in the results chapters }
+
+
+
+# This processing also enters a bottle-neck at the auditory nerve,
+#  selectivity), referred to as `tonotopy'
+
+The population of auditory nerve fibers (ANFs) that project to the CN
+and retained throughout the auditory pathway
+\citep{Lorente:1981}. ANFs bifurcate after entering the cochlear
+nucleus to innervate the ventral and dorsal portions of the cochlear nucleus VCN and DCN, Fig.~\ref{fig:CNdiagram}A. Type
+I ANFs are categorised into high spontaneous rate (HSR,
+Fig.~\ref{fig:CNdiagram}A solid line) and low spontaneous rate (LSR,
+Fig.~\ref{fig:CNdiagram}A dashed line) fibres. LSR fibres have a
+higher threshold and do not saturate like HSR fibres. They also
+project to the granule cell domain (GCD, Fig.~\ref{fig:CNdiagram}A,
+\citep{RyugoParks:2003,RyugoHaenggeliEtAl:2003} along with the
+smaller, unmyelinated type II ANFs, which suggests they play a
+different role in sound processing to HSR fibres.
+
+
+# \begin{figure}
+# \begin{center}
+# \includegraphics[keepaspectratio=true]{Cat_Human_CN.jpg}
+# \caption{Cochlear nucleus innervation in Man and Cat }
+# \label{fig:CochlearNucleus}
+# \end{center}
+# \end{figure}
+
+#  \begin{figure}
+#  \begin{center}
+#  \resizebox{5in}{!}{\includegraphics[keepaspectratio=true]{gfx/ZilanyBruceFig.JPG}}
+#  \caption{Zilany and Bruce 2007 Auditory Periphery model}
+#  \label{fig:ZilanyBruceFig}
+#  \end{center}
+#  \end{figure}
+
+\yellownote{a paragraph on the inner working of the AN model}
+
+The auditory nerve inputs to the cochlear nucleus model neurons are
+provided by phenomenological auditory periphery models: The ARLO model
+\citep{HeinzZhangEtAl:2001} and the Bruce model
+\citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007}. The
+ARLO model consists of an outer/middle ear pre-processing filter, a
+cochlear filterbank, IHC/AN synapse model and dead-time modified
+Poisson spike generator. \citep{HeinzZhangEtAl:2001} incorporated
+cochlear filters based on the critical bandwidths obtained from
+psychophysical experiments in humans. The ARLO model of the cat
+auditory periphery, with non-linear compression and two-tone
+suppression, is used in this study except in the vowel simulation
+where the human auditory periphery model is used.
+
+The \citet{ZilanyBruce:2007} model is enhanced by an additional signal
+path and its predictions have matched a wide range of physiological
+data in normal and impaired cat data.
+
+
+
+# \medskip{}
+
+\yellownote{Discuss auditory model history. Expand reasons for wanting to create
+  a biophysically realistic model of the CN\@. Discuss reason for using whole
+  network in TV and TS optimisation}
+
+# \medskip{}
+
+\yellownote{a paragraph on the history of AN modelling
+  \citep{LeakeSnyderEtAl:1993, ArnesenOsen:1978, CloptonWinfieldEtAl:1974}.
+  Perhaps Rose et al 1959 would be better suited here}
+
+# 
+# \medskip{}
+
+In examining the properties of a detailed neural model of the cochlear nucleus,
+a realistic and phenomenologically sound auditory model is needed to represent
+sounds and transformations that occur in the central auditory system.
+
+# 
+# \medskip{}
+
+
+** Phenomenological Auditory Periphery Models
+
+The auditory nerve inputs to the cochlear nucleus model neurons are
+provided by phenomenological auditory periphery models originating from
+\citet{Carney:1993}. These include the ARLO model
+\citet{HeinzZhangEtAl:2001}, the Bruce model
+\citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007}; and the
+Zilany model \citep{ZilanyBruceEtAl:2009}. The \AN model consists of an
+outer/middle ear pre-processing filter, a cochlea filterbank, IHC-to-AN
+synapse model and dead-time modified Poisson spike generator, as shown
+in Figure \ref{fig:ZilanyBruceFig}. \citep{HeinzZhangEtAl:2001}
+incorporated cochlea filters based on the critical bandwidths obtained
+from psycho\-physical experiments in humans. The ARLO model of the cat
+auditory periphery, with non-linear compression and two-tone
+suppression, is used in this study except in the vowel simulation where
+the human auditory periphery model is used.  \yellownote{TODO: AN model
+paragraph has been changed - fix any comment related to new Zilany}
+
+# \medskip{}
+
+The \citet{ZilanyBruce:2007} model improves the previous AN model by an
+additional signal path and its predictions have matched a wide range of
+physiological data in normal and impaired cat data. The most recent AN
+model comprises an power-law synapse model, with internal $1/f$ noise,
+that enhances the behaviour of long-term dependence in ANFs
+\citep{ZilanyBruceEtAl:2009}.
+
+# \medskip{}
+
+#  \yellownote{Why is it the cat model? updating Carney model?} Updating of the
+#  Carney auditory model has led to the change in the model's configuration from an
+#  original implementation of the rat model.  The default species is the cat and
+#  will be used in the data presented in this chapter.
+
+#  \begin{figure}[tbh]
+#    \begin{center}
+#  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+#      \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/ZilanyCarney-JASA-2009-Fig2.eps}}
+#      \caption{Auditory periphery model with dual power-law synapse
+#        \citep[originally printed in ][]{ZilanyBruceEtAl:2009}.}
+#      \label{fig:ZilanyBruceFig}
+#    \end{center}
+#  \end{figure}\yellownote{if this figure is used it needs permission by the original authors}
+
+# ** Range and Centre Frequencies of Network
+
+# Auditory Model Parameters}  & Cat model, Normal Hearing    \citep{HeinzZhangEtAl:2001} \\ %\hline
+# %       Greenwood function for cats   (Hz)     & See Eq.~\ref{eq:GA:Greenwood}&\citep{Greenwood:1990} % $f=456.0\times 10^{\frac{x}{11.9} } -0.8$  & Basilar membrane position, $x$, and characteristic frequency, $f$, \citep{Greenwood:1990} \\ %\hline
+#                 Low Freq. (kHz)                &                   0.2                 & \\ %\hline
+#                High Freq. (kHz)                &                   30                  & \\ %\hline
+#             Channels             &                     60                     & 
+# Centre frequencies determined by Greenwood function (See Eq.~\ref{eq:GA:Greenwood})
+
+
+* Neural Modelling
+  :PROPERTIES:
+  :LABEL: sec:NeuralModelling
+  :END:
+
+** Point Neural Models 
+
+The neural models used in the auditory nerve fibres and Golgi cell model are
+inhomogeneous Poisson processes. The instantaneous rate is passed through the
+Jackson model, which includes refractory effects typical of the auditory nerve
+fibres \citep{Jackson:2003,JacksonCarney:2005}.  Spike trains for each neuron in
+the model are created at the start of each repetition of the stimulus, but can
+be saved and loaded from file.
+
+\smallskip{}
+
+*** Poisson Neural Model
+
+\yellownote{Para: Notes from Hegger: discuss poisson generator} 
+# $$r(t) = \alpha [V(t)-V_{\mathrm th}]$$ 
+where 
+# $$\mathrm{P}\left{ n \mathrm{spike during}  (t_1,t_2)\right} = e^{\langle{}n\rangle}\frac{(\langle{}n\rangle)^n}{n!} \approx r(t)\delta{}t$$ then refractory effects; then renewal process PDF
+  
+# $$p(\tau) = (\kappa{}r)^{\kappa} \tau^{\kappa-1} e^{-\kappa{} r \tau} / (\kappa - 1)! $$ see poisson.pdf in notes
+
+\yellownote{Real neuronal spike generation is highly reliable and deterministic, as has been demonstrated by countless numbers of \textit{in vitro} studies. }
+
+# Complex time-varying currents, injected into neurons in rat cortex
+# slices, resulted in spike trains were reproducible across repeats to
+# less than 1 msec \citep{MainenSejnowski:1995}.  The noise in
+# \textit{in vivo} neural responses is believed to result from the fact
+# that synapses are very unreliable. In fact, greater than half of the
+# arriving presynaptic nerve impulses fail to evoke a postsynaptic
+# response \citep[e.g.,~][]{AllenStevens:1994}. The noise in the synapses,
+# not in the spike generator!
+
+
+
+ \yellownote{discuss ANF SR, types of ANF, long-term dependence, and
+   standard results of spiking models, and how Jackson then Zilany
+   have tried to fit these to the AN data}
+
+
+
+
+# Analysis of the frequency
+#  response area of ANF generates known parameters for each fibre, these are:
+#  \begin{itemize} xs
+#  \item the spontaneous rate (SR), generated in silence and is
+#    categoried into two groups High SR ($>$18 sp/s) and Low SR ($<$ 18
+#    sp/s);
+#  \item threshold, the sound pressure level(SPL) at which the cell
+#    responds above the spontaneous rate
+#  \item characteristic frequency (CF)
+#  \end{itemize}
+
+# \medskip{}
+
+
+
+#  \begin{figure}[tbh]
+#    \begin{center}
+#  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+#  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{ClickDelay}}
+#      \caption{Response of AN and CN cells to click stimuli. }
+#      \label{fig:ClickDelayAN}
+#    \end{center}
+#  \end{figure}
+
+** Conductance  Neural Models
+
+Hodgkin-Huxley-like
+
+\yellownote{Include discussion on HH-like neural models}
+
+Input resistance was calculated using [[latex:progname][NEURON]]'s /Impedence/ class by setting the input current frequency to 0 Hz[fn:: See input resistance function =rn()= in Appendix \ref{sec:Apdx:Utilities}.].
+
+All simulations in this thesis were performed at 37\degC. Temperature
+scaling of each current's activation and deactivation time constant parameters was calculated with $Q_{10}=3.0$. 
+
+
+
+
+*** Current Models in the Cochlear Nucleus
+    :PROPERTIES:
+    :LABEL: sec:RMCurrentModels
+    :END:
+
+The neural current models in this thesis consist primarily of Jason
+Rothman's measurements of \VCN conductances in /in vitro/ mouse slice
+preparations \citep{RothmanManis:2003,RothmanManis:2003a}. The original
+implementation is described in the appendix of
+\citet{RothmanManis:2003b} and the [[latex:progname][NEURON]] implementation was published
+on the SenseLab model database by Paul Manis. Modifications were made to
+the [[latex:progname][NEURON]] implementation to allow for safe declaration of global
+variables and for vectorisation of state variables at initiation[fn::
+See differences in original (=rm.mod=) and modified (=rm_vect.mod=)
+implementations in \textsf{cnstellate} source code.].
+
+**** Voltage-activated Sodium Current
+
+# average brain sodium current used in the Rothman model.
+# In the absence of direct measurements in the VCN, this is a fair assumption.
+# The model differs from the one used in Rothman et al, (1993) in that the steep
+# voltage dependence of recovery from inactivation in that model is missing. This
+# may affect the refractory period.
+
+**** High-threshold potassium current
+
+\IKHT is the dominant rectifying current present in the mammalian auditory brainstem, including the \VCN, the \MNTB and the \MSO  \citep{BrewForsythe:1995,WangKaczmarek:1997,ManisMarx:1991,RothmanManis:2003}.  
+\IKHT is sensitive to 4-aminopyridine and TEA, and is mediated by Kv3.1  potassium channel subunits \citep{RothmanManis:2003,RothmanManis:2003a}.
+A similar conductance is also found in the avian brainstem \citep{ReyesRubelEtAl:1994,ZhangTrussell:1994,RathouzTrussell:1998}.
+
+ several brainstem
+ nuclei of the auditory system, including the spherical and globular bushy cells
+  (Manis and Marx, 1991; Rothman and Manis, 2003a,b) and multipolar (stellate) 
+  cells of the ventral cochlear nucleus, principal cells of the medial 
+  nucleus of the trapzoid body  and neurons of the medial superior olive. The current is likely mediated by 
+  Kv3.1  potassium channel subunits. The specific 
+  implementation is described in Rothman and Manis, J. Neurophysiol. 2003, in the 
+  appendix. Measurements were made from isolated neurons from adult guinea pig, 
+  under reasonably stringent voltage clamp conditions. The measured current is 
+  sensitive to 4-aminopyridine and TEA, but is spared by mamba snake toxi
+  dendrotoxin I.
+
+ReyesRubelEtAl:1994
+Similar conductrances are found in the homologous neurons of the avian auditory 
+system (ReyesRubelEtAl:1994,ZhangTrussell:1994,RathouzTrussell:1998}, and the 
+conductance described here, in the absence of more detailed kinetic measurements
+, is probably suitable for use in modelling that system.
+
+**** Low-threshold potassium current
+
+\yellownote{todo}
+\IKLT 
+spherical and globular bushy cells
+  (Manis and Marx, 1991; Rothman and Manis, 2003a,b) octopus cells (Bal and Oertel, 2000)
+# The current is likely mediated by 
+#   heteromultimers of Kv1.1 and Kv1.2 potassium channel subunits. The specific 
+#   implementation is described in Rothman and Manis, J. Neurophysiol. 2003, in the 
+#   appendix. Measurements were made from isolated neurons from adult guinea pig, 
+#   under reasonably stringent voltage clamp conditions. The measured current is 
+#   sensitive to the mamba snake toxin dendrotoxin-I.
+To differentiate \IKLT and \IKHT, Rothman found \IKLT sensitive to the mamba snake toxin dendrotoxin-I \citep{RothmanManis:2003,RothmanManis:2003a}.
+
+**** A-type potassium (KA) current
+A-type potassium current is found in ventral cochlear
+nucleus "Type I" cells, mostly identified as \TS cells  \citep{ManisMarx:1991,RothmanManis:2003,RothmanManis:2003a,ManisMolitor:1996}. 
+
+\Ih and \IKA have a role in modulating the rate of repetitive firing.
+
+# The current is likely mediated by Kv4.2 potassium channel subunits,
+# but this has not been directly demonstrated. The specific
+# implementation is described in Rothman and Manis, J.
+# Neurophysiol. 2003, in the appendix. Measurements were made from
+# isolated neurons from adult guinea pig, under reasonably stringent
+# voltage clamp conditions.  The measured current is sensitive to
+# 4-aminopyridine.
+
+
+
+*** Cell Types in the Cochlear Nucleus
+    :PROPERTIES:
+    :LABEL: sec:RMCellTypes
+    :END:
+
+\yellownote{Include Rothman and Manis work}
+
+
+
+** Connectivity in Neural Microcircuits
+
+Figure~\ref{fig:MicrocircuitConn} shows the method for Gaussian spread of
+connections between cell types.  
+#  The channels are separated using the same Greenwood function as used for the AN filterbank.
+
+
+\begin{figure}[tbh]
+  \begin{center}
+    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{gfx/NoFigure}}
+#     \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/CNConn}}
+#     \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
+    \caption{Gaussian connection between cell types in cochlear
+      nucleus.}
+    \label{fig:MicrocircuitConn}
+  \end{center}
+\end{figure}
+
+
+* Reproducible Research and Optimisation Techniques
+  :PROPERTIES:
+  :LABEL: sec:Ch2:Optimisation
+  :END:
+
+
+** Simple Methods
+
+\yellownote{Hand-tuning, Gradient-decent, praxis }
+
+** Evolutionary Methods
+
+\yellownote{simple introduction to GAs, most of this stuff is done in Chapter 5}
+
+
+
+* Modelling the Cochlear Nucleus Stellate Microcircuit
 
 ** Cochlear Nucleus Stellate Microcircuit
 
-The tonotopic organisation of the auditory pathway (i.e.\space the continuous
-mapping of sound frequency to place of resonance in the cochlea) is transferred
-to the \CN through the population of \ANFs \citep{Lorente:1981}.  The \CN
-stellate network model drawn in Figure \ref{fig:microcircuit} describes the
-following cells and models:
-1.  Auditory nerve fibres :: The base line in Figure \ref{fig:microcircuit} is a
-     simplification of \ANFs from low \CF to high \CF (left to right).  The
-     model reproduces responses for high and low \SR \ANFs at 100 channels
-     across the frequency range 200 Hz to 48 kHz.
-2. The Golgi cell :: A \GABA-ergic \VCN marginal shell unit is assumed to regulate
-     excitability in the \GCD and core \VCN
-     units \citep{FerragamoGoldingEtAl:1998}.  Only one /in vivo/ study has
+The tonotopic organisation of the auditory pathway (i.e.\space the
+continuous mapping of sound frequency to place of resonance in the
+cochlea) is transferred to the \CN through the population of \ANFs
+\citep{Lorente:1981}.  The \CN stellate network model drawn in Figure
+\ref{fig:microcircuit} describes the following cells and models:
+1.  Auditory nerve fibres :: The base line in Figure
+     \ref{fig:microcircuit} is a simplification of \ANFs from low \CF to
+     high \CF (left to right).  The model reproduces responses for high
+     and low \SR \ANFs at 100 channels across the frequency range 200 Hz
+     to 48 kHz.
+2. The Golgi cell :: A \GABA-ergic \VCN marginal shell unit is assumed
+     to regulate excitability in the \GCD and core \VCN units
+     \citep{FerragamoGoldingEtAl:1998}.  Only one /in vivo/ study has
      recorded extracellular data in the marginal shell area of the \CN
-     \citep{GhoshalKim:1997}.  The presumed characteristics of Golgi cells are
-     taken from that study and are defined by a monotonic response to tones and
-     noise, and an unusual or chopper \PSTH.
-3. The D stellate cell :: A glycinergic, large multipolar cell with \OnC \PSTH
-     response that acts as a coincidence detector.  Its large dendritic area
-     increases its response to noise allowing it to behave as a wide-band
-     inhibitor in the \VCN, \DCN, and contralateral \CN
+     \citep{GhoshalKim:1997}.  The presumed characteristics of Golgi
+     cells are taken from that study and are defined by a monotonic
+     response to tones and noise, and an unusual or chopper \PSTH.
+3. The D stellate cell :: A glycinergic, large multipolar cell with \OnC
+     \PSTH response that acts as a coincidence detector.  Its large
+     dendritic area increases its response to noise allowing it to
+     behave as a wide-band inhibitor in the \VCN, \DCN, and
+     contralateral \CN
      \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
-4. The Tuberculoventral cell :: A glycinergic, type II \EIRA unit in the deep
-     layer of the \DCN \citep{SpirouDavisEtAl:1999}.  This cell acts as a
-     delayed echo-suppressor and narrow-band inhibitor, with recurrent
-     connections between D and T stellate cells in the \VCN
+4. The Tuberculoventral cell :: A glycinergic, type II \EIRA unit in the
+     deep layer of the \DCN \citep{SpirouDavisEtAl:1999}.  This cell
+     acts as a delayed echo-suppressor and narrow-band inhibitor, with
+     recurrent connections between D and T stellate cells in the \VCN
      \citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
-5. The T stellate cell :: One of the major output projection cells of the \CN to
-     the inferior colliculus.  This multipolar neuron has been shown to have
-     robust spectral representation and enhanced synchronisation to modulation
-     in speech sounds \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
+5. The T stellate cell :: One of the major output projection cells of
+     the \CN to the inferior colliculus.  This multipolar neuron has
+     been shown to have robust spectral representation and enhanced
+     synchronisation to modulation in speech sounds
+     \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
 
-To develop and simulate detailed neural models and neural network models,
-reproducible research methods are required. The Nordlie approach to reproducible
-neural network simulations \citep{NordlieGewaltigEtAl:2009} is followed in Table
+To develop and simulate detailed neural models and neural network
+models, reproducible research methods are required. The Nordlie approach
+to reproducible neural network simulations
+\citep{NordlieGewaltigEtAl:2009} is followed in Table
 \ref{tab:TSModelSummary}.  Tables \ref{tab:TSModelSummary}i through
 \ref{tab:TSModelSummary}v show the detailed summary of the \CN stellate
-microcircuit used in the \AM simulations.  The Nordlie table format splits the
-tables into Model Summary, Populations, Connectivity, Neuron Model, and
-Input\slash Output \citep{NordlieGewaltigEtAl:2009}.
+microcircuit used in the \AM simulations.  The Nordlie table format
+splits the tables into Model Summary, Populations, Connectivity, Neuron
+Model, and Input\slash Output \citep{NordlieGewaltigEtAl:2009}.
 
 \input{NordlieTemplate}
 
 ** Auditory Model
 
-The input auditory model used in this paper provides the major phenomenological
-qualities of experimentally recorded \ANFs. The Zilany model
-\citep{ZilanyBruceEtAl:2009} is based on many auditory models from the Carney
-Lab \citep{HeinzColburnEtAl:2001,ZhangCarney:2001,Carney:1993}. The centre
-frequencies for 100 channels is determined by the logarithmic Greenwood function
-\citep{Greenwood:1990} of the basilar membrane in cats. The model reproduces
-responses for 50 high and 30 low \SR \ANFs in each frequency channel, across the
-frequency range 200 Hz to 64 kHz.
+The input auditory model used in this paper provides the major
+phenomenological qualities of experimentally recorded \ANFs. The Zilany
+model \citep{ZilanyBruceEtAl:2009} is based on many auditory models from
+the Carney Lab
+\citep{HeinzColburnEtAl:2001,ZhangCarney:2001,Carney:1993}. The centre
+frequencies for 100 channels is determined by the logarithmic Greenwood
+function \citep{Greenwood:1990} of the basilar membrane in cats. The
+model reproduces responses for 50 high and 30 low \SR \ANFs in each
+frequency channel, across the frequency range 200 Hz to 64 kHz.
 
 ** Golgi Cell Model
 
-Inputs to Golgi cells are more complicated than the inputs to core \VCN neurons.
-Golgi cells are sparse in the region surrounding the \VCN called the granule
-cell domain.  Extracellular recordings from labelled Golgi cells are not
-available in the literature; however, the \GCD (or marginal shell of the \VCN in
-cats) has been studied by one group \citep{GhoshalKim:1997} without direct
-labelling of recorded units.  Any extracellular spikes recorded in the \GCD are
-most likely from Golgi cells since granule cell somata are less than 10 \um
-and their narrow axons are unlikely to elicit electrical activity in the
-electrodes.  The majority of recorded units showed a monotonic increase in
-firing rate with increasing sound intensity \citep{GhoshalKim:1997}.
+Inputs to Golgi cells are more complicated than the inputs to core \VCN
+neurons.  Golgi cells are sparse in the region surrounding the \VCN
+called the granule cell domain.  Extracellular recordings from labelled
+Golgi cells are not available in the literature; however, the \GCD (or
+marginal shell of the \VCN in cats) has been studied by one group
+\citep{GhoshalKim:1997} without direct labelling of recorded units.  Any
+extracellular spikes recorded in the \GCD are most likely from Golgi
+cells since granule cell somata are less than 10 \um and their narrow
+axons are unlikely to elicit electrical activity in the electrodes.  The
+majority of recorded units showed a monotonic increase in firing rate
+with increasing sound intensity \citep{GhoshalKim:1997}.
 
-The Golgi cell model is implemented as an instantaneous-rate Poisson rate model.
-The primary inputs are from the auditory model's instantaneous rate outputs with
-connections across frequency channels.  \HSR and \LSR \ANF inputs to Golgi cells
-were specified by a Gaussian distribution in fibres across the network.  The
-weighted sum of \HSR and \LSR instantaneous-rate vectors were smoothed out by an
-alpha function mimicking a synaptic and dendritic smoothing filter.
-
+The Golgi cell model is implemented as an instantaneous-rate Poisson
+rate model.  The primary inputs are from the auditory model's
+instantaneous rate outputs with connections across frequency channels.
+\HSR and \LSR \ANF inputs to Golgi cells were specified by a Gaussian
+distribution in fibres across the network.  The weighted sum of \HSR and
+\LSR instantaneous-rate vectors were smoothed out by an alpha function
+mimicking a synaptic and dendritic smoothing filter.
 
 ** Neural Models
 
-The spiking neural models used in the auditory nerve fibres and Golgi cell model
-are inhomogeneous Poisson processes.  The instantaneous rate is passed through
-the Jackson spiking model, which includes refractory effects typical of the
-auditory nerve fibres \citep{Jackson:2003,JacksonCarney:2005}.  Spike trains for
-each neuron in the model are created at the start of each repetition of the
+The spiking neural models used in the auditory nerve fibres and Golgi
+cell model are inhomogeneous Poisson processes.  The instantaneous rate
+is passed through the Jackson spiking model, which includes refractory
+effects typical of the auditory nerve fibres
+\citep{Jackson:2003,JacksonCarney:2005}.  Spike trains for each neuron
+in the model are created at the start of each repetition of the
 stimulus, but can be saved and loaded from a file.
 
 
-Membrane current models (Table \ref{tab:TSModelSummary}iv) used in \DS, \TV and
-\TS cell models were developed from kinectic analysis of \VCN neurons in mice
-\citep{RothmanManis:2003b}. Their activation and deactivation functions (/a, b,
-c, h, m, n, p, r, w/ and /z/) are described in detail by Rothman and Manis
-\citep{RothmanManis:2003} and the [[latex:progname][NEURON]] source code is freely available online
-at ModelDB \citep{HinesMorseEtAl:2004}.  Table \ref{tab:Celltypes2} shows the
-membrane conductance parameters of the cell types.  Conductance parameters were
-adjusted from \citep{RothmanManis:2003b} due to temperature and soma diameter
-changes.
+Membrane current models (Table \ref{tab:TSModelSummary}iv) used in \DS,
+\TV and \TS cell models were developed from kinectic analysis of \VCN
+neurons in mice \citep{RothmanManis:2003b}. Their activation and
+deactivation functions (/a, b, c, h, m, n, p, r, w/ and /z/) are
+described in detail by Rothman and Manis \citep{RothmanManis:2003} and
+the [[latex:progname][NEURON]] source code is freely available online at ModelDB
+\citep{HinesMorseEtAl:2004}.  Table \ref{tab:Celltypes2} shows the
+membrane conductance parameters of the cell types.  Conductance
+parameters were adjusted from \citep{RothmanManis:2003b} due to
+temperature and soma diameter changes.
+
 #  Rothman and Manis used 22$^\circ$C slice preparation.
 #  Temperature effects the activation and deactivation functions'
 #  time constants of the current models that used 37$^\circ$C. The
@@ -164,38 +532,25 @@ changes.
 #  was used to adjust the current models where Q$_{10}=3.0$
 #  
 The reversal potential for potassium, sodium, leak, and Ih currents were -72,
-0, -65, and -43 mV, respectively.
-
+0, -65, and -43 mV, respectively. 
+# Ih in octopus cells -38mV, q10=4.5 (Bal and Oertel 2000)
 
 
 #+LABEL: tab:Celltypes2
 #+ATTR_LaTeX :align=l|ccc placement=[t!]\footnotesize
 #+CAPTION: Cell-type Membrane Current Parameters
-| Cells                           |    \TS |    \DS |     \TV |
-| Current Clamp Model             |    I-t |   I-II |     I-c |
-|---------------------------------+--------+--------+---------|
-| \gNa ,\hfill S/cm^{2}              |  0.235 |  0.235 |   0.235 |
-| \gKHT,\hfill S/cm^{2}              |  0.018 |   0.02 |   0.019 |
-| \gKLT,\hfill S/cm^{2}              |      0 | 0.0047 |       0 |
-| \gKA,\hfill S/cm^{2}               | 0.0153 |      0 |       0 |
-| \gh,\hfill  mS/cm^{2}              | 0.0618 |  0.247 | 0.06178 |
-| \gleak,\hfill mS/cm^{2}            |  0.471 |  0.471 |   0.471 |
-| Soma Diameter,\hfill \um        |     21 |     25 |    19.5 |
-| Input Resistance,\hfill M\Omega |    163 |     73 |     170 |
+| Cells                             |    \TS |    \DS |     \TV |
+| Current Clamp Model               |    I-t |   I-II |     I-c |
+|-----------------------------------+--------+--------+---------|
+| \gNa\hfill{   }\hfill S/cm^{2}       |  0.235 |  0.235 |   0.235 |
+| \gKHT\hfill{   }\hfill S/cm^{2}      |  0.018 |   0.02 |   0.019 |
+| \gKLT\hfill{   }\hfill S/cm^{2}      |      0 | 0.0047 |       0 |
+| \gKA\hfill{   }\hfill S/cm^{2}       | 0.0153 |      0 |       0 |
+| \gh\hfill{   }\hfill  mS/cm^{2}      | 0.0618 |  0.247 | 0.06178 |
+| \gleak\hfill{   }\hfill mS/cm^{2}    |  0.471 |  0.471 |   0.471 |
+| Soma Diameter\hfill{}\hfill \um   |     21 |     25 |    19.5 |
+| Input Resistance\hfill{}\hfill M\Omega |    163 |     73 |     170 |
 
-** Synapse Parameters
-
-[[latex:progname][NEURON]]'s conductance synapse models, /ExpSyn/ and /Exp2Syn/, were used
-in the \CN stellate microcircuit.  Single exponential excitatory
-synapses (\tAMPA = 0.36 ms) model the experimental recordings in \VCN
-neurons \citep{GardnerTrussellEtAl:1999}.  Double exponential inhibitory
-synapses are used in the network from glycinergic and GABAergic
-neurons. Glycinergic synapses \citep{LeaoOleskevichEtAl:2004}
-(\tGlyone=0.4 ms and \tGlytwo=2.5 ms) and \GABAa synapses
-\citep{AwatramaniTurecekEtAl:2005} (\tGABAone=0.7 ms and \tGABAtwo=9.0
-ms) were modeled from \MNTB neurons in mature guinea pigs.  Chlorine
-reversal potential in Glycine and \GABAa receptors was set to -75 mV and
-excitatory reversal potential was set to 0 mV.
 
 
 
@@ -210,10 +565,9 @@ method with second order accuracy (in [[latex:progname][NEURON]] $secondorder=2$
 time step of 0.1 ms. Genetic algorithms and sensitivity analysis were
 implemented in [[latex:progname][C++]] using
 [[http://lancet.mit.edu/ga][GAlib]] \citep{Wall:2006} and the parallel
-virtual machine libraries \citep{GeistBeguelinEtAl:1994}. \GA
+virtual machine PVM libraries \citep{GeistBeguelinEtAl:1994}. \GA
 simulations were distributed on a cluster of nine PCs (3GHz Pentium4)
 and a 64-CPU SGI Altix with a master-slave paradigm.
-
 
 ** Stimulus Generation
 
@@ -260,7 +614,9 @@ each fiber from the instantaneous firing rate using a pseudo-random
 spike-generator \citep{JacksonCarney:2005}, with refractory effects
 similar to those present in \ANFs.
 
+
 ** Stellate Microcircuit Model of the Cochlear Nucleus
+
 
 *** Cell Models
   :PROPERTIES:
@@ -357,63 +713,52 @@ at 37\degC, and matched them to the model types in
 #+END_LaTeX
 
 
-*** Synapse Models
+** Synapse Models
 
 Synapses were modeled with either a single or a double exponential
 time-dependent conductance change with the current density described by
 $\ISYN(t)=g_{{\rm SYN}} (t)(V-E_{{\rm rev}} )$, where $E_{\rm rev}$ is the
-associated reversal potential. The strength of the synapses was
+associated reversal potential. 
+[[latex:progname][NEURON]]'s conductance synapse model classes /ExpSyn/ and /Exp2Syn/ were used
+in the \CN stellate microcircuit.  
+
+The strength of the synapses was
 determined by a normalized weight parameter, /w/, and decay
 time-constants as follows:
 \begin{eqnarray}
 \label{eq:GA:11} g_{{\rm Exc}} (t) = w_{{\rm Exc}} {\rm exp}(-t/\tau _{{\rm Exc}} ) \quad (\uS) \\
 \label{eq:GA:12} g_{{\rm Inh}} (t) = w_{{\rm Inh}} \eta \left({\rm exp}(-t/\tau_{{\rm Inh2}} )-{\rm exp}(-t/\tau _{{\rm Inh1}} )\right) \quad (\uS) 
-\end{eqnarray} 
-\noindent where $\eta$ normalizes the peak of the double-exponential
-function to one (see Table \ref{tab:GA:GeneralParams}). Excitatory
-inputs to \CN cells from type-I \ANF terminals were mediated by fast
-glutamatergic-\AMPA receptors with a decay time constant of $\tAMPA =
-0.36$ ms \citep{Gardner:2000,GardnerTrussellEtAl:1999}, and the reversal
-potential was 0 mV. We used the values from glycinergic currents
-recorded in mature \CN neurons, which have a fast rise time, $\tGlyone =
-0.4$ msec, and a decay time constant $\tGlytwo = 2.5$ ms
+\end{eqnarray} \noindent where $\eta$ normalizes the peak of the
+double-exponential function to one (see Table
+\ref{tab:GA:GeneralParams}). 
+
+Excitatory inputs to \CN cells from type-I \ANF terminals were mediated
+by fast glutamatergic-\AMPA receptors
+\citep{Gardner:2000,GardnerTrussellEtAl:1999}. \EPSPs in \VCN neurons
+had a decay time constant of $\tAMPA = 0.36$ ms, whereas \TV cells in
+the \DCN had a decay time constant of $\tAMPA = 0.40$ ms
+\citep{GardnerTrussellEtAl:1999}.  The reversal potential of excitatory
+synapse was 0 mV. 
+
+Double exponential inhibitory
+synapses are used in the network from glycinergic and GABAergic
+neurons. Glycinergic inhibitory synapses are modeled from glycinergic \IPSPs
+recorded in mature \CN and \MNTB neurons, which have a fast rise time,
+$\tGlyone = 0.4$ msec, and a decay time constant $\tGlytwo = 2.5$ ms
 \citep{AwatramaniTurecekEtAl:2005,HartyManis:1998,LeaoOleskevichEtAl:2004,LimOleskevichEtAl:2003}.
-Measured values in \GABAA receptor currents in \CN cells have a fast (9
-ms) and a slow (150 ms) decay component
+\GABAa synapses were modeled from \MNTB recordings in mature guinea pigs
+\citep{AwatramaniTurecekEtAl:2005}.  \GABAa receptor currents have a
+fast (9 ms) and a slow (150 ms) decay component
 \citep{AwatramaniTurecekEtAl:2005,DavisYoung:2000}, but for short
 stimuli only the fast component was modeled ($\tGABAone =0.7$ msec,
-$\tGABAtwo =9.0$ ms).
+$\tGABAtwo =9.0$ ms). Chlorine reversal potential in Glycine and \GABAa
+receptors was set to -75 mV
 
 
-*** Delay and Latency
-
-The delay function in the \AN model was derived from the work of
-\citet{CarneyYin:1988} in cats and defined as:
-\begin{equation} \label{eq:GA:delay} 
-d=A_{0} \exp(-x/A_{1})\times 10^{- 3} -1/f,
-\end{equation} 
-\noindent where /x/ is the distance along the basilar membrane, /f/ is
-the characteristic frequency (Hz) at this location, and constants $A_0$
-and $A_1$ are 8.3 ms and 6.49 cm, respectively.
-
-Mean first spike latency to short \CF tones and click stimuli were used
-to set delay times between \ANFs and \CN cells
-\citep{EagerGraydenEtAl:2006}. The delay was defined using the first
-spike latency of high frequency units as the sum of the \ANFs' first
-spike latency, \ANF conduction delay, and the synaptic transmission
-delay.  The first spike latency measured in high \CF units in the ARLO
-\AN model \citep{HeinzZhangEtAl:2001} for \HSR fibers was 1.5 ms.
-Synaptic transmission delay between adjacent neurons is typically
-measured in experiments to be 0.5 ms. The delay between ventral and
-dorsal \CN neurons is 1.0 ms \citep{WickesbergOertel:1993}.  The
-additional delay from the \ANF to each cell type was calculated to be
-\TS 1.6ms \citep{RhodeSmith:1986}, \DS 1.2 ms
-\citep{RhodeOertelEtAl:1983}, \TV 2.0 ms \citep{SpirouDavisEtAl:1999},
-and Golgi 2.3 ms \citep{FerragamoGoldingEtAl:1998a} to ensure the first
-spike latency matched the experimental data.
+** Network Parameters and Connectivity
 
 
-** Connectivity
+
 
 Like many other neural complexes in the brain, the likelihood of
 connectivity between two cells in the \CN is a function of distance,
@@ -430,6 +775,65 @@ interchangeable with frequency-specific connectivity.  Connection
 parameters that are fixed are shown in Table \ref{tab:GA:GeneralParams}
 and parameters used in the optimization are shown in Table
 \ref{tab:GA:Genome}.
+
+
+The creation of neural microcircuits based on ``place'' is easily
+amenable to different sensory neural network models; however there are
+problems and unique features that may be necessary to ensure realistic
+representation of the system.  The basic unit of sensory networks is the
+place-channel or feature-channel of the microcircuit, which separates
+the receptive field into independent groups.  In this model it is the
+iso-frequency place-channel that receives afferent input from the narrowest
+receptive field possible in the auditory nerve model.
+
+
+Connection variables between cell-types are generally uniform across
+the network but may be adjusted to suit the model.  Model parameters
+may be different between species or within species, therefore, without
+adequate information regarding exact neuron to neuron connection
+reasonable assumptions are made based on the average population data.
+Issues arise at the ends of large-scale topographic BNNs with
+overlapping place\slash channel connections.  Boundaries are
+considered closed bookends, where post-synaptic neurons select only
+from those with its connection range.  The best modelling behaviour
+would arise, therefore, in the middle sections.
+
+
+Network parameters that control the connectivity between two
+cell-type groups can be defined by: 
+- $\mathbf{w}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the synaptic weight of
+     the post-synaptic current influx caused by the pre-cells'
+     neurotransmitter activating the receptor channels of the
+     post-synaptic cell.  This value is may be either uniform for all
+     synapses across the in this connection type or defined by a
+     function of the receptive field.
+- $\mathbf{n}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: is the number of
+     presynaptic cell type synapses onto individual cells in the
+     post-synaptic cell type.
+- $\mathbf{s}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: is the spatial or
+     feature specific spread of connections from presynaptic cells onto
+     post-synaptic cells.  The spread is the variance of a Gaussian
+     probability distribution, $\mathcal{N}(i,\sqrt{s})$, representing
+     the probability of the post-synaptic cell in position /i/ receiving
+     input from a post-synaptic cell in the network's discrete slices;
+     in this case frequency channels.  The spread variable is uniform
+     across the stellate CN network.  A spread of 0 means all
+     connections come from the same frequency channel, assuming no
+     offset.
+- $\mathbf{o}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: is the offset in
+     distribution of connections between presynaptic cell types and
+     post-synaptic cell.  The offset variable adjusts the centre point
+     of the probability distribution, $\mathcal{N}(i + o, \sqrt{s})$,
+     away from the post-synaptic cell's position $i$.
+- $\mathbf{d}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: is the temporal delay
+     between a pre-cells' AP trigger and the onset of the
+     post-synaptic current.  This delay incorporates the axonal
+     conduction delay and diffusion time across the synaptic cleft.
+
+# New limitations of place-based connectivity
+
+
+
 
 Auditory nerve projections to each \CN cell-type share the same synaptic
 weight, $w_{{\rm ANF}}$, but \HSR and \LSR fibers have different parameters
@@ -488,4 +892,32 @@ however this is not included in this model.
 ### mode: visual-line
 ### fill-column: 72
 ### End:
+
+
+** Delay and Latency
+
+The delay function in the \AN model was derived from the work of
+\citet{CarneyYin:1988} in cats and defined as:
+\begin{equation} \label{eq:GA:delay} 
+d=A_{0} \exp(-x/A_{1})\times 10^{- 3} -1/f,
+\end{equation} 
+\noindent where /x/ is the distance along the basilar membrane, /f/ is
+the \CF (Hz) at this location, and constants $A_0$
+and $A_1$ are 8.3 ms and 6.49 cm, respectively.
+
+Mean first spike latency to short \CF tones and click stimuli were used
+to set delay times between \ANFs and \CN cells
+\citep{EagerGraydenEtAl:2006}. The delay was defined using the first
+spike latency of high frequency units as the sum of the \ANFs' first
+spike latency, \ANF conduction delay, and the synaptic transmission
+delay.  The first spike latency measured in high \CF units in the ARLO
+\AN model \citep{HeinzZhangEtAl:2001} for \HSR fibers was 1.5 ms.
+Synaptic transmission delay between adjacent neurons is typically
+measured in experiments to be 0.5 ms. The delay between ventral and
+dorsal \CN neurons is 1.0 ms \citep{WickesbergOertel:1993}.  The
+additional delay from the \ANF to each cell type was calculated to be
+\TS 1.6ms \citep{RhodeSmith:1986}, \DS 1.2 ms
+\citep{RhodeOertelEtAl:1983}, \TV 2.0 ms \citep{SpirouDavisEtAl:1999},
+and Golgi 2.3 ms \citep{FerragamoGoldingEtAl:1998a} to ensure the first
+spike latency matched the experimental data.
 
