@@ -6,7 +6,7 @@
 #+TODO: REFTEX
 
 #+LANGUAGE: en_GB
-#+LATEX_HEADER:\graphicspath{{./}{./gfx/}{../SimpleResponsesChapter/gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}}
+#+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
 #+LATEX_HEADER:\usepackage{transparent}
@@ -19,7 +19,7 @@
 \setcounter{chapter}{2}
 \chapter{Methods}\label{sec:Ch2:Methods}
 
-This chapter aims to introduce methods used throughout this thesis which
+This chapter introduces the methods used throughout this thesis which
 were not the product of the author.  Any methods or procedures that are
 performed within one chapter are described in that particular chapter.
 
@@ -28,8 +28,7 @@ performed within one chapter are described in that particular chapter.
 
 #  * Prelude 							   :noexport:
 
-#+begin_src emacs-lisp export: none results: silent
-  
+#+begin_src emacs-lisp exports: none results: silent
   (add-to-list 'org-export-latex-classes
                '("UoM-draft-org-article"
  "\\documentclass[10pt,a4paper,twoside,openright]{book}
@@ -38,15 +37,12 @@ performed within one chapter are described in that particular chapter.
   \\usepackage[acronym]{glossaries}
   \\input{../hg/manuscript/misc/glossary}
   \\makeglossaries
-  \\graphicspath{{./gfx/}}
   \\pretolerance=150
   \\tolerance=100
   \\setlength{\\emergencystretch}{3em}
   \\overfullrule=1mm
-  % \\usepackage[notcite]{showkeys}
+ %%  \\usepackage[notcite]{showkeys}
   \\lfoot{\\footnotesize\\today\\ at \\thistime}
-  \\usepackage{rotating,calc}
-  \\usepackage{booktabs,ltxtable,lscape}
         [NO-DEFAULT-PACKAGES]
         [NO-PACKAGES]"
                  ("\\clearpage\\section{%s}" . "\n\\clearpage\\section{%s}")
@@ -59,22 +55,22 @@ performed within one chapter are described in that particular chapter.
 #+end_src
 
 
-
 * Auditory Modelling
   :PROPERTIES:
   :LABEL: sec:Ch2:Modelling
   :END:
 
-To understand the auditory system, one must first understand the processes in
-which sound enters the ear and is then transformed to neural signals in the
-auditory nerve. Mechanical vibrations at the eardrum (tympanic membrane) are
-conducted by the middle ear bones to vibrations of fluid in the inner ear
-(cochlea). They are then transformed to chemical signals in the inner hair cells
-and then to electrical potentials of the auditory nerve fibres. This processing
-enters a bottle-neck at the auditory nerve, where a group of highly specialised
-heterogeneous neurons in the cochlear nucleus process the incoming information
-in several pathways including temporal, spectral, onset and other feature-based
-information pathways.
+To understand the auditory system, one must first understand the
+processes in which sound enters the ear and is then transformed to
+neural signals in the auditory nerve. Mechanical vibrations at the
+eardrum (tympanic membrane) are conducted by the middle ear bones to
+vibrations of fluid in the inner ear (cochlea). They are then
+transformed to chemical signals in the inner hair cells and then to
+electrical potentials of the auditory nerve fibres. This processing
+enters a bottle-neck at the auditory nerve, where a group of highly
+specialised heterogeneous neurons in the cochlear nucleus process the
+incoming information in several pathways including temporal, spectral,
+onset and other feature-based information pathways.
 
 
 \yellownote{needs references and further expansion.
@@ -87,17 +83,18 @@ information pathways.
 #  selectivity), referred to as `tonotopy'
 
 The population of auditory nerve fibers (ANFs) that project to the CN
-and retained throughout the auditory pathway
-\citep{Lorente:1981}. ANFs bifurcate after entering the cochlear
-nucleus to innervate the ventral and dorsal portions of the cochlear nucleus VCN and DCN, Fig.~\ref{fig:CNdiagram}A. Type
-I ANFs are categorised into high spontaneous rate (HSR,
-Fig.~\ref{fig:CNdiagram}A solid line) and low spontaneous rate (LSR,
-Fig.~\ref{fig:CNdiagram}A dashed line) fibres. LSR fibres have a
-higher threshold and do not saturate like HSR fibres. They also
-project to the granule cell domain (GCD, Fig.~\ref{fig:CNdiagram}A,
-\citep{RyugoParks:2003,RyugoHaenggeliEtAl:2003} along with the
-smaller, unmyelinated type II ANFs, which suggests they play a
-different role in sound processing to HSR fibres.
+and retained throughout the auditory pathway \citep{Lorente:1981}. ANFs
+bifurcate after entering the cochlear nucleus to innervate the ventral
+and dorsal portions of the cochlear nucleus VCN and DCN,
+Figure \ref{fig:CNdiagram}A. Type I ANFs are categorised into high
+spontaneous rate (HSR, Figure \ref{fig:CNdiagram}A solid line) and low
+spontaneous rate (LSR, Figure \ref{fig:CNdiagram}A dashed line)
+fibres. LSR fibres have a higher threshold and do not saturate like HSR
+fibres. They also project to the granule cell domain (GCD,
+Figure \ref{fig:CNdiagram}A,
+\citep{RyugoParks:2003,RyugoHaenggeliEtAl:2003} along with the smaller,
+unmyelinated type II ANFs, which suggests they play a different role in
+sound processing to HSR fibres.
 
 
 # \begin{figure}
@@ -261,7 +258,7 @@ where
 
 # Analysis of the frequency
 #  response area of ANF generates known parameters for each fibre, these are:
-#  \begin{itemize} xs
+#  \begin{itemize} 
 #  \item the spontaneous rate (SR), generated in silence and is
 #    categoried into two groups High SR ($>$18 sp/s) and Low SR ($<$ 18
 #    sp/s);
@@ -393,9 +390,9 @@ connections between cell types.
 
 \begin{figure}[tbh]
   \begin{center}
-    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{gfx/NoFigure}}
-#     \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/CNConn}}
-#     \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
+    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+%     \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/CNConn}}
+%     \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
     \caption{Gaussian connection between cell types in cochlear
       nucleus.}
     \label{fig:MicrocircuitConn}
@@ -467,7 +464,7 @@ microcircuit used in the \AM simulations.  The Nordlie table format
 splits the tables into Model Summary, Populations, Connectivity, Neuron
 Model, and Input\slash Output \citep{NordlieGewaltigEtAl:2009}.
 
-\input{NordlieTemplate}
+#+LATEX: \input{NordlieTemplate}
 
 ** Auditory Model
 
@@ -531,8 +528,8 @@ temperature and soma diameter changes.
 #  temperature quotient, Q=Q$_{10}^{((37^\circ -22^\circ )/10)}$,
 #  was used to adjust the current models where Q$_{10}=3.0$
 #  
-The reversal potential for potassium, sodium, leak, and Ih currents were -72,
-0, -65, and -43 mV, respectively. 
+The reversal potential for potassium, sodium, leak, and Ih currents were
+-72, 0, -65, and -43 mV, respectively.
 # Ih in octopus cells -38mV, q10=4.5 (Bal and Oertel 2000)
 
 
@@ -618,10 +615,11 @@ similar to those present in \ANFs.
 ** Stellate Microcircuit Model of the Cochlear Nucleus
 
 
-*** Cell Models
+** Cell Models
   :PROPERTIES:
   :LABEL: sec:GA:cell-models
   :END:
+
 \HH single compartment conductance models
 \citep{HodgkinHuxley:1952a} were used to model the cochlear nucleus
 cells. The dynamics of the membrane voltage, $V(t)$, is described by:
@@ -757,9 +755,6 @@ receptors was set to -75 mV
 
 ** Network Parameters and Connectivity
 
-
-
-
 Like many other neural complexes in the brain, the likelihood of
 connectivity between two cells in the \CN is a function of distance,
 cell type, and receptive-field spread. Connectivity between cells in a
@@ -769,22 +764,23 @@ $\sqrt{s}$, which were taken to be uniform for each connection type.
 The allocation of pre-synaptic cells to post-synaptic cells was a random
 process modeled here using a Gaussian function, with mean equal to the
 post-synaptic cell's \CF channel and variance equal to
-\frac{s}{2}. Topographical connectivity in this model was based on
-position within the \CN (Figure \ref{fig:GA:MicroCN}B), but is easily
+$s$/2. Topographical connectivity in this model was based on position
+within the \CN (Figure \ref{fig:GA:MicroCN}B), but is easily
 interchangeable with frequency-specific connectivity.  Connection
 parameters that are fixed are shown in Table \ref{tab:GA:GeneralParams}
 and parameters used in the optimization are shown in Table
 \ref{tab:GA:Genome}.
 
 
-The creation of neural microcircuits based on ``place'' is easily
-amenable to different sensory neural network models; however there are
-problems and unique features that may be necessary to ensure realistic
-representation of the system.  The basic unit of sensory networks is the
-place-channel or feature-channel of the microcircuit, which separates
-the receptive field into independent groups.  In this model it is the
-iso-frequency place-channel that receives afferent input from the narrowest
-receptive field possible in the auditory nerve model.
+The basic unit of sensory networks is the place-channel or
+feature-channel of the microcircuit, which separates the receptive field
+into independent groups. The creation of neural microcircuits based on
+``place'' is easily amenable to different sensory neural network models;
+however there are problems and unique features that may be necessary to
+ensure realistic representation of the system.  In the microcircuits and
+networks presented in this thesis, it is the iso-frequency place-channel
+that receives afferent input from the narrowest receptive field possible
+in the auditory nerve model.
 
 
 Connection variables between cell-types are generally uniform across
@@ -885,15 +881,6 @@ however this is not included in this model.
 
 
 
-
-
-### Local Variables:
-### mode: org
-### mode: visual-line
-### fill-column: 72
-### End:
-
-
 ** Delay and Latency
 
 The delay function in the \AN model was derived from the work of
@@ -920,4 +907,14 @@ additional delay from the \ANF to each cell type was calculated to be
 \citep{RhodeOertelEtAl:1983}, \TV 2.0 ms \citep{SpirouDavisEtAl:1999},
 and Golgi 2.3 ms \citep{FerragamoGoldingEtAl:1998a} to ensure the first
 spike latency matched the experimental data.
+
+
+
+
+
+### Local Variables:
+### mode: org
+### mode: visual-line
+### fill-column: 72
+### End:
 
