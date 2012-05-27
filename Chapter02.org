@@ -539,21 +539,50 @@ extension of [[latex:progname][NEURON]] \citep{HinesCarnevale:2000}, was used to
 membrane current models and interface with the auditory nerve
 model. Numerical integration was performed using the Crank-Nicholson
 method with second order accuracy (in [[latex:progname][NEURON]] $secondorder=2$) and fixed
-time step of 0.1 ms. Genetic algorithms and sensitivity analysis were
-implemented in [[latex:progname][C++]] using
-[[http://lancet.mit.edu/ga][GAlib]] \citep{Wall:2006} and the parallel
-virtual machine PVM libraries \citep{GeistBeguelinEtAl:1994}. \GA
-simulations were distributed on a cluster of nine PCs (3GHz Pentium4)
-and a 64-CPU SGI Altix with a master-slave paradigm.
+time step of either 0.1  or 0.05 ms. 
+
+
+The computations of the NEURON model were distributed on either a single
+PC, or a cluster of nine PCs (3.0 GHz Intel Pentium4)[fn:: Systems
+provided by the Department of Otolaryngology, the University of
+Melbourne], or on an SGI Altix system (=soma=: 64 32-bit Itanium
+CPUs)[fn:: System =soma= provided by the Neuroimaging Group and
+Department of Electrical and Electronic Engineering, the University of
+Melbourne], or on an iDataPlex IBM system (=merri=: 1024 64-bit Intel
+x86 CPUs)[fn:: Sytem =merri= provided by the Victorian Life Sciences
+Computing Initiative].
+
+
+The parallel capabilities of the network model presented in Chapter
+\ref{sec:Chapter3} is based on the NEURON network model [[latex:progname][netmod]]
+\citep{MiglioreCanniaEtAl:2006}, see other neural models shared by the
+computational neuroscience community at SenseLab, particularly models [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034][52034]],
+[[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730][2730]], and [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781][51781]] that also use =netmod=.  Genetic algorithms and sensitivity analysis in
+Chapter \ref{sec:GAChapter} were implemented in [[latex:progname][C++]] using [[http://lancet.mit.edu/ga][GAlib]]
+\citep{Wall:2006} and the parallel virtual machine PVM libraries
+\citep{GeistBeguelinEtAl:1994}.
 
 
 ** Stimulus Generation
 
-For all simulations, the acoustic stimulus 
-was generated in NEURON 
-. Notch
-noise is white noise that has been filtered by a narrow band-stop
-filter. Gaussian white noise was generated in [[latex:progname][MATLAB/GNU Octave]] with a
+The acoustic stimulus was generated in [[latex:progname][NEURON]] with
+the exception of notch noise.
+The first run of a stimulus may take some time if the AN responses have
+not been previously saved.  since the Zilany \& Bruce version 3 of the AN
+model \citep{ZilanyBruce:2007} requires a sampling rate of 500 kHz in
+the stimulus, primarily for the middle ear filter. This is then
+down-sampled to a lesser resolution for the spike generator and saved for
+further use.  The resolution of the spike generator is generally at or above 10
+kHz to match the simulations' time step of 0.1 ms.  Version 4 of the AN
+model \citep{ZilanyBruceEtAl:2009} only needs 200 kHz sampling rate for
+CF units above 20 kHz, otherwise a sampling rate of 100 kHz is sufficient.
+
+Chapter \sec{sec:Chapter5} and the optimisation of \DS cell connections to \TV cells 
+in Section \ref{sec:Ch3:DSTV} in Chapter \ref{sec:Chapter3} use notch noise as the stimulus.
+Gaussian white noise was generated and filtered using a stop-band filter in [[latex:progname][MATLAB/GNU Octave]].
+The notch noise sample is stored in a file that can then be retrieved 
+ 
+ with a
 50 kHz sampling frequency and filtered with a quarter octave, 30 dB
 band-stop, 100-tap FIR filter centered at 5 kHz. A 50 ms stimulus was
 presented at 60 dB \SPL with 5 ms onset/offset ramps, a 20 ms delay and
@@ -830,16 +859,16 @@ connections between cell types.
 #  The channels are separated using the same Greenwood function as used for the AN filterbank.
 
 #+BEGIN_LaTeX
-\begin{figure}[tbh]
-  \begin{center}
-%    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-     \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/CNConn}}
-%     \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
-    \caption{Gaussian connection between cell types in cochlear
-      nucleus.}
-    \label{fig:MicrocircuitConn}
-  \end{center}
-\end{figure}
+  \begin{figure}[tbh]
+    \begin{center}
+  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+       \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/CNConn}}
+  %     \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
+      \caption{Gaussian connection between cell types in cochlear
+        nucleus.}
+      \label{fig:MicrocircuitConn}
+    \end{center}
+  \end{figure}
 #+END_LaTeX
 
 
