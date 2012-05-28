@@ -16,8 +16,10 @@
 
 ## Write text after begin { document } 
 
-\setcounter{chapter}{2}
+\setcounter{chapter}{1}
 \chapter{Methods}\label{sec:Ch2:Methods}
+
+
 
 This chapter introduces the methods used throughout this thesis which
 were not the product of the author.  Any methods or procedures that are
@@ -444,7 +446,7 @@ microcircuit used in the \AM simulations.  The Nordlie table format
 splits the tables into Model Summary, Populations, Connectivity, Neuron
 Model, and Input\slash Output \citep{NordlieGewaltigEtAl:2009}.
 
-#+LATEX: \input{NordlieTemplate}
+#+LATEX: \input{../MethodsChapter/NordlieTemplate}
 
 ** Auditory Model
 
@@ -651,8 +653,8 @@ instantaneous firing rate using a pseudo-random Poisson spike-generator
 present in \ANFs.  The double exponential relative refractory functions,
 specific to ANFs, were:
 \begin{eqnarray} 
-y_0(t) = c_0*exp(-(t'-t_{\textrm{a})/s_0) \\ 
-y_1(t) = c_1*exp(-(t'-t_{\textrm{a})/s_1) \\
+y_0(t) = c_0*exp(-(t'-t_{\textrm{a}})/s_0) \\ 
+y_1(t) = c_1*exp(-(t'-t_{\textrm{a}})/s_1) 
 \end{eqnarray} 
 \noindent where /t'/ is the time relative to the last
 spike, $c_0 = 0.5$, $c_1 = 0.5$, $s_0 = 0.001$ ms, and $s_1 = 0.0125$
@@ -862,7 +864,7 @@ connections between cell types.
   \begin{figure}[tbh]
     \begin{center}
   %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-       \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/CNConn}}
+       \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{../SimpleResponsesChapter/gfx/CNConn}}
   %     \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
       \caption{Gaussian connection between cell types in cochlear
         nucleus.}
@@ -964,13 +966,10 @@ delay plus an additional delay that is an exponential function of the
 distance from the stapes.  In the cat, \citet{CarneyYin:1988} fitted
 the latency vs \CF curve from click responses in the cat to obtain the
 equation:
-\begin{equation} \label{eq:delay} 
-d(x) = A_0 \times {\exp}(-x / A_1 ) \times 10^{-3} - 1/f
-\end{equation} 
 \begin{equation} \label{eq:Meth:delay} 
-d=A_{0} \exp(-x/A_{1})\times 10^{- 3} - 1/\text{f}_x,
+d=A_{0} \exp(-x/A_{1})\times 10^{- 3} - 1/{\mathrm{f}_x},
 \end{equation} 
-\noindent where /x/ is the distance along the basilar membrane from the apex, /f/_x is
+\noindent where /x/ is the distance along the basilar membrane from the apex, $f_x$ is
 the \CF (Hz) at this location, and constants $A_0$
 and $A_1$ are 8.3 ms and 6.49 cm for cats, respectively.
 
@@ -996,6 +995,10 @@ to set delay times between \ANFs and \CN cells
 spike latency of high frequency units as the sum of the \ANFs' first
 spike latency, \ANF conduction delay, and the synaptic transmission
 delay.
+
+
+
+
 
 ## BIBLIOGRAPHY
 \newpage\singlespacing\bibliographystyle{plainnat} 
