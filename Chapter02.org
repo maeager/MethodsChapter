@@ -521,12 +521,12 @@ The reversal potential for potassium, sodium, leak, and Ih currents were
 | Cells                                  |    \TS |    \DS |     \TV |
 | Current Clamp Model                    |    I-t |   I-II |     I-c |
 |----------------------------------------+--------+--------+---------|
-| \gNa\hfill{   }\hfill S/cm^{2}            |  0.235 |  0.235 |   0.235 |
-| \gKHT\hfill{   }\hfill S/cm^{2}           |  0.018 |   0.02 |   0.019 |
-| \gKLT\hfill{   }\hfill S/cm^{2}           |      0 | 0.0047 |       0 |
-| \gKA\hfill{   }\hfill S/cm^{2}            | 0.0153 |      0 |       0 |
-| \gh\hfill{   }\hfill  mS/cm^{2}           | 0.0618 |  0.247 | 0.06178 |
-| \gleak\hfill{   }\hfill mS/cm^{2}         |  0.471 |  0.471 |   0.471 |
+| \gNa\hfill{   }\hfill S/cm^{2}         |  0.235 |  0.235 |   0.235 |
+| \gKHT\hfill{   }\hfill S/cm^{2}        |  0.018 |   0.02 |   0.019 |
+| \gKLT\hfill{   }\hfill S/cm^{2}        |      0 | 0.0047 |       0 |
+| \gKA\hfill{   }\hfill S/cm^{2}         | 0.0153 |      0 |       0 |
+| \gh\hfill{   }\hfill  mS/cm^{2}        | 0.0618 |  0.247 | 0.06178 |
+| \gleak\hfill{   }\hfill mS/cm^{2}      |  0.471 |  0.471 |   0.471 |
 | Soma Diameter\hfill{}\hfill \um        |     21 |     25 |    19.5 |
 | Input Resistance\hfill{}\hfill M\Omega |    163 |     73 |     170 |
 \clearpage
@@ -627,8 +627,8 @@ parameters for each species.
 # after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
 #+caption: [Basilar membrane frequency-distance function parameters]{Frequency to basilar membrane distance function parameters. Data obtained from \url{http://earlab.bu.edu}.}
 #+label: tab:Ch2:Greenwood
-|         |      A |    a |         k |    L |
-|---------+--------+------+-----------+------|
+|          |      A |    a |         k |    L |
+|----------+--------+------+-----------+------|
 | Human ^1 |  165.4 |  2.1 | 1.0(0.88) |   35 |
 | Cat   ^2 |    456 |  2.1 |       0.8 |   25 |
 | Rat   ^3 | 7613.3 | 0928 |       1.0 | 8.03 |
@@ -812,6 +812,46 @@ receptors was set to -75 mV
    :PROPERTIES:
    :LABEL: sec:Ch2:ConnectivityandTopology
    :END:
+
+## NHS
+The basic unit of the nervous system is the
+neuron, consisting of a nucleated cell body
+with one or more dendrites and a single axon.
+The distinctive hallmark of the human nervous
+system is the manner in which the 10^{12} neurons
+of the brain, many with up to 10^4 synaptic
+connections, are organised into circuits and
+networks. These circuits are surrounded by an
+elaborate array of glial cells that protect cellular
+connections, mop up excess transmitters and
+help to regulate the vasculature. Information
+processing in the brain involves the ‘firing’ of
+electrically active neurons in networks. The
+patterns of neural activity in such networks
+are ultimately responsible for the control of
+behaviour.
+Given this complexity, it is perhaps not
+surprising that we still know relatively little
+about the detailed wiring of the human
+brain.151 The major connections, such as those
+of the cranial nerves, have long been mapped
+from studies on human post-mortem tissue.
+However, understanding connectivity involves
+injecting chemical ‘tracers’ into localised areas
+of living brain and studying the transport of this
+material from one neuron to another. Tracers
+are examined under the microscope using
+thin tissue sections cut from freshly prepared
+brains. Clearly, it is not ethically acceptable to
+use tracers in the human brain. Instead, studies
+of rat, mouse and non-human primate brains
+have been used to elucidate the cells present
+in different layers of the brain cortex, showing
+that the layers receive different connections
+from, and send different connections to, other
+parts of the brain.
+## NHS
+
 
 Like many other neural complexes in the brain, the likelihood of
 connectivity between two cells in the \CN is a function of distance,
