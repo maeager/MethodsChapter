@@ -400,6 +400,9 @@ Genetic algorithms and sensitivity analysis in Chapter
 \citep{Wall:2006} and the parallel virtual machine PVM libraries
 \citep{GeistBeguelinEtAl:1994}.
 
+#The random numbers are required throughout this thesis in .
+#generator used was the internal RNG of NEURON, MCellRand4
+
 
 ** Stimulus Generation
 
@@ -762,7 +765,9 @@ at 37\degC, and matched them to the model types in
 
 
 ** Synapse Models
-
+   :PROPERTIES:
+   :LABEL: sec:Ch2:Synapse
+   :END:
 Synapses were modeled with either a single or a double exponential
 time-dependent conductance change with the current density described by
 $\ISYN(t)=g_{{\rm SYN}} (t)(V-E_{{\rm rev}} )$, where $E_{\rm rev}$ is the
@@ -801,8 +806,6 @@ fast (9 ms) and a slow (150 ms) decay component
 stimuli only the fast component was modeled ($\tGABAone =0.7$ msec,
 $\tGABAtwo =9.0$ ms). Chlorine reversal potential in Glycine and \GABAa
 receptors was set to -75 mV
-
-
 
 
 ** Delay and Latency
