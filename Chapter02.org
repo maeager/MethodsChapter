@@ -96,23 +96,24 @@ enhanced spectral pathway (\TS cells).
 The population of \ANFs project to the \CN in a tonotopic fashion, bifurcate
 after passing the central nervous system barrier to innervate the ventral and
 dorsal portions of the cochlear nucleus \VCN and \DCN, Figure
-\ref{fig:CNdiagram}A \citep{Lorente:1981}.  Type I \ANFs are categorised into
-high spontaneous rate (HSR, Figure \ref{fig:CNdiagram}A solid line) and low
-spontaneous rate (LSR, Figure \ref{fig:CNdiagram}A dashed line) fibres. LSR
+\ref{fig:CochlearNucleus} \citep{Lorente:1981}.  Type I \ANFs are categorised into
+\HSR and \LSR fibres. LSR
 fibres have a higher threshold and do not saturate like HSR fibres. They also
-project to the granule cell domain (GCD, Figure \ref{fig:CNdiagram}A,
+project to the \GCD
 \citep{RyugoParks:2003,RyugoHaenggeliEtAl:2003} along with the smaller,
 unmyelinated type II ANFs, which suggests they play a different role in sound
 processing to HSR fibres.
 
+#+BEGIN_LaTeX
+ \begin{figure}
+ \begin{center}
+  % \includegraphics[keepaspectratio=true]{Cat_Human_CN.jpg}
+ \caption{Cochlear nucleus innervation in Man and Cat }
+ \label{fig:CochlearNucleus}
+ \end{center}
+ \end{figure}
+#+END_LaTeX
 
-# \begin{figure}
-# \begin{center}
-# \includegraphics[keepaspectratio=true]{Cat_Human_CN.jpg}
-# \caption{Cochlear nucleus innervation in Man and Cat }
-# \label{fig:CochlearNucleus}
-# \end{center}
-# \end{figure}
 
 #  \begin{figure}
 #  \begin{center}
@@ -192,7 +193,7 @@ physiological data in normal and impaired cat data. The most recent AN
 model comprises an power-law synapse model, with internal $1/f$ noise,
 that enhances the behaviour of long-term dependence in ANFs
 \citep{ZilanyBruceEtAl:2009}.
-Where possible, a cat model with normal hearing was used. Chapter \ref{sec:Chapter5} uses the ARLO model  \citep{HeinzZhangEtAl:2001}
+Where possible, a cat model with normal hearing was used. Chapter \ref{sec:GAChapter} uses the ARLO model  \citep{HeinzZhangEtAl:2001}
 and Chapters \ref{sec:Chapter3} and \ref{sec:Chapter4} use the Zilany model \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
 # \medskip{}
 
@@ -422,7 +423,7 @@ Version 4 of the AN model \citep{ZilanyBruceEtAl:2009} was sampled at
 100 kHz for \CF units below 20 kHz, otherwise a sampling rate of 200 kHz
 was used.
 
-Chapter \sec{sec:Chapter5} and the optimisation of \DS cell connections
+Chapter \sec{sec:GAChapter} and the optimisation of \DS cell connections
 to \TV cells (see Section \ref{sec:Ch3:DSTV} in Chapter
 \ref{sec:Chapter3}) use notch noise as the stimulus.  Notch noise was
 generated from Gaussian white noise filtered using a stop-band filter in
@@ -553,7 +554,7 @@ models.
 
 Center frequencies of the channels were spaced logarithmically according to the
 basilar membrane frequency-place map function, Equation
-\label{eq:Meth:Greenwood}, called the Greenwood function
+\ref{eq:Meth:Greenwood}, called the Greenwood function
 \citep{Greenwood:1990}:
 \begin{equation} \label{eq:Meth:Greenwood} 
 f(x) = A \left(10^{ax/L} - k\right) \quad (Hz)
@@ -923,7 +924,7 @@ microcircuit used in the simulations performed in Chapter \ref{sec:Chapter3}.
 
 ** Evolutionary Methods
 
-\yellownote{simple introduction to GAs, most of this stuff is done in Chapter \ref{sec:Chapter5}}
+\yellownote{simple introduction to GAs, most of this stuff is done in Chapter \ref{sec:GAChapter}}
 
 
 
