@@ -1,68 +1,28 @@
 #+TITLE: Methods in Constructing the CN Stellate Microcircuit
-#+AUTHOR: Michael A Eager
 #+DATE:
-#+OPTIONS: toc:nil H:5 author:nil <:t >:t 
-#+STARTUP: oddeven hideblocks fold align hidestars
+#+AUTHOR: Michael A Eager
+#+OPTIONS: toc:nil H:5 
+#+STARTUP: oddeven 
 #+TODO: REFTEX
-#+LANGUAGE: en_GB
+#+SEQ_TODO:   TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
+#+TAGS:       Write(w) Update(u) Fix(f) Check(c) noexport(n)
 
+
+#+LaTeX_CLASS: UoM-draft-org-article
 #+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
-
-
 #+BIBLIOGRAPHY: MyBib alphanat
-#+LaTeX_CLASS: UoM-draft-org-article
-
-## Write text after begin { document } 
 
 \setcounter{chapter}{1}
-\chapter{Methods}\label{sec:Ch2:Methods}
+\chapter{Methods}\label{sec:MethodsChapter}
 
-
-This chapter introduces the general methods used throughout this thesis.  More
-specific description of the methods and procedures used is provided in the
-relevant chapters.
-
-
-
-## set global variables for in-code blocks 
-* Prelude 							   :noexport:
-
-#+begin_src emacs-lisp 
-  (add-to-list 'org-export-latex-classes
-               '("UoM-draft-org-article"
- "\\documentclass[11pt,a4paper,twoside,openright]{book}
-  \\usepackage{../hg/manuscript/style/uomthesis}
-  \\input{../hg/manuscript/user-defined}
-  \\usepackage[acronym]{glossaries}
-  \\input{../hg/manuscript/misc/glossary}
-  \\makeglossaries
-  \\pretolerance=150
-  \\tolerance=100
-  \\setlength{\\emergencystretch}{3em}
-  \\overfullrule=1mm
- %%  \\usepackage[notcite]{showkeys}
-  \\lfoot{\\footnotesize\\today\\ at \\thistime}
-        [NO-DEFAULT-PACKAGES]
-        [NO-PACKAGES]"
-                 ("\\clearpage\\section{%s}" . "\n\\clearpage\\section{%s}")
-                 ("\\subsection{%s}" . "\n\\clearpage\\subsection{%s}")
-                 ("\\subsubsection{%s}" . "\n\\subsubsection{%s}")
-                 ("\\paragraph{%s}" . "\n\\paragraph{%s}")
-                 ("\\subparagraph{%s}" . "\n\\subparagraph{%s}")))
-  (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" "makeglossaries %b" "bibtex %b"  "pdflatex -interaction nonstopmode %f"  "pdflatex -interaction nonstopmode %f" ))
-  (setq org-export-latex-title-command "\\singlespacing{\\tableofcontents\\printglossaries}")
-#+end_src
-
-#+RESULTS:
-: \singlespacing{\tableofcontents\printglossaries}
+This chapter introduces the general methods used throughout this thesis.
+More specific description of the methods and procedures used is provided
+in the relevant chapters.
 
 
 * Auditory Periphery Models 
-  :PROPERTIES:
-  :LABEL: sec:Ch2:Modelling
-  :END:
 
 To understand the auditory system, one must first understand the
 transformations preceeding neural signals in the auditory
@@ -74,7 +34,8 @@ They are then transformed to chemical signals in the inner hair cells
 and then to electrical potentials of the \ANFs.  The organisation of the
 auditory system is described as 'tonotopic' after the continuous
 logarithmic frequency tuning along the basilar membrane.  The \CF of
-\ANFs is typical of the resonant frequency of the adjacent basilar membrane 
+\ANFs is typical of the resonant frequency of the adjacent basilar
+membrane
 #\IHC 
 and forms a topographical receptive field according to place along the
 central auditory nervous system.  This processing enters an information
@@ -93,16 +54,15 @@ enhanced spectral pathway (\TS cells).
 # This processing also enters a bottle-neck at the auditory nerve,
 #  selectivity), referred to as `tonotopy'
 
-The population of \ANFs project to the \CN in a tonotopic fashion, bifurcate
-after passing the central nervous system barrier to innervate the ventral and
-dorsal portions of the cochlear nucleus \VCN and \DCN, Figure
-\ref{fig:CochlearNucleus} \citep{Lorente:1981}.  Type I \ANFs are categorised into
-\HSR and \LSR fibres. LSR
-fibres have a higher threshold and do not saturate like HSR fibres. They also
-project to the \GCD
-\citep{RyugoParks:2003,RyugoHaenggeliEtAl:2003} along with the smaller,
-unmyelinated type II ANFs, which suggests they play a different role in sound
-processing to HSR fibres.
+The population of \ANFs project to the \CN in a tonotopic fashion,
+bifurcate after passing the central nervous system barrier to innervate
+the ventral and dorsal portions of the cochlear nucleus \VCN and \DCN,
+Figure \ref{fig:CochlearNucleus} \citep{Lorente:1981}.  Type I \ANFs are
+categorised into \HSR and \LSR fibres. LSR fibres have a higher
+threshold and do not saturate like HSR fibres. They also project to the
+\GCD \citep{RyugoParks:2003,RyugoHaenggeliEtAl:2003} along with the
+smaller, unmyelinated type II ANFs, which suggests they play a different
+role in sound processing to HSR fibres.
 
 #+BEGIN_LaTeX
  \begin{figure}
@@ -128,19 +88,19 @@ processing to HSR fibres.
 The auditory nerve inputs to the cochlear nucleus model neurons are
 provided by phenomenological auditory periphery models: The ARLO model
 \citep{HeinzZhangEtAl:2001} and the Bruce model
-\citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007}. The
-ARLO model consists of an outer/middle ear pre-processing filter, a
-cochlear filterbank, \IHC to \AN synapse model and dead-time modified
-Poisson spike generator. \citep{HeinzZhangEtAl:2001} incorporated
-cochlear filters based on the critical bandwidths obtained from
-psychophysical experiments in humans. The ARLO model of the cat
-auditory periphery, with non-linear compression and two-tone
-suppression, was used in this study except in the vowel simulation
-where the human auditory periphery model was used.
+\citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007}. The ARLO
+model consists of an outer/middle ear pre-processing filter, a cochlear
+filterbank, \IHC to \AN synapse model and dead-time modified Poisson
+spike generator. \citep{HeinzZhangEtAl:2001} incorporated cochlear
+filters based on the critical bandwidths obtained from psychophysical
+experiments in humans. The ARLO model of the cat auditory periphery,
+with non-linear compression and two-tone suppression, was used in this
+study except in the vowel simulation where the human auditory periphery
+model was used.
 
 The \citet{ZilanyBruce:2007} model was enhanced by an additional signal
-path and its predictions have matched a wide range of physiological
-data in normal and impaired cat data.
+path and its predictions have matched a wide range of physiological data
+in normal and impaired cat data.
 
 
 
@@ -175,9 +135,9 @@ provided by phenomenological auditory periphery models originating from
 \citet{HeinzZhangEtAl:2001}, the Bruce model
 \citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007}; and the
 Zilany model \citep{ZilanyBruceEtAl:2009}. The \AN model consists of an
-outer/middle ear pre-processing filter, a cochlea filterbank, \IHC to \AN
-synapse model and dead-time modified Poisson spike generator, as shown
-in Figure \ref{fig:ZilanyBruceFig}. \citep{HeinzZhangEtAl:2001}
+outer/middle ear pre-processing filter, a cochlea filterbank, \IHC to
+\AN synapse model and dead-time modified Poisson spike generator, as
+shown in Figure \ref{fig:ZilanyBruceFig}. \citep{HeinzZhangEtAl:2001}
 incorporated cochlea filters based on the critical bandwidths obtained
 from psycho\-physical experiments in humans. The ARLO model of the cat
 auditory periphery, with non-linear compression and two-tone
@@ -192,9 +152,11 @@ additional signal path and its predictions have matched a wide range of
 physiological data in normal and impaired cat data. The most recent AN
 model comprises an power-law synapse model, with internal $1/f$ noise,
 that enhances the behaviour of long-term dependence in ANFs
-\citep{ZilanyBruceEtAl:2009}.
-Where possible, a cat model with normal hearing was used. Chapter \ref{sec:GAChapter} uses the ARLO model  \citep{HeinzZhangEtAl:2001}
-and Chapters \ref{sec:Chapter3} and \ref{sec:Chapter4} use the Zilany model \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
+\citep{ZilanyBruceEtAl:2009}.  Where possible, a cat model with normal
+hearing was used. Chapter \ref{sec:GAChapter} uses the ARLO model
+\citep{HeinzZhangEtAl:2001} and Chapters \ref{sec:Chapter3} and
+\ref{sec:Chapter4} use the Zilany model
+\citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
 # \medskip{}
 
 #  \yellownote{Why is it the cat model? updating Carney model?} Updating of the
@@ -240,9 +202,9 @@ post-synaptic cell's \CF channel and variance equal to
 $s/2$. Topographical connectivity in this model was based on position
 within the \CN (Figure \ref{fig:Meth:MicroCN}B), but is easily
 interchangeable with frequency-specific connectivity.  Connection
-parameters that are fixed are shown in Table \ref{tab:Meth:GeneralParams}
-and parameters used in the optimization are shown in Table
-\ref{tab:Meth:Genome}.
+parameters that are fixed are shown in Table
+\ref{tab:Meth:GeneralParams} and parameters used in the optimization are
+shown in Table \ref{tab:Meth:Genome}.
 
 The basic unit of sensory networks is the place-channel or
 feature-channel of the microcircuit, which separates the receptive field
@@ -254,16 +216,16 @@ networks presented in this thesis, it is the iso-frequency place-channel
 that receives afferent input from the narrowest receptive field possible
 in the auditory nerve model.
 
-Connection variables between cell-types are generally uniform across
-the network but may be adjusted to suit the model.  Model parameters
-may be different between species or within species, therefore, without
-adequate information regarding exact neuron to neuron connection
-reasonable assumptions are made based on the average population data.
-Issues arise at the ends of large-scale topographic BNNs with
-overlapping place\slash channel connections.  Boundaries are
-considered closed bookends, where post-synaptic neurons select only
-from those with its connection range.  The best modelling behaviour
-would arise, therefore, in the middle sections.
+Connection variables between cell-types are generally uniform across the
+network but may be adjusted to suit the model.  Model parameters may be
+different between species or within species, therefore, without adequate
+information regarding exact neuron to neuron connection reasonable
+assumptions are made based on the average population data.  Issues arise
+at the ends of large-scale topographic BNNs with overlapping place\slash
+channel connections.  Boundaries are considered closed bookends, where
+post-synaptic neurons select only from those with its connection range.
+The best modelling behaviour would arise, therefore, in the middle
+sections.
 
 
 
@@ -285,8 +247,8 @@ connections between cell types used throughout this thesis.
 
 
 
-Network parameters that control the connectivity between two
-cell-type groups can be defined by: 
+Network parameters that control the connectivity between two cell-type
+groups can be defined by:
 - $\mathbf{w}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the synaptic weight of
      the post-synaptic current influx caused by the pre-cells'
      neurotransmitter activating the receptor channels of the
@@ -296,8 +258,8 @@ cell-type groups can be defined by:
 - $\mathbf{n}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the number of
      presynaptic cell type synapses onto individual cells in the
      post-synaptic cell type.
-- $\mathbf{s}_{\textrm{{Pre}}\to\textrm{{Post}}}$ ::  the spatial or
-     feature specific spread of connections from presynaptic cells onto
+- $\mathbf{s}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the spatial or feature
+     specific spread of connections from presynaptic cells onto
      post-synaptic cells.  The spread is the variance of a Gaussian
      probability distribution, $\mathcal{N}(i,\sqrt{s})$, representing
      the probability of the post-synaptic cell in position /i/ receiving
@@ -312,9 +274,9 @@ cell-type groups can be defined by:
      of the probability distribution, $\mathcal{N}(i + o, \sqrt{s})$,
      away from the post-synaptic cell's position, /i/.
 - $\mathbf{d}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: is the temporal delay
-     between a pre-cells' AP trigger and the onset of the
-     post-synaptic current.  This delay incorporates the axonal
-     conduction delay and diffusion time across the synaptic cleft.
+     between a pre-cells' AP trigger and the onset of the post-synaptic
+     current.  This delay incorporates the axonal conduction delay and
+     diffusion time across the synaptic cleft.
 
 # New limitations of place-based connectivity
 
@@ -325,14 +287,17 @@ different parameters encoding the number of inputs
 with similar characteristic frequencies are spatially organized into
 $N_{\textrm{Channel}}$ iso-frequency lamina or channels.
 
-\TS and \TV cells' dendrites are located within isofrequency lamina, so
-synapses are chosen from fibres in the channel ($s=0$, see Table
-\ref{tab:Meth:GeneralParams}). \DS cells have many arborizations extending
-perpendicular to \ANF axons and have a typical physiological responses
-to frequencies 2 octaves below and 1 octave above their \CF
+The dendrites of \TS and \TV cells are located within isofrequency
+lamina of the \VCN and \DCN, respectively. The receptive field and
+bandwidth of \TS and \TV cells are also similar to \AN fibres of similar
+\CF.  In the CN stellate microcircuit, synapse inputs to these cells are
+chosen from \ANFs within the same frequency channel ($s=0$, see Table
+\ref{tab:Meth:GeneralParams}). \DS cells have many arborizations
+extending perpendicular to \ANF axons and have a typical physiological
+responses to frequencies 2 octaves below and 1 octave above their \CF
 \citep{PalmerJiangEtAl:1996,PaoliniClark:1999} (see fixed parameters in
-Table \ref{tab:Meth:GeneralParams}).  Physiological evidence in the golgi
-cell domain of the ventral \CN shows that neurons have monotonic,
+Table \ref{tab:Meth:GeneralParams}).  Physiological evidence in the
+golgi cell domain of the ventral \CN shows that neurons have monotonic,
 non-saturating rate-level curves, similar to \LSR \ANFs
 \citep{GhoshalKim:1996a}. \ANF labeling evidence shows the absence of
 \HSR \ANFs in the Golgi cell domain of the \CN
@@ -928,9 +893,43 @@ microcircuit used in the simulations performed in Chapter \ref{sec:Chapter3}.
 
 
 
-#+BEGIN_LaTeX
-  \ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../hg/manuscript/bib/MyBib}\newpage \listoftodos}{}
+#+BEGIN_LaTeX  
+\ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../hg/manuscript/bib/MyBib}\newpage \listoftodos}{}
 #+END_LaTeX
+
+
+* Prelude 							   :noexport:
+
+#+begin_src emacs-lisp 
+   (add-to-list 'org-export-latex-classes
+                '("UoM-draft-org-article"
+  "\\documentclass[12pt,a4paper,twoside,openright]{book}
+   \\usepackage{../hg/manuscript/style/uomthesis}
+   \\input{../hg/manuscript/user-defined}
+   \\usepackage[acronym]{glossaries}
+   \\input{../hg/manuscript/misc/glossary}
+   \\makeglossaries
+   \\pretolerance=150
+   \\tolerance=100
+   \\setlength{\\emergencystretch}{3em}
+   \\overfullrule=1mm
+  %%  \\usepackage[notcite]{showkeys}
+   \\lfoot{\\footnotesize\\today\\ at \\thistime}
+         [NO-DEFAULT-PACKAGES]
+         [NO-PACKAGES]"
+                  ("\\clearpage\\section{%s}" . "\n\\clearpage\\section{%s}")
+                  ("\\subsection{%s}" . "\n\\clearpage\\subsection{%s}")
+                  ("\\subsubsection{%s}" . "\n\\subsubsection{%s}")
+                  ("\\paragraph{%s}" . "\n\\paragraph{%s}")
+                  ("\\subparagraph{%s}" . "\n\\subparagraph{%s}")))
+   (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" "makeglossaries %b" "bibtex %b"  "pdflatex -interaction nonstopmode %f"  "pdflatex -interaction nonstopmode %f" ))
+   (setq org-export-latex-title-command "\\singlespacing{\\tableofcontents\\printglossaries}")
+#+end_src
+
+#+RESULTS:
+: \singlespacing{\tableofcontents\printglossaries}
+
+
 
 
 
@@ -939,4 +938,3 @@ microcircuit used in the simulations performed in Chapter \ref{sec:Chapter3}.
 ### mode: visual-line
 ### fill-column: 72
 ### End:
-
