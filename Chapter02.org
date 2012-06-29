@@ -1,24 +1,24 @@
 #+TITLE: Methods in Constructing the CN Stellate Microcircuit
 #+DATE:
 #+AUTHOR: Michael A Eager
-#+OPTIONS: toc:nil H:5 
+#+OPTIONS: toc:nil H:5  <:t >:t tasks:nil
 #+STARTUP: oddeven 
 #+TODO: REFTEX
 #+SEQ_TODO:   TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
 #+TAGS:       Write(w) Update(u) Fix(f) Check(c) noexport(n)
-
-
 #+LaTeX_CLASS: UoM-draft-org-article
 #+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
 #+BIBLIOGRAPHY: MyBib alphanat
 
+
+
 \setcounter{chapter}{1}
 \chapter{Methods}\label{sec:MethodsChapter}
 
 This chapter introduces the general methods used throughout this thesis.
-More specific description of the methods and procedures used is provided
+More specific descriptions of the methods and procedures used are provided
 in the relevant chapters.
 
 
@@ -67,7 +67,7 @@ role in sound processing to HSR fibres.
 #+BEGIN_LaTeX
  \begin{figure}
  \begin{center}
-  % \includegraphics[keepaspectratio=true]{Cat_Human_CN.jpg}
+  %  \includegraphics[keepaspectratio=true]{../SimpleResponsesChapter/gfx/Cat_Human_CN.jpg}
  \caption{Cochlear nucleus innervation in Man and Cat }
  \label{fig:CochlearNucleus}
  \end{center}
@@ -185,153 +185,6 @@ hearing was used. Chapter \ref{sec:GAChapter} uses the ARLO model
 # Centre frequencies determined by Greenwood function \citep{Greenwood:1990} (See Eq.~\ref{eq:Meth:Greenwood}).
 
 
-* Connectivity and Topology in Neural Microcircuits
-   :PROPERTIES:
-   :LABEL: sec:Ch2:ConnectivityandTopology
-   :END:
-
-Like many other neural complexes in the brain, the likelihood of
-connectivity between two cells in the \CN is a function of distance,
-cell type, and receptive-field spread. Connectivity between cells in a
-post-synaptic group onto individual cells is described by a synaptic
-weight, /w/, the number of synapses, /n/, and the spatial bandwidth,
-$\sqrt{s}$, which were taken to be uniform for each connection type.
-The allocation of pre-synaptic cells to post-synaptic cells was a random
-process modeled here using a Gaussian function, with mean equal to the
-post-synaptic cell's \CF channel and variance equal to
-$s/2$. Topographical connectivity in this model was based on position
-within the \CN (Figure \ref{fig:Meth:MicroCN}B), but is easily
-interchangeable with frequency-specific connectivity.  Connection
-parameters that are fixed are shown in Table
-\ref{tab:Meth:GeneralParams} and parameters used in the optimization are
-shown in Table \ref{tab:Meth:Genome}.
-
-The basic unit of sensory networks is the place-channel or
-feature-channel of the microcircuit, which separates the receptive field
-into independent groups. The creation of neural microcircuits based on
-``place'' is easily amenable to different sensory neural network models;
-however there are problems and unique features that may be necessary to
-ensure realistic representation of the system.  In the microcircuits and
-networks presented in this thesis, it is the iso-frequency place-channel
-that receives afferent input from the narrowest receptive field possible
-in the auditory nerve model.
-
-Connection variables between cell-types are generally uniform across the
-network but may be adjusted to suit the model.  Model parameters may be
-different between species or within species, therefore, without adequate
-information regarding exact neuron to neuron connection reasonable
-assumptions are made based on the average population data.  Issues arise
-at the ends of large-scale topographic BNNs with overlapping place\slash
-channel connections.  Boundaries are considered closed bookends, where
-post-synaptic neurons select only from those with its connection range.
-The best modelling behaviour would arise, therefore, in the middle
-sections.
-
-
-
-Figure~\ref{fig:MicrocircuitConn} shows the method for Gaussian spread of
-connections between cell types used throughout this thesis.  
-#  The channels are separated using the same Greenwood function as used for the AN filterbank.
-#+BEGIN_LaTeX
-  \begin{figure}[tbh]
-    \begin{center}
-  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-       \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{../SimpleResponsesChapter/gfx/CNConn}}
-  %     \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
-      \caption{Gaussian connection between cell types in cochlear
-        nucleus.}
-      \label{fig:MicrocircuitConn}
-    \end{center}
-  \end{figure}
-#+END_LaTeX
-
-
-
-Network parameters that control the connectivity between two cell-type
-groups can be defined by:
-- $\mathbf{w}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the synaptic weight of
-     the post-synaptic current influx caused by the pre-cells'
-     neurotransmitter activating the receptor channels of the
-     post-synaptic cell.  This value may be either uniform for all
-     synapses across the in this connection type or defined by a
-     function of the receptive field.
-- $\mathbf{n}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the number of
-     presynaptic cell type synapses onto individual cells in the
-     post-synaptic cell type.
-- $\mathbf{s}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the spatial or feature
-     specific spread of connections from presynaptic cells onto
-     post-synaptic cells.  The spread is the variance of a Gaussian
-     probability distribution, $\mathcal{N}(i,\sqrt{s})$, representing
-     the probability of the post-synaptic cell in position /i/ receiving
-     input from a post-synaptic cell in the network's discrete slices;
-     in this case frequency channels.  The spread variable is uniform
-     across the stellate CN network.  A spread of 0 means all
-     connections come from the same frequency channel, assuming no
-     offset.
-- $\mathbf{o}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the offset in
-     distribution of connections between presynaptic cell types and
-     post-synaptic cell.  The offset variable adjusts the centre point
-     of the probability distribution, $\mathcal{N}(i + o, \sqrt{s})$,
-     away from the post-synaptic cell's position, /i/.
-- $\mathbf{d}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: is the temporal delay
-     between a pre-cells' AP trigger and the onset of the post-synaptic
-     current.  This delay incorporates the axonal conduction delay and
-     diffusion time across the synaptic cleft.
-
-# New limitations of place-based connectivity
-
-Auditory nerve projections to each \CN cell-type share the same synaptic
-weight, $w_{{\mathrm{ANF}\to\mathrm{CN}}}$, but \HSR and \LSR fibers have
-different parameters encoding the number of inputs
-($n_{{\mathrm{HSR}\to\mathrm{P}}}$, $n_{_{\mathrm{HSR}\to\mathrm{P}}}$). \ANFs
-with similar characteristic frequencies are spatially organized into
-$N_{\textrm{Channel}}$ iso-frequency lamina or channels.
-
-The dendrites of \TS and \TV cells are located within isofrequency
-lamina of the \VCN and \DCN, respectively. The receptive field and
-bandwidth of \TS and \TV cells are also similar to \AN fibres of similar
-\CF.  In the CN stellate microcircuit, synapse inputs to these cells are
-chosen from \ANFs within the same frequency channel ($s=0$, see Table
-\ref{tab:Meth:GeneralParams}). \DS cells have many arborizations
-extending perpendicular to \ANF axons and have a typical physiological
-responses to frequencies 2 octaves below and 1 octave above their \CF
-\citep{PalmerJiangEtAl:1996,PaoliniClark:1999} (see fixed parameters in
-Table \ref{tab:Meth:GeneralParams}).  Physiological evidence in the
-golgi cell domain of the ventral \CN shows that neurons have monotonic,
-non-saturating rate-level curves, similar to \LSR \ANFs
-\citep{GhoshalKim:1996a}. \ANF labeling evidence shows the absence of
-\HSR \ANFs in the Golgi cell domain of the \CN
-\citep{Liberman:1991,Ryugo:2008,RhodeOertelEtAl:1983}, so the strength
-of Golgi excitation was given by \wLSRGLG and \nLSRGLG. Wide-band
-inhibition of \TV cells by \DS cells includes an additional channel
-offset, \oDSTV, to account for the asymmetry of wideband suppression
-found in \TV cells \citep{ReissYoung:2005}.  The offset was added to the
-Gaussian mean in the random allocation process.
-
-The connectivity of the cell types involved in the stellate microcircuit
-is shown in Figure \ref{fig:microcircuit} and in Table
-\ref{tab:TSModelSummary}iii. Fast, glycinergic inhibition from \TV cells
-and \DS cells (Figure \ref{fig:microcircuit}) is involved in modulating
-the firing rate and spike interval variability in \TS cells
-\citep{FerragamoGoldingEtAl:1998,WickesbergOertel:1993}. \TV cells in
-the deep layer of the dorsal \CN, provide a delayed narrowband
-inhibition to \TS and \DS cells in the ventral \CN.  The dendrites of
-\DS cells cover 1/3 of the cross-frequency axis in the \CN, contributing
-to this cell's wide frequency response. In turn this cell is responsible
-for altering the frequency responses in \TS and \TV cells
-\citep{SpirouDavisEtAl:1999}.  \DS cells are coincidence detectors and
-have a precisely timed onset response that affects the temporal
-properties of \TS cells
-\citep{PaoliniClareyEtAl:2005,RhodeGreenberg:1994a} and completely
-inhibit \TV cell responses to loud clicks
-\citep{SpirouDavisEtAl:1999}. GABAergic inhibition from Golgi cells
-modulates the level of excitation necessary to reach threshold for all
-\CN cells \citep{CasparyBackoffEtAl:1994,FerragamoGoldingEtAl:1998}.
-Feedback circuits from the olivary complex to the ventral \CN are also
-known to use \GABA as a neurotransmitter \citep{SaintMorestEtAl:1989},
-however this was not included in this model.
-
-
 
 * Stellate Microcircuit Model of the Cochlear Nucleus
 
@@ -404,13 +257,11 @@ it could be retrieved by NEURON in the simulation.
 # suppression of \TV cells by \DS cells \citep{ReissYoung:2005} and to
 # estimate the frequency range of \ANFs converging on \DS cells
 # \citep{PalmerJiangEtAl:1996}.
- 
-
 
 
 ** Cochlear Nucleus Stellate Microcircuit
 
-The tonotopic organisation of the auditory pathway (i.e.\space the
+The tonotopic organisation of the auditory pathway (i.e. the
 continuous mapping of sound frequency to place of resonance in the
 cochlea) is transferred to the \CN through the population of \ANFs
 \citep{Lorente:1981}.  The \CN stellate network model drawn in Figure
@@ -630,6 +481,8 @@ Improvements in the spike-generation method
   :LABEL: sec:Meth:cell-models
   :END:
 
+\yellownote{ Each active current represents a channel.  Each channel has a gating for activation and inactivation.  Power dependant on tranition strength.  Show activation Plots of RM.  Half page.}
+
 \HH single compartment conductance models
 \citep{HodgkinHuxley:1952a} were used to model the cochlear nucleus
 cells. The dynamics of the membrane voltage, $V(t)$, is described by:
@@ -817,6 +670,154 @@ transmission delay.
 \yellownote{My citation here is from ANS 2006.  }
 
 
+* Connectivity and Topology in Neural Microcircuits
+   :PROPERTIES:
+   :LABEL: sec:Ch2:ConnectivityandTopology
+   :END:
+
+Like many other neural networks in the brain, the likelihood of
+connectivity between two cells in the \CN is a function of distance,
+cell type, and spatial spread relative to some receptive-field.
+Topographical connectivity in this model was based on position within
+the \CN (Figure \ref{fig:Meth:MicroCN}B), but is easily interchangeable
+with frequency-specific connectivity. Connectivity between cells in a
+post-synaptic group onto individual cells is described by a synaptic
+weight, /w/, the number of synapses, /n/, and the spatial spreading
+parameter, /s/, which were taken to be uniform across the network for
+each connection type.  The allocation of pre-synaptic cells to
+post-synaptic cells was a random process modeled here using a Gaussian
+function, with mean equal to the post-synaptic cell's \CF channel and
+standard deviation equal to $\sqrt{s/2}$ (in channel units).  Connection
+parameters that are fixed are shown in Table
+\ref{tab:Meth:GeneralParams} and parameters used in the optimization are
+shown in Table \ref{tab:Meth:Genome}.
+
+The basic unit of sensory networks is the place-channel or
+feature-channel of the microcircuit, which separates the receptive field
+into independent groups. The creation of neural microcircuits based on
+``place'' is easily amenable to different sensory neural network models;
+however there are problems and unique features that may be necessary to
+ensure realistic representation of the system.  In the microcircuits and
+networks presented in this thesis, it is the iso-frequency place-channel
+that receives afferent input from the narrowest receptive field possible
+in the auditory nerve model.
+
+Connection variables between cell-types are generally uniform across the
+network but may be adjusted to suit the model.  Model parameters may be
+different between species or within species, therefore, without adequate
+information regarding exact neuron to neuron connection reasonable
+assumptions are made based on the average population data.  Issues arise
+at the ends of large-scale topographic BNNs with overlapping place\slash
+channel connections.  Boundaries are considered closed bookends, where
+post-synaptic neurons select only from those with its connection range.
+The best modelling behaviour would arise, therefore, in the middle
+sections.
+
+
+
+Figure~\ref{fig:MicrocircuitConn} shows the method for Gaussian spread of
+connections between cell types used throughout this thesis.  
+#  The channels are separated using the same Greenwood function as used for the AN filterbank.
+#+BEGIN_LaTeX
+  \begin{figure}[tbh]
+    \begin{center}
+  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+       \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{../SimpleResponsesChapter/gfx/CNConn}}
+  %     \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
+      \caption{Gaussian connection between cell types in cochlear
+        nucleus.}
+      \label{fig:MicrocircuitConn}
+    \end{center}
+  \end{figure}
+#+END_LaTeX
+
+
+
+Network parameters that control the connectivity between two cell-type
+groups can be defined by:
+- $\mathbf{w}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the synaptic weight of
+     the post-synaptic current influx caused by the pre-cells'
+     neurotransmitter activating the receptor channels of the
+     post-synaptic cell.  This value may be either uniform for all
+     synapses across the in this connection type or defined by a
+     function of the receptive field.
+- $\mathbf{n}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the number of
+     presynaptic cell type synapses onto individual cells in the
+     post-synaptic cell type.
+- $\mathbf{s}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the spatial or feature
+     specific spread of connections from presynaptic cells onto
+     post-synaptic cells.  The spread is the variance of a Gaussian
+     probability distribution, $\mathcal{N}(i,\sqrt{s})$, representing
+     the probability of the post-synaptic cell in position /i/ receiving
+     input from a post-synaptic cell in the network's discrete slices;
+     in this case frequency channels.  The spread variable is uniform
+     across the stellate CN network.  A spread of 0 means all
+     connections come from the same frequency channel, assuming no
+     offset.
+- $\mathbf{o}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the offset in
+     distribution of connections between presynaptic cell types and
+     post-synaptic cell.  The offset variable adjusts the centre point
+     of the probability distribution, $\mathcal{N}(i + o, \sqrt{s})$,
+     away from the post-synaptic cell's position, /i/.
+- $\mathbf{d}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: is the temporal delay
+     between a pre-cells' AP trigger and the onset of the post-synaptic
+     current.  This delay incorporates the axonal conduction delay and
+     diffusion time across the synaptic cleft.
+
+# New limitations of place-based connectivity
+
+Auditory nerve projections to each \CN cell-type share the same synaptic
+weight, $w_{{\mathrm{ANF}\to\mathrm{CN}}}$, but \HSR and \LSR fibers have
+different parameters encoding the number of inputs
+($n_{{\mathrm{HSR}\to\mathrm{P}}}$, $n_{_{\mathrm{HSR}\to\mathrm{P}}}$). \ANFs
+with similar characteristic frequencies are spatially organized into
+$N_{\textrm{Channel}}$ iso-frequency lamina or channels.
+
+The dendrites of \TS and \TV cells are located within isofrequency
+lamina of the \VCN and \DCN, respectively. The receptive field and
+bandwidth of \TS and \TV cells are also similar to \AN fibres of similar
+\CF.  In the CN stellate microcircuit, synapse inputs to these cells are
+chosen from \ANFs within the same frequency channel ($s=0$, see Table
+\ref{tab:Meth:GeneralParams}). \DS cells have many arborizations
+extending perpendicular to \ANF axons and have a typical physiological
+responses to frequencies 2 octaves below and 1 octave above their \CF
+\citep{PalmerJiangEtAl:1996,PaoliniClark:1999} (see fixed parameters in
+Table \ref{tab:Meth:GeneralParams}).  Physiological evidence in the
+golgi cell domain of the ventral \CN shows that neurons have monotonic,
+non-saturating rate-level curves, similar to \LSR \ANFs
+\citep{GhoshalKim:1996a}. \ANF labeling evidence shows the absence of
+\HSR \ANFs in the Golgi cell domain of the \CN
+\citep{Liberman:1991,Ryugo:2008,RhodeOertelEtAl:1983}, so the strength
+of Golgi excitation was given by \wLSRGLG and \nLSRGLG. Wide-band
+inhibition of \TV cells by \DS cells includes an additional channel
+offset, \oDSTV, to account for the asymmetry of wideband suppression
+found in \TV cells \citep{ReissYoung:2005}.  The offset was added to the
+Gaussian mean in the random allocation process.
+
+The connectivity of the cell types involved in the stellate microcircuit
+is shown in Figure \ref{fig:microcircuit} and in Table
+\ref{tab:TSModelSummary}iii. Fast, glycinergic inhibition from \TV cells
+and \DS cells (Figure \ref{fig:microcircuit}) is involved in modulating
+the firing rate and spike interval variability in \TS cells
+\citep{FerragamoGoldingEtAl:1998,WickesbergOertel:1993}. \TV cells in
+the deep layer of the dorsal \CN, provide a delayed narrowband
+inhibition to \TS and \DS cells in the ventral \CN.  The dendrites of
+\DS cells cover 1/3 of the cross-frequency axis in the \CN, contributing
+to this cell's wide frequency response. In turn this cell is responsible
+for altering the frequency responses in \TS and \TV cells
+\citep{SpirouDavisEtAl:1999}.  \DS cells are coincidence detectors and
+have a precisely timed onset response that affects the temporal
+properties of \TS cells
+\citep{PaoliniClareyEtAl:2005,RhodeGreenberg:1994a} and completely
+inhibit \TV cell responses to loud clicks
+\citep{SpirouDavisEtAl:1999}. GABAergic inhibition from Golgi cells
+modulates the level of excitation necessary to reach threshold for all
+\CN cells \citep{CasparyBackoffEtAl:1994,FerragamoGoldingEtAl:1998}.
+Feedback circuits from the olivary complex to the ventral \CN are also
+known to use \GABA as a neurotransmitter \citep{SaintMorestEtAl:1989},
+however this was not included in this model.
+
+
 
 
 
@@ -891,7 +892,9 @@ microcircuit used in the simulations performed in Chapter \ref{sec:Chapter3}.
 
 \yellownote{simple introduction to GAs, most of this stuff is done in Chapter \ref{sec:GAChapter}}
 
+If we had enough data from all
 
+Need actual data from multiple neurons simultaneous - spike-timing essential, AIV ideal
 
 #+BEGIN_LaTeX  
 \ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../hg/manuscript/bib/MyBib}\newpage \listoftodos}{}
@@ -917,8 +920,8 @@ microcircuit used in the simulations performed in Chapter \ref{sec:Chapter3}.
    \\lfoot{\\footnotesize\\today\\ at \\thistime}
          [NO-DEFAULT-PACKAGES]
          [NO-PACKAGES]"
-                  ("\\clearpage\\section{%s}" . "\n\\clearpage\\section{%s}")
-                  ("\\subsection{%s}" . "\n\\clearpage\\subsection{%s}")
+                  ("\\section{%s}" . "\n\\section{%s}")
+                  ("\\subsection{%s}" . "\n\\subsection{%s}")
                   ("\\subsubsection{%s}" . "\n\\subsubsection{%s}")
                   ("\\paragraph{%s}" . "\n\\paragraph{%s}")
                   ("\\subparagraph{%s}" . "\n\\subparagraph{%s}")))
@@ -928,10 +931,6 @@ microcircuit used in the simulations performed in Chapter \ref{sec:Chapter3}.
 
 #+RESULTS:
 : \singlespacing{\tableofcontents\printglossaries}
-
-
-
-
 
 ### Local Variables:
 ### mode: org
