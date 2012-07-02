@@ -186,115 +186,6 @@ hearing was used. Chapter \ref{sec:GAChapter} uses the ARLO model
 
 
 
-* Stellate Microcircuit Model of the Cochlear Nucleus
-
-** Simulation Environment
-
-Neural models and network connections were generated using the neural
-simulation package [[latex:progname][NEURON]] \citep{CarnevaleHines:2006}. NMODL, an
-extension of [[latex:progname][NEURON]] \citep{HinesCarnevale:2000}, was used to implement
-membrane current models and interface with the auditory nerve
-model. Numerical integration was performed using the Crank-Nicholson
-method with second order accuracy (in [[latex:progname][NEURON]] $secondorder=2$) and fixed
-time step of either 0.1  or 0.05 ms. 
-
-
-The computations of the NEURON model were distributed on a single
-PC; a cluster of nine PCs (3.0 GHz Intel Pentium4);[fn::  Systems
-provided by the Department of Otolaryngology, the University of
-Melbourne] an SGI Altix system (=soma=: 64 32-bit Itanium
-CPUs);[fn::  System =soma= provided by the Neuroimaging Group and
-Department of Electrical and Electronic Engineering, the University of
-Melbourne] or on an iDataPlex IBM system (=merri=: 1024 64-bit Intel
-x86 CPUs).[fn::  Sytem =merri= provided by the Victorian Life Sciences
-Computing Initiative]
-
-
-The parallel capabilities of the network model presented in Chapter
-\ref{sec:Chapter3} were based on the NEURON network model [[latex:progname][netmod]] (see
-other neural models that also use =netmod= at [[http://modeldb.senselab.yale.edu][ModelDB]], particularly
-models [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034][52034]], [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730][2730]], and [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781][51781]] \citet{MiglioreCanniaEtAl:2006}) .
-Genetic algorithms and sensitivity analysis in Chapter
-\ref{sec:GAChapter} were implemented in [[latex:progname][C++]] using [[http://lancet.mit.edu/ga][GAlib]]
-\citep{Wall:2006} and the parallel virtual machine PVM libraries
-\citep{GeistBeguelinEtAl:1994}.
-
-#The random numbers are required throughout this thesis in .
-#generator used was the internal RNG of NEURON, MCellRand4
-
-
-** Stimulus Generation
-
-In order to emulate sound entering the ear, acoustic sounds were generated to be
-passed in to an auditory model.  The acoustic stimulus was generated in [[latex:progname][NEURON]],
-with the exception of notch noise (which was generated in [[latex:progname][MATLAB/GNU
-Octave]]). The stimulus types included pure tones, white noise, sinusoidal
-amplitude modulated sounds and clicks.
-
-# The first run of a stimulus may take some time if the AN responses have not been previously saved.  
-The AN model described in \citet{ZilanyBruce:2007} requires a sampling
-rate of 500 kHz in the stimulus.  The output of the AN model was then
-down-sampled to a lesser resolution for the spike generator and saved
-for further use.  The resolution of the spike generator was generally at
-10 or 20 kHz to match the simulations' time step of 0.1 or 0.05 ms.
-Version 4 of the AN model \citep{ZilanyBruceEtAl:2009} was sampled at
-100 kHz for \CF units below 20 kHz, otherwise a sampling rate of 200 kHz
-was used.
-
-Chapter \sec{sec:GAChapter} and the optimisation of \DS cell connections
-to \TV cells (see Section \ref{sec:Ch3:DSTV} in Chapter
-\ref{sec:Chapter3}) use notch noise as the stimulus.  Notch noise was
-generated from Gaussian white noise filtered using a stop-band filter in
-[[latex:progname][MATLAB/GNU Octave]].  The notch noise sample was stored in a file so that
-it could be retrieved by NEURON in the simulation.
-
-#  with a
-# 50 kHz sampling frequency and filtered with a quarter octave, 30 dB
-# band-stop, 100-tap FIR filter centered at 5 kHz. A 50 ms stimulus was
-# presented at 60 dB \SPL with 5 ms onset/offset ramps, a 20 ms delay and
-# 10 ms pause after the stimulus. Notch noise stimuli have been used in
-# experimental studies of the \CN to measure the asymmetric, wide-band
-# suppression of \TV cells by \DS cells \citep{ReissYoung:2005} and to
-# estimate the frequency range of \ANFs converging on \DS cells
-# \citep{PalmerJiangEtAl:1996}.
-
-
-** Cochlear Nucleus Stellate Microcircuit
-
-The tonotopic organisation of the auditory pathway (i.e. the
-continuous mapping of sound frequency to place of resonance in the
-cochlea) is transferred to the \CN through the population of \ANFs
-\citep{Lorente:1981}.  The \CN stellate network model drawn in Figure
-\ref{fig:microcircuit} describes the following cells and models:
-1. Auditory nerve fibres :: The base line in Figure
-     \ref{fig:microcircuit} is a simplification of \ANFs from low \CF to
-     high \CF (left to right).  The model reproduces responses for high
-     and low \SR \ANFs at a fixed number of frequency channels across the auditory range of the species being studied.
-2. Golgi cells :: A \GABA-ergic \VCN marginal shell unit is assumed
-     to regulate excitability in the \GCD and core \VCN units
-     \citep{FerragamoGoldingEtAl:1998}.  Only one /in vivo/ study has
-     recorded extracellular data in the marginal shell area of the \CN
-     \citep{GhoshalKim:1997}.  The presumed characteristics of Golgi
-     cells are taken from that study and are defined by a monotonic
-     response to tones and noise, and an unusual or chopper \PSTH.
-3. D stellate cells :: A glycinergic, large multipolar cell with \OnC
-     \PSTH response that acts as a coincidence detector.  Its large
-     dendritic area increases its response to noise allowing it to
-     behave as a wide-band inhibitor in the \VCN, \DCN, and
-     contralateral \CN
-     \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
-4. Tuberculoventral cells :: A glycinergic, type II \EIRA unit in the
-     deep layer of the \DCN \citep{SpirouDavisEtAl:1999}.  This cell
-     acts as a delayed echo-suppressor and narrow-band inhibitor, with
-     recurrent connections between D and T stellate cells in the \VCN
-     \citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
-5. T stellate cells :: One of the major output projection cells of
-     the \CN to the inferior colliculus.  This multipolar neuron has
-     been shown to have robust spectral representation and enhanced
-     synchronisation to modulation in speech sounds
-     \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
-
-
 
 ** Auditory Model
 
@@ -393,8 +284,7 @@ parameters for each species.
 #+latex: {\footnotesize{$^1$ \citet{Greenwood:1990}, $^2$ \citet{Liberman:1982}, $^3$ \citet{Muller:1991}}}
 
 
-
-*** High and Low Spontaneous Rate ANFs
+*** High and Low Spontaneous Rate Fibres
 
 The level of spontaneous activity and minimum thresholds in \ANFs are
 separated into two distinct groups, \HSR and \LSR fibres.  The \SR of
@@ -405,8 +295,6 @@ The stimulus was passed through the auditory nerve model for each
 frequency channel for both \LSR and \HSR fibers, producing an
 instantaneous firing rate response that was down sampled to 10 kHz.
 
-# ** Point Process Neural Models 
-
 The neural models used in the auditory nerve fibres (and the Golgi cell model in Chapters \ref{sec:Chapter3}-\ref{sec:Chapter4}) are
 inhomogeneous Poisson processes. The instantaneous rate is passed through the
 Jackson model, which includes refractory effects typical of the auditory nerve
@@ -414,7 +302,9 @@ fibres \citep{Jackson:2003,JacksonCarney:2005}.  Spike trains for each neuron in
 the model are created at the start of each repetition of the stimulus, but can
 be saved and loaded from file to improve efficiency.
 
-
+ \yellownote{discuss ANF SR, types of ANF, long-term dependence, and
+   standard results of spiking models, and how Jackson then Zilany
+   have tried to fit these to the AN data}
 
 
 Spike times were generated independently for each fibre from the
@@ -430,10 +320,6 @@ y_1(t) = c_1*exp(-(t'-t_{\textrm{a}})/s_1)
 spike, $c_0 = 0.5$, $c_1 = 0.5$, $s_0 = 0.001$ ms, and $s_1 = 0.0125$
 ms.  The absolute refractory period, $t_{\textrm{a}}$, was 0.75 ms.
 Improvements in the spike-generation method 
-
-
-
-
 
 # \yellownote{Para: Notes from Hegger: discuss poisson generator} 
 # # $$r(t) = \alpha [V(t)-V_{\mathrm th}]$$ 
@@ -456,10 +342,6 @@ Improvements in the spike-generation method
 
 
 
-# \yellownote{discuss ANF SR, types of ANF, long-term dependence, and
-#   standard results of spiking models, and how Jackson then Zilany
-#   have tried to fit these to the AN data}
-
 
 # Analysis of the frequency
 #  response area of ANF generates known parameters for each fibre, these are:
@@ -471,12 +353,12 @@ Improvements in the spike-generation method
 #    responds above the spontaneous rate
 #  \item characteristic frequency (CF)
 #  \end{itemize}
-
 # \medskip{}
 
 
 
-** Rothman and Manis Neural Cell Models
+
+* Neural Cell Models
   :PROPERTIES:
   :LABEL: sec:Meth:cell-models
   :END:
@@ -528,8 +410,96 @@ and deactivation functions (/a, b, c, h, m, n, p, r, w/ and /z/) are
 described in detail by \citet{RothmanManis:2003} and the [[latex:progname][NEURON]] source
 code is freely available online at [[http://senselab.med.yale.edu/senselab/modeldb][ModelDB]] \citep{HinesMorseEtAl:2004}.
 
-All simulations in this thesis were performed at 37\degC. Temperature scaling of
-each current's activation and deactivation time constant parameters was
+#### 
+** Activation and Inactivation Variables
+The core of the \HH-like current equations are the activation and inactivation variables. 
+
+
+The time- and voltage-dependant current variables follow a first-order differential equation in time:
+\begin{equation}
+\frac{dx}{dt} = (x_\infty - x)/\tau_x
+\end{equation}
+where \tau_x is the time constant of /x/, $x_\inf$ is the steady-state value of /x/ (i.e.
+the value of /x/ when $t \gg \tau_x$).
+
+The voltage dependence of the activation and 
+inactivation variables a, b, c, w, z, n, p, m, h, and r are shown in the following
+equations. 
+# Although the formalism of the preceding equation is different
+# from the original HH formalism in which activation/inactivation vari-
+# ables are expressed in terms of “open” and “close” rate constants \alpha
+# and \beta, they are nevertheless mathematically equivalent when $x_\infty=\alpha/(\alpha + \beta)$ and 
+# $\tau_x = 1/(\alpha + \beta)$. Reversal potentials are: \EK = -70 mV, 
+# \ENa = +55 mV, 
+# \Eh = -43 mV, and 
+# \Eleak = -65 mV.
+
+Fast transient K^{+} current
+\begin{eqnarray}
+\IKA(t,V) &= \gKA  a^4 b c  (V - \EK) \\
+a_\infty(V) &= [1 + {\rm exp}(-(V + 31)/6)]^{-1/4} \\
+b_\infty(V) &= [1 + {\rm exp}((V + 66)/7)]^{-1/2} \\
+c_\infty(V) &= b_\infty \\
+\end{eqnarray}
+\begin{eqnarray}
+\tau_a(V) &= 100  [7 {\rm exp}((V + 60)/14) + 29 {\rm exp}(-(V + 60)/24)]^-1 + 0.1 \\
+\tau_b(V) &= 1000  [14 {\rm exp}((V + 60)/27) + 29 {\rm exp}(-(V + 60)/24)]^-1 + 1 \\
+\tau_c(V) &= 90  [1 + {\rm exp}(-(V + 66)/17)]^-1 + 10 \\
+\end{eqnarray}
+
+Low-threshold K^{+} current
+\begin{eqnarray}
+\IKLT(t,V) &= \gKLT  w^4 z  (V - \EK) \\
+w_\infty(V) &= [1 + {\rm exp}(-(V + 48)/6)]^{-1/4} \\
+z_\infty(V) &= (1 - \zeta)  [1 + {\rm exp}((V + 71)/10)]^-1 + \zeta \quad (\zeta = 0.5)\\
+\end{eqnarray}
+\begin{eqnarray}
+\tau_w(V) &= 100  [6 {\rm exp}((V + 60)/6) + 16 {\rm exp}(-(V + 60)/45)]^-1 + 1.5\\
+\tau_z(V) &= 1000  [{\rm exp}((V + 60)/20) + {\rm exp}(-(V + 60)/8)]^-1 + 50\\
+\end{eqnarray}
+
+High-threshold K^{+} current
+\begin{eqnarray}
+\IKHT(t,V) &= \gKHT  [\phi n^2 + (1 - \phi)p] (V - \EK) \quad (\phi = 0.85)\\   
+n_\infty(V) &= [1 + {\rm exp}(-(V + 15)/5)]^{-1/2} \\
+p_\infty(V) &= [1 + {\rm exp}(-(V + 23)/6)]^-1 \\
+\end{eqnarray}
+\begin{eqnarray}
+\tau_n(V) &= 100  [11 {\rm exp}((V + 60)/24) + 21 {\rm exp}(-(V + 60)/23)]^-1 + 0.7 \\
+\tau_p(V) &= 100  [4 {\rm exp}((V + 60)/32) + 5 {\rm exp}(-(V + 60)/22)]^-1 + 5 \\
+\end{eqnarray}
+
+
+Fast Na^{+} current
+\begin{eqnarray}
+\INa(t,V) &= \gNa  m^3 h (V - \ENa) \\
+m_\infty(V) &= [1 + {\rm exp}(-(V + 38)/7)]^{-1} \\
+h_\infty(V) &= [1 + {\rm exp}((V + 65)/6)]^{-1 }\\
+\end{eqnarray}
+\begin{eqnarray}
+\tau_m(V) &= 10 [5 {\rm exp}((V + 60)/18) + 36 {\rm exp}(-(V + 60)/25)]^{-1} + 0.04 \\
+\tau_h(V) &= 100 [7 {\rm exp}((V + 60)/11) + 10 {\rm exp}(-(V + 60)/25)]^{-1} + 0.6\\
+\end{eqnarray}
+
+Hyperpolarization-activated cation current
+\begin{eqnarray}
+\Ih(t,V) &= \gh  r  (V - \Eh)\\
+r_\infty(V) &= [1 + {\rm exp}((V + 76)/7)]^{-1}\\
+\end{eqnarray}
+\begin{equation}
+\tau_r(V) =  10^5 [237 {\rm exp}((V + 60)/12) + 17 {\rm exp}(-(V + 60)/14)]^{-1} + 25\\
+\end{equation}
+
+Leak current
+\begin{equation}
+\Ileak &=& \gleak (V - \Eleak)
+\end{equation}
+#####
+
+
+Membrane and synapse channels are temperature dependent and most /in vitro/ experiments are performed at room temperature, 22\degC. 
+All simulations in this thesis were performed at body temperature, 37\degC, hence modification of the appropriate variable had to be performed. This includes activation and deactivation time constants, and maximum conductance of the currents.  Temperature scaling of
+each membrane current's activation and deactivation time constant parameters was
 calculated with $Q_{10}=3.0$.  Maximum conductance parameters, $\bar{g}$, were
 adjusted with temperature coefficient $Q_{10}=2.0$, except for \Ih which has
 temperature coefficient $Q_{10}=1.3$.
@@ -583,6 +553,153 @@ at 37\degC, and matched them to the model types in
 #+END_LaTeX
 
 
+* Connectivity and Topology
+   :PROPERTIES:
+   :LABEL: sec:Ch2:ConnectivityandTopology
+   :END:
+
+Like many other neural networks in the brain, the likelihood of
+connectivity between two cells in the \CN is a function of distance,
+cell type, and spatial spread relative to some receptive-field.
+Topographical connectivity in this model was based on position within
+the \CN (Figure \ref{fig:Meth:MicroCN}B), but is easily interchangeable
+with frequency-specific connectivity. Connectivity between cells in a
+post-synaptic group onto individual cells is described by a synaptic
+weight, /w/, the number of synapses, /n/, and the spatial spreading
+parameter, /s/, which were taken to be uniform across the network for
+each connection type.  The allocation of pre-synaptic cells to
+post-synaptic cells was a random process modeled here using a Gaussian
+function, with mean equal to the post-synaptic cell's \CF channel and
+standard deviation equal to $\sqrt{s/2}$ (in channel units).  Connection
+parameters that are fixed are shown in Table
+\ref{tab:Meth:GeneralParams} and parameters used in the optimization are
+shown in Table \ref{tab:Meth:Genome}.
+
+The basic unit of sensory networks is the place-channel or
+feature-channel of the microcircuit, which separates the receptive field
+into independent groups. The creation of neural microcircuits based on
+``place'' is easily amenable to different sensory neural network models;
+however there are problems and unique features that may be necessary to
+ensure realistic representation of the system.  In the microcircuits and
+networks presented in this thesis, it is the iso-frequency place-channel
+that receives afferent input from the narrowest receptive field possible
+in the auditory nerve model.
+
+Connection variables between cell-types are generally uniform across the
+network but may be adjusted to suit the model.  Model parameters may be
+different between species or within species, therefore, without adequate
+information regarding exact neuron to neuron connection reasonable
+assumptions are made based on the average population data.  Issues arise
+at the ends of large-scale topographic \BNNs with overlapping place\slash
+channel connections.  Boundaries are considered closed bookends, where
+post-synaptic neurons select only from those with its connection range.
+The best modelling behaviour would arise, therefore, in the middle
+sections.
+#  The channels are separated using the same Greenwood function as used for the AN filterbank.
+#+BEGIN_LaTeX
+  \begin{figure}[tbh]
+    \begin{center}
+  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+    \resizebox{0.95\textwidth}{!}{\includegraphics[keepaspectratio=true]{../SimpleResponsesChapter/gfx/CNConn}}
+  %     \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
+      \caption[Distribution of synaptic connections]{Distribution of synaptic connections between cell types in the cochlear nucleus stellate microcircuit. A post-synaptic neuron receives $\mathbf{n}$ synapses from pre-synaptic neurons (from one cell-type group) with equal weight, $\mathbf{w}$. The post-synaptic cell is selected using a Gaussian random process, centred on the same frequency channel (with optional offset, $\mathbf{o}$) and spread equal to twice the variance.}
+      \label{fig:MicrocircuitConn}
+    \end{center}
+  \end{figure}
+#+END_LaTeX
+
+** Network Connection Parameters
+
+The probability of pre-synaptic to post-synaptic connection is defined
+as a Gaussian probability distribution.  The distribution is centred on
+the post-synaptic cell's position /i/ with an optional offset parameter,
+/o/ in this case frequency channels.  Figure~\ref{fig:MicrocircuitConn}
+shows the method for Gaussian spread of connections between cell types
+used throughout this thesis.
+Network parameters that control the connectivity between two cell-type
+groups can be defined by:
+- $\mathbf{w}_{\textrm{{X}}\to\textrm{{Y}}}$ :: the synaptic weight of
+     the post-synaptic current influx caused by the pre-cells'
+     neurotransmitter activating the receptor channels of the
+     post-synaptic cell.  This value may be either uniform for all
+     synapses across the in this connection type or defined by a
+     function of the receptive field.
+- $\mathbf{n}_{\textrm{{X}}\to\textrm{{Y}}}$ :: the total number of synaptic connections from
+     pre-synaptic cells onto individual cells post-synaptic cells.
+- $\mathbf{s}_{\textrm{{X}}\to\textrm{{Y}}}$ :: the spatial or feature
+     specific spread of connections from presynaptic cells onto
+     post-synaptic cells.  The spread parameter, /s/, is twice the
+     variance of the Gaussian function, or standard deviation $\sigma =
+     \sqrt{s/2}$. The distributions are uniform across the stellate CN
+     network, which ignores channels outside the network's range.  A
+     spread of 0 means all connections come from the same frequency
+     channel, assuming no offset.
+- $\mathbf{o}_{\textrm{{X}}\to\textrm{{Y}}}$ :: the offset in
+     distribution of connections between presynaptic cell types and
+     post-synaptic cell.  The offset variable adjusts the centre point
+     of the probability distribution, $\mathcal{N}(i + \mathbf{o}, \sqrt{\mathbf{s}/2})$,
+     away from the post-synaptic cell's position, /i/.
+- $\mathbf{d}_{\textrm{{X}}\to\textrm{{Y}}}$ :: is the temporal delay
+     between a pre-cells' \AP trigger and the onset of the post-synaptic
+     current.  This delay incorporates the axonal conduction delay and
+     diffusion time across the synaptic cleft.  In a single-compartment
+     model, additional delay can also be used to represent dendritic delay.
+
+
+# New limitations of place-based connectivity
+
+# The dendrites of \TS and \TV cells are located within isofrequency
+# lamina of the \VCN and \DCN, respectively. The receptive field and
+# bandwidth of \TS and \TV cells are also similar to \AN fibres of similar
+# \CF.  In the CN stellate microcircuit, synapse inputs to these cells are
+# chosen from \ANFs within the same frequency channel ($s=0$, see Table
+# \ref{tab:Meth:GeneralParams}). \DS cells have many arborizations
+# extending perpendicular to \ANF axons and have a typical physiological
+# responses to frequencies 2 octaves below and 1 octave above their \CF
+# \citep{PalmerJiangEtAl:1996,PaoliniClark:1999} (see fixed parameters in
+# Table \ref{tab:Meth:GeneralParams}).  Physiological evidence in the
+# golgi cell domain of the ventral \CN shows that neurons have monotonic,
+# non-saturating rate-level curves, similar to \LSR \ANFs
+# \citep{GhoshalKim:1996a}. \ANF labeling evidence shows the absence of
+# \HSR \ANFs in the Golgi cell domain of the \CN
+# \citep{Liberman:1991,Ryugo:2008,RhodeOertelEtAl:1983}, so the strength
+# of Golgi excitation was given by \wLSRGLG and \nLSRGLG. Wide-band
+# inhibition of \TV cells by \DS cells includes an additional channel
+# offset, \oDSTV, to account for the asymmetry of wideband suppression
+# found in \TV cells \citep{ReissYoung:2005}.  The offset was added to the
+# Gaussian mean in the random allocation process.
+
+The connectivity of the cell types involved in the stellate microcircuit
+is shown in Figure \ref{fig:microcircuit} and in Table
+\ref{tab:TSModelSummary}iii. \ANFs with similar characteristic frequencies are spatially organized into
+$N_{\textrm{Channel}}$ iso-frequency lamina or channels, which translated to frequency channels in the \CN.
+Auditory nerve projections to each \CN cell-type share the same synaptic
+weight, $\mathbf{w}$, but \HSR and \LSR fibers have
+different parameters encoding the number of inputs
+(e.g. $\nHSRTS$, $\nLSRTS$). 
+Fast, glycinergic inhibition from \TV cells
+and \DS cells (Figure \ref{fig:microcircuit}) is involved in modulating
+the firing rate and spike interval variability in \TS cells
+\citep{FerragamoGoldingEtAl:1998,WickesbergOertel:1993}. \TV cells in
+the deep layer of the dorsal \CN, provide a delayed narrowband
+inhibition to \TS and \DS cells in the ventral \CN.  The dendrites of
+\DS cells cover 1/3 of the cross-frequency axis in the \CN, contributing
+to this cell's wide frequency response. In turn this cell is responsible
+for altering the frequency responses in \TS and \TV cells
+\citep{SpirouDavisEtAl:1999}.  \DS cells are coincidence detectors and
+have a precisely timed onset response that affects the temporal
+properties of \TS cells
+\citep{PaoliniClareyEtAl:2005,RhodeGreenberg:1994a} and completely
+inhibit \TV cell responses to loud clicks
+\citep{SpirouDavisEtAl:1999}. GABAergic inhibition from Golgi cells
+modulates the level of excitation necessary to reach threshold for all
+\CN cells \citep{CasparyBackoffEtAl:1994,FerragamoGoldingEtAl:1998}.
+Feedback circuits from the olivary complex to the ventral \CN are also
+known to use \GABA as a neurotransmitter \citep{SaintMorestEtAl:1989},
+however this was not included in this model.
+
+
+
 ** Synapse Models
    :PROPERTIES:
    :LABEL: sec:Ch2:Synapse
@@ -590,9 +707,7 @@ at 37\degC, and matched them to the model types in
 Synapses were modeled with either a single or a double exponential
 time-dependent conductance change with the current density described by
 $\ISYN(t)=g_{{\rm SYN}} (t)(V-E_{{\rm rev}} )$, where $E_{\rm rev}$ is the
-associated reversal potential. 
-[[latex:progname][NEURON]]'s conductance synapse model classes /ExpSyn/ and /Exp2Syn/ were used
-in the \CN stellate microcircuit.  
+associated reversal potential[fn:: [[latex:progname][NEURON]]'s conductance synapse model classes /ExpSyn/ and /Exp2Syn/ were used in the \CN stellate microcircuit.].
 
 The strength of the synapses was
 determined by a normalized weight parameter, /w/, and decay
@@ -670,154 +785,116 @@ transmission delay.
 \yellownote{My citation here is from ANS 2006.  }
 
 
-* Connectivity and Topology in Neural Microcircuits
-   :PROPERTIES:
-   :LABEL: sec:Ch2:ConnectivityandTopology
-   :END:
 
-Like many other neural networks in the brain, the likelihood of
-connectivity between two cells in the \CN is a function of distance,
-cell type, and spatial spread relative to some receptive-field.
-Topographical connectivity in this model was based on position within
-the \CN (Figure \ref{fig:Meth:MicroCN}B), but is easily interchangeable
-with frequency-specific connectivity. Connectivity between cells in a
-post-synaptic group onto individual cells is described by a synaptic
-weight, /w/, the number of synapses, /n/, and the spatial spreading
-parameter, /s/, which were taken to be uniform across the network for
-each connection type.  The allocation of pre-synaptic cells to
-post-synaptic cells was a random process modeled here using a Gaussian
-function, with mean equal to the post-synaptic cell's \CF channel and
-standard deviation equal to $\sqrt{s/2}$ (in channel units).  Connection
-parameters that are fixed are shown in Table
-\ref{tab:Meth:GeneralParams} and parameters used in the optimization are
-shown in Table \ref{tab:Meth:Genome}.
+* Stellate Microcircuit Model of the Cochlear Nucleus
 
-The basic unit of sensory networks is the place-channel or
-feature-channel of the microcircuit, which separates the receptive field
-into independent groups. The creation of neural microcircuits based on
-``place'' is easily amenable to different sensory neural network models;
-however there are problems and unique features that may be necessary to
-ensure realistic representation of the system.  In the microcircuits and
-networks presented in this thesis, it is the iso-frequency place-channel
-that receives afferent input from the narrowest receptive field possible
-in the auditory nerve model.
+** Simulation Environment
 
-Connection variables between cell-types are generally uniform across the
-network but may be adjusted to suit the model.  Model parameters may be
-different between species or within species, therefore, without adequate
-information regarding exact neuron to neuron connection reasonable
-assumptions are made based on the average population data.  Issues arise
-at the ends of large-scale topographic BNNs with overlapping place\slash
-channel connections.  Boundaries are considered closed bookends, where
-post-synaptic neurons select only from those with its connection range.
-The best modelling behaviour would arise, therefore, in the middle
-sections.
+Neural models and network connections were generated using the neural
+simulation package [[latex:progname][NEURON]] \citep{CarnevaleHines:2006}. NMODL, an
+extension of [[latex:progname][NEURON]] \citep{HinesCarnevale:2000}, was used to implement
+membrane current models and interface with the auditory nerve
+model. Numerical integration was performed using the Crank-Nicholson
+method with second order accuracy (in [[latex:progname][NEURON]] $secondorder=2$) and fixed
+time step of either 0.1  or 0.05 ms. 
 
 
-
-Figure~\ref{fig:MicrocircuitConn} shows the method for Gaussian spread of
-connections between cell types used throughout this thesis.  
-#  The channels are separated using the same Greenwood function as used for the AN filterbank.
-#+BEGIN_LaTeX
-  \begin{figure}[tbh]
-    \begin{center}
-  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-       \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{../SimpleResponsesChapter/gfx/CNConn}}
-  %     \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
-      \caption{Gaussian connection between cell types in cochlear
-        nucleus.}
-      \label{fig:MicrocircuitConn}
-    \end{center}
-  \end{figure}
-#+END_LaTeX
+The computations of the NEURON model were distributed on a single
+PC; a cluster of nine PCs (3.0 GHz Intel Pentium4);[fn::  Systems
+provided by the Department of Otolaryngology, the University of
+Melbourne] an SGI Altix system (=soma=: 64 32-bit Itanium
+CPUs);[fn::  System =soma= provided by the Neuroimaging Group and
+Department of Electrical and Electronic Engineering, the University of
+Melbourne] or on an iDataPlex IBM system (=merri=: 1024 64-bit Intel
+x86 CPUs).[fn::  Sytem =merri= provided by the Victorian Life Sciences
+Computing Initiative]
 
 
+The parallel capabilities of the network model presented in Chapter
+\ref{sec:Chapter3} were based on the NEURON network model [[latex:progname][netmod]] (see
+other neural models that also use =netmod= at [[http://modeldb.senselab.yale.edu][ModelDB]], particularly
+models [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034][52034]], [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730][2730]], and [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781][51781]] \citet{MiglioreCanniaEtAl:2006}) .
+Genetic algorithms and sensitivity analysis in Chapter
+\ref{sec:GAChapter} were implemented in [[latex:progname][C++]] using [[http://lancet.mit.edu/ga][GAlib]]
+\citep{Wall:2006} and the parallel virtual machine PVM libraries
+\citep{GeistBeguelinEtAl:1994}.
 
-Network parameters that control the connectivity between two cell-type
-groups can be defined by:
-- $\mathbf{w}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the synaptic weight of
-     the post-synaptic current influx caused by the pre-cells'
-     neurotransmitter activating the receptor channels of the
-     post-synaptic cell.  This value may be either uniform for all
-     synapses across the in this connection type or defined by a
-     function of the receptive field.
-- $\mathbf{n}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the number of
-     presynaptic cell type synapses onto individual cells in the
-     post-synaptic cell type.
-- $\mathbf{s}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the spatial or feature
-     specific spread of connections from presynaptic cells onto
-     post-synaptic cells.  The spread is the variance of a Gaussian
-     probability distribution, $\mathcal{N}(i,\sqrt{s})$, representing
-     the probability of the post-synaptic cell in position /i/ receiving
-     input from a post-synaptic cell in the network's discrete slices;
-     in this case frequency channels.  The spread variable is uniform
-     across the stellate CN network.  A spread of 0 means all
-     connections come from the same frequency channel, assuming no
-     offset.
-- $\mathbf{o}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: the offset in
-     distribution of connections between presynaptic cell types and
-     post-synaptic cell.  The offset variable adjusts the centre point
-     of the probability distribution, $\mathcal{N}(i + o, \sqrt{s})$,
-     away from the post-synaptic cell's position, /i/.
-- $\mathbf{d}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: is the temporal delay
-     between a pre-cells' AP trigger and the onset of the post-synaptic
-     current.  This delay incorporates the axonal conduction delay and
-     diffusion time across the synaptic cleft.
-
-# New limitations of place-based connectivity
-
-Auditory nerve projections to each \CN cell-type share the same synaptic
-weight, $w_{{\mathrm{ANF}\to\mathrm{CN}}}$, but \HSR and \LSR fibers have
-different parameters encoding the number of inputs
-($n_{{\mathrm{HSR}\to\mathrm{P}}}$, $n_{_{\mathrm{HSR}\to\mathrm{P}}}$). \ANFs
-with similar characteristic frequencies are spatially organized into
-$N_{\textrm{Channel}}$ iso-frequency lamina or channels.
-
-The dendrites of \TS and \TV cells are located within isofrequency
-lamina of the \VCN and \DCN, respectively. The receptive field and
-bandwidth of \TS and \TV cells are also similar to \AN fibres of similar
-\CF.  In the CN stellate microcircuit, synapse inputs to these cells are
-chosen from \ANFs within the same frequency channel ($s=0$, see Table
-\ref{tab:Meth:GeneralParams}). \DS cells have many arborizations
-extending perpendicular to \ANF axons and have a typical physiological
-responses to frequencies 2 octaves below and 1 octave above their \CF
-\citep{PalmerJiangEtAl:1996,PaoliniClark:1999} (see fixed parameters in
-Table \ref{tab:Meth:GeneralParams}).  Physiological evidence in the
-golgi cell domain of the ventral \CN shows that neurons have monotonic,
-non-saturating rate-level curves, similar to \LSR \ANFs
-\citep{GhoshalKim:1996a}. \ANF labeling evidence shows the absence of
-\HSR \ANFs in the Golgi cell domain of the \CN
-\citep{Liberman:1991,Ryugo:2008,RhodeOertelEtAl:1983}, so the strength
-of Golgi excitation was given by \wLSRGLG and \nLSRGLG. Wide-band
-inhibition of \TV cells by \DS cells includes an additional channel
-offset, \oDSTV, to account for the asymmetry of wideband suppression
-found in \TV cells \citep{ReissYoung:2005}.  The offset was added to the
-Gaussian mean in the random allocation process.
-
-The connectivity of the cell types involved in the stellate microcircuit
-is shown in Figure \ref{fig:microcircuit} and in Table
-\ref{tab:TSModelSummary}iii. Fast, glycinergic inhibition from \TV cells
-and \DS cells (Figure \ref{fig:microcircuit}) is involved in modulating
-the firing rate and spike interval variability in \TS cells
-\citep{FerragamoGoldingEtAl:1998,WickesbergOertel:1993}. \TV cells in
-the deep layer of the dorsal \CN, provide a delayed narrowband
-inhibition to \TS and \DS cells in the ventral \CN.  The dendrites of
-\DS cells cover 1/3 of the cross-frequency axis in the \CN, contributing
-to this cell's wide frequency response. In turn this cell is responsible
-for altering the frequency responses in \TS and \TV cells
-\citep{SpirouDavisEtAl:1999}.  \DS cells are coincidence detectors and
-have a precisely timed onset response that affects the temporal
-properties of \TS cells
-\citep{PaoliniClareyEtAl:2005,RhodeGreenberg:1994a} and completely
-inhibit \TV cell responses to loud clicks
-\citep{SpirouDavisEtAl:1999}. GABAergic inhibition from Golgi cells
-modulates the level of excitation necessary to reach threshold for all
-\CN cells \citep{CasparyBackoffEtAl:1994,FerragamoGoldingEtAl:1998}.
-Feedback circuits from the olivary complex to the ventral \CN are also
-known to use \GABA as a neurotransmitter \citep{SaintMorestEtAl:1989},
-however this was not included in this model.
+#The random numbers are required throughout this thesis in .
+#generator used was the internal RNG of NEURON, MCellRand4
 
 
+** Stimulus Generation
+
+In order to emulate sound entering the ear, acoustic sounds were generated to be
+passed in to an auditory model.  The acoustic stimulus was generated in [[latex:progname][NEURON]],
+with the exception of notch noise (which was generated in [[latex:progname][MATLAB/GNU
+Octave]]). The stimulus types included pure tones, white noise, sinusoidal
+amplitude modulated sounds and clicks.
+
+# The first run of a stimulus may take some time if the AN responses have not been previously saved.  
+The AN model described in \citet{ZilanyBruce:2007} requires a sampling
+rate of 500 kHz in the stimulus.  The output of the AN model was then
+down-sampled to a lesser resolution for the spike generator and saved
+for further use.  The resolution of the spike generator was generally at
+10 or 20 kHz to match the simulations' time step of 0.1 or 0.05 ms.
+Version 4 of the AN model \citep{ZilanyBruceEtAl:2009} was sampled at
+100 kHz for \CF units below 20 kHz, otherwise a sampling rate of 200 kHz
+was used.
+
+Chapter \sec{sec:GAChapter} and the optimisation of \DS cell connections
+to \TV cells (see Section \ref{sec:Ch3:DSTV} in Chapter
+\ref{sec:Chapter3}) use notch noise as the stimulus.  Notch noise was
+generated from Gaussian white noise filtered using a stop-band filter in
+[[latex:progname][MATLAB/GNU Octave]].  The notch noise sample was stored in a file so that
+it could be retrieved by NEURON in the simulation.
+
+#  with a
+# 50 kHz sampling frequency and filtered with a quarter octave, 30 dB
+# band-stop, 100-tap FIR filter centered at 5 kHz. A 50 ms stimulus was
+# presented at 60 dB \SPL with 5 ms onset/offset ramps, a 20 ms delay and
+# 10 ms pause after the stimulus. Notch noise stimuli have been used in
+# experimental studies of the \CN to measure the asymmetric, wide-band
+# suppression of \TV cells by \DS cells \citep{ReissYoung:2005} and to
+# estimate the frequency range of \ANFs converging on \DS cells
+# \citep{PalmerJiangEtAl:1996}.
+
+
+
+
+** Cochlear Nucleus Stellate Microcircuit
+
+The tonotopic organisation of the auditory pathway (i.e. the
+continuous mapping of sound frequency to place of resonance in the
+cochlea) is transferred to the \CN through the population of \ANFs
+\citep{Lorente:1981}.  The \CN stellate network model drawn in Figure
+\ref{fig:microcircuit} describes the following cells and models:
+1. Auditory nerve fibres :: The base line in Figure
+     \ref{fig:microcircuit} is a simplification of \ANFs from low \CF to
+     high \CF (left to right).  The model reproduces responses for high
+     and low \SR \ANFs at a fixed number of frequency channels across the auditory range of the species being studied.
+2. Golgi cells :: A \GABA-ergic \VCN marginal shell unit is assumed
+     to regulate excitability in the \GCD and core \VCN units
+     \citep{FerragamoGoldingEtAl:1998}.  Only one /in vivo/ study has
+     recorded extracellular data in the marginal shell area of the \CN
+     \citep{GhoshalKim:1997}.  The presumed characteristics of Golgi
+     cells are taken from that study and are defined by a monotonic
+     response to tones and noise, and an unusual or chopper \PSTH.
+3. D stellate cells :: A glycinergic, large multipolar cell with \OnC
+     \PSTH response that acts as a coincidence detector.  Its large
+     dendritic area increases its response to noise allowing it to
+     behave as a wide-band inhibitor in the \VCN, \DCN, and
+     contralateral \CN
+     \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
+4. Tuberculoventral cells :: A glycinergic, type II \EIRA unit in the
+     deep layer of the \DCN \citep{SpirouDavisEtAl:1999}.  This cell
+     acts as a delayed echo-suppressor and narrow-band inhibitor, with
+     recurrent connections between D and T stellate cells in the \VCN
+     \citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
+5. T stellate cells :: One of the major output projection cells of
+     the \CN to the inferior colliculus.  This multipolar neuron has
+     been shown to have robust spectral representation and enhanced
+     synchronisation to modulation in speech sounds
+     \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
 
 
 
@@ -896,6 +973,9 @@ If we had enough data from all
 
 Need actual data from multiple neurons simultaneous - spike-timing essential, AIV ideal
 
+
+
+
 #+BEGIN_LaTeX  
 \ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../hg/manuscript/bib/MyBib}\newpage \listoftodos}{}
 #+END_LaTeX
@@ -937,3 +1017,213 @@ Need actual data from multiple neurons simultaneous - spike-timing essential, AI
 ### mode: visual-line
 ### fill-column: 72
 ### End:
+
+
+
+# The network parameters (i.e. synapse distribution and strength) for
+# each known projection will be constrained to physiologically
+# significant responses using an iterative optimisation routine based on
+# genetic algorithms.  The first stage of optimisation will use an
+# isolated network of TS, DS and TV cells.  This stage will not include
+# GABAergic input. The isolated network consists of TS cells restricted
+# to one frequency channel and DS and TV cells connected from frequency
+# channels on and off CF, Figure 9.  The second stage of optimisation
+# will insert GABAergic input into the isolated network.  Including
+# GABAergic inhibition will alter cell responses and therefore require
+# adjustment of network parameters to properly account for physiological
+# data.  The final stage of network development will be to combine a
+# whole network of cells representing a range of frequencies that will
+# be used to test the hypotheses.  The synaptic organisation of the
+# expanded network will be based on the parameters of the isolated
+# network.
+
+# The genetic algorithm optimisation procedure uses operations analogous
+# to natural selection to search for an optimum solution.  This
+# procedure is used when the standard analytical and gradient search
+# methods are ineffective or computationally expensive.  The basic
+# response properties of TS cells will be used to set the ‘fitness’
+# criteria of the genetic algorithm.  The design and implementation of
+# the genetic algorithm search method is discussed in the following
+# sections.
+
+
+
+# Figure 9: Isolated Network Model.  A single frequency channel of TS
+# cells receiving a narrow band of ANF inputs.  TV and DS cells from
+# same frequency channel and in lateral sidebands provide input to TS
+# cells.  ANFs contact all cell types in frequency specific fashion.
+
+
+
+# Genetic Algorithm design Genetic algorithms (GA’s) provide a
+# stochastic global searching method that is most suitable for this
+# task.  GA’s are derived from Charles Darwin’s theory of natural
+# selection and employ operations analogous to genetic operations
+# performed on DNA. The key concepts of GA’s are the parameter set, the
+# fitness function and the termination criteria.  The set of parameters
+# that we wish to optimise form a string of genes called an individual.
+# A population of individuals makes up a generation. New generations are
+# created by selecting the best of the population based on some fitness
+# measure, then transforming the individuals by a genetic
+# operation. Genetic operations allow for the best parameters to be
+# retained and also introduce variety and randomness.  The fitness
+# function quantifies in a single value how well the individual is
+# suited to the environment.  The optimum solution in the genetic
+# algorithm is a set of parameters that produce the smallest fitness
+# function value.  The variables controlling the algorithm size and
+# duration are set at the start of optimisation.  The number of
+# individuals in a generation will be set to 100 and the maximum number
+# of generations will be set to 20.  The best fitted individual will be
+# the champion of that optimisation run.  Sanity checks on the parameter
+# set will make sure the values are consistent and realistic.
+
+# The major steps in preparing to use conventional genetic algorithms on fixed-length strings to solve a problem are (Goldberg, 1989):
+# determining the representation scheme;
+# determining the fitness measure;
+# determining the parameters and variables for controlling the algorithms; and
+# determining the way of designating the result and criterion for terminating a run.
+
+# The representation scheme will use the parameters in Table 2 to create
+# an individual of fixed length.  The fitness measure is discussed in
+# detail in the next section.  The fitness will utilise a least squared
+# error from the theoretical means of each of the constraint
+# parameters. Physiological data from rate-level characteristics,
+# synchronisation to amplitude modulated tones and lateral suppression
+# observed in masked response curves will form the basis of the
+# constraint parameters.  Termination will occur after a fixed number of
+# generations or if an individual attains an excellent fitness value.
+
+# The three steps in executing genetic algorithms on fixed length character strings can be summarised as follows (Goldberg, 1989):
+# 1. Randomly generate an initial population of individual parameter sets. 
+# 2. Iteratively perform the sub steps until the termination criteria is satisfied:
+# a. Evaluate the fitness of each individual in the population
+# b. Create a new population of strings by applying the operations below.  Select an individual with probability based on fitness.
+# i. Reproduction: copy individual to next population.  This operation introduces conservation, to preserve the best-fitted individuals.
+# ii. Cross-over: create two new individuals by randomly combining the substrings of two individuals broken at some random point.  This operation introduces variety but retains quality among existing parameter strings.
+# iii. Mutation: create a new individual by taking one parameter in the set randomly select a new value. 
+# 3. The best individual is the set of parameters that generate the best fitness value
+
+# The methods used in the design and implementation of genetic algorithms come from Mitchell (1996) and Goldberg (1989).
+
+# 	Fitness criteria
+
+# 1) Rate-level curve (RLC)
+#  The response to increasing intensity of tones at characteristic frequency (CF) is used to quantify a cell’s spontaneous rate, threshold, dynamic range and maximum discharge rate.  RLC’s are classified as monotonic, saturating or non-monotonic depending of their shape, Figure 10.  There is sufficient data on TS, DS and TV cells to obtain population statistics for each of the cell types.
+# T stellate / Chopper cells: Gibson et al., 1985; Rhode and Smith, 1986; Young et al., 1988; Blackburn and Sachs, 1989; May and Sachs, 1992; Palmer et al., 2003;
+# D stellate / Onset chopper cells: same as above plus Palmer et al., 1996; Arnott et al. 2004; 
+# Tuberculoventral cells:  Shofner and Young 1985; Voigt and Young 1990; Spirou et al. 1999.  
+# Golgi cells have received less attention because they are located in the marginal shell (Gibson et al. 1985; Ghoshal and Kim, 1997; Kim et al., 1998).
+ 
+# Figure 10: Rate-level curves depicting saturating,  non-monotonic and monotonic characteristics.
+
+		
+
+# 2) Synchronisation to Amplitude modulated tones
+# The synchronisation to AM tones has been discussed in the introduction.  Table 3: Physiological data used in the fitness function. shows the critical parameters in the tMTFs of stellate neurons that will be used to constrain parameters.
+# 3) Lateral suppression in Masked Response Curves
+
+# Cochlear nucleus neurons typically have low spontaneous rates, which
+# makes detecting inhibition outside their response area difficult.  A
+# masked response curve (MRC) utilises CF tones or noise to excite the
+# cell to examine suppressive effects of off-CF tones. The MRC’s
+# quantify the strength and bandwidth of lateral inhibition on TS cells
+# and TV cells and facilitation in DS cells. Physiological recordings
+# using MRC’s are used to constrain the network parameters (CF tone
+# masker: Blackburn and Sachs, 1990; Noise masker: Rhode and Greenberg,
+# 1994b; OnC facilitation: Palmer and Winter 1996).  Significant
+# parameters from MRC’s are shown in Figure 11 along with recorded MRC’s
+# from ChS and ChT units in the VCN (Rhode and Greenberg, 1994b)
+
+# Figure 11: Left, description of masked response curve (MRC) parameters. Right, masked response curves using noise maskers in TS cells (ChT and ChS) from Rhode and Greenberg 1994.
+
+# 	Fitness Function
+
+# The physiological response characteristics that will be used to constrain the network are shown in Table 3.  These characteristics will be measured for each network parameter set (i.e. each individual in the genetic algorithm).  A fitness value will be assigned using a normalised least squared error procedure.  Equation 1 shows the fitness function F, for an individual X, with a summation of the least squared error for each constraint parameter.
+
+# 				Eq. 1
+
+# 	X = {xi}  where i = 1,2,3…N
+# 	N   total number of constraint parameters
+# 	 , mean experimental value for constraint parameter
+# 	 , standard deviation from experimental mean.
+
+	
+# Table 3: Physiological data used in the fitness function.
+# Physiological Property
+# Contraint Parameters
+# Range
+# Reference
+# Synchronisation to AM tones
+# Shape
+# Band-pass at high SPL, low-pass at low SPL
+# Frisina et al 90a,b;
+# Joris et al. 2003;
+# Rhode, 1994;
+# Rhode and Greenberg 1994a;
+
+# BMF
+# 100-500 Hz
+
+
+# Cut-off
+# 500-1000 Hz
+
+# Rate-level curve (CF tone)
+# Shape 
+# Monotonic for DS, Saturating for TS, Non-monotonic for TV
+# Gibson et al. 1985; Rhode and Smith 1986;
+# Palmer et al. 2003; Arnott et al. 2004; Spirou et al. 1999;
+
+# Dynamic range (10%-90% linear increase region)
+# TS: 25-45 dB but can be higher
+# DS: 60-80dB
+
+
+# Threshold
+# 0-30 dB SPL
+
+
+# Max. Rate
+# 300-400 spikes/sec
+
+# Masked Response Curve  
+# Masker induced rate
+# ½ max rate  (100-200sp/s)
+# Noise Masker: Rhode and Greenberg 1994b;
+# CF tone masker:   Blackburn and Sachs 1992; Palmer and Winter, 1996; 
+
+# Suppression Bandwidth (measured at 50% suppression rate)
+# 4-5kHz
+
+
+# Suppression Maximum
+# 50-100% of masker induced rate
+
+
+# ** Separation of Optimisation and Testing Data
+
+# It is important to clarify the separation between physiological data
+# used to constrain the network and data used to validate and test
+# hypotheses.  The optimisation criteria represent responses to simple
+# characteristics that are not directly related to complex response
+# characteristics argued by the hypotheses.  The first three hypotheses
+# relate to population responses of TS cells to spectrally and
+# temporally complex signals such as vowels.  The rate-place and
+# temporal representation of vowels provide a completely different set
+# of test stimuli that is unrelated to the simple stimuli used for
+# optimisation.  The fourth hypothesis relates to psychophysical
+# masking, as detected from the threshold of spikes across the
+# population of TS cells.  Simultaneous and forward masking experiments
+# use simple tone and noise sounds as probes and maskers. The
+# characteristic mechanisms for simultaneous masking are indirectly
+# related to the lateral suppression mechanisms constrained by the
+# optimisation process.  The detection of probe stimuli can utilise the
+# responses across the whole population rather than the responses just
+# at that frequency.  Hence, this hypothesis is testing the global
+# response of a network that produces physiologically characterised
+# lateral suppression at the individual cell level.  Forward masking
+# uses stimuli separated in time, hence neither rate-level or masked
+# response characteristics are related.  Synchronisation to AM tones
+# does provide temporal constraints to parameters however this is
+# unlikely to affect forward masking response directly.
+
