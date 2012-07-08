@@ -100,19 +100,20 @@ they play a different role in sound processing to \HSR fibres.
 # behaviours in \ANFs.  periphery models are necessary as inputs.  }
 
 The abovementioned characteristics of \ANFs are essential as input to models of the \CN.
-In examining the properties of a detailed neural model of the cochlear nucleus,
+In examining the properties of a detailed neural model of the \CN,
  a phenomenologically-realistic auditory model was needed to represent
  sounds and transformations that occur in the central auditory system.
 Simple attempts to recreate rate-level behaviour in \ANFs
 \citep[e.g.~][]{SachsWinslowEtAl:1989} are not sufficient to reproduce complex
 non-linear behaviours when dealing with arbitrary stimuli \citep{LeakeSnyderEtAl:1993,ArnesenOsen:1978,CloptonWinfieldEtAl:1974}.  
-There has since been a great advancement in auditory periphery models, for an extensive review
+Since those early efforts, there has been great advancement in auditory periphery models; for an extensive review
 see \citet{Lopez-Poveda:2005}.
 
 
-The auditory nerve input model in our \CNSM   model is called the Carney \AN model, were each version is derived from the original  
+The auditory nerve input model in the \CNSM\space model is called the Carney \AN model, where each version is derived from the original  
 model of low \CF fibres \citep{Carney:1993}.  
-Motivated by observing ANF phenomenon, Carney and colleagues have made improvements to the model over the last 20 years   
+#Motivated by observing ANF phenomena, 
+Carney and colleagues have made improvements to their model over the last 20 years   
 \citep{ZhangHeinzEtAl:2001,HeinzZhangEtAl:2001,BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007,ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
 #The Zhang model \citep{ZhangHeinzEtAl:2001}, the ARLO model \citep{HeinzZhangEtAl:2001} and the Bruce model
 #\citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007}, and the Zilany model \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.  
@@ -120,9 +121,10 @@ Motivated by observing ANF phenomenon, Carney and colleagues have made improveme
 the critical bandwidths obtained from psychophysical experiments improving the non-linear compression and two-tone
 suppression behaviour in the model. This model is used exclusively in Chapter \ref{sec:GAChapter}. 
 \citet{ZilanyBruce:2007}, version 5, added a parallel signal control path and its predictions have matched a wide range of
-physiological data in normal and impaired cat data. The most recent \AN
-model  \citep[version~6][]{ZilanyBruceEtAl:2009} comprises an additional power-law synapse model, with internal fractional Gaussian noise,
-that enhances the temporal recovery behaviour in \ANFs. 
+physiological data in normal and impaired cat studies. Their most recent \AN
+model  \citep[version~6][]{ZilanyBruceEtAl:2009} includes an additional power-law synapse model,
+#, with internal fractional Gaussian noise,
+which enhances the temporal recovery behaviour in \ANFs. 
 Versions 5 \citep{ZilanyBruce:2007} and 6 \citep{ZilanyBruceEtAl:2009} of the Carney AN model are used in Chapters \ref{sec:Chapter3} and \ref{sec:Chapter4}.
 
 
@@ -153,8 +155,8 @@ Versions 5 \citep{ZilanyBruce:2007} and 6 \citep{ZilanyBruceEtAl:2009} of the Ca
 The Carney AN model consists of an outer/middle ear pre-processing filter, a cochlear filterbank,
 \IHC to \AN synapse model and dead-time modified Poisson spike
 generator. 
-Figure \ref{fig:ZilanyBruceFig} shows the schematics of the Zilany version of the model
-the \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
+Figure \ref{fig:ZilanyBruceFig} shows the schematics of the Zilany version of the AN model
+\citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
 
 
 
