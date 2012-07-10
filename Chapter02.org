@@ -147,16 +147,20 @@ Versions 5 \citep{ZilanyBruce:2007} and 6 \citep{ZilanyBruceEtAl:2009} of the Ca
 
 
 #+attr_latex: width=0.95\textwidth
-#+caption: Auditory periphery schematic of the Zilany AN model (\citet{ZilanyBruceEtAl:2009}, reproduced from their Fig. 2). The AN model is comprised of a middle and inner ear filter model (A), and a synapse between inner hair cells and type I ANFs (B).  \citet{ZilanyBruceEtAl:2009} improved the classic IHC-AN synapse \citep{WestermanSmith:1987,WestermanSmith:1988} with dual power-law adaptation models and the inclusion of fractional Gaussian noise. Further details of the Zilany AN model are explained in \citet{ZilanyBruceEtAl:2009} and \citet{ZilanyCarney:2010}. 
+#+caption: Auditory periphery schematic of the Zilany version of the Carney AN model (\citet{ZilanyBruceEtAl:2009}, reproduced from their Fig. 2). The Carney AN model is comprised of a middle and inner ear filter model (A), and a synapse between inner hair cells and type I ANFs (B).   
 #+label: fig:ZilanyBruceFig
 [[../figures/ZilanyEtAl2009-Fig2.png]]
 
 
-The Carney AN model consists of an outer/middle ear pre-processing filter, a cochlear filterbank,
-\IHC to \AN synapse model and dead-time modified Poisson spike
-generator. 
-Figure \ref{fig:ZilanyBruceFig} shows the schematics of the Zilany version of the AN model
-\citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
+Figure \ref{fig:ZilanyBruceFig} shows the schematics of the Zilany
+version of the AN model \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
+The Carney AN model consists of an outer/middle ear pre-processing
+filter, a cochlear filterbank, \IHC to \AN synapse model and dead-time
+modified Poisson spike generator. \citet{ZilanyBruceEtAl:2009} improved
+the classic \citet{WestermanSmith:1988} 3-store diffusion model of the
+IHC-AN synapse with dual power-law adaptation models and the inclusion
+of fractional Gaussian noise. Further details of the Zilany AN model are
+explained in \citet{ZilanyBruceEtAl:2009} and \citet{ZilanyCarney:2010}.
 
 
 
@@ -310,14 +314,15 @@ leak reversal potential \Eleak; \INa is the sodium current density;
 is a hyperpolarization-activated current density; and \ISYN are synaptic
 input current densities.  
 
-The voltage dependent relationship in each current model has a peak conductance parameter and gating variables for activation and de-activation. 
-The formula for the sodium current, \INa, was based on the studies of \citet{Costa:1996} and \citet{BelluzziSacchiEtAl:1985}
-Belluzzi et al. (1985) and given by the following equation:
+The voltage dependent relationship in each current model has a peak
+conductance parameter and gating variables for activation and
+de-activation.  The formula for the sodium current, \INa, was based on
+the studies of \citet{Costa:1996} and \citet{BelluzziSacchiEtAl:1985}
+and given by the following equation:
 \begin{equation} \label{eq:Meth:INa} 
 \INa(t,V)=\gNa m^{3} h (V - \ENa)
-\end{equation} \noindent where /m/ is the activation function, /h/ is the de-activation function, \gNa is the maximum Na^{+} conductance, and 
-(V - \ENa) is the relative potential between the membrane voltage and the 
-Na^{+} reversal potential.
+\end{equation} \noindent where /m/ is the activation function, /h/ is the de-activation function, \gNa is the maximum sodium conductance, and 
+(V - \ENa) is the relative potential between the membrane voltage and the sodium reversal potential.
 The sodium current in \VCN neurons has not been measured, but measurements in other mammalian neurons was deemed sufficient. 
 
 The potassium and mixed-cation current models
@@ -345,15 +350,20 @@ yielded accurate mathematical descriptions of:
 \Ih(t,V)=\gh r (V-\Eh). 
 \end{equation}
 
-Figure \ref{fig:Ch2:RM2} 
-The active voltage-dependant current
-densities \INa, \IKHT, \IKLT, \IKA and \Ih, and each of their activation
-and deactivation functions (/a, b, c, h, m, n, p, r, w/ and /z/) are
-described in detail by \citet{RothmanManis:2003,RothmanManis:2003a,RothmanManis:2003b} and the [[latex:progname][NEURON]] source
-code is freely available online at [[http://senselab.med.yale.edu/senselab/modeldb][ModelDB]] \citep{HinesMorseEtAl:2004}.
-Detailed equations for the active voltage-dependant
-currents $I_{Na}$, $I_{K_{HT}}$, $I_{K_{LT}}$, $I_{K_A}$ and $I_{h}$, and their
-activation and de-activation functions are included in the appendix (Appendix \ref{sec:Apdx:RMCurrents})
+Figure \ref{fig:Ch2:RM2} shows the voltage-dependent relationship of the
+activation function and time constants in potassium currents (\IKLT and
+\IKHT) from each of the existing \VCN neural models.
+The threshold for the activation variable of \IKLT, $w^\lambda$, is below the \RMP around -65 mV.
+Only \IKHT is present in regular firing (current-clamp  type I) units, and behaves as a rectifier by activating 
+when the membrane voltage rises above -20 mV during an \AP.
+  The active
+voltage-dependant activation and deactivation functions (/a, b, c, h, m,
+n, p, r, w/ and /z/) are described in detail by
+\citet{RothmanManis:2003,RothmanManis:2003a,RothmanManis:2003b} and the
+[[latex:progname][NEURON]] source code is freely available online at [[http://senselab.med.yale.edu/senselab/modeldb][ModelDB]]
+\citep{HinesMorseEtAl:2004}. 
+ Further detailed equations are included in Appendix
+\ref{sec:Apdx:RMCurrents}.
 
 #+attr_latex: width=0.7\textwidth
 #+caption: [Voltage-dependancy of potassium channel dynamics in existing CN models]{\citet{RothmanManis:2003b} compared their kinematic model of activation gating variables of \IKLT and \IKHT with equivalent rectifying potassium channel models used by existing CN neural models. The voltage dependency of \IKHT's ($n^{\lambda},\, \tau_n$) and \IKLT's ($n^{\lambda},\, \tau_n$) activation gating variable and its time constant. This figure is reproduced from Figure 2 in \citet{RothmanManis:2003b}.}
@@ -363,13 +373,13 @@ activation and de-activation functions are included in the appendix (Appendix \r
 
 
 
-**  Activation and Inactivation Variable Equations [APPENDIX]
+**  Activation and De-activation Variable Equations [APPENDIX]
    :PROPERTIES:
    :LABEL: sec:Apdx:RMCurrents
    :END:
 
-The activation and inactivation variable equations are reproduced from \citet{RothmanManis:2003b}.
-The core of the \HH-like current equations are the activation and inactivation variables. 
+The activation and de-activation variable equations are reproduced from \citet{RothmanManis:2003b}.
+The core of the \HH-like current equations are the activation and de-activation variables. 
 The time- and voltage-dependant current variables follow a first-order differential equation in time:
 \begin{equation}
 \frac{dx}{dt} = (x_\infty - x)/\tau_x
@@ -378,10 +388,10 @@ where \tau_x is the time constant of /x/, $x_\infty$ is the steady-state value o
 the value of /x/ when $t \gg \tau_x$).
 
 The voltage dependence of the activation and 
-inactivation variables a, b, c, w, z, n, p, m, h, and r are shown in the following
+de-activation variables a, b, c, w, z, n, p, m, h, and r are shown in the following
 equations. 
 # Although the formalism of the preceding equation is different
-# from the original HH formalism in which activation/inactivation vari-
+# from the original HH formalism in which activation/de-activation vari-
 # ables are expressed in terms of “open” and “close” rate constants \alpha
 # and \beta, they are nevertheless mathematically equivalent when $x_\infty=\alpha/(\alpha + \beta)$ and 
 # $\tau_x = 1/(\alpha + \beta)$. Reversal potentials are: \EK = -70 mV, 
@@ -492,16 +502,6 @@ except for \Ih which had a temperature coefficient $Q_{10}=1.3$.
 
 ** Neural Sub-types in the Cochlear Nucleus
 
-\begin{figure}[h]
-\includegraphics[width=\columnwidth,bb=0 0 206 175,clip]{../jneurometh/SimpleCircuit}
-\caption{\label{fig:MicroCN} Microcircuit showing synaptic interaction within one
-isofrequency lamina of the CN spanning the VCN and DCN. Spatial
-organization of lateral connections in the CN stellate network are ordered into a range of frequency channels that is mapped
-to the VCN and DCN from ANFs. }
-\end{figure}
-
-
-\yellownote{should you include CellMorph table here}
 
 Table \ref{tab:Meth:CellTypes} shows the maximum conductances, $\bar{g}$,
 for each cell type in the network.  The neurons in the ventral \CN
@@ -527,6 +527,8 @@ regularly for higher current levels
 intermediate type I-II response. \DS cells have a small amount of \IKLT
 current to reduce the cells' input resistance and enhance coincidence
 detection.  
+
+Figure \ref{fig:Meth:MicroCN}
 
 In the \CNSM model, the membrane parameters were developed and refined after we
 established the /in vitro/ characteristics of each cell type from the literature
@@ -560,11 +562,12 @@ at 37\degC, and matched them to the model types in \citet{RothmanManis:2003}.
    :LABEL: sec:Ch2:ConnectivityandTopology
    :END:
 
+
 Like many neural networks in the brain, the likelihood of
 connectivity between two cells in the \CN is a function of distance,
 cell type, and spatial spread relative to some receptive field.
 Topographical connectivity in our model was based on position within
-the \CN (Figure \ref{fig:Meth:MicroCN}B), but is easily interchangeable
+the \CN, but is easily interchangeable
 with frequency-specific connectivity. Connectivity between cells in a
 post-synaptic group onto individual cells is described by a synaptic
 weight, /w/, the number of synapses, /n/, and the spatial spreading
@@ -572,37 +575,45 @@ parameter, /s/, which were taken to be uniform across the network for
 each connection type.  The allocation of pre-synaptic cells to
 post-synaptic cells was a random process modeled here using a Gaussian
 function, with mean equal to the post-synaptic cell's \CF channel and
-standard deviation equal to $\sqrt{s/2}$ (in channel units).  Connection
-parameters that are fixed are shown in Table
-\ref{tab:Meth:GeneralParams} and parameters used in the optimisation are
-shown in Table \ref{tab:Meth:Genome}.
+standard deviation equal to $\sqrt{s/2}$ (in channel units).  
+# Connection
+# parameters that are fixed are shown in Table
+# \ref{tab:Meth:GeneralParams} and parameters used in the optimisation are
+# shown in Table \ref{tab:Meth:Genome}.
 
-The basic unit of sensory networks is the place-channel or feature-channel of
-the microcircuit, which separates the receptive field into independent
-groups. The creation of neural microcircuits based on ``place'' is easily
-amenable to different sensory neural network models; however there are problems
-and unique features that may be necessary to ensure realistic representation of
-the system.  In the \CNSM model, one iso-frequency channel  receives
-afferent input from the narrowest receptive field possible in the auditory nerve
-model.
 
+The basic unit of sensory networks is the place-channel or
+feature-channel of the microcircuit, which separates the receptive field
+into independent groups. The creation of neural microcircuits based on
+``place'' is easily amenable to different sensory neural network models;
+however there are problems and unique features that may be necessary to
+ensure realistic representation of the system.  In the \CNSM model, one
+iso-frequency channel receives afferent input from the narrowest
+receptive field possible in the auditory nerve model.  Figure
+\ref{fig:MicroCN} shows the intra-nuclei microcircuit connectivity and
+connectivity type (neurotransmitter and receptor type) in the \CNSM
+model based on existing experimental evidence in most mammals.  Chapter
+\ref{sec:Chapter3} goes into more detail regarding the strength of
+evidence in the literature for each of the connections in the
+microcircuit.
+
+#+attr_latex: width=0.6\textwidth
+#+caption: {Microcircuit showing proposed synaptic interaction between cell types in the CNSM in one isofrequency lamina. Strong evidence for connection is shown with a solid line. Weak evidence for connection show with a dashed line, for example recurrent connections between TS cells. }
+#+label: fig:MicroCN
+[[../figures/SimpleCircuit.pdf]]
 
 
 Connection variables between cell types are generally uniform across the
 network but may be adjusted to suit the model.  
-In the \CNSM model, assumptions were made based on population average data.
-# Model parameters may be
-# different between species or within species, therefore, without adequate
-# information regarding exact neuron to neuron connection reasonable
-# assumptions are made based on the average population data.  
-Issues arise
-at the ends of large-scale topographic \BNNs with overlapping place\slash
+#In the \CNSM model, assumptions were made based on population average data.  
+Model parameters may be different between species or within species,
+therefore, without adequate evidence regarding exact neuron to neuron
+connections average population data was used.  Issues also arise at the
+ends of large-scale topographic \BNNs with overlapping place\slash
 channel connections.  Boundaries are considered closed bookends, where
 post-synaptic neurons select only from those with its connection range.
 The best modelling behaviour would arise, therefore, in the middle
 sections.
-
-
 
 
 ** Network Connection Parameters
@@ -612,7 +623,7 @@ as a Gaussian probability distribution.  The distribution is centred on
 the post-synaptic cell's position /i/ with an optional offset parameter,
 /o/ in this case frequency channels.  Figure \ref{fig:MicrocircuitConn}
 shows the method for Gaussian spread of connections between cell types
-used throughout this thesis.
+used in the \CNSM model.
 
 #  The channels are separated using the same Greenwood function as used for the AN filterbank.
 #+BEGIN_LaTeX
@@ -681,8 +692,8 @@ groups can be defined by:
 # Gaussian mean in the random allocation process.
 
 The connectivity of the cell types involved in the stellate microcircuit is
-shown in Figure \ref{fig:microcircuit} and in Table
-\ref{tab:TSModelSummary}iii. \ANFs with similar characteristic frequencies were
+shown in Figure \ref{fig:MicroCN} and in wider scale in Figure
+\ref{tab:MicrocircuitConn}. \ANFs with similar characteristic frequencies were
 spatially organised into $N_{\textrm{Channel}}$ iso-frequency lamina or channels,
 which translated to frequency channels in the \CN.  Auditory nerve projections
 to each \CN cell-type shared the same synaptic weight, $\mathbf{w}$, but \HSR and
@@ -712,6 +723,7 @@ model.
    :PROPERTIES:
    :LABEL: sec:Ch2:Synapse
    :END:
+
 Synapses were modeled with either a single or a double exponential
 time-dependent conductance change.  The current density equation used was
 \begin{equation}\label{eq:SYN}
@@ -926,7 +938,12 @@ input model. This replicates \ANF innervation of the \CN
      \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
 
 
-\yellownote{Where is the figure?}
+#+CAPTION: [Cochlear Nucleus Stellate Microcircuit Model]{Cochlear nucleus stellate microcircuit (CNSM) model as seen in single frequency channels.}
+#+LABEL: fig:microcircuit
+[[../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf]]
+
+
+# \yellownote{Where is the figure?}
 
 * Optimisation Techniques
   :PROPERTIES:
@@ -1024,22 +1041,27 @@ microcircuit used in the simulations performed in Chapter \ref{sec:Chapter3}.
 
 ** Simultaneous Methods
 
-Chapter \ref{sec:GAChapter} presents a method to optimise all the network
-parameters simultaneously.  This method requires complete data from all neurons in
-the network, and is therefore \yellownote{better explanation}  given existing experimental methods.
-
-New techniques are being developed that are able to record from multiple neurons
-simultaneously.
+Chapter \ref{sec:GAChapter} presents a method to optimise all the
+network parameters in the \CNSM model simultaneously.  New techniques in
+multi-unit electrophysiological recording are being developed that are
+able to record from multiple neurons simultaneously.  A simultaneous
+optimisation method requires complete data from all or a majority of
+neurons in the network, and is therefore is not possible given existing
+experimental methods. The method used in Chapter \ref{sec:GAChapter}
+used surrogate target data by simulating the network with user selected
+or randomised parameter values.
 
 # - spike-timing essential, AIV ideal
-The optimisation method used in Chapter \ref{sec:GAChapter} is a derivation of the genetic algorithm method \citep{Holland:1975,KozaRice:1991}.
- The genetic algorithm optimisation procedure uses operations analogous
- to natural selection to search for an optimum solution \citep{Mitchell:1996}.  This
- procedure is used when the standard analytical and gradient search
- methods are ineffective or computationally expensive.  The basic
- response properties of the neurons will be used to set the ‘fitness’
- criteria of the genetic algorithm.  The design and implementation of
- the genetic algorithm search method is discussed in the Chapter \ref{sec:GAChapter}.
+The optimisation method used in Chapter \ref{sec:GAChapter} is a
+derivation of the genetic algorithm method
+\citep{Holland:1975,KozaRice:1991}.  The genetic algorithm optimisation
+procedure uses operations analogous to natural selection to search for
+an optimum solution \citep{Mitchell:1996}.  This procedure is used when
+the standard analytical and gradient search methods are ineffective or
+computationally expensive.  The basic response properties of the neurons
+will be used to set the ‘fitness’ criteria of the genetic algorithm.
+The design and implementation of the genetic algorithm search method is
+discussed in the Chapter \ref{sec:GAChapter}.
 
 
 
