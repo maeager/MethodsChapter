@@ -76,7 +76,7 @@ bifurcate after passing the central nervous system barrier to innervate the
 ventral and dorsal portions of the cochlear nucleus (\VCN and \DCN), as shown in
 Figure \ref{fig:CNCatHuman} \citep{Lorente:1981,Liberman:1991}. Based on their
 cell bodies, myelination and prevalence, \ANFs are categorised as type I (large,
-mylenated and highly prevalent) and type II (small, unmylenated and less
+myelinated and highly prevalent) and type II (small, unmyelinated and less
 prevalent).  The dominant type I \ANFs are further categorised as \HSR and \LSR
 fibres. \HSR fibres have a low threshold to tones and have limited dynamic range
 (saturating to tones of moderate sound levels) \citep{SachsYoung:1979}.  \LSR
@@ -99,7 +99,7 @@ they play a different role in sound processing to \HSR fibres.
 # above. The most recent \AN models include all observed phenomenological
 # behaviours in \ANFs.  periphery models are necessary as inputs.  }
 
-The abovementioned characteristics of \ANFs are essential as input to models of the \CN.
+The above-mentioned characteristics of \ANFs are essential as input to models of the \CN.
 In examining the properties of a detailed neural model of the \CN,
  a phenomenologically-realistic auditory model was needed to represent
  sounds and transformations that occur in the central auditory system.
@@ -223,7 +223,7 @@ parameters for each species.
 The level of spontaneous activity and minimum thresholds in \ANFs are
 separated into two distinct groups, \HSR and \LSR fibres.  The \SR of
 \HSR and \LSR was set to 50 and 0.5 Hz, respectively.
-Twenty \HSR and ten \LSR \AN fibers were simulated
+Twenty \HSR and ten \LSR \AN fibres were simulated
 for each frequency-channel.
 The stimulus was passed through the auditory nerve model for each
 frequency channel for both \LSR and \HSR fibres, producing an
@@ -254,7 +254,7 @@ Spike trains for each neuron in the model were created at the start of each
 repetition of the stimulus, but could be saved and loaded from file to improve
 efficiency.
 
-# \yellownote{Para: Notes from Hegger: discuss poisson generator} 
+# \yellownote{Para: Notes from Hegger: discuss Poisson generator} 
 # # $$r(t) = \alpha [V(t)-V_{\mathrm th}]$$ 
 # where 
 # # $$\mathrm{P}\left{ n \mathrm{spike during}  (t_1,t_2)\right} = e^{\langle{}n\rangle}\frac{(\langle{}n\rangle)^n}{n!} \approx r(t)\delta{}t$$ then refractory effects; then renewal process PDF
@@ -366,7 +366,7 @@ n, p, r, w/ and /z/) are described in detail by
 \ref{sec:Apdx:RMCurrents}.
 
 #+attr_latex: width=0.7\textwidth
-#+caption: [Voltage-dependancy of potassium channel dynamics in existing CN models]{\citet{RothmanManis:2003b} compared their kinematic model of activation gating variables of \IKLT and \IKHT with equivalent rectifying potassium channel models used by existing CN neural models. The voltage dependency of \IKHT's ($n^{\lambda},\, \tau_n$) and \IKLT's ($n^{\lambda},\, \tau_n$) activation gating variable and its time constant. This figure is reproduced from Figure 2 in \citet{RothmanManis:2003b}.}
+#+caption: [Voltage-dependency of potassium channel dynamics in existing CN models]{\citet{RothmanManis:2003b} compared their kinematic model of activation gating variables of \IKLT and \IKHT with equivalent rectifying potassium channel models used by existing CN neural models. The voltage dependency of \IKHT's ($n^{\lambda},\, \tau_n$) and \IKLT's ($n^{\lambda},\, \tau_n$) activation gating variable and its time constant. This figure is reproduced from Figure 2 in \citet{RothmanManis:2003b}.}
 #+label: fig:Ch2:RM2
 [[../SimpleResponsesChapter/gfx/RothmanManisDynamics.pdf]]
 
@@ -680,7 +680,7 @@ groups can be defined by:
 # responses to frequencies 2 octaves below and 1 octave above their \CF
 # \citep{PalmerJiangEtAl:1996,PaoliniClark:1999} (see fixed parameters in
 # Table \ref{tab:Meth:GeneralParams}).  Physiological evidence in the
-# golgi cell domain of the ventral \CN shows that neurons have monotonic,
+# Golgi cell domain of the ventral \CN shows that neurons have monotonic,
 # non-saturating rate-level curves, similar to \LSR \ANFs
 # \citep{GhoshalKim:1996a}. \ANF labeling evidence shows the absence of
 # \HSR \ANFs in the Golgi cell domain of the \CN
@@ -844,7 +844,7 @@ Melbourne] an SGI Altix system (=soma=: 64 32-bit Itanium
 CPUs);[fn::  System =soma= provided by the Neuroimaging Group and
 Department of Electrical and Electronic Engineering, the University of
 Melbourne] and an iDataPlex IBM system (=merri=: 1024 64-bit Intel
-x86 CPUs).[fn::  Sytem =merri= provided by the Victorian Life Sciences
+x86 CPUs).[fn::  System =merri= provided by the Victorian Life Sciences
 Computing Initiative]
 
 
@@ -903,7 +903,7 @@ it could be retrieved by NEURON in the simulation.
 
 The \AN model and the neural cell models were combined in a NEURON package called
 [[latex:progname][cnstellate]].
-#\yellownote{show organsisation of frequency channels, input and microcircuit }
+#\yellownote{show organisation of frequency channels, input and microcircuit }
 The tonotopic organisation of the model was built into N_{\rm channel} frequency
 channels (from $CF_{\rm low}$ to $CF_{\rm high}) mimicking the population of \ANF
 input model. This replicates \ANF innervation of the \CN
@@ -956,9 +956,24 @@ behaviour of real neural networks.  Pre-eminent computational neuroscientists
 have noted that "choices, assumptions, and guesses" are an integral part of
 neuronal modelling \citep{SegevBurkeEtAl:1998}.  The acceleration of
 computational power and enhanced experimental techniques in multi-unit
-recordings are enabling more detailed neural models to be developed.  There is
-much to be gained from biophysically-realistic modelling approaches, especially
-in the thoroughly investigated cochlear nucleus of mammals, bats and birds.
+recordings are enabling more detailed neural models to be developed.  
+The current problems in computational neuroscience optimisation can be summarised into:
+(a) effect, type and loci of noise 
+(b) large parameter spaces
+(c) trade-offs in biological realism versus processing time
+(d) availability  and variability of experimental data
+(e) population versus single neuron responses
+
+# There is much to be gained from biophysically-realistic modelling
+# approaches, especially in the thoroughly investigated cochlear nucleus
+# of mammals.  The development of realistic input models, with
+# phenomenologically correct behaviour to arbitrary stimuli, are much
+# better than randomised rate-based input models.
+Methods used in the \CNSM model are easily portable to other sensory neural systems.
+The variability of experimental data occurs through use of different animal species and strains 
+in the literature.  Legacy data may also be affected by methods that adversely affect the neural responses in the networks, particularly anaesthetics in /in vivo/ studies.
+
+
 
 # \yellownote{See neural detail in auditory
 # system\citep{LuRubioEtAl:2008}} \yellownote{Discuss use of Poisson
@@ -966,12 +981,6 @@ in the thoroughly investigated cochlear nucleus of mammals, bats and birds.
 # network simulation during optimisation.}
 
 
-\yellownote{Large parameter space
-Biological realism vs. processing time
-Portability to other neural systems
-Population vs Single Neuron responses
-Availability  and variability of experimental data
-Variability in anaesthetics, type of animal}
 
 \yellownote{
     Network Configuration
@@ -1016,7 +1025,7 @@ for a realistic optimisation.  The model implementation, the choice of
 experimental data and evaluation of the fitness function are important
 factors in determining the speed and efficiency of the algorithm.  The
 following sections introduce the two optimisation methods used in this
-thesis to characterise and hone in on a realistic model of the cochelar
+thesis to characterise and hone in on a realistic model of the cochlear
 nucleus stellate network.
 
 
@@ -1195,7 +1204,7 @@ discussed in the Chapter \ref{sec:GAChapter}.
 	
 # Table 3: Physiological data used in the fitness function.
 # Physiological Property
-# Contraint Parameters
+# Constraint Parameters
 # Range
 # Reference
 # Synchronisation to AM tones
