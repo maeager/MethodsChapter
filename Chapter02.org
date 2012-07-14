@@ -4,6 +4,7 @@
 #+OPTIONS: toc:nil H:5  <:t >:t tasks:nil
 #+STARTUP: oddeven 
 #+TODO: REFTEX
+#+LANGUAGE: en_GB-ise-wo_accents
 #+SEQ_TODO:   TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
 #+TAGS:       Write(w) Update(u) Fix(f) Check(c) noexport(n)
 #+LaTeX_CLASS: UoM-draft-org-article
