@@ -28,10 +28,10 @@ used are provided in the relevant chapters.
    (add-to-list 'org-export-latex-classes
                 '("UoM-draft-org-article"
   "\\documentclass[12pt,a4paper,twoside,openright]{book}
-   \\usepackage{../hg/manuscript/style/uomthesis}
-   \\input{../hg/manuscript/user-defined}
+   \\usepackage{../org-manuscript/style/uomthesis}
+   \\input{../org-manuscript/user-defined}
    \\usepackage[acronym]{glossaries}
-   \\input{../hg/manuscript/misc/glossary}
+   \\input{../org-manuscript/misc/glossary}
    \\makeglossaries
    \\pretolerance=150
    \\tolerance=100
@@ -1076,7 +1076,7 @@ discussed in the Chapter \ref{sec:GAChapter}.
 
 
 #+BEGIN_LaTeX  
-\ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../hg/manuscript/bib/MyBib}\newpage \listoftodos}{}
+\ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../org-manuscript/bib/MyBib}\newpage \listoftodos}{}
 #+END_LaTeX
 
 
