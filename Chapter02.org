@@ -218,8 +218,26 @@ parameters for each species.
 | Rat  ^{\footnotesize 3}  | 7613.3 | 0.928 |       1.0 | 8.03 |
 #+latex: {\footnotesize{$^1$ \citet{Greenwood:1990}, $^2$ \citet{Liberman:1982}, $^3$ \citet{Muller:1991}}}
 
+** Inner and Outer Hair Cell Compression 
+
+
+
+
+#+BEGIN_LaTeX
+  \begin{figure}[htb]
+    \centering
+    {\figfont{A}\hfill Cat\hspace{0.5in}\figfont{B}\hfill Rat \hfill}\\ \resizebox{7in}{!}{\includegraphics[keepaspectratio=true]{../SimpleResponses/gfx/AudiogramCompression.pdf}}
+    \caption[Cat and Rat audiograms and compression curves for the Bruce and Zilany AN models]{Animal auditory thresholds (audiograms) were used to calculate the inner and outer hair cell (IHC and OHC) compression values in the Bruce and Zilany AN models. The audiograms were collected from earlab.bu.edu (A) Compression values for cat using audiogram  and rat
+      (B).}
+    \label{fig:Compression}
+  \end{figure}
+#+END_LaTeX
+
 
 ** High and Low Spontaneous Rate Fibres
+:PROPERTIES:
+:LABEL: sec:Ch2:HSRLSR
+:END:
 
 The level of spontaneous activity and minimum thresholds in \ANFs are
 separated into two distinct groups, \HSR and \LSR fibres.  The \SR of
@@ -617,7 +635,10 @@ The best modelling behaviour would arise, therefore, in the middle
 sections.
 
 
-** Network Connection Parameters
+** Connectivity Parameters
+   :PROPERTIES:
+   :LABEL:    sec:Ch2:ConnParameters
+   :END:
 
 The probability of pre-synaptic to post-synaptic connection is defined
 as a Gaussian probability distribution.  The distribution is centred on
@@ -871,14 +892,24 @@ Octave]]. The stimulus types included pure tones, white noise, sinusoidal
 amplitude modulated sounds and clicks.
 
 # The first run of a stimulus may take some time if the AN responses have not been previously saved.  
-The AN model described in \citet{ZilanyBruce:2007} requires a sampling
-rate of 500 kHz in the stimulus.  The output of the AN model was then
-down-sampled to a lesser resolution for the spike generator and saved
-for further use.  The resolution of the spike generator was generally at
-10 or 20 kHz to match the simulations' time step of 0.1 or 0.05 ms.
-Version 4 of the AN model \citep{ZilanyBruceEtAl:2009} was sampled at
-100 kHz for \CF units below 20 kHz, otherwise a sampling rate of 200 kHz
-was used.
+\yellownote{
+Hair cell compression values for the Bruce and Zilany \AN models 
+
+Temporal resolution in the \CNSM model is variable at each stage: the stimulus, the \ANF spiking model, and the NEURON simulation.
+]
+The stimulus sampling rate of the ARLO auditory model was 50 kHz \citep{HeinzZhangEtAl:2001}. 
+The middle ear filter in the Bruce model \citep{ZilanyBruce:2007}
+required a sampling rate of 500 kHz in the stimulus. The Zilany model
+\citep{ZilanyBruceEtAl:2009} improved the processing to allow for a
+stimulus sampling rate of 200 kHz for \CFs above 20 kHz; 100 kHz
+sampling was used for other \CFs.
+# Version 4 of the AN model
+# \citep{ZilanyBruceEtAl:2009} was sampled at 100 kHz for \CF units below
+# 20 kHz, otherwise a sampling rate of 200 kHz was used.
+
+The output of all \AN models was then down-sampled to a lesser sampling rate
+for the \ANF spike generator and saved for further use.  The resolution of
+the spike generator was either 20 or 50 kHz. The integration time-step of the NEURON simulations was 0.05 ms.  
 
 Notch noise was used as the stimulus for Chapter \ref{sec:GAChapter} and the optimisation of \DS cell connections
 to \TV cells (see Section \ref{sec:Ch3:DSTV} in Chapter
@@ -900,7 +931,7 @@ it could be retrieved by NEURON in the simulation.
 
 
 
-** TODO Creation and Simulation  Model
+** Creation and Simulation of CNSM  Model
 
 The \AN model and the neural cell models were combined in a NEURON package called
 [[latex:progname][cnstellate]].
@@ -970,9 +1001,12 @@ The current problems in computational neuroscience optimisation can be summarise
 # of mammals.  The development of realistic input models, with
 # phenomenologically correct behaviour to arbitrary stimuli, are much
 # better than randomised rate-based input models.
-Methods used in the \CNSM model are easily portable to other sensory neural systems.
-The variability of experimental data occurs through use of different animal species and strains 
-in the literature.  Legacy data may also be affected by methods that adversely affect the neural responses in the networks, particularly anaesthetics in /in vivo/ studies.
+Methods used in the \CNSM model are easily portable to other sensory
+neural systems.  The variability of experimental data occurs through use
+of different animal species and strains in the literature.  Legacy data
+may also be affected by methods that adversely affect the neural
+responses in the networks, particularly anaesthetics in /in vivo/
+studies.
 
 
 
