@@ -847,7 +847,9 @@ delay.
 
 
 * Simulation and Implementation of the CNSM Model 
-
+:PROPERTIES:
+:LABEL: sec:Ch2:SimSpecs
+:END:
 ** Simulation Environment
 
 Neural models and network connections were generated using the neural
