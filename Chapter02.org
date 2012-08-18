@@ -218,6 +218,7 @@ parameters for each species.
 | Rat  ^{\footnotesize 3}  | 7613.3 | 0.928 |       1.0 | 8.03 |
 #+latex: {\footnotesize{$^1$ \citet{Greenwood:1990}, $^2$ \citet{Liberman:1982}, $^3$ \citet{Muller:1991}}}
 
+
 ** Inner and Outer Hair Cell Compression 
 
 
@@ -226,9 +227,13 @@ parameters for each species.
 #+BEGIN_LaTeX
   \begin{figure}[htb]
     \centering
-    {\figfont{A}\hfill Cat\hspace{0.5in}\figfont{B}\hfill Rat \hfill}\\ \resizebox{7in}{!}{\includegraphics[keepaspectratio=true]{../SimpleResponses/gfx/AudiogramCompression.pdf}}
-    \caption[Cat and Rat audiograms and compression curves for the Bruce and Zilany AN models]{Animal auditory thresholds (audiograms) were used to calculate the inner and outer hair cell (IHC and OHC) compression values in the Bruce and Zilany AN models. The audiograms were collected from earlab.bu.edu (A) Compression values for cat using audiogram  and rat
-      (B).}
+    {\figfont{A}\hfill Cat\hspace{0.5in}\figfont{B}\hfill Rat \hfill}\\ 
+  \resizebox{7in}{!}{\includegraphics[keepaspectratio=true]{../SimpleResponsesChapter/gfx/AudiogramCompression.pdf}} \\
+    \caption[Cat and Rat audiograms and compression curves for the Bruce and
+    Zilany AN models]{Animal auditory thresholds (audiograms) were used to
+      calculate the inner and outer hair cell (IHC and OHC) compression values in
+      the Bruce and Zilany AN models. The audiograms were collected from
+      earlab.bu.edu (A) Compression values for cat using audiogram and rat (B).}
     \label{fig:Compression}
   \end{figure}
 #+END_LaTeX
@@ -392,7 +397,7 @@ n, p, r, w/ and /z/) are described in detail by
 
 
 
-**  Activation and De-activation Variable Equations [APPENDIX]
+** Activation and De-activation Current Equations [APPENDIX]
    :PROPERTIES:
    :LABEL: sec:Apdx:RMCurrents
    :END:
@@ -850,6 +855,7 @@ delay.
 :PROPERTIES:
 :LABEL: sec:Ch2:SimSpecs
 :END:
+
 ** Simulation Environment
 
 Neural models and network connections were generated using the neural
@@ -979,6 +985,7 @@ input model. This replicates \ANF innervation of the \CN
 
 # \yellownote{Where is the figure?}
 
+
 * Optimisation Techniques
   :PROPERTIES:
   :LABEL: sec:Ch2:Optimisation
@@ -992,11 +999,11 @@ neuronal modelling \citep{SegevBurkeEtAl:1998}.  The acceleration of
 computational power and enhanced experimental techniques in multi-unit
 recordings are enabling more detailed neural models to be developed.  
 The current problems in computational neuroscience optimisation can be summarised into:
-(a) effect, type and loci of noise 
-(b) large parameter spaces
-(c) trade-offs in biological realism versus processing time
-(d) availability  and variability of experimental data
-(e) population versus single neuron responses
+(a) effect, type and loci of noise, 
+(b) large parameter spaces,
+(c) trade-offs in biological realism versus processing time,
+(d) availability  and variability of experimental data, and 
+(e) population versus single neuron responses.
 
 # There is much to be gained from biophysically-realistic modelling
 # approaches, especially in the thoroughly investigated cochlear nucleus
@@ -1112,7 +1119,7 @@ discussed in the Chapter \ref{sec:GAChapter}.
 
 
 #+BEGIN_LaTeX  
-\ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../org-manuscript/bib/MyBib}\newpage \listoftodos}{}
+\ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../MyBib}\newpage \listoftodos}{}
 #+END_LaTeX
 
 
