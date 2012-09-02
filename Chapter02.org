@@ -924,13 +924,17 @@ The genetic algorithms and sensitivity analyses in Chapter
 #generator used was the internal RNG of NEURON, MCellRand4
 
 
-** Stimulus Generation
+** Stimulus Generation and Analysis
 
 In order to emulate sound entering the ear, acoustic sounds were generated and 
 passed into the auditory model.  The acoustic stimuli were generated in [[latex:progname][NEURON]],
 with the exception of notch noise, which was generated in [[latex:progname][MATLAB/GNU
 Octave]]. The stimulus types included pure tones, white noise, sinusoidal
 amplitude modulated sounds and clicks.
+Sound levels are given in decibel SPL (i.e., root
+mean square of pressure levels in dB re 20 $\mu\textrm{Pa}$).
+Bursts of wideband noise (bandwidth 20 kHz, spectral density
+
 
 # The first run of a stimulus may take some time if the AN responses have not been previously saved.  
 \yellownote{Hair cell compression values for the Bruce and Zilany \AN models.  }
@@ -967,6 +971,8 @@ it could be retrieved by NEURON in the simulation.
 # suppression of \TV cells by \DS cells \citep{ReissYoung:2005} and to
 # estimate the frequency range of \ANFs converging on \DS cells
 # \citep{PalmerJiangEtAl:1996}.
+
+
 
 
 
