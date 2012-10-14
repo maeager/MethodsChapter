@@ -265,7 +265,7 @@ humans, cat and rat.
 
 ** High and Low Spontaneous Rate Fibres
 :PROPERTIES:
-:LABEL: sec:Ch2:HSRLSR
+:CUSTOM_ID: sec:Ch2:HSRLSR
 :END:
 
 The level of spontaneous activity and minimum thresholds in \ANFs are
@@ -342,7 +342,7 @@ efficiency.
 
 * Neural Cell Models
   :PROPERTIES:
-  :LABEL: sec:Meth:cell-models
+  :CUSTOM_ID: sec:Meth:cell-models
   :END:
 
 # Hodgkin-Huxley-like
@@ -427,7 +427,7 @@ n, p, r, w/ and /z/) are described in detail by
 
 ** Activation and Deactivation Current Equations 
    :PROPERTIES:
-   :LABEL: sec:Apdx:RMCurrents
+   :CUSTOM_ID: sec:Apdx:RMCurrents
    :END:
 
 The activation and de-activation variable equations are reproduced from \citet{RothmanManis:2003b}.
@@ -536,7 +536,7 @@ except for \Ih which had a temperature coefficient $Q_{10}=1.3$.
 
 # * Neural Models
 #   :PROPERTIES:
-#   :LABEL: sec:NeuralModels
+#   :CUSTOM_ID: sec:NeuralModels
 #   :END:
 
 
@@ -600,7 +600,7 @@ at 37\degC, and matched them to the model types in \citet{RothmanManis:2003}.
 
 * Connectivity and Organisation in the CNSM Model
    :PROPERTIES:
-   :LABEL: sec:Ch2:ConnectivityandTopology
+   :CUSTOM_ID: sec:Ch2:ConnectivityandTopology
    :END:
 
 
@@ -654,7 +654,7 @@ post-synaptic neurons select only from those within its connection range.
 
 ** Connectivity Parameters
    :PROPERTIES:
-   :LABEL:    sec:Ch2:ConnParameters
+   :CUSTOM_ID:    sec:Ch2:ConnParameters
    :END:
 
 The probability of pre-synaptic to post-synaptic connection is defined
@@ -774,7 +774,7 @@ model.
 
 ** Synapse Models
    :PROPERTIES:
-   :LABEL: sec:Ch2:Synapse
+   :CUSTOM_ID: sec:Ch2:Synapse
    :END:
 
 Synapses were modeled with either a single or a double exponential
@@ -832,7 +832,7 @@ mV.
 
 ** Delay and Latency Variables
    :PROPERTIES:
-   :LABEL: sec:Ch2:DelayLatency
+   :CUSTOM_ID: sec:Ch2:DelayLatency
    :END:
 
 For the \CNSM, delay is defined as the time between activation of the pre-synaptic neuron and
@@ -885,7 +885,7 @@ stimuli was used in Section \ref{sec:Ch3:Delay} to set the delay times between
 
 * Simulation and Implementation of the CNSM Model 
 :PROPERTIES:
-:LABEL: sec:Ch2:SimSpecs
+:CUSTOM_ID: sec:Ch2:SimSpecs
 :END:
 
 
@@ -1028,7 +1028,7 @@ input model. This replicates \ANF innervation of the \CN
 
 * Optimisation Techniques
   :PROPERTIES:
-  :LABEL: sec:Ch2:Optimisation
+  :CUSTOM_ID: sec:Ch2:Optimisation
   :END:
 
 
