@@ -8,7 +8,7 @@
 #+SEQ_TODO:   TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
 #+TAGS:       Write(w) Update(u) Fix(f) Check(c) noexport(n)
 #+LaTeX_CLASS: UoM-draft-org-article
-#+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}}
+#+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../MethodsChapter/gfx/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
 #+BIBLIOGRAPHY: MyBib alphanat
@@ -161,7 +161,7 @@ Carney AN model are used in Chapters \ref{sec:Chapter3} and
 #+attr_latex: width=0.95\textwidth
 #+caption: Auditory periphery schematic of the Zilany version of the Carney AN model (\citet{ZilanyBruceEtAl:2009}, reproduced from their Fig. 2). (A) The Carney AN model is comprised of a middle and inner ear filter model, and a synapse between inner hair cells (IHC)  and type I ANFs.  (B) The Zilany AN model has added a dual power-law synapse model  
 #+label: fig:ZilanyBruceFig
-[[../figures/ZilanyEtAl2009-Fig2.png]]
+[[../MethodsChapter/gfx/ZilanyEtAl2009-Fig2.png]]
 
 
 Figure \ref{fig:ZilanyBruceFig} shows the schematics of the Zilany
@@ -637,7 +637,7 @@ of the connections in the microcircuit.
 #+attr_latex: width=0.6\textwidth
 #+caption: [Stellate microcircuit of the ventral cochlear nucleus]{Microcircuit showing proposed synaptic interaction between cell types in the CNSM in one isofrequency lamina. Strong evidence for connection is shown with a solid line. Weak evidence for connection show with a dashed line, for example recurrent connections between TS cells. }
 #+label: fig:MicroCN
-[[../figures/SimpleCircuit.pdf]]
+[[../MethodsChapter/gfx/SimpleCircuit.pdf]]
 
 
 Connection variables between cell types are generally uniform across the
