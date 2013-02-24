@@ -8,10 +8,10 @@
 #+SEQ_TODO:   TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
 #+TAGS:       Write(w) Update(u) Fix(f) Check(c) noexport(n)
 #+LaTeX_CLASS: UoM-draft-org-article
-#+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../MethodsChapter/gfx/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}}
+#+LATEX_HEADER:\graphicspath{{../MethodsChapter/gfx/}{../SimpleResponsesChapter/gfx/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
-#+BIBLIOGRAPHY: MyBib alphanat
+#+BIBLIOGRAPHY: ../org-manuscript/bib/MyBib alphanat
 
 
 
@@ -122,8 +122,8 @@ of low \CF fibres \citep{Carney:1993}.
 Carney and colleagues have made improvements to their model over the
 last 20 years
 \citep{ZhangHeinzEtAl:2001,HeinzZhangEtAl:2001,BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007,ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
-#The Zhang model \citep{ZhangHeinzEtAl:2001}, the ARLO model \citep{HeinzZhangEtAl:2001} and the Bruce model
-#\citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007}, and the Zilany model \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.  
+# The Zhang model \citep{ZhangHeinzEtAl:2001}, the ARLO model \citep{HeinzZhangEtAl:2001} and the Bruce model
+# \citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007}, and the Zilany model \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.  
 \citet{HeinzZhangEtAl:2001} incorporated cochlear filters based on the
 critical bandwidths obtained from psychophysical experiments improving
 the non-linear compression and two-tone suppression behaviour in the
@@ -140,17 +140,17 @@ Carney AN model are used in Chapters \ref{sec:Chapter3} and
 \ref{sec:Chapter4}.
 
 
-#\citet{HeinzZhangEtAl:2001} incorporated cochlear filters based on
-#the critical bandwidths obtained from psychophysical experiments in humans. 
-#The \citet{ZilanyBruce:2007} model improved the previous AN model by an additional signal path and
-#its predictions have matched a wide range of physiological data in normal and
-#impaired cat data.
+# \citet{HeinzZhangEtAl:2001} incorporated cochlear filters based on
+# the critical bandwidths obtained from psychophysical experiments in humans. 
+# The \citet{ZilanyBruce:2007} model improved the previous AN model by an additional signal path and
+# its predictions have matched a wide range of physiological data in normal and
+# impaired cat data.
 
-#Chapter \ref{sec:GAChapter} uses the ARLO model
-#\citep{HeinzZhangEtAl:2001} and Chapters \ref{sec:Chapter3} and
-#\ref{sec:Chapter4} use the Zilany model
-#\citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
-# \medskip{}
+# Chapter \ref{sec:GAChapter} uses the ARLO model
+# \citep{HeinzZhangEtAl:2001} and Chapters \ref{sec:Chapter3} and
+# \ref{sec:Chapter4} use the Zilany model
+# \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
+#  \medskip{}
 
 #  \yellownote{Why is it the cat model? updating Carney model?} Updating of the
 #  Carney auditory model has led to the change in the model's configuration from an
@@ -183,16 +183,15 @@ The organisation of the auditory system is described as ``tonotopic''
 after the continuous logarithmic frequency tuning along the basilar
 membrane \citep{Greenwood:1990}.  The \CF of \ANFs is typical of the
 resonant frequency of the adjacent basilar membrane
-#\IHC 
+# \IHC 
 and forms a topographical receptive field, according to place along the
 central auditory nervous system.
 
 The input auditory model used in this thesis provides the major
 phenomenological qualities of experimentally recorded \ANFs. 
-#The Zilany
-#model \citep{ZilanyBruceEtAl:2009} was based on many auditory models
-#from the Carney Lab
-#\citep{HeinzColburnEtAl:2001,ZhangCarney:2001,Carney:1993}.  
+# The Zilany model \citep{ZilanyBruceEtAl:2009} was based on many auditory models
+# from the Carney Lab
+# \citep{HeinzColburnEtAl:2001,ZhangCarney:2001,Carney:1993}.  
 The centre frequencies across $N_{\rm channels}$ is determined by the
 logarithmic Greenwood function \citep{Greenwood:1990} of the basilar
 membrane in cats.  The model reproduces responses for 50 high and 30 low
@@ -642,14 +641,14 @@ of the connections in the microcircuit.
 
 Connection variables between cell types are generally uniform across the
 network but may be adjusted to suit the model.  
-#In the \CNSM model, assumptions were made based on population average data.  
+# In the \CNSM model, assumptions were made based on population average data.  
 Model parameters may be different between species or within species;
 therefore, without adequate evidence regarding exact neuron to neuron
 connections, average population data was used.  Issues also arise at the
 ends of large-scale topographic \BNNs with overlapping place\slash
 channel connections.  Boundaries are considered closed bookends, where
 post-synaptic neurons select only from those within its connection range.
-#The best modelling behaviour would arise, therefore, in the middle sections.
+# The best modelling behaviour would arise, therefore, in the middle sections.
 
 
 ** Connectivity Parameters
@@ -669,7 +668,7 @@ cell types used in the \CNSM model.
   \begin{figure}[tbh]
     \begin{center}
   %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-    \resizebox{0.95\textwidth}{!}{\includegraphics[keepaspectratio=true]{../SimpleResponsesChapter/gfx/CNConn}}
+    \resizebox{0.95\textwidth}{!}{\input{../MethodsChapter/gfx/CNConn.pdf_tex}}
   %     \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
       \caption[Distribution of synaptic connections]{Distribution of synaptic connections between cell types in the cochlear nucleus stellate microcircuit. A post-synaptic neuron receives $\mathbf{n}$ synapses from pre-synaptic neurons (from one cell-type group) with equal weight, $\mathbf{w}$. The post-synaptic cell is selected using a Gaussian random process, centred on the same frequency channel (with optional offset, $\mathbf{o}$) and spread equal to twice the variance.}
       \label{fig:MicrocircuitConn}
@@ -722,9 +721,9 @@ groups are defined by:
 # found in \TV cells \citep{ReissYoung:2005}.  The offset was added to the
 # Gaussian mean in the random allocation process.
 
-#The connectivity of the cell types involved in the stellate microcircuit is
-#shown in Figure \ref{fig:MicroCN} and in wider scale in Figure
-#\ref{tab:MicrocircuitConn}.
+# The connectivity of the cell types involved in the stellate microcircuit is
+# shown in Figure \ref{fig:MicroCN} and in wider scale in Figure
+# \ref{tab:MicrocircuitConn}.
 
 \ANFs with similar characteristic frequencies were
 spatially organised into $N_{\textrm{Channel}}$ iso-frequency lamina or channels,
@@ -771,7 +770,7 @@ neurotransmitter \citep{SaintMorestEtAl:1989}, however only the Golgi cell was i
 model. 
 
 
-
+\clearpage
 ** Synapse Models
    :PROPERTIES:
    :CUSTOM_ID: sec:Methods:Synapse
@@ -841,7 +840,7 @@ and synaptic diffusion. Synaptic transmission and axonal conductance delay
 between adjacent neurons is typically measured in experiments to be 0.4 -- 0.5 ms. Delays between neurons in the ventral and dorsal \CN were measured
 using electric shocks and found to be approximately 1.0 ms
 \citep{WickesbergOertel:1993}.  
-#\yellownote{Needs reference, and what about Bahlmer and Lagner's 0.4 ms delays}
+# \yellownote{Needs reference, and what about Bahlmer and Lagner's 0.4 ms delays}
 
 
 Latency is defined in the \CNSM as the time difference between a stimulus of
@@ -920,8 +919,8 @@ The genetic algorithms and sensitivity analyses in Chapter
 \citep{Wall:2006} and the PVM libraries
 \citep{GeistBeguelinEtAl:1994}.
 
-#The random numbers are required throughout this thesis in .
-#generator used was the internal RNG of NEURON, MCellRand4
+# The random numbers are required throughout this thesis in .
+# generator used was the internal RNG of NEURON, MCellRand4
 
 
 ** Stimulus Generation and Analysis
@@ -1154,7 +1153,7 @@ discussed in the Chapter \ref{sec:GAChapter}.
 
 
 #+BEGIN_LaTeX  
-\ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../MyBib}\newpage \listoftodos}{}
+\ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../org-manuscript/bib/MyBib}\newpage \printglossaries\newpage\listoftodos}{}
 #+END_LaTeX
 
 
