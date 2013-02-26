@@ -666,13 +666,12 @@ cell types used in the \CNSM model.
 #  The channels are separated using the same Greenwood function as used for the AN filterbank.
 #+BEGIN_LaTeX
   \begin{figure}[tbh]
-    \begin{center}
+    \centering  \def\svgwidth{5.5in}
   %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-    \resizebox{0.95\textwidth}{!}{\input{../MethodsChapter/gfx/CNConn.pdf_tex}}
-  %     \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
+  \input{../MethodsChapter/gfx/CNConn.pdf_tex}
       \caption[Distribution of synaptic connections]{Distribution of synaptic connections between cell types in the cochlear nucleus stellate microcircuit. A post-synaptic neuron receives $\mathbf{n}$ synapses from pre-synaptic neurons (from one cell-type group) with equal weight, $\mathbf{w}$. The post-synaptic cell is selected using a Gaussian random process, centred on the same frequency channel (with optional offset, $\mathbf{o}$) and spread equal to twice the variance.}
       \label{fig:MicrocircuitConn}
-    \end{center}
+    
   \end{figure}
 #+END_LaTeX
 
