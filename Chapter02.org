@@ -8,7 +8,7 @@
 #+SEQ_TODO:   TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
 #+TAGS:       Write(w) Update(u) Fix(f) Check(c) noexport(n)
 #+LaTeX_CLASS: UoM-draft-org-article
-#+LATEX_HEADER:\graphicspath{{../MethodsChapter/gfx/}{../SimpleResponsesChapter/gfx/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}}
+#+LATEX_HEADER:\graphicspath{{../MethodsChapter/gfx/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
 #+BIBLIOGRAPHY: ../org-manuscript/bib/MyBib alphanat
@@ -250,7 +250,7 @@ humans, cat and rat.
     \begin{figure}[htb]
       \centering
       {\figfont{A}\hfill Cat\hspace{1.5in}\hfill\figfont{B}\hfill Rat \hspace{1.5in}\hfill}\\ 
-    \resizebox{0.95\textwidth}{!}{\includegraphics[keepaspectratio=true]{../SimpleResponsesChapter/gfx/AudiogramCompression.pdf}} \\
+    \resizebox{0.95\textwidth}{!}{\includegraphics[keepaspectratio=true]{../MethodsChapter/gfx/AudiogramCompression.pdf}} \\
       \caption[Cat and Rat audiograms and compression curves for the Bruce and
       Zilany AN models]{Animal auditory thresholds (audiograms) were used to
         calculate the inner and outer hair cell (IHC and OHC) compression values in
@@ -419,7 +419,7 @@ n, p, r, w/ and /z/) are described in detail by
 #+attr_latex: width=0.7\textwidth
 #+caption: [Voltage-dependency of potassium channel dynamics in existing CN models]{\citet{RothmanManis:2003b} compared their kinematic model of activation gating variables of \IKLT and \IKHT with equivalent rectifying potassium channel models used by existing CN neural models. The voltage dependency of \IKHT's ($n^{\lambda},\, \tau_n$) and \IKLT's ($n^{\lambda},\, \tau_n$) activation gating variable and its time constant. This figure is reproduced from Figure 2 in \citet{RothmanManis:2003b}.}
 #+label: fig:Methods:RM2
-[[../SimpleResponsesChapter/gfx/RothmanManisDynamics.pdf]]
+[[../MethodsChapter/gfx/RothmanManisDynamics.pdf]]
 
 
 
@@ -1018,7 +1018,7 @@ input model. This replicates \ANF innervation of the \CN
 
 #+CAPTION: [Cochlear Nucleus Stellate Microcircuit Model]{Cochlear nucleus stellate microcircuit (CNSM) model as seen in single frequency channels.}
 #+LABEL: fig:microcircuit
-[[../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf]]
+[[../MethodsChapter/gfx/CNcircuit-detailed.pdf]]
 
 
 # \yellownote{Where is the figure?}
