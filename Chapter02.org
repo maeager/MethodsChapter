@@ -118,7 +118,7 @@ see \citet{Lopez-Poveda:2005}.
 The auditory nerve input model in the \CNSM\space model is called the
 Carney \AN model, where each version is derived from the original model
 of low \CF fibres \citep{Carney:1993}.
-#Motivated by observing ANF phenomena, 
+# Motivated by observing ANF phenomena, 
 Carney and colleagues have made improvements to their model over the
 last 20 years
 \citep{ZhangHeinzEtAl:2001,HeinzZhangEtAl:2001,BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007,ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
@@ -133,7 +133,7 @@ path and its predictions have matched a wide range of physiological data
 in normal and impaired cat studies. Their most recent \AN model
 \citep[version~6,][]{ZilanyBruceEtAl:2009} includes an additional
 power-law synapse model,
-#, with internal fractional Gaussian noise,
+# , with internal fractional Gaussian noise,
 which enhances the temporal recovery behaviour in \ANFs.  Versions 5
 \citep{ZilanyBruce:2007} and 6 \citep{ZilanyBruceEtAl:2009} of the
 Carney AN model are used in Chapters \ref{sec:Chapter3} and
@@ -297,7 +297,7 @@ y_1(t) = c_1 \exp(-(t'-t_{\textrm{a}})/s_1),
 \noindent where $t'$ is the time relative to the last
 spike, $c_0 = 0.5$, $c_1 = 0.5$, $s_0 = 0.001$ ms and $s_1 = 0.0125$
 ms.  The absolute refractory period, $t_{\textrm{a}}$, was 0.75 ms.
-#Improvements in the spike-generation method 
+# Improvements in the spike-generation method 
 Spike trains for each neuron in the model were created at the start of each
 repetition of the stimulus, but could be saved and loaded from files to improve
 efficiency.
@@ -439,8 +439,7 @@ where $\tau_x$ is the time constant of $x$ and  $x_\infty$ is the steady-state v
 the value of /x/ when $t \gg \tau_x$).
 
 The voltage dependence of the activation and 
-de-activation variables /a/, /b/, /c/, /w/, /z/, /n/, /p/, /m/, /h/, and r are shown in the following
-equations. 
+de-activation variables /a/, /b/, /c/, /w/, /z/, /n/, /p/, /m/, /h/, and r are shown in the following equations. 
 # Although the formalism of the preceding equation is different
 # from the original HH formalism in which activation/de-activation vari-
 # ables are expressed in terms of “open” and “close” rate constants \alpha
@@ -513,7 +512,6 @@ Leak current
 #####
 
 
-
 Membrane and synapse channels are temperature dependent and most /in vitro/
 experiments are performed at room temperature, 22\degC.  All simulations in this
 thesis were performed at body temperature, 37\degC. Accordingly, modification of the
@@ -572,7 +570,7 @@ detection.
 In the \CNSM model, the membrane parameters were developed and refined after we
 established the /in vitro/ characteristics of each cell type from the literature
 \citep{FerragamoGoldingEtAl:1998,FerragamoGoldingEtAl:1998a,OertelWuEtAl:1988,ZhangOertel:1993b}
-at 37\degC, and matched them to the model types in \citet{RothmanManis:2003}.
+# at 37\degC, and matched them to the model types in \citet{RothmanManis:2003}.
 
 \yellownote{more discussion on the table}
 #+BEGIN_LaTeX
@@ -981,7 +979,7 @@ it could be retrieved by NEURON in the simulation.
 of this detail in Chapter 1.  Switch to present tense?}
 The \AN model and the neural cell models were combined in a NEURON package called
 [[latex:progname][cnstellate]].
-#\yellownote{show organisation of frequency channels, input and microcircuit }
+# \yellownote{show organisation of frequency channels, input and microcircuit }
 The tonotopic organisation of the model was built into N_{\rm channel} frequency
 channels (from CF_{\rm low} to CF_{\rm high}) mimicking the population of \ANF
 input model. This replicates \ANF innervation of the \CN
