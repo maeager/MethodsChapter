@@ -1085,7 +1085,7 @@ recognisable format for presenting various neural network models and
 their constituents.
 
 
-#+LATEX: \input{../MethodsChapter/NordlieTemplate}
+#+LATEX: \input{../MethodsChapter/NordlieTemplate.tex}
 # \yellownote{this needs more explanation in the methods sections}
 
 The standard methods for optimisation can be simply described with the
