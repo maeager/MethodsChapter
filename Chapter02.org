@@ -159,7 +159,7 @@ Carney AN model are used in Chapters \ref{sec:Chapter3} and
 
 
 #+attr_latex: width=0.95\textwidth
-#+caption: Auditory periphery schematic of the Zilany version of the Carney AN model (\citet{ZilanyBruceEtAl:2009}, reproduced from their Fig. 2). (A) The Carney AN model is comprised of a middle and inner ear filter model, and a synapse between inner hair cells (IHC)  and type I ANFs.  (B) The Zilany AN model has added a dual power-law synapse model  
+#+caption: [Auditory periphery schematic of the Zilany AN model]{Auditory periphery schematic of the Zilany version of the Carney AN model (\citet{ZilanyBruceEtAl:2009}, reproduced from their Fig. 2). (A) The Carney AN model is comprised of a middle and inner ear filter model, and a synapse between inner hair cells (IHC)  and type I ANFs.  (B) The Zilany AN model has added a dual power-law synapse model } 
 #+label: fig:ZilanyBruceFig
 [[../MethodsChapter/gfx/ZilanyEtAl2009-Fig2.png]]
 
@@ -1357,8 +1357,4 @@ discussed in the Chapter \ref{sec:GAChapter}.
 # unlikely to affect forward masking response directly.
 
 
-### Local Variables:
-### mode: org
-### mode: visual-line
-### fill-column: 72
-### End:
+
