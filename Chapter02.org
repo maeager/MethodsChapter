@@ -576,7 +576,7 @@ established the /in vitro/ characteristics of each cell type from the literature
 #+BEGIN_LaTeX
   \begin{table}[tp]
     \centering
-    \caption{Cell-type Membrane Current Parameters}\label{tab:Methods:CellTypes}
+    \caption{Cell-type membrane current parameters}\label{tab:Methods:CellTypes}
     \begin{tabularx}{0.8\linewidth}{lcccc}\toprule
              Cells            &  \TS   &  \DS   &   \TV   & Golgi \\ %\hline
       RM Model     &  I-t   &  I-II  &   I-c   & I-c \\[0.5ex] \midrule
@@ -595,7 +595,7 @@ established the /in vitro/ characteristics of each cell type from the literature
 
 
 
-* Connectivity and Organisation in the CNSM Model
+* Connectivity and Organisation in the Cochlear Nucleus Stellate Microcircuit Model
    :PROPERTIES:
    :CUSTOM_ID: sec:Methods:ConnectivityandTopology
    :END:
@@ -879,7 +879,7 @@ stimuli was used in Section \ref{sec:Ch3:Delay} to set the delay times between
 
 
 
-* Simulation and Implementation of the CNSM Model 
+* Simulation and Implementation of the Cochlear Nucleus Stellate Microcircuit Model 
 :PROPERTIES:
 :CUSTOM_ID: sec:Methods:SimSpecs
 :END:
