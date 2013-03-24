@@ -51,8 +51,6 @@ used are provided in the relevant chapters.
    (setq org-export-latex-title-command "\\singlespacing{\\tableofcontents\\printglossaries}")
 #+end_src
 
-#+RESULTS:
-: \singlespacing{\tableofcontents\printglossaries}
 
 
 
@@ -62,13 +60,11 @@ To understand the auditory system, one must first understand the transformations
 preceding neural signals in the auditory nerve. Mechanical vibrations at the
 eardrum (tympanic membrane) are conducted by the middle ear bones to vibrations
 of fluid in the inner ear (cochlea). They are then transferred to chemical
-signals in the inner hair cells and then to electrical potentials of the \ANFs. 
-
+signals in the inner hair cells and then to electrical potentials of the \ANFs.
 
 # \yellownote{needs references and further expansion.
 #   Introduce new acronyms and keywords here eg. tonotopic.  Be careful not to
 #   reproduce stuff done in the results chapters }
-
 # This processing also enters a bottle-neck at the auditory nerve,
 #  selectivity), referred to as `tonotopy'
 
@@ -76,7 +72,6 @@ signals in the inner hair cells and then to electrical potentials of the \ANFs.
 \citep{Feldman:1969,Fekete:1984,Liberman:1991,LeakeSnyderEtAl:1993}. They
 bifurcate after passing the central nervous system barrier to innervate
 the \VCN and \DCN
-# , as shown in Figure \ref{fig:CNCatHuman}
 \citep{Lorente:1981,Liberman:1991}. Based on their cell bodies,
 myelination and prevalence, \ANFs are categorised as type I (large,
 myelinated and highly prevalent) and type II (small, unmyelinated and
@@ -104,20 +99,21 @@ fibres.
 # above. The most recent \AN models include all observed phenomenological
 # behaviours in \ANFs.  periphery models are necessary as inputs.  }
 
-The above-mentioned characteristics of \ANFs are essential as input to models of the \CN.
-To examine the properties of a detailed neural model of the \CN,
- a phenomenologically-realistic auditory model is required to represent
- sounds and transformations that occur in the central auditory system.
-Simple attempts to recreate rate-level behaviour in \ANFs
-\citep[e.g.~][]{SachsWinslowEtAl:1989} are not sufficient to reproduce complex
-non-linear behaviours when dealing with arbitrary stimuli \citep{LeakeSnyderEtAl:1993,ArnesenOsen:1978,CloptonWinfieldEtAl:1974}.  
-Since those early efforts, there has been great advancement in auditory periphery models; for an extensive review
-see \citet{Lopez-Poveda:2005}.
+The above-mentioned characteristics of \ANFs are essential as input to models of
+the \CN.  To examine the properties of a detailed neural model of the \CN, a
+phenomenologically-realistic auditory model is required to represent sounds and
+transformations that occur in the central auditory system.  Simple attempts to
+recreate rate-level behaviour in \ANFs \citep[e.g.~][]{SachsWinslowEtAl:1989}
+are not sufficient to reproduce complex non-linear behaviours when dealing with
+arbitrary stimuli
+\citep{LeakeSnyderEtAl:1993,ArnesenOsen:1978,CloptonWinfieldEtAl:1974}.  Since
+those early efforts, there has been great advancement in auditory periphery
+models; for an extensive review see \citet{Lopez-Poveda:2005}.
 
 
-The \AN input model in the \CNSM\space model is called the
-Carney \AN model, where each version is derived from the original model
-of low \CF fibres \citep{Carney:1993}.
+The \AN input model in the \CNSM\space model is called the Carney \AN model,
+where each version is derived from the original model of low \CF fibres
+\citep{Carney:1993}.
 # Motivated by observing ANF phenomena,
 Carney and colleagues have made a series of improvements to the original model over the
 last 20 years
@@ -134,9 +130,8 @@ version 6 \AN model developed by \citet{ZilanyBruceEtAl:2009} includes an
 additional power-law synapse model,
 # , with internal fractional Gaussian noise,
 which enhances the temporal recovery behaviour in \ANFs.  Versions 5
-\citep{ZilanyBruce:2007} and 6 \citep{ZilanyBruceEtAl:2009} of the
-Carney AN model are used in Chapters \ref{sec:Chapter3} and
-\ref{sec:Chapter4}.
+\citep{ZilanyBruce:2007} and 6 \citep{ZilanyBruceEtAl:2009} of the Carney AN
+model are used in Chapters \ref{sec:Chapter3} and \ref{sec:Chapter4}.
 
 
 # \citet{HeinzZhangEtAl:2001} incorporated cochlear filters based on
@@ -163,14 +158,14 @@ Carney AN model are used in Chapters \ref{sec:Chapter3} and
 [[../MethodsChapter/gfx/ZilanyEtAl2009-Fig2.png]]
 
 
-Figure \ref{fig:ZilanyBruceFig} shows the schematics of the Zilany
-version of the AN model \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
-The Carney AN model consists of an outer/middle ear pre-processing
-filter, a cochlear filterbank, \IHC to \AN synapse model and dead-time
-modified Poisson spike generator. \citet{ZilanyBruceEtAl:2009} improved
-the classic \citet{WestermanSmith:1988} three-store diffusion model of
-the IHC-AN synapse with dual power-law adaptation models and the
-inclusion of fractional Gaussian noise.
+Figure \ref{fig:ZilanyBruceFig} shows the schematics of the Zilany version of
+the AN model \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.  The Carney AN
+model consists of an outer/middle ear pre-processing filter, a cochlear
+filterbank, \IHC to \AN synapse model and dead-time modified Poisson spike
+generator. \citet{ZilanyBruceEtAl:2009} improved the classic
+\citet{WestermanSmith:1988} three-store diffusion model of the IHC-AN synapse
+with dual power-law adaptation models and the inclusion of fractional Gaussian
+noise.
 # Further details of the Zilany AN model are
 # explained in \citet{ZilanyBruceEtAl:2009} and \citet{ZilanyCarney:2010}.
 
@@ -178,13 +173,11 @@ inclusion of fractional Gaussian noise.
 
 ** Frequency Channels
 
-The organisation of the auditory system is described as ``tonotopic''
-after the continuous logarithmic frequency tuning along the basilar
-membrane \citep{Greenwood:1990}.  The \CF of \ANFs is typical of the
-resonant frequency of the adjacent basilar membrane
-# \IHC 
-and forms a topographical receptive field, according to place along the
-central auditory nervous system.
+The organisation of the auditory system is described as ``tonotopic'' after the
+continuous logarithmic frequency tuning along the basilar membrane
+\citep{Greenwood:1990}.  The \CF of \ANFs is typical of the resonant frequency
+of the adjacent basilar membrane and forms a topographical receptive field,
+according to place along the central auditory nervous system.
 
 The input auditory models used in this thesis provide the major
 phenomenological qualities of experimentally recorded \ANFs. 
@@ -253,7 +246,7 @@ Figure \ref{fig:Compression}
       Zilany AN models]{Animal auditory thresholds (audiograms) were used to
         calculate the inner and outer hair cell (IHC and OHC) compression values in
         the Bruce and Zilany AN models. 
-  %The audiograms were collected from earlab.bu.edu. 
+      %The audiograms were collected from earlab.bu.edu. 
         Audiograms and compression values are shown for (A) cat and (B) rat.}
       \label{fig:Compression}
     \end{figure}
@@ -284,7 +277,7 @@ properties are typical of \ANFs
 \citep{JacksonCarney:2005}.  Spike times were generated
 independently for each \HSR and \LSR fibre from the instantaneous firing
 rate using a pseudo-random Poisson spike generator
-\citep{Jackson:2006,JacksonCarney:2005}, with refractory effects similar
+\citep{JacksonCarney:2005}, with refractory effects similar
 to those present in \ANFs.  The double exponential relative refractory
 functions, specific to ANFs, were
 \begin{eqnarray} 
@@ -338,7 +331,7 @@ efficiency.
 
 * Neural Cell Models
   :PROPERTIES:
-  :CUSTOM_ID: sec:Methods:cell-models
+  :CUSTOM_ID: sec:Methods:CellModels
   :END:
 
 # Hodgkin-Huxley-like
@@ -660,15 +653,15 @@ between cell types.
 
 #  The channels are separated using the same Greenwood function as used for the AN filterbank.
 #+BEGIN_LaTeX
-    \begin{figure}[tbh]
-      \centering  \def\svgwidth{5.5in}
-    %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-    %  \input{../MethodsChapter/gfx/CNConn.png}
-   \resizebox{\linewidth}{!}{\includegraphics{../MethodsChapter/gfx/CNConn.pdf}}
-        \caption[Distribution of synaptic connections]{Distribution of synaptic connections between cell types in the \CN stellate microcircuit. A post-synaptic neuron receives $\mathbf{n}$ synapses from pre-synaptic neurons (from one cell type group) with equal weight, $\mathbf{w}$. The post-synaptic cell is selected using a Gaussian random process, centred on the same frequency channel (with optional offset, $\mathbf{o}$) and spread equal to twice the variance.}
-        \label{fig:MicrocircuitConn}
-      
-    \end{figure}
+   \begin{figure}[tbh]
+     \centering  \def\svgwidth{5.5in}
+   %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+   %  \input{../MethodsChapter/gfx/CNConn.png}
+  \resizebox{\linewidth}{!}{\includegraphics{../MethodsChapter/gfx/CNConn.pdf}}
+       \caption[Distribution of synaptic connections]{Distribution of synaptic connections between cell types in the \CN stellate microcircuit. A post-synaptic neuron receives $\mathbf{n}$ synapses from pre-synaptic neurons (from one cell type group) with equal weight, $\mathbf{w}$. The post-synaptic cell is selected using a Gaussian random process, centred on the same frequency channel (with optional offset, $\mathbf{o}$) and spread equal to twice the variance.}
+       \label{fig:MicrocircuitConn}
+     
+   \end{figure}
 #+END_LaTeX
 
 Network parameters that control the connectivity between two cell type
@@ -894,7 +887,7 @@ and fixed time step of either 0.1 or 0.05 ms.
 
 
 The computations of the [[latex:progname][NEURON]] model were distributed on a single
-personal computers (PC); a cluster of nine PCs (3.0 GHz Intel Pentium4);[fn::Systems
+personal computers (PC); a cluster of nine PCs (3.0 GHz Intel Pentium4);[fn:: Systems
 provided by the Department of Otolaryngology, the University of
 Melbourne] an SGI Altix system (=soma=: 64 32-bit Itanium
 CPUs);[fn::  System =soma= provided by the Neuroimaging Group and
@@ -1146,7 +1139,7 @@ discussed in Chapter \ref{sec:GAChapter}.
 
 
 #+BEGIN_LaTeX  
-\ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../org-manuscript/bib/MyBib}\newpage \printglossaries\newpage\listoftodos}{}
+ \ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../org-manuscript/bib/MyBib}\newpage \printglossaries\newpage\listoftodos}{}
 #+END_LaTeX
 
 
