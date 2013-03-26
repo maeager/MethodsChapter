@@ -220,14 +220,13 @@ to 64 kHz.
   \label{tab:Methods:Greenwood}
   \begin{tabularx}{0.7\textwidth}{X D{,}{.}{4,1} D{,}{.}{1,3} D{,}{.}{1,1} D{,}{.}{2,2}}
   \toprule
-              & \textbf{A} & \textbf{a} & \textbf{k} & \textbf{L}  \\ \otoprule
-  Human $^{ 1}$ &   165,4    &    2,1     & 1,0  & 35 \\
+                & \textbf{A} & \textbf{a} & \textbf{k} & \textbf{L}  \\ \otoprule
+  Human $^{ 1}$ &   165,4    &    2,1     &    1,0     & 35 \\
   Cat   $^{ 2}$ &    456     &    2,1     &    0,8     & 25 \\
-  Rat   $^{ 3}$  &   7613,3   &   0,928    &    1,0     & 8,03 \\
+  Rat   $^{ 3}$ &   7613,3   &   0,928    &    1,0     & 8,03 \\
   \bottomrule
   \end{tabularx}\\
-  {\small{$^1$ \citet{Greenwood:1990}, $^2$ \citet{Liberman:1982}, $^3$
-  \citet{Muller:1991}.  Data obtained from \url{http://earlab.bu.edu}.}}
+  {\small{$^1$\citet{Greenwood:1990}, $^2$\citet{Liberman:1982}, $^3$\citet{Muller:1991}.  Data obtained from http://earlab.bu.edu.}}\\
   \end{table}
 #+END_LaTeX
 
@@ -238,18 +237,18 @@ Figure \ref{fig:Compression}
 \yellownote{Include text to explain Figure \ref{fig:Compression}}
 
 #+BEGIN_LaTeX
-    \begin{figure}[htb]
-      \centering
-      {\figfont{A}\hfill Cat\hspace{1.5in}\hfill\figfont{B}\hfill Rat \hspace{1.5in}\hfill}\\ 
+  \begin{figure}[htb]
+    \centering
+    {\figfont{A}\hfill Cat\hspace{1.5in}\hfill\figfont{B}\hfill Rat \hspace{1.5in}\hfill}\\ 
     \resizebox{0.95\textwidth}{!}{\includegraphics[keepaspectratio=true]{../MethodsChapter/gfx/AudiogramCompression.pdf}} \\
-      \caption[Cat and Rat audiograms and compression curves for the Bruce and
-      Zilany AN models]{Animal auditory thresholds (audiograms) were used to
-        calculate the inner and outer hair cell (IHC and OHC) compression values in
-        the Bruce and Zilany AN models. 
-      %The audiograms were collected from earlab.bu.edu. 
-        Audiograms and compression values are shown for (A) cat and (B) rat.}
-      \label{fig:Compression}
-    \end{figure}
+    \caption[Cat and Rat audiograms and compression curves for the Bruce and
+    Zilany AN models]{Animal auditory thresholds (audiograms) were used to
+      calculate the inner and outer hair cell (IHC and OHC) compression values in
+      the Bruce and Zilany AN models. 
+    %The audiograms were collected from earlab.bu.edu. 
+      Audiograms and compression values are shown for (A) cat and (B) rat.}
+    \label{fig:Compression}
+  \end{figure}
 #+END_LaTeX
 
 
@@ -500,7 +499,7 @@ Leak current
 \begin{equation}
 \Ileak = \gleak (V - \Eleak)
 \end{equation}
-#####
+# ####
 
 
 Membrane and synapse channels are temperature dependent and most /in vitro/
