@@ -131,7 +131,7 @@ additional power-law synapse model,
 # , with internal fractional Gaussian noise,
 which enhances the temporal recovery behaviour in \ANFs.  Versions 5
 \citep{ZilanyBruce:2007} and 6 \citep{ZilanyBruceEtAl:2009} of the Carney AN
-model are used in Chapters \ref{sec:Chapter3} and \ref{sec:Chapter4}.
+model are used in Chapters \ref{sec:ModelChapter} and \ref{sec:AMChapter}.
 
 
 # \citet{HeinzZhangEtAl:2001} incorporated cochlear filters based on
@@ -141,8 +141,8 @@ model are used in Chapters \ref{sec:Chapter3} and \ref{sec:Chapter4}.
 # impaired cat data.
 
 # Chapter \ref{sec:GAChapter} uses the ARLO model
-# \citep{HeinzZhangEtAl:2001} and Chapters \ref{sec:Chapter3} and
-# \ref{sec:Chapter4} use the Zilany model
+# \citep{HeinzZhangEtAl:2001} and Chapters \ref{sec:ModelChapter} and
+# \ref{sec:AMChapter} use the Zilany model
 # \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
 #  \medskip{}
 
@@ -270,7 +270,7 @@ fibres, producing an instantaneous firing rate response that was down-sampled to
 #   have tried to fit these to the AN data}
 
 The spiking neural model used in the \ANFs (and the
-Golgi cell model in Chapters \ref{sec:Chapter3}-\ref{sec:Chapter4}) are
+Golgi cell model in Chapters \ref{sec:ModelChapter}-\ref{sec:AMChapter}) are
 inhomogeneous Poisson processes with refractory effects. These
 properties are typical of \ANFs
 \citep{JacksonCarney:2005}.  Spike times were generated
@@ -616,7 +616,7 @@ of the system.  In the \CNSM model, one isofrequency channel receives afferent
 input from the narrowest receptive field possible in the \AN model.
 Figure \ref{fig:MicroCN} shows the intra-nuclei microcircuit connections and
 connectivity type (neurotransmitter and receptor type) in the \CNSM model based
-on existing experimental evidence in most mammals.  Chapter \ref{sec:Chapter3}
+on existing experimental evidence in most mammals.  Chapter \ref{sec:ModelChapter}
 provides more detail regarding the evidence for each of the connections in the
 microcircuit.
 
@@ -897,7 +897,7 @@ Computing Initiative]
 
 
 The parallel capabilities of the network model presented in Chapter
-\ref{sec:Chapter3} were based on the NEURON network model [[latex:progname][netmod]] (see
+\ref{sec:ModelChapter} were based on the NEURON network model [[latex:progname][netmod]] (see
 other neural models that also use =netmod= at [[http://modeldb.senselab.yale.edu][ModelDB]], particularly
 models [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034][52034]], [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730][2730]], and [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781][51781]] \citep*{MiglioreCanniaEtAl:2006}).
 The genetic algorithms and sensitivity analyses in Chapter
@@ -941,7 +941,7 @@ the spike generator was either 20 or 50 kHz. The integration time-step of the NE
 
 Notch noise was used as the stimulus for Chapter \ref{sec:GAChapter} and the optimisation of \DS cell connections
 to \TV cells (see Section \ref{sec:Ch3:DSTV} in Chapter
-\ref{sec:Chapter3}).  Notch noise was
+\ref{sec:ModelChapter}).  Notch noise was
 generated from Gaussian white noise filtered using a stop-band filter in
 [[latex:progname][MATLAB/GNU Octave]].  The notch noise sample was stored in a file so that
 it could be retrieved by NEURON in the simulation.
@@ -1095,10 +1095,10 @@ generate a realistic model of the \CN stellate network.
 ** Sequential Methods
 
 To create a realistic microcircuit from a wide range of
-experimental data, Chapter \ref{sec:Chapter3} develops a parameter optimisation
+experimental data, Chapter \ref{sec:ModelChapter} develops a parameter optimisation
 routine in sequential stages.  The network parameters were chosen in the
 sequential optimisation stages to encompass synaptic inputs to each individual
-cell type in the CN stellate microcircuit. Chapter \ref{sec:Chapter3} uses the
+cell type in the CN stellate microcircuit. Chapter \ref{sec:ModelChapter} uses the
 praxis method, an algorithm for finding the minimum of a function of several
 variables without needing the derivative \citep{Brent:1976}.
 
@@ -1107,7 +1107,7 @@ variables without needing the derivative \citep{Brent:1976}.
 # reproducible neural network simulations \citep{NordlieGewaltigEtAl:2009} is
 # followed in Table \ref{tab:ModelSummary}.  Tables \ref{tab:ModelSummary}i to
 # \ref{tab:ModelSummary}v show the detailed summary of the \CN stellate
-# microcircuit used in the simulations performed in Chapter \ref{sec:Chapter3}.
+# microcircuit used in the simulations performed in Chapter \ref{sec:ModelChapter}.
 
 
 
