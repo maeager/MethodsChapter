@@ -760,7 +760,7 @@ model.
 \clearpage
 ** Synapse Models
    :PROPERTIES:
-   :CUSTOM_ID: sec:Methods:Synapse
+   :CUSTOM_ID: sec:Methods:SynapseModels
    :END:
 
 Synapses were modeled with either a single or a double exponential
