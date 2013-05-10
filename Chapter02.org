@@ -886,14 +886,14 @@ and fixed time step of either 0.1 or 0.05 ms.
 
 
 The computations of the [[latex:progname][NEURON]] model were distributed on a single
-personal computers (PC); a cluster of nine PCs (3.0 GHz Intel Pentium4);[fn:: Systems
+personal computers (PC); a cluster of nine PCs (3.0 GHz Intel Pentium4)[fn:: Systems
 provided by the Department of Otolaryngology, the University of
-Melbourne] an SGI Altix system (=soma=: 64 32-bit Itanium
-CPUs);[fn::  System =soma= provided by the Neuroimaging Group and
+Melbourne.]; an SGI Altix system (=soma=: 64 32-bit Itanium
+CPUs)[fn::  System =soma= provided by the Neuroimaging Group and
 Department of Electrical and Electronic Engineering, the University of
-Melbourne] and an iDataPlex IBM system (=merri=: 1024 64-bit Intel
-x86 CPUs).[fn::  System =merri= provided by the Victorian Life Sciences
-Computing Initiative]
+Melbourne.]; and an iDataPlex IBM system (=merri=: 1024 64-bit Intel
+x86 CPUs)[fn::  System =merri= provided by the Victorian Life Sciences
+Computing Initiative (VLSCI) an initiative of the Victorian Government.].
 
 
 The parallel capabilities of the network model presented in Chapter
