@@ -94,8 +94,7 @@ fibres.
 # include the high temporal acuity pathway (bushy cells); the onset detection
 # pathway (octopus cells); the azimuth detection pathway (pyramid cells of the
 # DCN); and the robust spectral pathway (\TS cells).
-# \yellownote{GG understanding flow issues: 
-# have included auditory nerve inputs with the appropriate features described
+# \yellownote{ have included auditory nerve inputs with the appropriate features described
 # above. The most recent \AN models include all observed phenomenological
 # behaviours in \ANFs.  periphery models are necessary as inputs.  }
 
