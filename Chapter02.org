@@ -800,13 +800,43 @@ synapse was 0 mV.
 
 \glsunset{GlyR}
 
+# GlyR  (mice: [\citenum{FerragamoGoldingEtAl:1998a}]).
+# %Flat vesicles (DS) apposed to TS units (cat [\citenum{SmithRhode:1989}])     
+# %(Could be mixed Gly/GABA [\citenum{AltschulerJuizEtAl:1993}]) 
+#   & % Time Constant
+# See above for GlyR \tfast
+# 2.5 ms (Rise time 0.4 ms, \AVCN rats,mice: [\citenum{LimOleskevichEtAl:2003}])
+#  $2.9 \pm 0.3$ ms (with \tslow $12.3 \pm 16.4$ ms, \tfast as fast as 1.5 ms, \MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
+# % $2.1 \pm 0.1$ ms (25$^\circ$C mIPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
+# % $0.8 \pm 0.2$ ms (37$^\circ$C mIPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
+# % $1.1 \pm 0.2$ ms (37$^\circ$C evoked IPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
+# % $2.28 \pm 0.08$ ms mIPSCs, $5.42 \pm 0.19$ ms evoked IPSCs (25$^\circ$C, rise time $0.42 \pm 0.05$ ms, MNTB mice: [\citenum{LeaoOleskevichEtAl:2004}])
+# $2.8 \pm 0.4$ ms (Desensitisation, \MNTB rat: [\citenum{AwatramaniTurecekEtAl:2005}]) 
+
+# %Decay  5.47 $\pm$0.19 (very young MNTB rat [\citenum{AwatramaniTurecekEtAl:2005}])
+# %6--13 ms (guinea pig: [\citenum{HartyManis:1998}]).
+# %Activation to 1mM Gly 2.0$\pm$1.2 ms (range 0.8 to 4.6 ms), deactivation to 1s Gly $\tau_{\textrm{fast}}$ 15.5 ms and $\tau_{\textrm{fast}}$ 73.4 ms (MNTB mice [\citenum{LeaoOleskevichEtAl:2004}]).
+
+# % 1.6 ms (mice [\citenum{Oertel:1983}])
+# % 5.4 ms (mice: [\citenum{OertelWickesberg:1993,WickesbergOertel:1993}])    
+# % 5.3 ms (Activation 2.0$\pm$1.2 ms, guinea pig: [\citenum{HartyManis:1998}])
+
+
+
 Double exponential inhibitory synapses used in the network were derived from
-\IPSPs in glycinergic and GABAergic synapses.  Glycinergic inhibitory synapses (with
-receptor \GlyR) were modeled from glycinergic \IPSPs recorded in mature \CN and
-\MNTB neurons. These synapses have a fast rise time, $\tGlyone = 0.4$ msec, and a decay
-time constant $\tGlytwo = 2.5$ ms
-\citep{AwatramaniTurecekEtAl:2005,HartyManis:1998,LeaoOleskevichEtAl:2004,LimOleskevichEtAl:2003}.
-\GABAa synapses were modeled from \MNTB recordings in mature guinea pigs
+\IPSPs in glycinergic and GABAergic synapses.  The glycinergic receptor \GlyR is
+the fastest inhibitory synapse in the mammalian brain and is blocked by the
+neurotoxin strychnine.  The \GlyR synapse model was based on glycinergic
+miniature \IPSPs recorded in mature \AVCN in rats and mice
+\citep{LimOleskevichEtAl:2003} and in rat \MNTB neurons
+\citep{AwatramaniTurecekEtAl:2004,AwatramaniTurecekEtAl:2005}.  Room temperature
+whole cell patch recordings of spontaneous mIPSCs in mature \AVCN in rats and
+mice neurons showed these synapses have a fast rise time (10\% to 90\%),
+$\tGlyone = 0.4$ msec, and a decay time constant $\tGlytwo = 2.5$ ms
+\citep{LimOleskevichEtAl:2003}.  In MNTB rat neurons at body temperature, GlyR
+decay constants of miniature and evoked \IPSCs were $0.8 \pm 0.2$ ms and $1.1 \pm
+0.2$ ms (37$^\circ$C), respectively \citep{AwatramaniTurecekEtAl:2004}.  \GABAa
+synapses were modeled from \MNTB recordings in mature guinea pigs
 \citep{AwatramaniTurecekEtAl:2005}.  \GABAa receptor currents have a fast (9 ms)
 and a slow (150 ms) decay component
 \citep{AwatramaniTurecekEtAl:2005,DavisYoung:2000}, but for short stimuli only
@@ -825,7 +855,7 @@ pre-synaptic neuron and the activation of the post-synaptic potential, which
 includes axonal conduction and synaptic diffusion. Synaptic transmission and
 axonal conductance delay between adjacent neurons is typically measured in
 experiments to be 0.4 -- 0.5 ms. Delays between neurons in the ventral and
-dorsal \CN were measured using electric shocks and found to be approximately 1.0
+dorsal \CN were measured using electric shocks and found to be approximately 1.0 ms, but ranged from 0.15 to 2 ms 
 ms \citep{WickesbergOertel:1993}.
 # \yellownote{Needs reference, and what about Bahlmer and Lagner's 0.4 ms delays}
 
