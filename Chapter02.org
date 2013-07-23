@@ -584,7 +584,7 @@ established the /in vitro/ characteristics of each cell type from the literature
 
 
 
-* Connectivity and Organisation in the Cochlear Nucleus Stellate Microcircuit Model
+* [CNSM Connectivity and Organisation]{Connectivity and Organisation in the Cochlear Nucleus Stellate Microcircuit Model}
    :PROPERTIES:
    :CUSTOM_ID: sec:Methods:ConnectivityandTopology
    :END:
@@ -808,8 +808,8 @@ synapse was 0 mV.
 # 2.5 ms (Rise time 0.4 ms, \AVCN rats,mice: [\citenum{LimOleskevichEtAl:2003}])
 #  $2.9 \pm 0.3$ ms (with \tslow $12.3 \pm 16.4$ ms, \tfast as fast as 1.5 ms, \MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
 # % $2.1 \pm 0.1$ ms (25$^\circ$C mIPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
-# % $0.8 \pm 0.2$ ms (37$^\circ$C mIPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
-# % $1.1 \pm 0.2$ ms (37$^\circ$C evoked IPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
+# % $0.8 \pm 0.2$ ms (37\degC mIPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
+# % $1.1 \pm 0.2$ ms (37\degC evoked IPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
 # % $2.28 \pm 0.08$ ms mIPSCs, $5.42 \pm 0.19$ ms evoked IPSCs (25$^\circ$C, rise time $0.42 \pm 0.05$ ms, MNTB mice: [\citenum{LeaoOleskevichEtAl:2004}])
 # $2.8 \pm 0.4$ ms (Desensitisation, \MNTB rat: [\citenum{AwatramaniTurecekEtAl:2005}]) 
 
@@ -834,8 +834,8 @@ whole cell patch recordings of spontaneous mIPSCs in mature \AVCN in rats and
 mice neurons showed these synapses have a fast rise time (10\% to 90\%),
 $\tGlyone = 0.4$ msec, and a decay time constant $\tGlytwo = 2.5$ ms
 \citep{LimOleskevichEtAl:2003}.  In MNTB rat neurons at body temperature, GlyR
-decay constants of miniature and evoked \IPSCs were $0.8 \pm 0.2$ ms and $1.1 \pm
-0.2$ ms (37$^\circ$C), respectively \citep{AwatramaniTurecekEtAl:2004}.  \GABAa
+decay constants of miniature and evoked \IPSCs were $0.8 \pm 0.2$ ms and $1.1 \pm 0.2$ 
+ms (37\degC), respectively \citep{AwatramaniTurecekEtAl:2004}.  \GABAa
 synapses were modeled from \MNTB recordings in mature guinea pigs
 \citep{AwatramaniTurecekEtAl:2005}.  \GABAa receptor currents have a fast (9 ms)
 and a slow (150 ms) decay component
@@ -898,7 +898,7 @@ stimuli is used in Section \ref{sec:Ch3:Delays} to set the delay times between
 
 
 
-* Simulation and Implementation of the Cochlear Nucleus Stellate Microcircuit Model 
+* [CNSM Simulation and Implementation]{Simulation and Implementation of the Cochlear Nucleus Stellate Microcircuit Model} 
 :PROPERTIES:
 :CUSTOM_ID: sec:Methods:SimSpecs
 :END:
