@@ -283,8 +283,8 @@ y_0(t) &= c_0 \exp(-(t'-t_{\textrm{a}})/s_0) \\
 y_1(t) &= c_1 \exp(-(t'-t_{\textrm{a}})/s_1), 
 \end{eqnarray} 
 \noindent where $t'$ is the time relative to the last
-spike, $c_0 = 0.5$, $c_1 = 0.5$, $s_0 = 0.001$ ms and $s_1 = 0.0125$
-ms.  The absolute refractory period, $t_{\textrm{a}}$, was 0.75 ms.
+spike, $c_0 = 0.5$, $c_1 = 0.5$, $s_0 = 0.001$ msec and $s_1 = 0.0125$
+msec.  The absolute refractory period, $t_{\textrm{a}}$, was 0.75 msec.
 # Improvements in the spike-generation method 
 Spike trains for each neuron in the model were created at the start of each
 repetition of the stimulus, but could be saved and loaded from files to improve
@@ -599,7 +599,7 @@ spreading parameter, /s/, which were taken to be uniform across the
 network for each connection type.  The allocation of pre-synaptic cells
 to post-synaptic cells was random based upon a Gaussian function, with
 mean equal to the post-synaptic cell's \CF channel and standard
-deviation equal to $\sqrt{s}$ (in channel units).
+deviation $\sigma^2=s$ (in channel units).
 # Connection
 # parameters that are fixed are shown in Table
 # \ref{tab:Methods:GeneralParams} and parameters used in the optimisation are
@@ -793,8 +793,8 @@ t'=\frac{\tau_{Inh1}\tau_{Inh2}}{\tau_{Inh2}-\tau_{Inh1}} \ln(\tau_{Inh2}/\tau_{
 Excitatory inputs to \CN cells from type I \ANF terminals were mediated
 by fast glutamatergic-\AMPA receptors
 \citep{Gardner:2000,GardnerTrussellEtAl:1999}. \Glsplural{EPSP} in \VCN neurons
-had a decay time constant of $\tAMPA = 0.36$ ms, whereas \TV cells in
-the \DCN had a decay time constant of $\tAMPA = 0.40$ ms
+had a decay time constant of $\tAMPA = 0.36$ msec, whereas \TV cells in
+the \DCN had a decay time constant of $\tAMPA = 0.40$ msec
 \citep{GardnerTrussellEtAl:1999}.  The reversal potential of excitatory
 synapse was 0 mV. 
 
@@ -805,21 +805,21 @@ synapse was 0 mV.
 # %(Could be mixed Gly/GABA [\citenum{AltschulerJuizEtAl:1993}]) 
 #   & % Time Constant
 # See above for GlyR \tfast
-# 2.5 ms (Rise time 0.4 ms, \AVCN rats,mice: [\citenum{LimOleskevichEtAl:2003}])
-#  $2.9 \pm 0.3$ ms (with \tslow $12.3 \pm 16.4$ ms, \tfast as fast as 1.5 ms, \MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
-# % $2.1 \pm 0.1$ ms (25$^\circ$C mIPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
-# % $0.8 \pm 0.2$ ms (37\degC mIPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
-# % $1.1 \pm 0.2$ ms (37\degC evoked IPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
-# % $2.28 \pm 0.08$ ms mIPSCs, $5.42 \pm 0.19$ ms evoked IPSCs (25$^\circ$C, rise time $0.42 \pm 0.05$ ms, MNTB mice: [\citenum{LeaoOleskevichEtAl:2004}])
-# $2.8 \pm 0.4$ ms (Desensitisation, \MNTB rat: [\citenum{AwatramaniTurecekEtAl:2005}]) 
+# 2.5 msec (Rise time 0.4 msec, \AVCN rats,mice: [\citenum{LimOleskevichEtAl:2003}])
+#  $2.9 \pm 0.3$ msec (with \tslow $12.3 \pm 16.4$ msec, \tfast as fast as 1.5 msec, \MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
+# % $2.1 \pm 0.1$ msec (25$^\circ$C mIPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
+# % $0.8 \pm 0.2$ msec (37\degC mIPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
+# % $1.1 \pm 0.2$ msec (37\degC evoked IPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
+# % $2.28 \pm 0.08$ msec mIPSCs, $5.42 \pm 0.19$ msec evoked IPSCs (25$^\circ$C, rise time $0.42 \pm 0.05$ msec, MNTB mice: [\citenum{LeaoOleskevichEtAl:2004}])
+# $2.8 \pm 0.4$ msec (Desensitisation, \MNTB rat: [\citenum{AwatramaniTurecekEtAl:2005}]) 
 
 # %Decay  5.47 $\pm$0.19 (very young MNTB rat [\citenum{AwatramaniTurecekEtAl:2005}])
-# %6--13 ms (guinea pig: [\citenum{HartyManis:1998}]).
-# %Activation to 1mM Gly 2.0$\pm$1.2 ms (range 0.8 to 4.6 ms), deactivation to 1s Gly $\tau_{\textrm{fast}}$ 15.5 ms and $\tau_{\textrm{fast}}$ 73.4 ms (MNTB mice [\citenum{LeaoOleskevichEtAl:2004}]).
+# %6--13 msec (guinea pig: [\citenum{HartyManis:1998}]).
+# %Activation to 1mM Gly 2.0$\pm$1.2 msec (range 0.8 to 4.6 msec), deactivation to 1s Gly $\tau_{\textrm{fast}}$ 15.5 msec and $\tau_{\textrm{fast}}$ 73.4 msec (MNTB mice [\citenum{LeaoOleskevichEtAl:2004}]).
 
-# % 1.6 ms (mice [\citenum{Oertel:1983}])
-# % 5.4 ms (mice: [\citenum{OertelWickesberg:1993,WickesbergOertel:1993}])    
-# % 5.3 ms (Activation 2.0$\pm$1.2 ms, guinea pig: [\citenum{HartyManis:1998}])
+# % 1.6 msec (mice [\citenum{Oertel:1983}])
+# % 5.4 msec (mice: [\citenum{OertelWickesberg:1993,WickesbergOertel:1993}])    
+# % 5.3 msec (Activation 2.0$\pm$1.2 msec, guinea pig: [\citenum{HartyManis:1998}])
 
 
 
@@ -832,16 +832,16 @@ miniature \IPSPs recorded in mature \AVCN in rats and mice
 \citep{AwatramaniTurecekEtAl:2004,AwatramaniTurecekEtAl:2005}.  Room temperature
 whole cell patch recordings of spontaneous mIPSCs in mature \AVCN in rats and
 mice neurons showed these synapses have a fast rise time (10\% to 90\%),
-$\tGlyone = 0.4$ msec, and a decay time constant $\tGlytwo = 2.5$ ms
+$\tGlyone = 0.4$ msec, and a decay time constant $\tGlytwo = 2.5$ msec
 \citep{LimOleskevichEtAl:2003}.  In MNTB rat neurons at body temperature, GlyR
-decay constants of miniature and evoked \IPSCs were $0.8 \pm 0.2$ ms and $1.1 \pm 0.2$ 
-ms (37\degC), respectively \citep{AwatramaniTurecekEtAl:2004}.  \GABAa
+decay constants of miniature and evoked \IPSCs were $0.8 \pm 0.2$ msec and $1.1 \pm 0.2$ 
+msec (37\degC), respectively \citep{AwatramaniTurecekEtAl:2004}.  \GABAa
 synapses were modeled from \MNTB recordings in mature guinea pigs
-\citep{AwatramaniTurecekEtAl:2005}.  \GABAa receptor currents have a fast (9 ms)
-and a slow (150 ms) decay component
+\citep{AwatramaniTurecekEtAl:2005}.  \GABAa receptor currents have a fast (9 msec)
+and a slow (150 msec) decay component
 \citep{AwatramaniTurecekEtAl:2005,DavisYoung:2000}, but for short stimuli only
 the fast component was modeled ($\tGABAone =0.7$ msec, $\tGABAtwo =9.0$
-ms). Chlorine reversal potential in Glycine and \GABAa receptors was set to -75
+msec). Chlorine reversal potential in Glycine and \GABAa receptors was set to -75
 mV.
 
 
@@ -854,10 +854,10 @@ For the \CNSM model, delay was defined as the time between activation of the
 pre-synaptic neuron and the activation of the post-synaptic potential, which
 includes axonal conduction and synaptic diffusion. Synaptic transmission and
 axonal conductance delay between adjacent neurons is typically measured in
-experiments to be 0.4 -- 0.5 ms. Delays between neurons in the ventral and
-dorsal \CN were measured using electric shocks and found to be approximately 1.0 ms, but ranged from 0.15 to 2 ms 
-ms \citep{WickesbergOertel:1993}.
-# \yellownote{Needs reference, and what about Bahlmer and Lagner's 0.4 ms delays}
+experiments to be 0.4 -- 0.5 msec. Delays between neurons in the ventral and
+dorsal \CN were measured using electric shocks and found to be approximately 1.0 msec, but ranged from 0.15 to 2 msec 
+msec \citep{WickesbergOertel:1993}.
+# \yellownote{Needs reference, and what about Bahlmer and Lagner's 0.4 msec delays}
 
 
 Latency was defined in the \CNSM model as the time difference between a stimulus
@@ -870,7 +870,7 @@ in the cat to obtain the formula:
 d=A_{0} \exp(-x/A_{1})\times 10^{- 3} - 1/{\mathrm{CF}_x},
 \end{equation} \noindent where /x/ is the distance along the basilar membrane
 from the apex, ${\mathrm{CF}}_x$ is the \CF (Hz) at this location, and constants
-$A_0$ and $A_1$ are 8.3 ms and 6.49 cm for cats, respectively.
+$A_0$ and $A_1$ are 8.3 msec and 6.49 cm for cats, respectively.
  
 # In humans, \citet{HeinzZhangEtAl:2001} corrected the peak click to
 # match the onset delay of ANFs, generating a latency function :
@@ -911,7 +911,7 @@ package [[latex:progname][NEURON]] \citep{CarnevaleHines:2006}. NMODL, an extens
 \citep{HinesCarnevale:2000}, was used to implement membrane current models and
 interface with the \AN model. Numerical integration was performed using the
 Crank-Nicholson method with second order accuracy (in [[latex:progname][NEURON]], $secondorder=2$)
-and fixed time step of either 0.1 or 0.05 ms.
+and fixed time step of either 0.1 or 0.05 msec.
 
 
 The computations of the [[latex:progname][NEURON]] model were distributed on a single
@@ -966,7 +966,7 @@ other \CFs.
 
 The output of all \AN models was then down-sampled to a lesser sampling rate
 for the \ANF spike generator and saved for further use.  The resolution of
-the spike generator was either 20 or 50 kHz. The integration time-step of the NEURON simulations was 0.05 ms.  
+the spike generator was either 20 or 50 kHz. The integration time-step of the NEURON simulations was 0.05 msec.  
 
 Notch noise was used as the stimulus for Chapter \ref{sec:GAChapter} and the optimisation of \DS cell connections
 to \TV cells (see Section \ref{sec:Ch3:DSTV} in Chapter
@@ -977,9 +977,9 @@ it could be retrieved by NEURON in the simulation.
 
 #  with a
 # 50 kHz sampling frequency and filtered with a quarter octave, 30 dB
-# band-stop, 100-tap FIR filter centered at 5 kHz. A 50 ms stimulus was
-# presented at 60 dB \SPL with 5 ms onset/offset ramps, a 20 ms delay and
-# 10 ms pause after the stimulus. Notch noise stimuli have been used in
+# band-stop, 100-tap FIR filter centered at 5 kHz. A 50 msec stimulus was
+# presented at 60 dB \SPL with 5 msec onset/offset ramps, a 20 msec delay and
+# 10 msec pause after the stimulus. Notch noise stimuli have been used in
 # experimental studies of the \CN to measure the asymmetric, wide-band
 # suppression of \TV cells by \DS cells \citep{ReissYoung:2005} and to
 # estimate the frequency range of \ANFs converging on \DS cells
