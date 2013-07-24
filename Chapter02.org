@@ -62,7 +62,7 @@ eardrum (tympanic membrane) are conducted by the middle ear bones to vibrations
 of fluid in the inner ear (cochlea). They are then transferred to chemical
 signals in the inner hair cells and then to electrical potentials of the \ANFs.
 
-# \yellownote{needs references and further expansion.
+# \note{needs references and further expansion.
 #   Introduce new acronyms and keywords here eg. tonotopic.  Be careful not to
 #   reproduce stuff done in the results chapters }
 # This processing also enters a bottle-neck at the auditory nerve,
@@ -94,7 +94,7 @@ fibres.
 # include the high temporal acuity pathway (bushy cells); the onset detection
 # pathway (octopus cells); the azimuth detection pathway (pyramid cells of the
 # DCN); and the robust spectral pathway (\TS cells).
-# \yellownote{ have included auditory nerve inputs with the appropriate features described
+# \note{ have included auditory nerve inputs with the appropriate features described
 # above. The most recent \AN models include all observed phenomenological
 # behaviours in \ANFs.  periphery models are necessary as inputs.  }
 
@@ -145,7 +145,7 @@ model are used in Chapters \ref{sec:ModelChapter} and \ref{sec:AMChapter}.
 # \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
 #  \medskip{}
 
-#  \yellownote{Why is it the cat model? updating Carney model?} Updating of the
+#  \note{Why is it the cat model? updating Carney model?} Updating of the
 #  Carney auditory model has led to the change in the model's configuration from an
 #  original implementation of the rat model.  The default species is the cat and
 #  will be used in the data presented in this chapter.
@@ -584,7 +584,7 @@ established the /in vitro/ characteristics of each cell type from the literature
 
 
 
-* [CNSM Connectivity and Organisation]{Connectivity and Organisation in the Cochlear Nucleus Stellate Microcircuit Model}
+* Connectivity and Topology: Network Organisation in the Cochlear Nucleus Stellate Microcircuit Model
    :PROPERTIES:
    :CUSTOM_ID: sec:Methods:ConnectivityandTopology
    :END:
