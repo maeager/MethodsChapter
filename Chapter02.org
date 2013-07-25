@@ -264,7 +264,7 @@ passed through the \AN model for each frequency channel for both \LSR and \HSR
 fibres, producing an instantaneous firing rate response that was down-sampled to
 20 kHz.
 
-# \yellownote{discuss ANF SR, types of ANF, long-term dependence, and
+# \note{discuss ANF SR, types of ANF, long-term dependence, and
 #   standard results of spiking models, and how Jackson then Zilany
 #   have tried to fit these to the AN data}
 
@@ -290,7 +290,7 @@ Spike trains for each neuron in the model were created at the start of each
 repetition of the stimulus, but could be saved and loaded from files to improve
 efficiency.
 
-# \yellownote{Para: Notes from Hegger: discuss Poisson generator}
+# \note{Para: Notes from Hegger: discuss Poisson generator}
 # # $$r(t) = \alpha [V(t)-V_{\mathrm th}]$$
 # where
 # # $$\mathrm{P}\left{ n \mathrm{spike during}  (t_1,t_2)\right} = e^{\langle{}n\rangle}\frac{(\langle{}n\rangle)^n}{n!} \approx r(t)\delta{}t$$ then refractory effects; then renewal process PDF
@@ -298,7 +298,7 @@ efficiency.
 # p(\tau) = (\kappa{}r)^{\kappa} \tau^{\kappa-1} e^{-\kappa{} r \tau} / (\kappa - 1)!
 # \end{equation}
 
-# \yellownote{Real neuronal spike generation is highly reliable and deterministic, as has been demonstrated by countless numbers of \textit{in vitro} studies. }
+# \note{Real neuronal spike generation is highly reliable and deterministic, as has been demonstrated by countless numbers of \textit{in vitro} studies. }
 
 # Complex time-varying currents, injected into neurons in rat cortex
 # slices, resulted in spike trains were reproducible across repeats to
@@ -333,7 +333,7 @@ efficiency.
   :END:
 
 # Hodgkin-Huxley-like
-# \yellownote{Include discussion on HH-like neural models}
+# \note{Include discussion on HH-like neural models}
 # Input resistance was calculated using [[latex:progname][NEURON]]'s /Impedence/ class by setting the input current frequency to 0 Hz[fn:: See input resistance function =rn()= in Appendix \ref{sec:Apdx:Utilities}.].
 
 
@@ -529,52 +529,47 @@ except for \Ih which had a temperature coefficient $Q_{10}=1.3$.
 ** Neural Sub-types in the Cochlear Nucleus
 
 
-Table \ref{tab:Methods:CellTypes} shows the maximum conductances, $\bar{g}$,
-for each cell type in the network.  The neurons in the ventral \CN
-differ in their composition of these currents on the basis of their
-current-clamp type. They are classified as either type I or type II
-based on their response to intracellular current injection
-\citep{OertelWuEtAl:1988}. The response of type I neurons to current
-injection is regularly spaced \APs. \TV \citep{ZhangOertel:1993b} and
-Golgi cells \citep{FerragamoGoldingEtAl:1998a} are classic type I, and
-have \INa, \IKHT and \Ih currents. \TS cells are type I, and they have
-additional A-type transient potassium channels, \IKA
+Table \ref{tab:Methods:CellTypes} shows the maximum conductances, $\bar{g}$, for
+each cell type in the network.  The neurons in the ventral \CN differ in their
+composition of these currents on the basis of their current-clamp type. They are
+classified as either type I or type II based on their response to intracellular
+current injection \citep{OertelWuEtAl:1988}. The response of type I neurons to
+current injection is regularly spaced \APs. \TV \citep{ZhangOertel:1993b} and
+Golgi cells \citep{FerragamoGoldingEtAl:1998a} are classic type I, and have
+\INa, \IKHT and \Ih currents. \TS cells are type I, and they have additional
+A-type transient potassium channels, \IKA
 \citep{FerragamoGoldingEtAl:1998,RothmanManis:2003b}.
 
 
-Type II responses
-have only one phasic \AP at the start of the stimulus, characteristic of
-ventral \CN bushy cells, which enables them to rapidly follow \ANF input
-events \citep{OertelWuEtAl:1988,SmithRhode:1989}. \IKLT is present in
-type II units and is active at resting membrane potential, which allow
-for rapid changes depending on the input. \DS cells respond with a
-single \AP for injected current levels near threshold, and then discharge
-regularly for higher current levels
-\citep{OertelWuEtAl:1988,PaoliniClark:1999}, corresponding to an
-intermediate type I-II response. \DS cells have a small amount of \IKLT
-current to reduce the cells' input resistance and enhance coincidence
-detection.
-
+Type II responses have only one phasic \AP at the start of the stimulus,
+characteristic of ventral \CN bushy cells, which enables them to rapidly follow
+\ANF input events \citep{OertelWuEtAl:1988,SmithRhode:1989}. \IKLT is present in
+type II units and is active at resting membrane potential, which allow for rapid
+changes depending on the input. \DS cells respond with a single \AP for injected
+current levels near threshold, and then discharge regularly for higher current
+levels \citep{OertelWuEtAl:1988,PaoliniClark:1999}, corresponding to an
+intermediate type I-II response. \DS cells have a small amount of \IKLT current
+to reduce the cells' input resistance and enhance coincidence detection.
 
 In the \CNSM model, the membrane parameters were developed and refined after we
 established the /in vitro/ characteristics of each cell type from the literature
 \citep{FerragamoGoldingEtAl:1998,FerragamoGoldingEtAl:1998a,OertelWuEtAl:1988,ZhangOertel:1993b}.
 # at 37\degC, and matched them to the model types in \citet{RothmanManis:2003}.
 
-# \yellownote{more discussion on the table}
+# \note{more discussion on the table}
 #+BEGIN_LaTeX
   \begin{table}[tp]
     \centering
     \caption{Cell-type membrane current parameters}\label{tab:Methods:CellTypes}
     \begin{tabularx}{0.8\linewidth}{lcccc}\toprule
              Cells            &  \TS   &  \DS   &   \TV   & Golgi \\ %\hline
-      RM Model     &  I-t   &  I-II  &   I-c   & I-c \\[0.5ex] \midrule
-       \gNa, \hfill \Scmsq       & 0.235  & 0.235  &  0.235  & 0.235 \\ %\hline
-       \gKHT, \hfill \Scmsq      & 0.018  &  0.02  &  0.019  & 0.019 \\ %\hline
-       \gKLT, \hfill \Scmsq    &   0    & 0.0047 &    0    & 0 \\ %\hline
-       \gKA, \hfill \Scmsq   & 0.0153 &   0    &    0    & 0 \\ %\hline
-       \gh, \hfill m\Scmsq       & 0.0618 & 0.247  & 0.06178 & 0.6178 \\ %\hline
-      \gleak, \hfill m\Scmsq     & 0.471  & 0.471  &  0.471  & 0.962 \\ %\hline
+           \RM Type           &  I-t   &  I-II  &   I-c   & I-c \\[0.5ex] \midrule
+      \gNa, \hfill \Scmsq     & 0.235  & 0.235  &  0.235  & 0.235 \\ %\hline
+     \gKHT, \hfill \Scmsq     & 0.018  &  0.02  &  0.019  & 0.019 \\ %\hline
+     \gKLT, \hfill \Scmsq     &   0    & 0.0047 &    0    & 0 \\ %\hline
+      \gKA, \hfill \Scmsq     & 0.0153 &   0    &    0    & 0 \\ %\hline
+      \gh, \hfill m\Scmsq     & 0.0618 & 0.247  & 0.06178 & 0.6178 \\ %\hline
+    \gleak, \hfill m\Scmsq    & 0.471  & 0.471  &  0.471  & 0.962 \\ %\hline
       Soma Diameter, \um      &   21   &   25   &  19.5   & 15 \\ %\hline
   Input Resistance, M$\Omega$ &  163   &   73   &   170   & 130 \\
   \bottomrule
@@ -854,7 +849,7 @@ axonal conductance delay between adjacent neurons is typically measured in
 experiments to be 0.4 -- 0.5 msec. Delays between neurons in the ventral and
 dorsal \CN were measured using electric shocks and found to be approximately 1.0
 msec, but ranged from 0.15 to 2 msec msec \citep{WickesbergOertel:1993}.
-# \yellownote{Needs reference, and what about Bahlmer and Lagner's 0.4 msec delays}
+# \note{Needs reference, and what about Bahlmer and Lagner's 0.4 msec delays}
 
 
 Latency was defined in the \CNSM model as the time difference between a stimulus
@@ -890,11 +885,11 @@ delay times between \ANFs and \CN cells.
 # fitted using the first spike latency of high frequency units as the sum of the
 # \ANFs' first spike latency, \ANF conduction delay, and the synaptic transmission
 # delay.
-# \yellownote{My citation here is from ANS 2006.  }
+# \note{My citation here is from ANS 2006.  }
 
 
 
-* [CNSM Simulation and Implementation]{Simulation and Implementation of the Cochlear Nucleus Stellate Microcircuit Model}
+* Implementation of the Cochlear Nucleus Stellate Microcircuit Model
 :PROPERTIES:
 :CUSTOM_ID: sec:Methods:SimSpecs
 :END:
@@ -938,14 +933,14 @@ The genetic algorithms and sensitivity analyses in Chapter
 
 In order to emulate sound entering the ear, acoustic sounds were generated and
 passed into the auditory model.  The acoustic stimuli were generated in [[latex:progname][NEURON]],
-with the exception of notch noise, which was generated in [[latex:progname][MATLAB/GNU
-Octave]]. The stimulus types included pure tones, white noise, sinusoidal
+with the exception of notch noise, which was generated in [[latex:progname][MATLAB/GNU Octave]].
+The stimulus types included pure tones, white noise, sinusoidal
 amplitude modulated sounds and clicks.
 Sound levels are given in decibel SPL (i.e., root
 mean square of pressure levels in dB re 20 $\mu\textrm{Pa}$).
 # Bursts of wideband noise (bandwidth 20 kHz, spectral density
 # The first run of a stimulus may take some time if the AN responses have not been previously saved.
-# \yellownote{Hair cell compression values for the Bruce and Zilany \AN models.}
+
 
 Temporal resolution in the \CNSM model is variable at each stage: the stimulus,
 the \ANF spiking model, and the NEURON simulation.  The stimulus sampling rate
@@ -983,20 +978,16 @@ be retrieved by NEURON in the simulation.
 # \citep{PalmerJiangEtAl:1996}.
 
 
-
-
-
-
 ** Creation and Simulation of CNSM Model
 
 The \AN model and the neural cell models were combined in a NEURON package
-called [[latex:progname][cnstellate]].
-# \yellownote{show organisation of frequency channels, input and microcircuit }
+called [[latex:progname][cnstellate]] (open-source online access is in preparation).
+# \note{show organisation of frequency channels, input and microcircuit }
 The tonotopic organisation of the model was built into N_{\rm channel} frequency
 channels (from CF_{\rm low} to CF_{\rm high}) mimicking the population of the \ANF input
 model. This replicates \ANF innervation of the \CN \citep{Lorente:1981}.
 
-\yellownote{Reference to online access to cnstellate model}
+# \note{Reference to online access to cnstellate model}
 
 #  The \CN stellate network model drawn in Figure
 # \ref{fig:microcircuit} describes the following cells and models:
@@ -1033,7 +1024,7 @@ model. This replicates \ANF innervation of the \CN \citep{Lorente:1981}.
 # #+LABEL: fig:microcircuit ./MethodsChapter/gfx/CNcircuit-detailed.pdf]]
 
 
-# \yellownote{Where is the figure?}
+# \note{Where is the figure?}
 
 
 * Optimisation Techniques
@@ -1067,11 +1058,11 @@ model. This replicates \ANF innervation of the \CN \citep{Lorente:1981}.
 # studies.
 
 
-# \yellownote{See neural detail in auditory
-# system\citep{LuRubioEtAl:2008}} \yellownote{Discuss use of Poisson
+# \note{See neural detail in auditory
+# system\citep{LuRubioEtAl:2008}.  Discuss use of Poisson
 # models vs HH-like models.  Discuss single cell simulation vs whole
 # network simulation during optimisation.}
-# \yellownote{
+# \note{
 #     Network Configuration
 #         Parameterisation
 #         Assumptions
@@ -1098,7 +1089,7 @@ neural network models and their constituents.
 
 
 #+LATEX: \input{../MethodsChapter/NordlieTemplate.tex}
-# \yellownote{this needs more explanation in the methods sections}
+# \note{this needs more explanation in the methods sections}
 
 The standard methods for optimisation can be simply described with the
 following steps:
