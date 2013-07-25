@@ -2,7 +2,7 @@
 #+DATE:
 #+AUTHOR: Michael A Eager
 #+OPTIONS: toc:nil H:5  <:t >:t tasks:nil
-#+STARTUP: oddeven 
+#+STARTUP: oddeven
 #+TODO: REFTEX
 #+LANGUAGE: en_GB-ise-wo_accents
 #+SEQ_TODO:   TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
@@ -24,7 +24,7 @@ used are provided in the relevant chapters.
 
 * Prelude 							   :noexport:
 
-#+begin_src emacs-lisp 
+#+begin_src emacs-lisp
    (add-to-list 'org-export-latex-classes
                 '("UoM-draft-org-article"
  "\% -*- mode: latex; mode: visual-line; TeX-master: t; TeX-PDF-mode: t -*-
@@ -54,7 +54,7 @@ used are provided in the relevant chapters.
 
 
 
-* Auditory Input Model 
+* Auditory Input Model
 
 To understand the auditory system, one must first understand the transformations
 preceding neural signals in the auditory nerve. Mechanical vibrations at the
@@ -118,7 +118,7 @@ Carney and colleagues have made a series of improvements to the original model o
 last 20 years
 \citep{ZhangHeinzEtAl:2001,HeinzZhangEtAl:2001,BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007,ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
 # The Zhang model \citep{ZhangHeinzEtAl:2001}, the ARLO model \citep{HeinzZhangEtAl:2001} and the Bruce model
-# \citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007}, and the Zilany model \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.  
+# \citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007}, and the Zilany model \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.
 \citet{HeinzZhangEtAl:2001} incorporated cochlear filters based on the critical
 bandwidths obtained from psychophysical experiments, improving the non-linear
 compression and two-tone suppression behaviour in the model. Chapter
@@ -134,7 +134,7 @@ model are used in Chapters \ref{sec:ModelChapter} and \ref{sec:AMChapter}.
 
 
 # \citet{HeinzZhangEtAl:2001} incorporated cochlear filters based on
-# the critical bandwidths obtained from psychophysical experiments in humans. 
+# the critical bandwidths obtained from psychophysical experiments in humans.
 # The \citet{ZilanyBruce:2007} model improved the previous AN model by an additional signal path and
 # its predictions have matched a wide range of physiological data in normal and
 # impaired cat data.
@@ -152,7 +152,7 @@ model are used in Chapters \ref{sec:ModelChapter} and \ref{sec:AMChapter}.
 
 
 #+attr_latex: width=0.95\textwidth
-#+caption: [Auditory periphery schematic of the Zilany AN model]{Auditory periphery schematic of the Zilany version of the Carney AN model (\citet{ZilanyBruceEtAl:2009}, reproduced from their Fig. 2). (A) The Carney AN model is comprised of a middle and inner ear filter model, and a synapse between inner hair cells (IHC)  and type I ANFs.  (B) The Zilany AN model has added a dual power-law synapse model. } 
+#+caption: [Auditory periphery schematic of the Zilany AN model]{Auditory periphery schematic of the Zilany version of the Carney AN model (\citet{ZilanyBruceEtAl:2009}, reproduced from their Fig. 2). (A) The Carney AN model is comprised of a middle and inner ear filter model, and a synapse between inner hair cells (IHC)  and type I ANFs.  (B) The Zilany AN model has added a dual power-law synapse model. }
 #+label: fig:ZilanyBruceFig
 [[../MethodsChapter/gfx/ZilanyEtAl2009-Fig2.png]]
 
@@ -179,19 +179,19 @@ of the adjacent basilar membrane and forms a topographical receptive field,
 according to place along the central auditory nervous system.
 
 The input auditory models used in this thesis provide the major
-phenomenological qualities of experimentally recorded \ANFs. 
+phenomenological qualities of experimentally recorded \ANFs.
 # The Zilany model \citep{ZilanyBruceEtAl:2009} was based on many auditory models
 # from the Carney Lab
-# \citep{HeinzColburnEtAl:2001,ZhangCarney:2001,Carney:1993}.  
+# \citep{HeinzColburnEtAl:2001,ZhangCarney:2001,Carney:1993}.
 The centre frequencies across $N_{\rm channels}$ is determined by the
 logarithmic Greenwood function \citep{Greenwood:1990} of the basilar
-membrane in cats.  
+membrane in cats.
 Centre frequencies of the channels were spaced logarithmically according
 to the basilar membrane frequency-place map function, Equation
 \ref{eq:Methods:Greenwood} \citep{Greenwood:1990}:
-\begin{equation} \label{eq:Methods:Greenwood} 
+\begin{equation} \label{eq:Methods:Greenwood}
 f(x) = A \left(10^{ax/L} - k\right) \quad (\text{Hz})
-\end{equation} 
+\end{equation}
 \noindent where $x$ is the distance along the basilar
 membrane from the stapes, and variables /A/, /a/, /L/ and /k/ are
 dependent on the species.  The data in Table
@@ -230,7 +230,7 @@ to 64 kHz.
 #+END_LaTeX
 
 
-** Inner and Outer Hair Cell Compression 
+** Inner and Outer Hair Cell Compression
 
 Figure \ref{fig:Compression}
 \yellownote{Include text to explain Figure \ref{fig:Compression}}
@@ -238,13 +238,13 @@ Figure \ref{fig:Compression}
 #+BEGIN_LaTeX
   \begin{figure}[htb]
     \centering
-    {\figfont{A}\hfill Cat\hspace{1.5in}\hfill\figfont{B}\hfill Rat \hspace{1.5in}\hfill}\\ 
+    {\figfont{A}\hfill Cat\hspace{1.5in}\hfill\figfont{B}\hfill Rat \hspace{1.5in}\hfill}\\
     \resizebox{0.95\textwidth}{!}{\includegraphics[keepaspectratio=true]{../MethodsChapter/gfx/AudiogramCompression.pdf}} \\
     \caption[Cat and Rat audiograms and compression curves for the Bruce and
     Zilany AN models]{Animal auditory thresholds (audiograms) were used to
       calculate the inner and outer hair cell (IHC and OHC) compression values in
-      the Bruce and Zilany AN models. 
-    %The audiograms were collected from earlab.bu.edu. 
+      the Bruce and Zilany AN models.
+    %The audiograms were collected from earlab.bu.edu.
       Audiograms and compression values are shown for (A) cat and (B) rat.}
     \label{fig:Compression}
   \end{figure}
@@ -258,7 +258,7 @@ Figure \ref{fig:Compression}
 
 The level of spontaneous activity and minimum thresholds in \ANFs are separated
 into two distinct groups, \HSR and \LSR fibres.  The spontaneous rate of \HSR
-and \LSR were set to 50 Hz and 0.5 Hz, respectively.  \HSR and 
+and \LSR were set to 50 Hz and 0.5 Hz, respectively.  \HSR and
 \LSR\space \ANFs were simulated for each frequency channel.  The stimulus was
 passed through the \AN model for each frequency channel for both \LSR and \HSR
 fibres, producing an instantaneous firing rate response that was down-sampled to
@@ -278,24 +278,24 @@ rate using a pseudo-random Poisson spike generator
 \citep{JacksonCarney:2005}, with refractory effects similar
 to those present in \ANFs.  The double exponential relative refractory
 functions, specific to ANFs, were
-\begin{eqnarray} 
-y_0(t) &= c_0 \exp(-(t'-t_{\textrm{a}})/s_0) \\ 
-y_1(t) &= c_1 \exp(-(t'-t_{\textrm{a}})/s_1), 
-\end{eqnarray} 
+\begin{eqnarray}
+y_0(t) &= c_0 \exp(-(t'-t_{\textrm{a}})/s_0) \\
+y_1(t) &= c_1 \exp(-(t'-t_{\textrm{a}})/s_1),
+\end{eqnarray}
 \noindent where $t'$ is the time relative to the last
 spike, $c_0 = 0.5$, $c_1 = 0.5$, $s_0 = 0.001$ msec and $s_1 = 0.0125$
 msec.  The absolute refractory period, $t_{\textrm{a}}$, was 0.75 msec.
-# Improvements in the spike-generation method 
+# Improvements in the spike-generation method
 Spike trains for each neuron in the model were created at the start of each
 repetition of the stimulus, but could be saved and loaded from files to improve
 efficiency.
 
-# \yellownote{Para: Notes from Hegger: discuss Poisson generator} 
-# # $$r(t) = \alpha [V(t)-V_{\mathrm th}]$$ 
-# where 
+# \yellownote{Para: Notes from Hegger: discuss Poisson generator}
+# # $$r(t) = \alpha [V(t)-V_{\mathrm th}]$$
+# where
 # # $$\mathrm{P}\left{ n \mathrm{spike during}  (t_1,t_2)\right} = e^{\langle{}n\rangle}\frac{(\langle{}n\rangle)^n}{n!} \approx r(t)\delta{}t$$ then refractory effects; then renewal process PDF
-# \begin{equation}  
-# p(\tau) = (\kappa{}r)^{\kappa} \tau^{\kappa-1} e^{-\kappa{} r \tau} / (\kappa - 1)! 
+# \begin{equation}
+# p(\tau) = (\kappa{}r)^{\kappa} \tau^{\kappa-1} e^{-\kappa{} r \tau} / (\kappa - 1)!
 # \end{equation}
 
 # \yellownote{Real neuronal spike generation is highly reliable and deterministic, as has been demonstrated by countless numbers of \textit{in vitro} studies. }
@@ -314,7 +314,7 @@ efficiency.
 
 # Analysis of the frequency
 #  response area of ANF generates known parameters for each fibre, these are:
-#  \begin{itemize} 
+#  \begin{itemize}
 #  \item the spontaneous rate (SR), generated in silence and is
 #    categoried into two groups High SR ($>$18 sp/s) and Low SR ($<$ 18
 #    sp/s);
@@ -337,11 +337,11 @@ efficiency.
 # Input resistance was calculated using [[latex:progname][NEURON]]'s /Impedence/ class by setting the input current frequency to 0 Hz[fn:: See input resistance function =rn()= in Appendix \ref{sec:Apdx:Utilities}.].
 
 
-Single compartment conductance models, similar to those presented by 
+Single compartment conductance models, similar to those presented by
 \citet{HodgkinHuxley:1952a}, were used to model the cochlear nucleus
-neurons. 
+neurons.
 The dynamics of the membrane voltage, $V(t)$, is described by
-\begin{equation} \label{eq:Methods:V} 
+\begin{equation} \label{eq:Methods:V}
 C_{m} \frac{dV}{dt} = - \gleak (V - \Eleak) - \INa - \IKHT - \IKLT - \IKA - \Ih - \sum \ISYN,
 \end{equation} \noindent where $C_{m}$ is the specific membrane capacitance; \gleak
 is the specific leak conductance with associated leak reversal potential \Eleak;
@@ -356,8 +356,8 @@ The voltage-dependent relationship in each current model has a peak
 conductance parameter and gating variables for activation and
 de-activation.  The formula for the sodium current, \INa, was based on
 the studies of \citet{Costa:1996} and \citet{BelluzziSacchiEtAl:1985}
-and given by 
-\begin{equation} \label{eq:Methods:INa} 
+and given by
+\begin{equation} \label{eq:Methods:INa}
 \INa(t,V)=\gNa m^{3} h (V - \ENa),
 \end{equation} \noindent where $m$ is the activation function, $h$ is
 the de-activation function, \gNa is the maximum sodium conductance, and
@@ -372,37 +372,36 @@ used here were drawn from an investigation of isolated \VCN neurons
 yielded accurate mathematical descriptions of:
  - the high-threshold rectifying potassium current
    density,
-\begin{equation} \label{eq:Methods:IKHT} 
-\IKHT(t,V)= \gKHT (\varphi n^{2} + (1-\varphi ) p)(V - \EK ) 
+\begin{equation} \label{eq:Methods:IKHT}
+\IKHT(t,V)= \gKHT (\varphi n^{2} + (1-\varphi ) p)(V - \EK )
 \end{equation}
  - the fast-activating transient potassium current
-  density, 
-\begin{equation} \label{eq:Methods:IKA} 
-\IKA(t,V)=\gKA a^{4} b c (V -  \EK) 
+  density,
+\begin{equation} \label{eq:Methods:IKA}
+\IKA(t,V)=\gKA a^{4} b c (V -  \EK)
 \end{equation}
  - the low-threshold, fast-activating, slowly-deactivating potassium
    current density,
 \begin{equation} \label{eq:Methods:IKLT}
-   \IKLT(t,V)=\gKLT w^{3} z (V-\EK) 
+   \IKLT(t,V)=\gKLT w^{3} z (V-\EK)
 \end{equation}
  - the mixed-cation hyperpolarization-activated current
    density,
-\begin{equation} \label{eq:Methods:Ih} 
-\Ih(t,V)=\gh r (V-\Eh). 
+\begin{equation} \label{eq:Methods:Ih}
+\Ih(t,V)=\gh r (V-\Eh).
 \end{equation}
 
 Figure \ref{fig:Methods:RM2} shows the voltage-dependent relationship of the
-activation function and time constants in potassium currents (\IKLT and
-\IKHT) from each of the previous \VCN neural models.
-The threshold for the activation variable of \IKLT, $w^\lambda$, is below the \RMP around -65 mV.
-Only \IKHT is present in regular firing (current-clamp  type I) units, and behaves as a rectifier by activating 
-when the membrane voltage rises above -20 mV during an \AP.
-  The active
-voltage-dependent activation and deactivation functions (/a, b, c, h, m,
-n, p, r, w/ and /z/) are described in detail by
-\citet{RothmanManis:2003,RothmanManis:2003a,RothmanManis:2003b} and the
-[[latex:progname][NEURON]] source code is freely available online at neural model database [[http://senselab.med.yale.edu/senselab/modeldb][ModelDB]]
-\citep{HinesMorseEtAl:2004}. 
+activation function and time constants in potassium currents (\IKLT and \IKHT)
+from each of the previous \VCN neural models.  The threshold for the activation
+variable of \IKLT, $w^\lambda$, is below the \RMP around -65 mV.  Only \IKHT is
+present in regular firing (current-clamp type I) units, and behaves as a
+rectifier by activating when the membrane voltage rises above -20 mV during an
+\AP.  The active voltage-dependent activation and deactivation functions
+(/a, b, c, h, m, n, p, r, w/ and /z/) are described in detail by
+\citet{RothmanManis:2003,RothmanManis:2003a,RothmanManis:2003b} and the [[latex:progname][NEURON]]
+source code is freely available online at neural model database [[http://senselab.med.yale.edu/senselab/modeldb][ModelDB]]
+\citep{HinesMorseEtAl:2004}.
 # Further detailed equations are included in Appendix \ref{sec:Apdx:RMCurrents}.
 
 #+attr_latex: width=0.7\textwidth
@@ -413,29 +412,30 @@ n, p, r, w/ and /z/) are described in detail by
 
 
 
-** Activation and Deactivation Current Equations 
+** Activation and Deactivation Current Equations
    :PROPERTIES:
    :CUSTOM_ID: sec:Apdx:RMCurrents
    :END:
 
-The activation and de-activation variable equations were reproduced from \citet{RothmanManis:2003b}.
-The core of the \HH-like current equations are the activation and de-activation variables. 
-The time- and voltage-dependent current variables follow a first-order differential equation in time:
+The activation and de-activation variable equations were reproduced from
+\citet{RothmanManis:2003b}.  The core of the \HH-like current equations are the
+activation and de-activation variables.  The time- and voltage-dependent current
+variables follow a first-order differential equation in time:
 \begin{equation}
 \frac{dx}{dt} = (x_\infty - x)/\tau_x,
 \end{equation}
 where $\tau_x$ is the time constant of $x$ and  $x_\infty$ is the steady-state value of /x/ (i.e.\space
 the value of /x/ when $t \gg \tau_x$).
 
-The voltage dependence of the activation and 
-de-activation variables /a/, /b/, /c/, /w/, /z/, /n/, /p/, /m/, /h/, and r are shown in the following equations. 
+The voltage dependence of the activation and
+de-activation variables /a/, /b/, /c/, /w/, /z/, /n/, /p/, /m/, /h/, and r are shown in the following equations.
 # Although the formalism of the preceding equation is different
 # from the original HH formalism in which activation/de-activation vari-
 # ables are expressed in terms of “open” and “close” rate constants \alpha
-# and \beta, they are nevertheless mathematically equivalent when $x_\infty=\alpha/(\alpha + \beta)$ and 
-# $\tau_x = 1/(\alpha + \beta)$. Reversal potentials are: \EK = -70 mV, 
-# \ENa = +55 mV, 
-# \Eh = -43 mV, and 
+# and \beta, they are nevertheless mathematically equivalent when $x_\infty=\alpha/(\alpha + \beta)$ and
+# $\tau_x = 1/(\alpha + \beta)$. Reversal potentials are: \EK = -70 mV,
+# \ENa = +55 mV,
+# \Eh = -43 mV, and
 # \Eleak = -65 mV.
 
 Fast transient K^{+} current
@@ -448,7 +448,7 @@ c_\infty(V) &=& b_\infty
 \begin{eqnarray}
 \tau_a(V) &=& 100  [7  \exp((V + 60)/14) + 29  \exp(-(V + 60)/24)]^{-1} + 0.1 \\
 \tau_b(V) &=& 1000  [14  \exp((V + 60)/27) + 29  \exp(-(V + 60)/24)]^{-1} + 1 \\
-\tau_c(V) &=& 90  [1 +  \exp(-(V + 66)/17)]^{-1} + 10 
+\tau_c(V) &=& 90  [1 +  \exp(-(V + 66)/17)]^{-1} + 10
 \end{eqnarray}
 
 Low-threshold K^{+} current
@@ -464,13 +464,13 @@ z_\infty(V) &=&  0.5 [1 +  \exp((V + 71)/10)]^{-1} + 0.5
 
 High-threshold K^{+} current
 \begin{eqnarray}
-\IKHT(t,V) &=& \gKHT  [\phi n^2 + (1 - \phi)p] (V - \EK) \quad (\phi = 0.85)\\   
+\IKHT(t,V) &=& \gKHT  [\phi n^2 + (1 - \phi)p] (V - \EK) \quad (\phi = 0.85)\\
 n_\infty(V) &=& [1 +  \exp(-(V + 15)/5)]^{-1/2} \\
-p_\infty(V) &=& [1 +  \exp(-(V + 23)/6)]^{-1} 
+p_\infty(V) &=& [1 +  \exp(-(V + 23)/6)]^{-1}
 \end{eqnarray}
 \begin{eqnarray}
 \tau_n(V) &=& 100  [11  \exp((V + 60)/24) + 21 \exp(-(V + 60)/23)]^{-1} + 0.7~\\
-\tau_p(V) &=& 100  [4  \exp((V + 60)/32) + 5  \exp(-(V + 60)/22)]^{-1} + 5 
+\tau_p(V) &=& 100  [4  \exp((V + 60)/32) + 5  \exp(-(V + 60)/22)]^{-1} + 5
 \end{eqnarray}
 
 
@@ -506,7 +506,7 @@ experiments are performed at room temperature, 22\degC.  All simulations in this
 thesis were performed at body temperature, 37\degC. Accordingly, modification of the
 appropriate variables had to be performed. This included activation and
 deactivation time constants, and maximum conductance of the currents.
-For any variable, /x/, the temperature scaling is performed by 
+For any variable, /x/, the temperature scaling is performed by
 #+BEGIN_LaTeX
   \begin{equation}
   x = x / {\rm Q}_{10}^{\Delta{}T},
@@ -539,7 +539,7 @@ injection is regularly spaced \APs. \TV \citep{ZhangOertel:1993b} and
 Golgi cells \citep{FerragamoGoldingEtAl:1998a} are classic type I, and
 have \INa, \IKHT and \Ih currents. \TS cells are type I, and they have
 additional A-type transient potassium channels, \IKA
-\citep{FerragamoGoldingEtAl:1998,RothmanManis:2003b}. 
+\citep{FerragamoGoldingEtAl:1998,RothmanManis:2003b}.
 
 
 Type II responses
@@ -553,7 +553,7 @@ regularly for higher current levels
 \citep{OertelWuEtAl:1988,PaoliniClark:1999}, corresponding to an
 intermediate type I-II response. \DS cells have a small amount of \IKLT
 current to reduce the cells' input resistance and enhance coincidence
-detection.  
+detection.
 
 
 In the \CNSM model, the membrane parameters were developed and refined after we
@@ -576,7 +576,7 @@ established the /in vitro/ characteristics of each cell type from the literature
        \gh, \hfill m\Scmsq       & 0.0618 & 0.247  & 0.06178 & 0.6178 \\ %\hline
       \gleak, \hfill m\Scmsq     & 0.471  & 0.471  &  0.471  & 0.962 \\ %\hline
       Soma Diameter, \um      &   21   &   25   &  19.5   & 15 \\ %\hline
-  Input Resistance, M$\Omega$ &  163   &   73   &   170   & 130 \\ 
+  Input Resistance, M$\Omega$ &  163   &   73   &   170   & 130 \\
   \bottomrule
   \end{tabularx}
   \end{table}
@@ -626,8 +626,8 @@ microcircuit.
 
 
 Connection variables between cell types are generally uniform across the
-network but may be adjusted to suit the model.  
-# In the \CNSM model, assumptions were made based on population average data.  
+network but may be adjusted to suit the model.
+# In the \CNSM model, assumptions were made based on population average data.
 Model parameters may be different between species or within species;
 therefore, in the absence of adequate evidence regarding exact neuron to neuron
 connections, average population data were used.  Issues also arise at the
@@ -658,7 +658,7 @@ between cell types.
   \resizebox{\linewidth}{!}{\includegraphics{../MethodsChapter/gfx/CNConn.pdf}}
        \caption[Distribution of synaptic connections]{Distribution of synaptic connections between cell types in the \CN stellate microcircuit. A post-synaptic neuron receives $\mathbf{n}$ synapses from pre-synaptic neurons (from one cell type group) with equal weight, $\mathbf{w}$. The post-synaptic cell is selected using a Gaussian random process, centred on the same frequency channel (with optional offset, $\mathbf{o}$) and spread equal to twice the variance.}
        \label{fig:MicrocircuitConn}
-     
+
    \end{figure}
 #+END_LaTeX
 
@@ -670,26 +670,24 @@ groups are defined by:
      post-synaptic cell.  This value may be either uniform for all
      synapses across the connection type or defined by a
      function of the receptive field.
-- $\mathbf{n}_{\textrm{{X}}\to\textrm{{Y}}}$ :: The total number of synaptic connections on
-     post-synaptic cells from  pre-synaptic cells.
+- $\mathbf{n}_{\textrm{{X}}\to\textrm{{Y}}}$ :: The total number of synaptic
+     connections on post-synaptic cells from pre-synaptic cells.
 - $\mathbf{s}_{\textrm{{X}}\to\textrm{{Y}}}$ :: The spatial or feature-specific
      spread of connections from presynaptic cells onto post-synaptic cells.  The
-     spread parameter, /s/, is the variance of the Gaussian
-     function, thus has
-     standard deviation $\sigma = \sqrt{s}$. The distributions are uniform across
-     the stellate CN network, which ignores channels outside the network's
-     range.  A spread of 0 means all connections come from the same frequency
-     channel.
-- $\mathbf{o}_{\textrm{{X}}\to\textrm{{Y}}}$ :: The offset in
-     distribution of connections between pre-synaptic cell types and
-     post-synaptic cells.  The offset variable adjusts the centre point
-     of the probability distribution, $\mathcal{N}(i + \mathbf{o}, \sqrt{\mathbf{s}})$,
-     away from the post-synaptic cell's position, /i/.
-- $\mathbf{d}_{\textrm{{X}}\to\textrm{{Y}}}$ :: The temporal delay
-     between a pre-synaptic cells' \AP trigger and the onset of the post-synaptic
-     current.  This delay incorporates the axonal conduction delay and
-     diffusion time across the synaptic cleft.  In a single-compartment
-     model, additional delay can also be used to represent dendritic delay.
+     spread parameter, /s/, is the variance of the Gaussian function, thus has
+     standard deviation $\sigma = \sqrt{s}$. The distributions are uniform across the
+     stellate CN network, which ignores channels outside the network's range.  A
+     spread of 0 means all connections come from the same frequency channel.
+- $\mathbf{o}_{\textrm{{X}}\to\textrm{{Y}}}$ :: The offset in distribution of
+     connections between pre-synaptic cell types and post-synaptic cells.  The
+     offset variable adjusts the centre point of the probability distribution,
+     $\mathcal{N}(i + \mathbf{o}, \sqrt{\mathbf{s}})$, away from the
+     post-synaptic cell's position, /i/.
+- $\mathbf{d}_{\textrm{{X}}\to\textrm{{Y}}}$ :: The temporal delay between a
+     pre-synaptic cells' \AP trigger and the onset of the post-synaptic current.
+     This delay incorporates the axonal conduction delay and diffusion time
+     across the synaptic cleft.  In a single-compartment model, additional delay
+     can also be used to represent dendritic delay.
 
 
 
@@ -713,7 +711,7 @@ groups are defined by:
 
 \ANFs with similar \CFs were
 spatially organised into $N_{\textrm{Channel}}$ isofrequency lamina or channels,
-which translated to frequency channels in the \CN.  
+which translated to frequency channels in the \CN.
  The dendrites of \TS and \TV cells are located within isofrequency
  lamina of the \VCN and \DCN, respectively. The receptive field and
  bandwidth of \TS and \TV cells are also similar to \ANFs of similar
@@ -722,20 +720,20 @@ which translated to frequency channels in the \CN.
  of zero, $s=0$). \DS cells have many arborisations
  extending perpendicular to \ANF axons and have a typical physiological
  responses to frequencies 2 octaves below and 1 octave above their \CF
- \citep{PalmerJiangEtAl:1996,PaoliniClark:1999}.  
+ \citep{PalmerJiangEtAl:1996,PaoliniClark:1999}.
 
 
 # Auditory nerve projections
 # to each \CN cell type shared the same synaptic weight, \w, but \HSR and
 # \LSR fibres have different parameters encoding the number of inputs
-# (e.g. $\nHSRTS$, $\nLSRTS$).  
+# (e.g. $\nHSRTS$, $\nLSRTS$).
 Fast, glycinergic inhibition from \TV cells and
 \DS cells (Figure \ref{fig:MicroCN}) is involved in modulating the firing
 rate and spike interval variability in \TS cells
-\citep{FerragamoGoldingEtAl:1998,WickesbergOertel:1993}. 
+\citep{FerragamoGoldingEtAl:1998,WickesbergOertel:1993}.
 \TV cells in the deep
 layer of the dorsal \CN provide a delayed narrowband inhibition to \TS and \DS
-cells in the \VCN.  
+cells in the \VCN.
 The dendrites of \DS cells cover one third of the
  \CN, contributing to this cell's wide frequency
 response. In turn this cell is responsible for altering the frequency responses
@@ -743,17 +741,16 @@ in \TS and \TV cells \citep{SpirouDavisEtAl:1999}.  \DS cells are coincidence
 detectors and have a precisely timed onset response that affects the temporal
 properties of \TS cells \citep{PaoliniClareyEtAl:2005,RhodeGreenberg:1994a} and
 completely inhibit \TV cell responses to loud clicks
-\citep{SpirouDavisEtAl:1999}. 
+\citep{SpirouDavisEtAl:1999}.
 
 
-GABAergic synapses are present in each of the cells in the \CNSM model. 
-Inhibition from GABA cells modulates
-the level of excitation necessary to reach threshold for all \CN cells
-\citep{CasparyBackoffEtAl:1994,FerragamoGoldingEtAl:1998}.  
-Feedback circuits
+GABAergic synapses are present in each of the cells in the \CNSM model.
+Inhibition from GABA cells modulates the level of excitation necessary to reach
+threshold for all \CN cells
+\citep{CasparyBackoffEtAl:1994,FerragamoGoldingEtAl:1998}.  Feedback circuits
 from the olivary complex to the ventral \CN are also known to use \GABA as a
-neurotransmitter \citep{SaintMorestEtAl:1989}, however only the Golgi cell was included the \CNSM
-model. 
+neurotransmitter \citep{SaintMorestEtAl:1989}, however only the Golgi cell was
+included the \CNSM model.
 
 
 \clearpage
@@ -765,7 +762,7 @@ model.
 Synapses were modeled with either a single or a double exponential
 time-dependent conductance change.  The current density equation used was
 \begin{equation}\label{eq:SYN}
-\ISYN(t)=g_{{\rm SYN}} (t)  (V - E_{{\rm rev}}), 
+\ISYN(t)=g_{{\rm SYN}} (t)  (V - E_{{\rm rev}}),
 \end{equation} \noindent where $E_{\rm rev}$ is the associated reversal
 potential.  [[latex:progname][NEURON]]'s conductance synapse model classes [[latex:progname][ExpSyn]] and
 [[latex:progname][Exp2Syn]] were used in the \CN stellate microcircuit \citep{HinesCarnevale:2000}.
@@ -774,18 +771,18 @@ determined by a normalised conductance kernel with decay
 time-constants and a multiplicative weight parameter, /w/, as follows:
 \begin{eqnarray}
 \label{eq:Methods:11} g_{{\rm Exc}} (t) = w_{{\rm Exc}}  \exp(-t/\tau _{{\rm Exc}} ) \quad (\uS) \\
-\label{eq:Methods:12} g_{{\rm Inh}} (t) = w_{{\rm Inh}} \,\eta\, \left( \exp(-t/\tau_{{\rm Inh2}} )- \exp(-t/\tau _{{\rm Inh1}} )\right) \quad (\uS) 
+\label{eq:Methods:12} g_{{\rm Inh}} (t) = w_{{\rm Inh}} \,\eta\, \left( \exp(-t/\tau_{{\rm Inh2}} )- \exp(-t/\tau _{{\rm Inh1}} )\right) \quad (\uS)
 \end{eqnarray} \noindent where $\eta$ normalises the peak of the
 double-exponential function to 1. Normalisation factor, $\eta$, for double
 exponential synapse model
-\citep{HinesCarnevale:2000} is given by 
+\citep{HinesCarnevale:2000} is given by
 \begin{equation}
 \eta = \frac{1}{-\exp(t'/\tau_{Inh1})+\exp(t'/\tau_{inh2})}
-\end{equation}  
+\end{equation}
 \noindent where
 \begin{equation}
 t'=\frac{\tau_{Inh1}\tau_{Inh2}}{\tau_{Inh2}-\tau_{Inh1}} \ln(\tau_{Inh2}/\tau_{Inh1}).
-\end{equation}  
+\end{equation}
 
 \glsunset{AMPA} \glsunset{MNTB}
 # AMPA does not need to be expanded here
@@ -796,13 +793,13 @@ by fast glutamatergic-\AMPA receptors
 had a decay time constant of $\tAMPA = 0.36$ msec, whereas \TV cells in
 the \DCN had a decay time constant of $\tAMPA = 0.40$ msec
 \citep{GardnerTrussellEtAl:1999}.  The reversal potential of excitatory
-synapse was 0 mV. 
+synapse was 0 mV.
 
 \glsunset{GlyR}
 
 # GlyR  (mice: [\citenum{FerragamoGoldingEtAl:1998a}]).
-# %Flat vesicles (DS) apposed to TS units (cat [\citenum{SmithRhode:1989}])     
-# %(Could be mixed Gly/GABA [\citenum{AltschulerJuizEtAl:1993}]) 
+# %Flat vesicles (DS) apposed to TS units (cat [\citenum{SmithRhode:1989}])
+# %(Could be mixed Gly/GABA [\citenum{AltschulerJuizEtAl:1993}])
 #   & % Time Constant
 # See above for GlyR \tfast
 # 2.5 msec (Rise time 0.4 msec, \AVCN rats,mice: [\citenum{LimOleskevichEtAl:2003}])
@@ -811,14 +808,14 @@ synapse was 0 mV.
 # % $0.8 \pm 0.2$ msec (37\degC mIPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
 # % $1.1 \pm 0.2$ msec (37\degC evoked IPSCs MNTB rats: [\citenum{AwatramaniTurecekEtAl:2004}])
 # % $2.28 \pm 0.08$ msec mIPSCs, $5.42 \pm 0.19$ msec evoked IPSCs (25$^\circ$C, rise time $0.42 \pm 0.05$ msec, MNTB mice: [\citenum{LeaoOleskevichEtAl:2004}])
-# $2.8 \pm 0.4$ msec (Desensitisation, \MNTB rat: [\citenum{AwatramaniTurecekEtAl:2005}]) 
+# $2.8 \pm 0.4$ msec (Desensitisation, \MNTB rat: [\citenum{AwatramaniTurecekEtAl:2005}])
 
 # %Decay  5.47 $\pm$0.19 (very young MNTB rat [\citenum{AwatramaniTurecekEtAl:2005}])
 # %6--13 msec (guinea pig: [\citenum{HartyManis:1998}]).
 # %Activation to 1mM Gly 2.0$\pm$1.2 msec (range 0.8 to 4.6 msec), deactivation to 1s Gly $\tau_{\textrm{fast}}$ 15.5 msec and $\tau_{\textrm{fast}}$ 73.4 msec (MNTB mice [\citenum{LeaoOleskevichEtAl:2004}]).
 
 # % 1.6 msec (mice [\citenum{Oertel:1983}])
-# % 5.4 msec (mice: [\citenum{OertelWickesberg:1993,WickesbergOertel:1993}])    
+# % 5.4 msec (mice: [\citenum{OertelWickesberg:1993,WickesbergOertel:1993}])
 # % 5.3 msec (Activation 2.0$\pm$1.2 msec, guinea pig: [\citenum{HartyManis:1998}])
 
 
@@ -834,7 +831,7 @@ whole cell patch recordings of spontaneous mIPSCs in mature \AVCN in rats and
 mice neurons showed these synapses have a fast rise time (10\% to 90\%),
 $\tGlyone = 0.4$ msec, and a decay time constant $\tGlytwo = 2.5$ msec
 \citep{LimOleskevichEtAl:2003}.  In MNTB rat neurons at body temperature, GlyR
-decay constants of miniature and evoked \IPSCs were $0.8 \pm 0.2$ msec and $1.1 \pm 0.2$ 
+decay constants of miniature and evoked \IPSCs were $0.8 \pm 0.2$ msec and $1.1 \pm 0.2$
 msec (37\degC), respectively \citep{AwatramaniTurecekEtAl:2004}.  \GABAa
 synapses were modeled from \MNTB recordings in mature guinea pigs
 \citep{AwatramaniTurecekEtAl:2005}.  \GABAa receptor currents have a fast (9 msec)
@@ -855,8 +852,8 @@ pre-synaptic neuron and the activation of the post-synaptic potential, which
 includes axonal conduction and synaptic diffusion. Synaptic transmission and
 axonal conductance delay between adjacent neurons is typically measured in
 experiments to be 0.4 -- 0.5 msec. Delays between neurons in the ventral and
-dorsal \CN were measured using electric shocks and found to be approximately 1.0 msec, but ranged from 0.15 to 2 msec 
-msec \citep{WickesbergOertel:1993}.
+dorsal \CN were measured using electric shocks and found to be approximately 1.0
+msec, but ranged from 0.15 to 2 msec msec \citep{WickesbergOertel:1993}.
 # \yellownote{Needs reference, and what about Bahlmer and Lagner's 0.4 msec delays}
 
 
@@ -866,30 +863,29 @@ formula for the latency of acoustic stimulation to the mean \FSL in \ANFs was
 first derived by \citet{CarneyYin:1988}. \citet{CarneyYin:1988} fitted the \ANF
 first spike latency against the \CF of the fibres in cats from click responses
 in the cat to obtain the formula:
-\begin{equation} \label{eq:Methods:delay} 
+\begin{equation} \label{eq:Methods:delay}
 d=A_{0} \exp(-x/A_{1})\times 10^{- 3} - 1/{\mathrm{CF}_x},
 \end{equation} \noindent where /x/ is the distance along the basilar membrane
 from the apex, ${\mathrm{CF}}_x$ is the \CF (Hz) at this location, and constants
 $A_0$ and $A_1$ are 8.3 msec and 6.49 cm for cats, respectively.
- 
+
 # In humans, \citet{HeinzZhangEtAl:2001} corrected the peak click to
 # match the onset delay of ANFs, generating a latency function :
-# \begin{equation} \label{eq:delayhumans} 
+# \begin{equation} \label{eq:delayhumans}
 # d(x) = 4.915 + 0.3631 \times \exp(0.11324 \times x),\quad 5\, <\, x\, <\, 35 \quad (\mathrm{mm})
-# \end{equation} 
-#  where $A_0 = 3.0$, $A_1 = 12.5$. 
+# \end{equation}
+#  where $A_0 = 3.0$, $A_1 = 12.5$.
 # the cat latency function was used in the rat \AN implementation has been retained in the model used here
 # \citep{ZilanyBruceEtAl:2009}.
 
 The latency of \CN neurons is not only affected by the properties of the basilar
 membrane, but also by the twisting of axons by the spiral ganglion neurons and
-the organised innervation of the \CN by the same fibres.  Consequently, an additional delay
-parameter is required that combines the intrinsic \ANF delay and the effective
-axonal conductance to the \CN neurons.  
-Mean first spike latency to click
-stimuli is used in Section \ref{sec:Ch3:Delays} to set the delay times between
-\ANFs and \CN cells.
-#  \citep{EagerGraydenEtAl:2006}.  
+the organised innervation of the \CN by the same fibres.  Consequently, an
+additional delay parameter is required that combines the intrinsic \ANF delay
+and the effective axonal conductance to the \CN neurons.  Mean first spike
+latency to click stimuli is used in Section \ref{sec:Ch3:Delays} to set the
+delay times between \ANFs and \CN cells.
+#  \citep{EagerGraydenEtAl:2006}.
 # The delay parameter was
 # fitted using the first spike latency of high frequency units as the sum of the
 # \ANFs' first spike latency, \ANF conduction delay, and the synaptic transmission
@@ -898,7 +894,7 @@ stimuli is used in Section \ref{sec:Ch3:Delays} to set the delay times between
 
 
 
-* [CNSM Simulation and Implementation]{Simulation and Implementation of the Cochlear Nucleus Stellate Microcircuit Model} 
+* [CNSM Simulation and Implementation]{Simulation and Implementation of the Cochlear Nucleus Stellate Microcircuit Model}
 :PROPERTIES:
 :CUSTOM_ID: sec:Methods:SimSpecs
 :END:
@@ -940,7 +936,7 @@ The genetic algorithms and sensitivity analyses in Chapter
 
 ** Stimulus Generation and Analysis
 
-In order to emulate sound entering the ear, acoustic sounds were generated and 
+In order to emulate sound entering the ear, acoustic sounds were generated and
 passed into the auditory model.  The acoustic stimuli were generated in [[latex:progname][NEURON]],
 with the exception of notch noise, which was generated in [[latex:progname][MATLAB/GNU
 Octave]]. The stimulus types included pure tones, white noise, sinusoidal
@@ -948,7 +944,7 @@ amplitude modulated sounds and clicks.
 Sound levels are given in decibel SPL (i.e., root
 mean square of pressure levels in dB re 20 $\mu\textrm{Pa}$).
 # Bursts of wideband noise (bandwidth 20 kHz, spectral density
-# The first run of a stimulus may take some time if the AN responses have not been previously saved.  
+# The first run of a stimulus may take some time if the AN responses have not been previously saved.
 # \yellownote{Hair cell compression values for the Bruce and Zilany \AN models.}
 
 Temporal resolution in the \CNSM model is variable at each stage: the stimulus,
@@ -964,16 +960,17 @@ other \CFs.
 # \citep{ZilanyBruceEtAl:2009} was sampled at 100 kHz for \CF units below
 # 20 kHz, otherwise a sampling rate of 200 kHz was used.
 
-The output of all \AN models was then down-sampled to a lesser sampling rate
-for the \ANF spike generator and saved for further use.  The resolution of
-the spike generator was either 20 or 50 kHz. The integration time-step of the NEURON simulations was 0.05 msec.  
+The output of all \AN models was then down-sampled to a lesser sampling rate for
+the \ANF spike generator and saved for further use.  The resolution of the spike
+generator was either 20 or 50 kHz. The integration time-step of the NEURON
+simulations was 0.05 msec.
 
-Notch noise was used as the stimulus for Chapter \ref{sec:GAChapter} and the optimisation of \DS cell connections
-to \TV cells (see Section \ref{sec:Ch3:DSTV} in Chapter
-\ref{sec:ModelChapter}).  Notch noise was
+Notch noise was used as the stimulus for Chapter \ref{sec:GAChapter} and the
+optimisation of \DS cell connections to \TV cells (see Section
+\ref{sec:Ch3:DSTV} in Chapter \ref{sec:ModelChapter}).  Notch noise was
 generated from Gaussian white noise filtered using a stop-band filter in
-[[latex:progname][MATLAB/GNU Octave]].  The notch noise sample was stored in a file so that
-it could be retrieved by NEURON in the simulation.
+[[latex:progname][MATLAB/GNU Octave]].  The notch noise sample was stored in a file so that it could
+be retrieved by NEURON in the simulation.
 
 #  with a
 # 50 kHz sampling frequency and filtered with a quarter octave, 30 dB
@@ -1029,7 +1026,7 @@ model. This replicates \ANF innervation of the \CN \citep{Lorente:1981}.
 #      the \CN to the inferior colliculus.  This multipolar neuron has
 #      been shown to have robust spectral representation and enhanced
 #      synchronisation to modulation in speech sounds
-#      \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}. 
+#      \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
 
 
 # #+CAPTION: [Cochlear Nucleus Stellate Microcircuit Model]{Cochlear nucleus stellate microcircuit (CNSM) model as seen in single frequency channels.}
@@ -1050,12 +1047,12 @@ model. This replicates \ANF innervation of the \CN \citep{Lorente:1981}.
 # have noted that "choices, assumptions, and guesses" are an integral part of
 # neuronal modelling \citep{SegevBurkeEtAl:1998}.\todo{page number}  The acceleration of
 # computational power and enhanced experimental techniques in multi-unit
-# recordings are enabling more detailed neural models to be developed.  
+# recordings are enabling more detailed neural models to be developed.
 # The current problems in computational neuroscience optimisation can be summarised into:
-# (a) effect, type and loci of noise, 
+# (a) effect, type and loci of noise,
 # (b) large parameter spaces,
 # (c) trade-offs in biological realism versus processing time,
-# (d) availability  and variability of experimental data, and 
+# (d) availability  and variability of experimental data, and
 # (e) population versus single neuron responses.
 # # There is much to be gained from biophysically-realistic modelling
 # # approaches, especially in the thoroughly investigated cochlear nucleus
@@ -1123,13 +1120,13 @@ generate a realistic model of the \CN stellate network.
 
 ** Sequential Methods
 
-To create a realistic microcircuit from a wide range of
-experimental data, Chapter \ref{sec:ModelChapter} develops a parameter optimisation
-routine in sequential stages.  The network parameters were chosen in the
-sequential optimisation stages to encompass synaptic inputs to each individual
-cell type in the CN stellate microcircuit. Chapter \ref{sec:ModelChapter} uses the
-praxis method, an algorithm for finding the minimum of a function of several
-variables without needing the derivative \citep{Brent:1976}.
+To create a realistic microcircuit from a wide range of experimental data,
+Chapter \ref{sec:ModelChapter} develops a parameter optimisation routine in
+sequential stages.  The network parameters were chosen in the sequential
+optimisation stages to encompass synaptic inputs to each individual cell type in
+the CN stellate microcircuit. Chapter \ref{sec:ModelChapter} uses the praxis
+method, an algorithm for finding the minimum of a function of several variables
+without needing the derivative \citep{Brent:1976}.
 
 # In developing and simulating the detailed neural models and neural network
 # models, a reproducible research method was used. The Nordlie approach to
@@ -1166,7 +1163,7 @@ discussed in Chapter \ref{sec:GAChapter}.
 
 
 
-#+BEGIN_LaTeX  
+#+BEGIN_LaTeX
  \ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../org-manuscript/bib/MyBib}\newpage \printglossaries\newpage\listoftodos}{}
 #+END_LaTeX
 
@@ -1240,13 +1237,13 @@ discussed in Chapter \ref{sec:GAChapter}.
 # generations or if an individual attains an excellent fitness value.
 
 # The three steps in executing genetic algorithms on fixed length character strings can be summarised as follows (Goldberg, 1989):
-# 1. Randomly generate an initial population of individual parameter sets. 
+# 1. Randomly generate an initial population of individual parameter sets.
 # 2. Iteratively perform the sub steps until the termination criteria is satisfied:
 # a. Evaluate the fitness of each individual in the population
 # b. Create a new population of strings by applying the operations below.  Select an individual with probability based on fitness.
 # i. Reproduction: copy individual to next population.  This operation introduces conservation, to preserve the best-fitted individuals.
 # ii. Cross-over: create two new individuals by randomly combining the substrings of two individuals broken at some random point.  This operation introduces variety but retains quality among existing parameter strings.
-# iii. Mutation: create a new individual by taking one parameter in the set randomly select a new value. 
+# iii. Mutation: create a new individual by taking one parameter in the set randomly select a new value.
 # 3. The best individual is the set of parameters that generate the best fitness value
 
 # The methods used in the design and implementation of genetic algorithms come from Mitchell (1996) and Goldberg (1989).
@@ -1256,13 +1253,13 @@ discussed in Chapter \ref{sec:GAChapter}.
 # 1) Rate-level curve (RLC)
 #  The response to increasing intensity of tones at characteristic frequency (CF) is used to quantify a cell’s spontaneous rate, threshold, dynamic range and maximum discharge rate.  RLC’s are classified as monotonic, saturating or non-monotonic depending of their shape, Figure 10.  There is sufficient data on TS, DS and TV cells to obtain population statistics for each of the cell types.
 # T stellate / Chopper cells: Gibson et al., 1985; Rhode and Smith, 1986; Young et al., 1988; Blackburn and Sachs, 1989; May and Sachs, 1992; Palmer et al., 2003;
-# D stellate / Onset chopper cells: same as above plus Palmer et al., 1996; Arnott et al. 2004; 
-# Tuberculoventral cells:  Shofner and Young 1985; Voigt and Young 1990; Spirou et al. 1999.  
+# D stellate / Onset chopper cells: same as above plus Palmer et al., 1996; Arnott et al. 2004;
+# Tuberculoventral cells:  Shofner and Young 1985; Voigt and Young 1990; Spirou et al. 1999.
 # Golgi cells have received less attention because they are located in the marginal shell (Gibson et al. 1985; Ghoshal and Kim, 1997; Kim et al., 1998).
- 
+
 # Figure 10: Rate-level curves depicting saturating,  non-monotonic and monotonic characteristics.
 
-		
+
 
 # 2) Synchronisation to Amplitude modulated tones
 # The synchronisation to AM tones has been discussed in the introduction.  Table 3: Physiological data used in the fitness function. shows the critical parameters in the tMTFs of stellate neurons that will be used to constrain parameters.
@@ -1293,7 +1290,7 @@ discussed in Chapter \ref{sec:GAChapter}.
 # 	 , mean experimental value for constraint parameter
 # 	 , standard deviation from experimental mean.
 
-	
+
 # Table 3: Physiological data used in the fitness function.
 # Physiological Property
 # Constraint Parameters
@@ -1315,7 +1312,7 @@ discussed in Chapter \ref{sec:GAChapter}.
 # 500-1000 Hz
 
 # Rate-level curve (CF tone)
-# Shape 
+# Shape
 # Monotonic for DS, Saturating for TS, Non-monotonic for TV
 # Gibson et al. 1985; Rhode and Smith 1986;
 # Palmer et al. 2003; Arnott et al. 2004; Spirou et al. 1999;
@@ -1332,11 +1329,11 @@ discussed in Chapter \ref{sec:GAChapter}.
 # Max. Rate
 # 300-400 spikes/sec
 
-# Masked Response Curve  
+# Masked Response Curve
 # Masker induced rate
 # ½ max rate  (100-200sp/s)
 # Noise Masker: Rhode and Greenberg 1994b;
-# CF tone masker:   Blackburn and Sachs 1992; Palmer and Winter, 1996; 
+# CF tone masker:   Blackburn and Sachs 1992; Palmer and Winter, 1996;
 
 # Suppression Bandwidth (measured at 50% suppression rate)
 # 4-5kHz
@@ -1372,6 +1369,3 @@ discussed in Chapter \ref{sec:GAChapter}.
 # response characteristics are related.  Synchronisation to AM tones
 # does provide temporal constraints to parameters however this is
 # unlikely to affect forward masking response directly.
-
-
-
