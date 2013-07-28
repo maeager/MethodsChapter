@@ -232,18 +232,21 @@ to 64 kHz.
 
 ** Inner and Outer Hair Cell Compression
 
-Figure \ref{fig:Compression}
-\yellownote{Include text to explain Figure \ref{fig:Compression}}
+The most recent AN model incorporates species-specific compression functions of
+outer and inner hair cell to facilitate accurate audiograms in the ANFs
+\citep{ZilanyCarney:2010,ZilanyBruceEtAl:2009}.  Figure \ref{fig:Compression}
+shows the implementation of the compression functions of the inner and outer ear
+for the cat and rat.  The acoustic thresholds of the cat and rat
+\citep{HeffnerKoayEtAl:2001} were obtained from [[http://earlab.bu.edu]].
 
 #+BEGIN_LaTeX
   \begin{figure}[htb]
     \centering
     {\figfont{A}\hfill Cat\hspace{1.5in}\hfill\figfont{B}\hfill Rat \hspace{1.5in}\hfill}\\
     \resizebox{0.95\textwidth}{!}{\includegraphics[keepaspectratio=true]{../MethodsChapter/gfx/AudiogramCompression.pdf}} \\
-    \caption[Cat and Rat audiograms and compression curves for the Bruce and
-    Zilany AN models]{Animal auditory thresholds (audiograms) were used to
+    \caption[Cat and Rat audiograms and compression curves for the AN model]{Animal auditory thresholds (audiograms) were used to
       calculate the inner and outer hair cell (IHC and OHC) compression values in
-      the Bruce and Zilany AN models.
+      the AN models \citep{ZilanyCarney:2010,ZilanyBruceEtAl:2009}.
     %The audiograms were collected from earlab.bu.edu.
       Audiograms and compression values are shown for (A) cat and (B) rat.}
     \label{fig:Compression}
