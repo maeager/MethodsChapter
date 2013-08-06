@@ -260,12 +260,13 @@ for the cat and rat.  The acoustic thresholds of the cat and rat
 :END:
 
 The level of spontaneous activity and minimum thresholds in \ANFs are separated
-into two distinct groups, \HSR and \LSR fibres.  The spontaneous rate of \HSR
-and \LSR were set to 50 Hz and 0.5 Hz, respectively.  \HSR and
-\LSR\space \ANFs were simulated for each frequency channel.  The stimulus was
-passed through the \AN model for each frequency channel for both \LSR and \HSR
-fibres, producing an instantaneous firing rate response that was down-sampled to
-20 kHz.
+into two distinct groups, \HSR and \LSR fibres
+\citep{Schmiedt:1989,Liberman:1993,Liberman:1978,WangPowersEtAl:1997}.
+The spontaneous rate of \HSR and \LSR fibers were set to 50 Hz and 0.5 Hz,
+respectively.  \HSR and \LSR\space \ANFs were simulated for each frequency
+channel.  The stimulus was passed through the \AN model for each frequency
+channel for both \LSR and \HSR fibres, producing an instantaneous firing rate
+response that was down-sampled to 20 kHz.
 
 # \note{discuss ANF SR, types of ANF, long-term dependence, and
 #   standard results of spiking models, and how Jackson then Zilany
@@ -275,7 +276,7 @@ The spiking neural model used in the \ANFs (and the
 Golgi cell model in Chapters \ref{sec:ModelChapter}-\ref{sec:AMChapter}) are
 inhomogeneous Poisson processes with refractory effects. These
 properties are typical of \ANFs
-\citep{JacksonCarney:2005}.  Spike times were generated
+\citep{JacksonCarney:2005,HeilNeubauerEtAl:2007}.  Spike times were generated
 independently for each \HSR and \LSR fibre from the instantaneous firing
 rate using a pseudo-random Poisson spike generator
 \citep{JacksonCarney:2005}, with refractory effects similar
