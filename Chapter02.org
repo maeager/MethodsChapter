@@ -621,7 +621,7 @@ microcircuit.
 #+attr_latex: width=0.6\textwidth
 #+caption: [Stellate microcircuit of the ventral cochlear nucleus]{Microcircuit showing proposed synaptic interaction between cell types in the CN stellate microcircuit in one isofrequency lamina. Strong evidence for connection is shown with a solid line. Weak evidence for connection is shown with a dashed line, for example recurrent connections between TS cells. }
 #+label: fig:MicroCN
-[[../MethodsChapter/gfx/SimpleCircuit.pdf]]
+[[../MethodsChapter/gfx/CNcircuit.png]]
 
 
 Connection variables between cell types are generally uniform across the
@@ -657,7 +657,6 @@ between cell types.
   \resizebox{\linewidth}{!}{\includegraphics{../MethodsChapter/gfx/CNConn.pdf}}
        \caption[Distribution of synaptic connections]{Distribution of synaptic connections between cell types in the \CN stellate microcircuit. A post-synaptic neuron receives $\mathbf{n}$ synapses from pre-synaptic neurons (from one cell type group) with equal weight, $\mathbf{w}$. The post-synaptic cell is selected using a Gaussian random process, centred on the same frequency channel (with optional offset, $\mathbf{o}$) and spread equal to twice the variance.}
        \label{fig:MicrocircuitConn}
-
    \end{figure}
 #+END_LaTeX
 
@@ -752,7 +751,7 @@ neurotransmitter \citep{SaintMorestEtAl:1989}, however only the Golgi cell was
 included the \CNSM model.
 
 
-\clearpage
+# \clearpage
 ** Synapse Models
    :PROPERTIES:
    :CUSTOM_ID: sec:Methods:SynapseModels
