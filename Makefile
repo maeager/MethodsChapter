@@ -2676,6 +2676,11 @@ convert-dia	= $(DIA) $(if $(filter %.pdf,$2)--export=,--filter=eps-pango --expor
 # $(call convert-svg,<svg file>,<eps file>,[gray])
 convert-svg	= $(INKSCAPE) --without-gui $(if $(filter %.pdf,$2),--export-pdf,--export-eps)='$2' '$1'
 
+# Converts svg files into .png files
+#
+# $(call convert-svg,<svg file>,<png file>,[gray])
+convert-svg-png	= $(INKSCAPE) --without-gui --export-png='$2' '$1'
+
 # Converts xvg files into .eps files
 #
 # $(call convert-xvg,<xvg file>,<eps file>,[gray])
