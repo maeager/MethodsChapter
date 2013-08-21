@@ -1,0 +1,91 @@
+
+\chapter{Appendix A} \label{sec:Ch2:Appendix}
+
+
+* Activation and Deactivation Current Equations
+   :PROPERTIES:
+   :CUSTOM_ID: sec:Apdx:RMCurrents
+   :END:
+
+The activation and de-activation variable equations were reproduced from
+\citet{RothmanManis:2003b}.  The core of the \HH-like current equations are the
+activation and de-activation variables.  The time- and voltage-dependent current
+variables follow a first-order differential equation in time:
+\begin{equation}
+\frac{dx}{dt} = (x_\infty - x)/\tau_x,
+\end{equation}
+where $\tau_x$ is the time constant of $x$ and  $x_\infty$ is the steady-state value of /x/ (i.e.\space
+the value of /x/ when $t \gg \tau_x$).
+
+The voltage dependence of the activation and
+de-activation variables /a/, /b/, /c/, /w/, /z/, /n/, /p/, /m/, /h/, and r are shown in the following equations.
+# Although the formalism of the preceding equation is different
+# from the original HH formalism in which activation/de-activation vari-
+# ables are expressed in terms of “open” and “close” rate constants \alpha
+# and \beta, they are nevertheless mathematically equivalent when $x_\infty=\alpha/(\alpha + \beta)$ and
+# $\tau_x = 1/(\alpha + \beta)$. Reversal potentials are: \EK = -70 mV,
+# \ENa = +55 mV,
+# \Eh = -43 mV, and
+# \Eleak = -65 mV.
+
+Fast transient K^{+} current
+\begin{eqnarray}
+\IKA(t,V) &=& \gKA  a^4 b c  (V - \EK) \\
+a_\infty(V) &=& [1 +  \exp(-(V + 31)/6)]^{-1/4} \\
+b_\infty(V) &=& [1 +  \exp((V + 66)/7)]^{-1/2} \\
+c_\infty(V) &=& b_\infty
+\end{eqnarray}
+\begin{eqnarray}
+\tau_a(V) &=& 100  [7  \exp((V + 60)/14) + 29  \exp(-(V + 60)/24)]^{-1} + 0.1 \\
+\tau_b(V) &=& 1000  [14  \exp((V + 60)/27) + 29  \exp(-(V + 60)/24)]^{-1} + 1 \\
+\tau_c(V) &=& 90  [1 +  \exp(-(V + 66)/17)]^{-1} + 10
+\end{eqnarray}
+
+Low-threshold K^{+} current
+\begin{eqnarray}
+\IKLT(t,V) &=& \gKLT  w^4 z  (V - \EK) \\
+w_\infty(V) &=& [1 +  \exp(-(V + 48)/6)]^{-1/4} \\
+z_\infty(V) &=&  0.5 [1 +  \exp((V + 71)/10)]^{-1} + 0.5
+\end{eqnarray}
+\begin{eqnarray}
+\tau_w(V) &=& 100  [6  \exp((V + 60)/6) + 16  \exp(-(V + 60)/45)]^{-1} + 1.5\\
+\tau_z(V) &=& 1000  [ \exp((V + 60)/20) +  \exp(-(V + 60)/8)]^{-1} + 50
+\end{eqnarray}
+
+High-threshold K^{+} current
+\begin{eqnarray}
+\IKHT(t,V) &=& \gKHT  [\phi n^2 + (1 - \phi)p] (V - \EK) \quad (\phi = 0.85)\\
+n_\infty(V) &=& [1 +  \exp(-(V + 15)/5)]^{-1/2} \\
+p_\infty(V) &=& [1 +  \exp(-(V + 23)/6)]^{-1}
+\end{eqnarray}
+\begin{eqnarray}
+\tau_n(V) &=& 100  [11  \exp((V + 60)/24) + 21 \exp(-(V + 60)/23)]^{-1} + 0.7~\\
+\tau_p(V) &=& 100  [4  \exp((V + 60)/32) + 5  \exp(-(V + 60)/22)]^{-1} + 5
+\end{eqnarray}
+
+
+Fast Na^{+} current
+\begin{eqnarray}
+\INa(t,V) &=& \gNa  m^3 h (V - \ENa) \\
+m_\infty(V) &=& [1 +  \exp(-(V + 38)/7)]^{-1} \\
+h_\infty(V) &=& [1 +  \exp((V + 65)/6)]^{-1 }
+\end{eqnarray}
+\begin{eqnarray}
+\tau_m(V) &=& 10 [5  \exp((V + 60)/18) + 36  \exp(-(V + 60)/25)]^{-1} + 0.04~\\
+\tau_h(V) &=& 100 [7  \exp((V + 60)/11) + 10  \exp(-(V + 60)/25)]^{-1} + 0.6~
+\end{eqnarray}
+
+Hyperpolarisation-activated, mixed-cation current
+\begin{eqnarray}
+\Ih(t,V) &=& \gh  r  (V - \Eh)\\
+r_\infty(V) &=& [1 +  \exp((V + 76)/7)]^{-1}
+\end{eqnarray}
+\begin{equation}
+\tau_r(V) =  10^5 [237  \exp((V + 60)/12) + 17  \exp(-(V + 60)/14)]^{-1} + 25\\
+\end{equation}
+
+Leak current
+\begin{equation}
+\Ileak = \gleak (V - \Eleak)
+\end{equation}
+# ####
