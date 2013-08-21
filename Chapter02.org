@@ -124,8 +124,8 @@ bandwidths obtained from psychophysical experiments, improving the non-linear
 compression and two-tone suppression behaviour in the model. Chapter
 \ref{sec:GAChapter} uses this model exclusively. \citet{ZilanyBruce:2007},
 version 5, added a parallel signal control path and its predictions have matched
-a wide range of physiological data in normal and impaired cat studies. Their
-version 6 \AN model developed by \citet{ZilanyBruceEtAl:2009} includes an
+a wide range of physiological data in normal and impaired cat studies. 
+Version 6 was developed by \citet{ZilanyBruceEtAl:2009} and includes an
 additional power-law synapse model,
 # , with internal fractional Gaussian noise,
 which enhances the temporal recovery behaviour in \ANFs.  Versions 5
@@ -158,10 +158,10 @@ model are used in Chapters \ref{sec:ModelChapter} and \ref{sec:AMChapter}.
 
 
 Figure \ref{fig:ZilanyBruceFig} shows the schematics of the Zilany version of
-the AN model \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.  The Carney AN
+the Carney AN model \citep{ZilanyBruceEtAl:2009,ZilanyCarney:2010}.  The Carney AN
 model consists of an outer/middle ear pre-processing filter, a cochlear
 filterbank, \IHC to \AN synapse model and dead-time modified Poisson spike
-generator. \citet{ZilanyBruceEtAl:2009} improved the classic
+generator \citep{ZhangHeinzEtAl:2001}. \citet{ZilanyBruceEtAl:2009} improved the classic
 \citet{WestermanSmith:1988} three-store diffusion model of the IHC-AN synapse
 with dual power-law adaptation models and the inclusion of fractional Gaussian
 noise.
@@ -178,7 +178,7 @@ continuous logarithmic frequency tuning along the basilar membrane
 of the adjacent basilar membrane and forms a topographical receptive field,
 according to place along the central auditory nervous system.
 
-The input auditory models used in this thesis provide the major
+The input auditory models used in this thesis mimic the major
 phenomenological qualities of experimentally recorded \ANFs.
 # The Zilany model \citep{ZilanyBruceEtAl:2009} was based on many auditory models
 # from the Carney Lab
@@ -203,7 +203,7 @@ The range and number of frequency channels used in the auditory filterbank is
 defined in each of the following chapters. These parameters set the
 level of spatial resolution required in the network model. An increase in
 the number of frequency channels greatly increases the computational load
-and simulation time in the \AN input generation and \CNSM models.
+and simulation time in the \AN input generation and \CNSM model.
 The model reproduces responses for 50 high and 30 low
 \SR\space \ANFs in each frequency channel, across the frequency range 200 Hz
 to 64 kHz.
@@ -215,7 +215,7 @@ to 64 kHz.
   \begin{table}[htb]
   \centering
   % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-  \caption[Basilar membrane frequency-distance function parameters]{Frequency to basilar membrane distance function parameters.}
+  \caption[Basilar membrane frequency-distance function parameters]{Frequency to basilar membrane distance function parameters. \\ Data obtained from http://earlab.bu.edu.}
   \label{tab:Methods:Greenwood}
   \begin{tabularx}{0.7\textwidth}{X D{,}{.}{4,1} D{,}{.}{1,3} D{,}{.}{1,1} D{,}{.}{2,2}}
   \toprule
@@ -225,7 +225,7 @@ to 64 kHz.
   Rat   $^{ 3}$ &   7613,3   &   0,928    &    1,0     & 8,03 \\
   \bottomrule
   \end{tabularx}\\
-  {\small{$^1$\citet{Greenwood:1990}, $^2$\citet{Liberman:1982}, $^3$\citet{Muller:1991}.  Data obtained from http://earlab.bu.edu.}}\\
+  {\small{$^1$\citet{Greenwood:1990}, $^2$\citet{Liberman:1982}, $^3$\citet{Muller:1991}. }}\\
   \end{table}
 #+END_LaTeX
 
@@ -233,7 +233,7 @@ to 64 kHz.
 ** Inner and Outer Hair Cell Compression
 
 The most recent AN model incorporates species-specific compression functions of
-outer and inner hair cell to facilitate accurate audiograms in the ANFs
+outer and \IHC to facilitate accurate audiograms in the ANFs
 \citep{ZilanyCarney:2010,ZilanyBruceEtAl:2009}.  Figure \ref{fig:Compression}
 shows the implementation of the compression functions of the inner and outer ear
 for the cat and rat.  The acoustic thresholds of the cat and rat
@@ -241,9 +241,10 @@ for the cat and rat.  The acoustic thresholds of the cat and rat
 
 #+BEGIN_LaTeX
   \begin{figure}[htb]
-    \centering
-    {\figfont{A}\hfill Cat\hspace{1.5in}\hfill\figfont{B}\hfill Rat \hspace{1.5in}\hfill}\\
+    {\figfont{A}\hfill Cat\hspace{1.5in}\hfill\figfont{B}\hfill Rat                                \hspace{1.5in}\hfill}\\
+    {\centering
     \resizebox{0.95\textwidth}{!}{\includegraphics[keepaspectratio=true]{../MethodsChapter/gfx/AudiogramCompression.pdf}} \\
+    }%
     \caption[Cat and Rat audiograms and compression curves for the AN model]{Animal auditory thresholds (audiograms) were used to
       calculate the inner and outer hair cell (IHC and OHC) compression values in
       the AN models \citep{ZilanyCarney:2010,ZilanyBruceEtAl:2009}.
@@ -290,9 +291,8 @@ y_1(t) &= c_1 \exp(-(t'-t_{\textrm{a}})/s_1),
 spike, $c_0 = 0.5$, $c_1 = 0.5$, $s_0 = 0.001$ msec and $s_1 = 0.0125$
 msec.  The absolute refractory period, $t_{\textrm{a}}$, was 0.75 msec.
 # Improvements in the spike-generation method
-Spike trains for each neuron in the model were created at the start of each
-repetition of the stimulus, but could be saved and loaded from files to improve
-efficiency.
+Spike trains for each Poisson-based neural model in the CNSM model were created at the start of each
+repetition of the stimulus.
 
 # \note{Para: Notes from Hegger: discuss Poisson generator}
 # # $$r(t) = \alpha [V(t)-V_{\mathrm th}]$$
@@ -342,8 +342,7 @@ efficiency.
 
 
 Single compartment conductance models, similar to those presented by
-\citet{HodgkinHuxley:1952a}, were used to model the cochlear nucleus
-neurons.
+\citet{HodgkinHuxley:1952a}, were used to model the \CN neurons.
 The dynamics of the membrane voltage, $V(t)$, is described by
 \begin{equation} \label{eq:Methods:V}
 C_{m} \frac{dV}{dt} = - \gleak (V - \Eleak) - \INa - \IKHT - \IKLT - \IKA - \Ih - \sum \ISYN,
@@ -354,7 +353,7 @@ potassium current densities; \Ih is a hyperpolarization-activated current
 density; and \ISYN are synaptic input current densities.  The compartmental
 nature of the neural model and the voltage measured in millivolts means that
 conductance is measured in Seimens per centimetre squared (\Scmsq) and the
-membrane capacitance in microfarads per centimetre squared.
+membrane capacitance in micro Farads per centimetre squared.
 
 The voltage-dependent relationship in each current model has a peak
 conductance parameter and gating variables for activation and
@@ -394,6 +393,9 @@ yielded accurate mathematical descriptions of:
 \begin{equation} \label{eq:Methods:Ih}
 \Ih(t,V)=\gh r (V-\Eh).
 \end{equation}
+The formal equations of the activation and deactivation functions are shown in the Appendix
+(Secion \ref{sec:Apdx:RMCurrents}).
+
 
 Figure \ref{fig:Methods:RM2} shows the voltage-dependent relationship of the
 activation function and time constants in potassium currents (\IKLT and \IKHT)
@@ -404,105 +406,14 @@ rectifier by activating when the membrane voltage rises above -20 mV during an
 \AP.  The active voltage-dependent activation and deactivation functions
 (/a, b, c, h, m, n, p, r, w/ and /z/) are described in detail by
 \citet{RothmanManis:2003,RothmanManis:2003a,RothmanManis:2003b} and the [[latex:progname][NEURON]]
-source code is freely available online at neural model database [[http://senselab.med.yale.edu/senselab/modeldb][ModelDB]]
+source code is available online at neural model database [[http://senselab.med.yale.edu/senselab/modeldb][ModelDB]]
 \citep{HinesMorseEtAl:2004}.
 # Further detailed equations are included in Appendix \ref{sec:Apdx:RMCurrents}.
 
 #+attr_latex: width=0.7\textwidth
-#+caption: [Voltage-dependency of potassium channel dynamics in existing CN models]{\citet{RothmanManis:2003b} compared their kinematic model of activation gating variables of \IKLT and \IKHT with equivalent rectifying potassium channel models used by existing CN neural models. The voltage dependency of \IKHT's ($n^{\lambda},\, \tau_n$) and \IKLT's ($n^{\lambda},\, \tau_n$) activation gating variable and its time constant. Figure reproduced from Fig. 2 in \citet{RothmanManis:2003b}.}
+#+caption: [Voltage-dependency of potassium channel dynamics in existing CN models]{\citet{RothmanManis:2003b} compared their kinematic model of activation gating variables of \IKLT and \IKHT with equivalent rectifying potassium channel models used by existing CN neural models. Top figures show normalised voltage dependency of activation gating variables in  \IKHT ($n^{\lambda}) and \IKLT ($w^{\lambda}$) currents. Corresponding time constant voltage dependencies ($\tau_n$, $\tau_w$) in bottom figures. Figure reproduced from Fig. 2 in \citet{RothmanManis:2003b}.}
 #+label: fig:Methods:RM2
 [[../MethodsChapter/gfx/RothmanManisDynamics.pdf]]
-
-
-
-
-** Activation and Deactivation Current Equations
-   :PROPERTIES:
-   :CUSTOM_ID: sec:Apdx:RMCurrents
-   :END:
-
-The activation and de-activation variable equations were reproduced from
-\citet{RothmanManis:2003b}.  The core of the \HH-like current equations are the
-activation and de-activation variables.  The time- and voltage-dependent current
-variables follow a first-order differential equation in time:
-\begin{equation}
-\frac{dx}{dt} = (x_\infty - x)/\tau_x,
-\end{equation}
-where $\tau_x$ is the time constant of $x$ and  $x_\infty$ is the steady-state value of /x/ (i.e.\space
-the value of /x/ when $t \gg \tau_x$).
-
-The voltage dependence of the activation and
-de-activation variables /a/, /b/, /c/, /w/, /z/, /n/, /p/, /m/, /h/, and r are shown in the following equations.
-# Although the formalism of the preceding equation is different
-# from the original HH formalism in which activation/de-activation vari-
-# ables are expressed in terms of “open” and “close” rate constants \alpha
-# and \beta, they are nevertheless mathematically equivalent when $x_\infty=\alpha/(\alpha + \beta)$ and
-# $\tau_x = 1/(\alpha + \beta)$. Reversal potentials are: \EK = -70 mV,
-# \ENa = +55 mV,
-# \Eh = -43 mV, and
-# \Eleak = -65 mV.
-
-Fast transient K^{+} current
-\begin{eqnarray}
-\IKA(t,V) &=& \gKA  a^4 b c  (V - \EK) \\
-a_\infty(V) &=& [1 +  \exp(-(V + 31)/6)]^{-1/4} \\
-b_\infty(V) &=& [1 +  \exp((V + 66)/7)]^{-1/2} \\
-c_\infty(V) &=& b_\infty
-\end{eqnarray}
-\begin{eqnarray}
-\tau_a(V) &=& 100  [7  \exp((V + 60)/14) + 29  \exp(-(V + 60)/24)]^{-1} + 0.1 \\
-\tau_b(V) &=& 1000  [14  \exp((V + 60)/27) + 29  \exp(-(V + 60)/24)]^{-1} + 1 \\
-\tau_c(V) &=& 90  [1 +  \exp(-(V + 66)/17)]^{-1} + 10
-\end{eqnarray}
-
-Low-threshold K^{+} current
-\begin{eqnarray}
-\IKLT(t,V) &=& \gKLT  w^4 z  (V - \EK) \\
-w_\infty(V) &=& [1 +  \exp(-(V + 48)/6)]^{-1/4} \\
-z_\infty(V) &=&  0.5 [1 +  \exp((V + 71)/10)]^{-1} + 0.5
-\end{eqnarray}
-\begin{eqnarray}
-\tau_w(V) &=& 100  [6  \exp((V + 60)/6) + 16  \exp(-(V + 60)/45)]^{-1} + 1.5\\
-\tau_z(V) &=& 1000  [ \exp((V + 60)/20) +  \exp(-(V + 60)/8)]^{-1} + 50
-\end{eqnarray}
-
-High-threshold K^{+} current
-\begin{eqnarray}
-\IKHT(t,V) &=& \gKHT  [\phi n^2 + (1 - \phi)p] (V - \EK) \quad (\phi = 0.85)\\
-n_\infty(V) &=& [1 +  \exp(-(V + 15)/5)]^{-1/2} \\
-p_\infty(V) &=& [1 +  \exp(-(V + 23)/6)]^{-1}
-\end{eqnarray}
-\begin{eqnarray}
-\tau_n(V) &=& 100  [11  \exp((V + 60)/24) + 21 \exp(-(V + 60)/23)]^{-1} + 0.7~\\
-\tau_p(V) &=& 100  [4  \exp((V + 60)/32) + 5  \exp(-(V + 60)/22)]^{-1} + 5
-\end{eqnarray}
-
-
-Fast Na^{+} current
-\begin{eqnarray}
-\INa(t,V) &=& \gNa  m^3 h (V - \ENa) \\
-m_\infty(V) &=& [1 +  \exp(-(V + 38)/7)]^{-1} \\
-h_\infty(V) &=& [1 +  \exp((V + 65)/6)]^{-1 }
-\end{eqnarray}
-\begin{eqnarray}
-\tau_m(V) &=& 10 [5  \exp((V + 60)/18) + 36  \exp(-(V + 60)/25)]^{-1} + 0.04~\\
-\tau_h(V) &=& 100 [7  \exp((V + 60)/11) + 10  \exp(-(V + 60)/25)]^{-1} + 0.6~
-\end{eqnarray}
-
-Hyperpolarisation-activated, mixed-cation current
-\begin{eqnarray}
-\Ih(t,V) &=& \gh  r  (V - \Eh)\\
-r_\infty(V) &=& [1 +  \exp((V + 76)/7)]^{-1}
-\end{eqnarray}
-\begin{equation}
-\tau_r(V) =  10^5 [237  \exp((V + 60)/12) + 17  \exp(-(V + 60)/14)]^{-1} + 25\\
-\end{equation}
-
-Leak current
-\begin{equation}
-\Ileak = \gleak (V - \Eleak)
-\end{equation}
-# ####
 
 
 Membrane and synapse channels are temperature dependent and most /in vitro/
@@ -548,7 +459,7 @@ A-type transient potassium channels, \IKA
 Type II responses have only one phasic \AP at the start of the stimulus,
 characteristic of ventral \CN bushy cells, which enables them to rapidly follow
 \ANF input events \citep{OertelWuEtAl:1988,SmithRhode:1989}. \IKLT is present in
-type II units and is active at resting membrane potential, which allow for rapid
+type II units and is active at resting membrane potential, which allows for rapid
 changes depending on the input. \DS cells respond with a single \AP for injected
 current levels near threshold, and then discharge regularly for higher current
 levels \citep{OertelWuEtAl:1988,PaoliniClark:1999}, corresponding to an
