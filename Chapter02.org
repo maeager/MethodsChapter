@@ -309,7 +309,7 @@ repetition of the stimulus.
 # less than 1 msec \citep{MainenSejnowski:1995}.  The noise in
 # \textit{in vivo} neural responses is believed to result from the fact
 # that synapses are very unreliable. In fact, greater than half of the
-# arriving presynaptic nerve impulses fail to evoke a postsynaptic
+# arriving presynaptic nerve impulses fail to evoke a post-synaptic
 # response \citep[e.g.,~][]{AllenStevens:1994}. The noise in the synapses,
 # not in the spike generator!
 
@@ -394,7 +394,7 @@ yielded accurate mathematical descriptions of:
 \Ih(t,V)=\gh r (V-\Eh).
 \end{equation}
 The formal equations of the activation and deactivation functions are shown in the Appendix
-(Secion \ref{sec:Apdx:RMCurrents}).
+(Section \ref{sec:Apdx:RMCurrents}).
 
 
 Figure \ref{fig:Methods:RM2} shows the voltage-dependent relationship of the
@@ -416,7 +416,7 @@ source code is available online at neural model database [[http://senselab.med.y
 [[../MethodsChapter/gfx/RothmanManisDynamics.pdf]]
 
 
-Membrane and synapse channels are temperature dependent and most /in vitro/
+Membrane and synapse channels are temperature dependent and most \CN /in vitro/
 experiments are performed at room temperature, 22\degC.  All simulations in this
 thesis were performed at body temperature, 37\degC. Accordingly, modification of the
 appropriate variables had to be performed. This included activation and
@@ -477,18 +477,20 @@ established the /in vitro/ characteristics of each cell type from the literature
     \centering
     \caption{Cell-type membrane current parameters}\label{tab:Methods:CellTypes}
     \begin{tabularx}{0.8\linewidth}{lcccc}\toprule
-             Cells            &  \TS   &  \DS   &   \TV   & Golgi \\ %\hline
+             Cells            &  \TS   &  \DS   &   \TV   & \GLG$^{\ast}$ \\ %\hline
            \RM Type           &  I-t   &  I-II  &   I-c   & I-c \\[0.5ex] \midrule
-      \gNa, \hfill \Scmsq     & 0.235  & 0.235  &  0.235  & 0.235 \\ %\hline
-     \gKHT, \hfill \Scmsq     & 0.018  &  0.02  &  0.019  & 0.019 \\ %\hline
-     \gKLT, \hfill \Scmsq     &   0    & 0.0047 &    0    & 0 \\ %\hline
-      \gKA, \hfill \Scmsq     & 0.0153 &   0    &    0    & 0 \\ %\hline
-      \gh, \hfill m\Scmsq     & 0.0618 & 0.247  & 0.06178 & 0.6178 \\ %\hline
-    \gleak, \hfill m\Scmsq    & 0.471  & 0.471  &  0.471  & 0.962 \\ %\hline
+      \gNa, \hfill \Scmsq     & 0.2367  & 0.3062  &  0.249  & 0.235 \\ %\hline
+     \gKHT, \hfill \Scmsq     & 0.0189  &  0.0306  &  0.0374  & 0.019 \\ %\hline
+     \gKLT, \hfill \Scmsq     &   0    & 0.0164 &    0    & 0 \\ %\hline
+      \gKA, \hfill \Scmsq     & 0.0154 &   0    &    0    & 0 \\ %\hline
+      \gh, \hfill m\Scmsq     & 0.062 & 0.214  & 0.0653 & 0.6178 \\ %\hline
+    \gleak, \hfill m\Scmsq    & 0.4735  & 0.247  &  0.249  & 0.249 \\ %\hline
+    \Erev, \hfill mV  &-65&-65&-72& -65 \\
       Soma Diameter, \um      &   21   &   25   &  19.5   & 15 \\ %\hline
-  Input Resistance, M$\Omega$ &  163   &   73   &   170   & 130 \\
+  Input Resistance, M$\Omega$ &  163   &   77   &   320   & 130 \\
   \bottomrule
   \end{tabularx}
+  \footnotesize{$^{\ast}$ Conductance-based GLG cell model only in Chapter \ref{sec:GAChaper}.}
   \end{table}
 #+END_LaTeX
 
@@ -525,7 +527,7 @@ of the system.  In the \CNSM model, one isofrequency channel receives afferent
 input from the narrowest receptive field possible in the \AN model.
 Figure \ref{fig:MicroCN} shows the intra-nuclei microcircuit connections and
 connectivity type (neurotransmitter and receptor type) in the \CNSM model based
-on existing experimental evidence in most mammals.  Chapter \ref{sec:ModelChapter}
+on existing experimental evidence in mammals.  Chapter \ref{sec:ModelChapter}
 provides more detail regarding the evidence for each of the connections in the
 microcircuit.
 
@@ -541,7 +543,7 @@ network but may be adjusted to suit the model.
 Model parameters may be different between species or within species;
 therefore, in the absence of adequate evidence regarding exact neuron to neuron
 connections, average population data were used.  Issues also arise at the
-ends of large-scale topographic \BNNs with overlapping place\slash
+ends of large-scale topographic \BNNs with overlapping (place)
 channel connections.  Boundaries are considered closed bookends, where
 post-synaptic neurons select only from those within their connection range.
 # The best modelling behaviour would arise, therefore, in the middle sections.
@@ -572,9 +574,9 @@ between cell types.
 #+END_LaTeX
 
 Network parameters that control the connectivity between two cell type
-groups are defined by:
+groups are defined as follows:
 - $\mathbf{w}_{\textrm{{X}}\to\textrm{{Y}}}$ ::  The synaptic weight of
-     the post-synaptic current influx caused by the pre-cells'
+     the post-synaptic current influx caused by the pre-synaptic cells
      neurotransmitter activating the receptor channels of the
      post-synaptic cell.  This value may be either uniform for all
      synapses across the connection type or defined by a
@@ -582,22 +584,21 @@ groups are defined by:
 - $\mathbf{n}_{\textrm{{X}}\to\textrm{{Y}}}$ :: The total number of synaptic
      connections on post-synaptic cells from pre-synaptic cells.
 - $\mathbf{s}_{\textrm{{X}}\to\textrm{{Y}}}$ :: The spatial or feature-specific
-     spread of connections from presynaptic cells onto post-synaptic cells.  The
-     spread parameter, /s/, is the variance of the Gaussian function, thus has
-     standard deviation $\sigma = \sqrt{s}$. The distributions are uniform across the
-     stellate CN network, which ignores channels outside the network's range.  A
-     spread of 0 means all connections come from the same frequency channel.
+     spread of connections from pre-synaptic cells onto post-synaptic cells.  The
+     spread parameter, /s/, is half the variance of the Gaussian function, thus has
+     standard deviation $\sigma^2 = 2s$. The distributions are uniform across the
+     \CNSM network, which ignores channels outside the network's range.  A
+     spread of zero means all connections come from the same frequency channel.
 - $\mathbf{o}_{\textrm{{X}}\to\textrm{{Y}}}$ :: The offset in distribution of
      connections between pre-synaptic cell types and post-synaptic cells.  The
      offset variable adjusts the centre point of the probability distribution,
-     $\mathcal{N}(i + \mathbf{o}, \sqrt{\mathbf{s}})$, away from the
+     $\mathcal{N}(i + \mathbf{o}, \sqrt{\mathbf{s}/2})$, away from the
      post-synaptic cell's position, /i/.
 - $\mathbf{d}_{\textrm{{X}}\to\textrm{{Y}}}$ :: The temporal delay between a
-     pre-synaptic cells' \AP trigger and the onset of the post-synaptic current.
+     pre-synaptic cell's \AP trigger and the onset of the post-synaptic current.
      This delay incorporates the axonal conduction delay and diffusion time
      across the synaptic cleft.  In a single-compartment model, additional delay
      can also be used to represent dendritic delay.
-
 
 
 # New limitations of place-based connectivity
@@ -618,18 +619,16 @@ groups are defined by:
 # shown in Figure \ref{fig:MicroCN} and in wider scale in Figure
 # \ref{tab:MicrocircuitConn}.
 
-\ANFs with similar \CFs were
-spatially organised into $N_{\textrm{Channel}}$ isofrequency lamina or channels,
-which translated to frequency channels in the \CN.
- The dendrites of \TS and \TV cells are located within isofrequency
- lamina of the \VCN and \DCN, respectively. The receptive field and
- bandwidth of \TS and \TV cells are also similar to \ANFs of similar
- \CF.  In the \CNSM model, synapse inputs to these cells were
- chosen from \ANFs within the same frequency channel (i.e.\space spread
- of zero, $s=0$). \DS cells have many arborisations
- extending perpendicular to \ANF axons and have a typical physiological
- responses to frequencies 2 octaves below and 1 octave above their \CF
- \citep{PalmerJiangEtAl:1996,PaoliniClark:1999}.
+\ANFs with similar \CFs were spatially organised into $N_{\textrm{Channel}}$
+isofrequency lamina or channels, which translated to frequency channels in the
+\CN.  The dendrites of \TS and \TV cells are located within the isofrequency lamina
+of the \VCN and \DCN, respectively. The receptive field and bandwidth of \TS and
+\TV cells are also similar to \ANFs of similar \CF.  In the \CNSM model, synapse
+inputs to these cells were chosen from \ANFs within the same frequency channel
+(i.e.\space spread of zero, $s=0$). \DS cells have many arborisations extending
+perpendicular to \ANF axons and have a typical physiological responses to
+frequencies 2 octaves below and 1 octave above their \CF
+\citep{PalmerJiangEtAl:1996,PaoliniClark:1999}.  
 
 
 # Auditory nerve projections
@@ -649,7 +648,7 @@ response. In turn this cell is responsible for altering the frequency responses
 in \TS and \TV cells \citep{SpirouDavisEtAl:1999}.  \DS cells are coincidence
 detectors and have a precisely timed onset response that affects the temporal
 properties of \TS cells \citep{PaoliniClareyEtAl:2005,RhodeGreenberg:1994a} and
-completely inhibit \TV cell responses to loud clicks
+completely inhibits \TV cell responses to loud clicks
 \citep{SpirouDavisEtAl:1999}.
 
 
@@ -673,8 +672,8 @@ time-dependent conductance change.  The current density equation used was
 \begin{equation}\label{eq:SYN}
 \ISYN(t)=g_{{\rm SYN}} (t)  (V - E_{{\rm rev}}),
 \end{equation} \noindent where $E_{\rm rev}$ is the associated reversal
-potential.  [[latex:progname][NEURON]]'s conductance synapse model classes [[latex:progname][ExpSyn]] and
-[[latex:progname][Exp2Syn]] were used in the \CN stellate microcircuit \citep{HinesCarnevale:2000}.
+potential. [[latex:progname][NEURON]]'s conductance synapse model classes [[latex:progname][ExpSyn]] and
+[[latex:progname][Exp2Syn]] \citep{HinesCarnevale:2000} were used in the \CNSM model.
 The strength of the synapses was
 determined by a normalised conductance kernel with decay
 time-constants and a multiplicative weight parameter, /w/, as follows:
@@ -698,13 +697,13 @@ t'=\frac{\tau_{Inh1}\tau_{Inh2}}{\tau_{Inh2}-\tau_{Inh1}} \ln(\tau_{Inh2}/\tau_{
 
 Excitatory inputs to \CN cells from type I \ANF terminals were mediated
 by fast glutamatergic-\AMPA receptors
-\citep{Gardner:2000,GardnerTrussellEtAl:1999}. \Glsplural{EPSP} in \VCN neurons
-had a decay time constant of $\tAMPA = 0.36$ msec, whereas \TV cells in
+\citep{Gardner:2000,GardnerTrussellEtAl:1999}. Spontaneous \EPSPs in \VCN \DS and \TS neurons
+had a decay time constant of $\tAMPA = 0.36$ msec \citep{GardnerTrussellEtAl:1999}. \TV cells
 the \DCN had a decay time constant of $\tAMPA = 0.40$ msec
-\citep{GardnerTrussellEtAl:1999}.  The reversal potential of excitatory
+\citep{GardnerTrussellEtAl:1999}.  The reversal potential of the excitatory
 synapse was 0 mV.
 
-\glsunset{GlyR}
+\glsreset{GlyR}
 
 # GlyR  (mice: [\citenum{FerragamoGoldingEtAl:1998a}]).
 # %Flat vesicles (DS) apposed to TS units (cat [\citenum{SmithRhode:1989}])
@@ -730,25 +729,26 @@ synapse was 0 mV.
 
 
 Double exponential inhibitory synapses used in the network were derived from
-\IPSPs in glycinergic and GABAergic synapses.  The glycinergic receptor \GlyR is
+\IPSPs in glycinergic and GABAergic synapses.  The \GlyR is
 the fastest inhibitory synapse in the mammalian brain and is blocked by the
-neurotoxin strychnine.  The \GlyR synapse model was based on glycinergic
-miniature \IPSPs recorded in mature \AVCN in rats and mice
+neurotoxin strychnine.  The \GlyR synapse model was based on miniature glycinergic
+\IPSPs recorded in mature \AVCN in rats and mice
 \citep{LimOleskevichEtAl:2003} and in rat \MNTB neurons
 \citep{AwatramaniTurecekEtAl:2004,AwatramaniTurecekEtAl:2005}.  Room temperature
-whole cell patch recordings of spontaneous mIPSCs in mature \AVCN in rats and
+whole cell patch recordings of spontaneous 
+\IPSCs in mature \AVCN in rats and
 mice neurons showed these synapses have a fast rise time (10\% to 90\%),
 $\tGlyone = 0.4$ msec, and a decay time constant $\tGlytwo = 2.5$ msec
-\citep{LimOleskevichEtAl:2003}.  In MNTB rat neurons at body temperature, GlyR
-decay constants of miniature and evoked \IPSCs were $0.8 \pm 0.2$ msec and $1.1 \pm 0.2$
+\citep{LimOleskevichEtAl:2003}.  In \MNTB rat neurons at body temperature, GlyR
+decay constants of miniature and evoked \IPSCs were $0.8 \pm 0.2$ msec and $1.1 \pm 0.2$ 
 msec (37\degC), respectively \citep{AwatramaniTurecekEtAl:2004}.  \GABAa
 synapses were modeled from \MNTB recordings in mature guinea pigs
-\citep{AwatramaniTurecekEtAl:2005}.  \GABAa receptor currents have a fast (9 msec)
-and a slow (150 msec) decay component
+\citep{AwatramaniTurecekEtAl:2005}.  \GABAa receptor currents have a fast (9
+msec) and a slow (150 msec) decay component
 \citep{AwatramaniTurecekEtAl:2005,DavisYoung:2000}, but for short stimuli only
 the fast component was modeled ($\tGABAone =0.7$ msec, $\tGABAtwo =9.0$
-msec). Chlorine reversal potential in Glycine and \GABAa receptors was set to -75
-mV.
+msec). Chlorine reversal potential in \GlyR and \GABAa receptors was set to
+-75 mV.
 
 
 ** Delay and Latency Variables
@@ -761,8 +761,8 @@ pre-synaptic neuron and the activation of the post-synaptic potential, which
 includes axonal conduction and synaptic diffusion. Synaptic transmission and
 axonal conductance delay between adjacent neurons is typically measured in
 experiments to be 0.4 -- 0.5 msec. Delays between neurons in the ventral and
-dorsal \CN were measured using electric shocks and found to be approximately 1.0
-msec, but ranged from 0.15 to 2 msec msec \citep{WickesbergOertel:1993}.
+\DCN were measured using electric shocks and found to be approximately 1.0
+msec, but ranged from 0.15 to 2 msec \citep{WickesbergOertel:1993}.
 # \note{Needs reference, and what about Bahlmer and Lagner's 0.4 msec delays}
 
 
@@ -774,7 +774,8 @@ first spike latency against the \CF of the fibres in cats from click responses
 in the cat to obtain the formula:
 \begin{equation} \label{eq:Methods:delay}
 d=A_{0} \exp(-x/A_{1})\times 10^{- 3} - 1/{\mathrm{CF}_x},
-\end{equation} \noindent where /x/ is the distance along the basilar membrane
+\end{equation} \noindent 
+where /x/ is the distance along the basilar membrane
 from the apex, ${\mathrm{CF}}_x$ is the \CF (Hz) at this location, and constants
 $A_0$ and $A_1$ are 8.3 msec and 6.49 cm for cats, respectively.
 
@@ -792,7 +793,7 @@ membrane, but also by the twisting of axons by the spiral ganglion neurons and
 the organised innervation of the \CN by the same fibres.  Consequently, an
 additional delay parameter is required that combines the intrinsic \ANF delay
 and the effective axonal conductance to the \CN neurons.  Mean first spike
-latency to click stimuli is used in Section \ref{sec:Ch3:Delays} to set the
+latency to click stimuli was used in Section \ref{sec:Ch3:Delays} to set the
 delay times between \ANFs and \CN cells.
 #  \citep{EagerGraydenEtAl:2006}.
 # The delay parameter was
@@ -814,7 +815,11 @@ delay times between \ANFs and \CN cells.
 Neural models and network connections were generated using the neural simulation
 package [[latex:progname][NEURON]] \citep{CarnevaleHines:2006}. NMODL, an extension of [[latex:progname][NEURON]]
 \citep{HinesCarnevale:2000}, was used to implement membrane current models and
-interface with the \AN model. Numerical integration was performed using the
+interface with the \AN model.  The \AN model and the neural cell models were combined into the \CNSM software
+code called [[latex:progname][cnstellate]] (in preparation for open-source online access).  This
+code is implemented in [[latex:progname][NEURON]], [[latex:progname][NMODL]] and [[latex:progname][C]] source code, and plotting scripts in
+gnuplot and [[latex:progname][MATLAB]].  
+Numerical integration was performed using the
 Crank-Nicholson method with second order accuracy (in [[latex:progname][NEURON]], $secondorder=2$)
 and fixed time step of either 0.1 or 0.05 msec.
 
@@ -840,7 +845,8 @@ The genetic algorithms and sensitivity analyses in Chapter
 \citep{GeistBeguelinEtAl:1994}.
 
 # The random numbers are required throughout this thesis in .
-# generator used was the internal RNG of NEURON, MCellRand4
+# generator used was the internal RNG of NEURON, MCellRan4
+
 
 
 ** Stimulus Generation and Analysis
@@ -857,7 +863,7 @@ mean square of pressure levels in dB re 20 $\mu\textrm{Pa}$).
 
 
 Temporal resolution in the \CNSM model is variable at each stage: the stimulus,
-the \ANF spiking model, and the NEURON simulation.  The stimulus sampling rate
+the \ANF spiking model, and the [[latex:progname][NEURON]] simulation.  The stimulus sampling rate
 of version 4 of the Carney auditory model was 50 kHz
 \citep{HeinzZhangEtAl:2001}.  The middle ear filter in the Bruce model
 \citep{ZilanyBruce:2007,BruceSachsEtAl:2003,ZilanyBruce:2006} required a
@@ -869,10 +875,10 @@ other \CFs.
 # \citep{ZilanyBruceEtAl:2009} was sampled at 100 kHz for \CF units below
 # 20 kHz, otherwise a sampling rate of 200 kHz was used.
 
-The output of all \AN models was then down-sampled to a lesser sampling rate for
-the \ANF spike generator and saved for further use.  The resolution of the spike
-generator was either 20 or 50 kHz. The integration time-step of the NEURON
-simulations was 0.05 msec.
+In the \CNSM model, the instantaneous rate output profiles of all \AN models was
+down-sampled to a lesser sampling rate for the \ANF spike generator and saved
+for further use.  The resolution of the spike generator was either 20 or 50
+kHz. The integration time-step of the NEURON simulations was 0.05 msec.
 
 Notch noise was used as the stimulus for Chapter \ref{sec:GAChapter} and the
 optimisation of \DS cell connections to \TV cells (see Section
@@ -892,14 +898,15 @@ be retrieved by NEURON in the simulation.
 # \citep{PalmerJiangEtAl:1996}.
 
 
-** Creation and Simulation of CNSM Model
+# ** Creation and Simulation of CNSM Model
 
-The \AN model and the neural cell models were combined in a NEURON package
-called [[latex:progname][cnstellate]] (open-source online access is in preparation).
+
+
 # \note{show organisation of frequency channels, input and microcircuit }
-The tonotopic organisation of the model was built into N_{\rm channel} frequency
-channels (from CF_{\rm low} to CF_{\rm high}) mimicking the population of the \ANF input
-model. This replicates \ANF innervation of the \CN \citep{Lorente:1981}.
+# The tonotopic organisation of the model was built into N_{\rm channel} frequency
+# channels (from CF_{\rm low} to CF_{\rm high}) mimicking the population of the \ANF input
+# model. This replicates \ANF innervation of the \CN \citep{Lorente:1981}.
+
 
 # \note{Reference to online access to cnstellate model}
 
@@ -989,8 +996,8 @@ model. This replicates \ANF innervation of the \CN \citep{Lorente:1981}.
 To develop and optimise detailed neural models and their synaptic connections,
 reproducible research methods are required. Hand-tuning and gradient-decent
 optimisation are commonly used in realistic neural and network models
-\citep{SegevBurkeEtAl:1998}, but may have poor replicability.  Examples
-of parameter estimation and fitting in neural models are also becoming more
+\citep{SegevBurkeEtAl:1998}, but may have poor replicability.  Parameter
+estimation and fitting routines in \BNN models are also becoming more
 advanced, for example [[latex:progname][SSNS]] \citep{SichtigSchafferEtAl:2008}, [[latex:progname][NeuroFitter]]
 \citep{VanAchardEtAl:2007} and [[latex:progname][MultiRunFitter]] (a feature in NEURON).  In this
 thesis, a table method introduced by \citet{NordlieGewaltigEtAl:2009} is used to
@@ -1013,14 +1020,14 @@ following steps:
     those parameters.
  4. Perform the optimisation.
 
-The fitting function includes specifying stimulation routine, analysis of neural
+The fitting function includes specifying the stimulation routine, analysis of neural
 outputs and the formula with which to compare simulated results with
 experimental data.  The large number of parameters in the \CNSM model created
 challenges for realistic optimisation.  The model implementation, the choice of
 experimental data and evaluation of the fitness function are important factors
 in determining the speed and efficiency of the algorithm.  The following
 sections introduce the two optimisation methods used in this thesis to
-generate a realistic model of the \CN stellate network.
+generate a realistic model of the stellate microcircuit of the \CN.
 
 
 ** Sequential Methods
@@ -1044,7 +1051,7 @@ without needing the derivative \citep{Brent:1976}.
 
 ** Simultaneous Methods
 
-Chapter \ref{sec:GAChapter} presents a method to optimise all the
+Chapter \ref{sec:GAChapter} presents a method to optimise the
 network parameters in the \CNSM model simultaneously.  New techniques in
 multi-unit electrophysiological recording are being developed that are
 able to record from multiple neurons simultaneously.  A simultaneous
@@ -1062,7 +1069,7 @@ procedure uses operations analogous to natural selection to search for
 the optimal solution \citep{Mitchell:1996}.  This procedure is used when
 the standard analytical and gradient search methods are ineffective or
 computationally expensive.  The basic response properties of the neurons
-will be used to set the ‘fitness’ criteria of the genetic algorithm.
+are used to set the ‘fitness’ criteria of the genetic algorithm.
 The design and implementation of the genetic algorithm search method is
 discussed in Chapter \ref{sec:GAChapter}.
 
