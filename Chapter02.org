@@ -169,8 +169,10 @@ noise.
 # explained in \citet{ZilanyBruceEtAl:2009} and \citet{ZilanyCarney:2010}.
 
 
-
 ** Frequency Channels
+:PROPERTIES:
+:CUSTOM_ID: sec:Ch2:Tonotopic
+:END:
 
 The organisation of the auditory system is described as ``tonotopic'' after the
 continuous logarithmic frequency tuning along the basilar membrane
@@ -178,8 +180,8 @@ continuous logarithmic frequency tuning along the basilar membrane
 of the adjacent basilar membrane and forms a topographical receptive field,
 according to place along the central auditory nervous system.
 
-The input auditory models used in this thesis mimic the major
-phenomenological qualities of experimentally recorded \ANFs.
+The input auditory models used in this thesis mimic the major phenomenological
+qualities of experimentally recorded \ANFs.
 # The Zilany model \citep{ZilanyBruceEtAl:2009} was based on many auditory models
 # from the Carney Lab
 # \citep{HeinzColburnEtAl:2001,ZhangCarney:2001,Carney:1993}.
@@ -200,13 +202,12 @@ humans, cat and rat.
 
 
 The range and number of frequency channels used in the auditory filterbank is
-defined in each of the following chapters. These parameters set the
-level of spatial resolution required in the network model. An increase in
-the number of frequency channels greatly increases the computational load
-and simulation time in the \AN input generation and \CNSM model.
-The model reproduces responses for 50 high and 30 low
-\SR\space \ANFs in each frequency channel, across the frequency range 200 Hz
-to 64 kHz.
+defined in each of the following chapters. These parameters set the level of
+spatial resolution required in the network model. An increase in the number of
+frequency channels greatly increases the computational load and simulation time
+in the \AN input generation and \CNSM model.  The model reproduces responses for
+50 high and 30 low \SR\space \ANFs in each frequency channel, across the
+frequency range 200 Hz to 64 kHz.
 
 # \citep{FitzGeraldBurkittEtAl:2001}
 
@@ -273,16 +274,14 @@ response that was down-sampled to 20 kHz.
 #   standard results of spiking models, and how Jackson then Zilany
 #   have tried to fit these to the AN data}
 
-The spiking neural model used in the \ANFs (and the
-Golgi cell model in Chapters \ref{sec:ModelChapter}-\ref{sec:AMChapter}) are
-inhomogeneous Poisson processes with refractory effects. These
-properties are typical of \ANFs
+The spiking neural model used in the \ANFs (and the Golgi cell model in Chapters
+\ref{sec:ModelChapter}-\ref{sec:AMChapter}) are inhomogeneous Poisson processes
+with refractory effects. These properties are typical of \ANFs
 \citep{JacksonCarney:2005,HeilNeubauerEtAl:2007}.  Spike times were generated
-independently for each \HSR and \LSR fibre from the instantaneous firing
-rate using a pseudo-random Poisson spike generator
-\citep{JacksonCarney:2005}, with refractory effects similar
-to those present in \ANFs.  The double exponential relative refractory
-functions, specific to ANFs, were
+independently for each \HSR and \LSR fibre from the instantaneous firing rate
+using a pseudo-random Poisson spike generator \citep{JacksonCarney:2005}, with
+refractory effects similar to those present in \ANFs.  The double exponential
+relative refractory functions, specific to ANFs, were
 \begin{eqnarray}
 y_0(t) &= c_0 \exp(-(t'-t_{\textrm{a}})/s_0) \\
 y_1(t) &= c_1 \exp(-(t'-t_{\textrm{a}})/s_1),
