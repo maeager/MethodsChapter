@@ -1081,8 +1081,6 @@ discussed in Chapter \ref{sec:GAChapter}.
 
 
 
-
-
 # The network parameters (i.e. synapse distribution and strength) for
 # each known projection will be constrained to physiologically
 # significant responses using an iterative optimisation routine based on
