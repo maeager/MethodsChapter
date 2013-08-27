@@ -30,58 +30,58 @@ de-activation variables /a/, /b/, /c/, /w/, /z/, /n/, /p/, /m/, /h/, and r are s
 
 Fast transient K^{+} current
 \begin{eqnarray}
-\IKA(t,V) &=& \gKA  a^4 b c  (V - \EK) \\
-a_\infty(V) &=& [1 +  \exp(-(V + 31)/6)]^{-1/4} \\
-b_\infty(V) &=& [1 +  \exp((V + 66)/7)]^{-1/2} \\
+\IKA(t,V) &=& \gKA a^4 b c (V - \EK) \\
+a_\infty(V) &=& [1 + \exp(-(V + 31)/6)]^{-1/4} \\
+b_\infty(V) &=& [1 + \exp((V + 66)/7)]^{-1/2} \\
 c_\infty(V) &=& b_\infty
 \end{eqnarray}
 \begin{eqnarray}
-\tau_a(V) &=& 100  [7  \exp((V + 60)/14) + 29  \exp(-(V + 60)/24)]^{-1} + 0.1 \\
-\tau_b(V) &=& 1000  [14  \exp((V + 60)/27) + 29  \exp(-(V + 60)/24)]^{-1} + 1 \\
-\tau_c(V) &=& 90  [1 +  \exp(-(V + 66)/17)]^{-1} + 10
+\tau_a(V) &=& 100 [7 \exp((V + 60)/14) + 29 \exp(-(V + 60)/24)]^{-1} + 0.1 \\
+\tau_b(V) &=& 1000 [14 \exp((V + 60)/27) + 29 \exp(-(V + 60)/24)]^{-1} + 1 \\
+\tau_c(V) &=& 90 [1 + \exp(-(V + 66)/17)]^{-1} + 10
 \end{eqnarray}
 
 Low-threshold K^{+} current
 \begin{eqnarray}
-\IKLT(t,V) &=& \gKLT  w^4 z  (V - \EK) \\
-w_\infty(V) &=& [1 +  \exp(-(V + 48)/6)]^{-1/4} \\
-z_\infty(V) &=&  0.5 [1 +  \exp((V + 71)/10)]^{-1} + 0.5
+\IKLT(t,V) &=& \gKLT w^4 z (V - \EK) \\
+w_\infty(V) &=& [1 + \exp(-(V + 48)/6)]^{-1/4} \\
+z_\infty(V) &=& 0.5 [1 + \exp((V + 71)/10)]^{-1} + 0.5
 \end{eqnarray}
 \begin{eqnarray}
-\tau_w(V) &=& 100  [6  \exp((V + 60)/6) + 16  \exp(-(V + 60)/45)]^{-1} + 1.5\\
-\tau_z(V) &=& 1000  [ \exp((V + 60)/20) +  \exp(-(V + 60)/8)]^{-1} + 50
+\tau_w(V) &=& 100 [6 \exp((V + 60)/6) + 16 \exp(-(V + 60)/45)]^{-1} + 1.5\\
+\tau_z(V) &=& 1000 [ \exp((V + 60)/20) + \exp(-(V + 60)/8)]^{-1} + 50
 \end{eqnarray}
 
 High-threshold K^{+} current
 \begin{eqnarray}
-\IKHT(t,V) &=& \gKHT  [\phi n^2 + (1 - \phi)p] (V - \EK) \quad (\phi = 0.85)\\
-n_\infty(V) &=& [1 +  \exp(-(V + 15)/5)]^{-1/2} \\
-p_\infty(V) &=& [1 +  \exp(-(V + 23)/6)]^{-1}
+\IKHT(t,V) &=& \gKHT [\phi n^2 + (1 - \phi)p] (V - \EK) \quad (\phi = 0.85)\\
+n_\infty(V) &=& [1 + \exp(-(V + 15)/5)]^{-1/2} \\
+p_\infty(V) &=& [1 + \exp(-(V + 23)/6)]^{-1}
 \end{eqnarray}
 \begin{eqnarray}
-\tau_n(V) &=& 100  [11  \exp((V + 60)/24) + 21 \exp(-(V + 60)/23)]^{-1} + 0.7~\\
-\tau_p(V) &=& 100  [4  \exp((V + 60)/32) + 5  \exp(-(V + 60)/22)]^{-1} + 5
+\tau_n(V) &=& 100 [11 \exp((V + 60)/24) + 21 \exp(-(V + 60)/23)]^{-1} + 0.7~\\
+\tau_p(V) &=& 100 [4 \exp((V + 60)/32) + 5 \exp(-(V + 60)/22)]^{-1} + 5
 \end{eqnarray}
 
 
 Fast Na^{+} current
 \begin{eqnarray}
-\INa(t,V) &=& \gNa  m^3 h (V - \ENa) \\
-m_\infty(V) &=& [1 +  \exp(-(V + 38)/7)]^{-1} \\
-h_\infty(V) &=& [1 +  \exp((V + 65)/6)]^{-1 }
+\INa(t,V) &=& \gNa m^3 h (V - \ENa) \\
+m_\infty(V) &=& [1 + \exp(-(V + 38)/7)]^{-1} \\
+h_\infty(V) &=& [1 + \exp((V + 65)/6)]^{-1 }
 \end{eqnarray}
 \begin{eqnarray}
-\tau_m(V) &=& 10 [5  \exp((V + 60)/18) + 36  \exp(-(V + 60)/25)]^{-1} + 0.04~\\
-\tau_h(V) &=& 100 [7  \exp((V + 60)/11) + 10  \exp(-(V + 60)/25)]^{-1} + 0.6~
+\tau_m(V) &=& 10 [5 \exp((V + 60)/18) + 36 \exp(-(V + 60)/25)]^{-1} + 0.04~\\
+\tau_h(V) &=& 100 [7 \exp((V + 60)/11) + 10 \exp(-(V + 60)/25)]^{-1} + 0.6~
 \end{eqnarray}
 
 Hyperpolarisation-activated, mixed-cation current
 \begin{eqnarray}
-\Ih(t,V) &=& \gh  r  (V - \Eh)\\
-r_\infty(V) &=& [1 +  \exp((V + 76)/7)]^{-1}
+\Ih(t,V) &=& \gh r (V - \Eh)\\
+r_\infty(V) &=& [1 + \exp((V + 76)/7)]^{-1}
 \end{eqnarray}
 \begin{equation}
-\tau_r(V) =  10^5 [237  \exp((V + 60)/12) + 17  \exp(-(V + 60)/14)]^{-1} + 25\\
+\tau_r(V) = 10^5 [237 \exp((V + 60)/12) + 17 \exp(-(V + 60)/14)]^{-1} + 25\\
 \end{equation}
 
 Leak current
