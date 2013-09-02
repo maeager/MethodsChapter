@@ -393,7 +393,7 @@ yielded accurate mathematical descriptions of:
 \Ih(t,V)=\gh r (V-\Eh).
 \end{equation}
 The formal equations of the activation and deactivation functions are shown in the Appendix
-(Section \ref{sec:Apdx:RMCurrents}).
+(Section \ref{sec:Ch2:Appendix}).
 
 
 Figure \ref{fig:Methods:RM2} shows the voltage-dependent relationship of the
@@ -489,7 +489,7 @@ established the /in vitro/ characteristics of each cell type from the literature
   Input Resistance, M$\Omega$ &  163   &   77   &   320   & 130 \\
   \bottomrule
   \end{tabularx}
-  \footnotesize{$^{\ast}$ Conductance-based GLG cell model only in Chapter \ref{sec:GAChaper}.}
+  \footnotesize{$^{\ast}$ Conductance-based GLG cell model only in Chapter \ref{sec:GAChapter}.}
   \end{table}
 #+END_LaTeX
 
