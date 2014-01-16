@@ -7,26 +7,35 @@
    :CUSTOM_ID: sec:Apdx:RMCurrents
    :END:
 
-The activation and de-activation variable equations were reproduced from
-\citet{RothmanManis:2003b}.  The core of the \HH-like current equations are the
-activation and de-activation variables.  The time- and voltage-dependent current
-variables follow a first-order differential equation in time:
+The membrane currents' activation and de-activation
+variable equations were reproduced from \citet{RothmanManis:2003b} for compartmental neural models.
+The membrane current equations take the form of 
+\begin{equation}
+I(t,V) = \bar{g}x(V)y(V)(E-V),
+\end{equation} 
+where /I/ is in units microAmpere per cm^2, $\bar{g}$ is the maximum conductance in milliSeimens per cm^2, $x(V)$ is the
+activation variable function, $y(V)$ is the de-activation variable function, /E/ is the reversal
+potential and V is the membrane voltage in mV.    The core of
+the \HH-like current equations are the activation and de-activation variables.
+The time- and voltage-dependent current variables follow a first-order
+differential equation in time:
 \begin{equation}
 \frac{dx}{dt} = (x_\infty - x)/\tau_x,
 \end{equation}
-where $\tau_x$ is the time constant of $x$ and  $x_\infty$ is the steady-state value of /x/ (i.e.\space
-the value of /x/ when $t \gg \tau_x$).
-
+where $\tau_x$ is the time constant in milliseconds of $x$ and  $x_\infty$ is the steady-state value of /x/ (i.e.\space
+the value of /x/ when $t \gg \tau_x$). 
 The voltage dependence of the activation and
-de-activation variables /a/, /b/, /c/, /w/, /z/, /n/, /p/, /m/, /h/, and r are shown in the following equations.
+de-activation state variables /a/, /b/, /c/, /w/, /z/, /n/, /p/, /m/, /h/, and /r/ shown in the following current equations are unitless.
 # Although the formalism of the preceding equation is different
 # from the original HH formalism in which activation/de-activation vari-
 # ables are expressed in terms of “open” and “close” rate constants \alpha
 # and \beta, they are nevertheless mathematically equivalent when $x_\infty=\alpha/(\alpha + \beta)$ and
-# $\tau_x = 1/(\alpha + \beta)$. Reversal potentials are: \EK = -70 mV,
-# \ENa = +55 mV,
-# \Eh = -43 mV, and
-# \Eleak = -65 mV.
+# $\tau_x = 1/(\alpha + \beta)$. 
+The reversal potentials were \EK = -70 mV,
+ \ENa = +55 mV,
+ \Eh = -43 mV, and
+ \Eleak = -65 mV.
+
 
 Fast transient K^{+} current
 \begin{eqnarray}
