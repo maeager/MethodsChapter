@@ -412,7 +412,7 @@ source code is available online at neural model database [[http://senselab.med.y
 # Further detailed equations are included in Appendix \ref{sec:Apdx:RMCurrents}.
 
 #+attr_latex: width=0.7\textwidth
-#+caption: [Voltage-dependency of potassium channel dynamics in existing CN models]{\citet{RothmanManis:2003b} compared their kinematic model of activation gating variables of \IKLT and \IKHT with equivalent rectifying potassium channel models used by existing CN neural models. Top figures show normalised voltage dependency of activation gating variables in  \IKHT ($n^{\lambda}) and \IKLT ($w^{\lambda}$) currents. Corresponding time constant voltage dependencies ($\tau_n$, $\tau_w$) in bottom figures. Figure reproduced from Fig. 2 in \citet{RothmanManis:2003b}.}
+#+caption: [Voltage-dependency of potassium channel dynamics in existing CN models]{\citet{RothmanManis:2003b} compared their kinematic model of activation gating variables of \IKLT and \IKHT with equivalent rectifying potassium channel models used by existing CN neural models. Top figures show normalised voltage dependency of activation gating variables in  \IKHT ($n^{\lambda}$) and \IKLT ($w^{\lambda}$) currents. Corresponding time constant voltage dependencies ($\tau_n$, $\tau_w$) in bottom figures. Figure reproduced from Fig. 2 in \citet{RothmanManis:2003b}.}
 #+label: fig:Methods:RM2
 [[../MethodsChapter/gfx/RothmanManisDynamics.pdf]]
 
