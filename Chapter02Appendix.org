@@ -11,11 +11,11 @@ The membrane currents' activation and de-activation
 variable equations were reproduced from \citet{RothmanManis:2003b} for compartmental neural models.
 The membrane current equations take the form of 
 \begin{equation}
-I(t,V) = \bar{g}x(V)y(V)(E-V),
+I(t,V) = \bar{g}\,x(V)\,y(V)(\mathrm{E}_X-V),
 \end{equation} 
-where /I/ is in units microAmpere per cm^2, $\bar{g}$ is the maximum conductance in milliSeimens per cm^2, $x(V)$ is the
-activation variable function, $y(V)$ is the de-activation variable function, /E/ is the reversal
-potential and V is the membrane voltage in mV.    The core of
+where /I/ is in units microampere per cm^2, $\bar{g}$ is the maximum conductance in milliseimens per cm^2, $x(V)$ is the
+activation variable function, $y(V)$ is the de-activation variable function, $\mathrm{E}_X$ is the reversal
+potential of current X and V is the membrane voltage in millivolts.    The core of
 the \HH-like current equations are the activation and de-activation variables.
 The time- and voltage-dependent current variables follow a first-order
 differential equation in time:
