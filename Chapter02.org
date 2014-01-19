@@ -478,20 +478,19 @@ established the /in vitro/ characteristics of each cell type from the literature
   \begin{table}[tp]
     \centering
     \caption{Cell-type membrane current parameters}\label{tab:Methods:CellTypes}
-    \begin{tabularx}{0.8\linewidth}{lcccc}\toprule
-             Cells            &  \TS   &  \DS   &   \TV   & \GLG$^{\ast}$ \\ %\hline
-           \RM Type           &  I-t   &  I-II  &   I-c   & I-c \\[0.5ex] \midrule
-      \gNa, \hfill \Scmsq     & 0.2367  & 0.3062  &  0.249  & 0.235 \\ %\hline
-     \gKHT, \hfill \Scmsq     & 0.0189  &  0.0306  &  0.0374  & 0.019 \\ %\hline
-     \gKLT, \hfill \Scmsq     &   0    & 0.0164 &    0    & 0 \\ %\hline
-      \gKA, \hfill \Scmsq     & 0.0154 &   0    &    0    & 0 \\ %\hline
-      \gh, \hfill m\Scmsq     & 0.062 & 0.214  & 0.0653 & 0.6178 \\ %\hline
-    \gleak, \hfill m\Scmsq    & 0.4735  & 0.247  &  0.249  & 0.249 \\ %\hline
-    \Erev, \hfill mV  &-65&-65&-72& -65 \\
-      Soma Diameter, \um      &   21   &   25   &  19.5   & 15 \\ %\hline
-  Input Resistance, M$\Omega$ &  163   &   77   &   320   & 130 \\
-  \bottomrule
-  \end{tabularx}
+    \begin{tabularx}{0.85\linewidth}{lcccc}\toprule
+             Cells            &  TS   &  DS   &  TV   & GLG$^{\ast}$ \\
+           RM Type           &  I-t   &  I-II  &  I-c   & I-c \\[0.5ex]\midrule
+      \gNa, \hfill \Scmsq     & 0.2367 & 0.3062 & 0.249  & 0.235 \\
+     \gKHT, \hfill \Scmsq     & 0.0189 & 0.0306 & 0.0374 & 0.019 \\
+     \gKLT, \hfill \Scmsq     &   0    & 0.0164 &   0    & 0 \\
+      \gKA, \hfill \Scmsq     & 0.0154 &   0    &   0    & 0 \\
+      \gh, \hfill m\Scmsq     & 0.062  & 0.214  & 0.0653 & 0.6178 \\
+    \gleak, \hfill m\Scmsq    & 0.4735 & 0.247  & 0.249  & 0.249 \\
+       \Erev, \hfill mV       &   $-65$  &   $-65$  &   $-72$  & $-65$ \\
+      Soma Diameter, \um      &   21   &   25   &  19.5  & 15 \\
+  Input Resistance, M$\Omega$ &  163   &   77   &  320   & 130 \\\bottomrule
+  \end{tabularx}\\
   \footnotesize{$^{\ast}$ Conductance-based GLG cell model only in Chapter \ref{sec:GAChapter}.}
   \end{table}
 #+END_LaTeX
